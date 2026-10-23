@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Беговой календарь Москвы и МО 2026–2027 — Марафоны, Полумарафоны, Трейлы</title>
+  <meta name="description" content="Актуальное расписание забегов Москвы и Московской области. Автоматическое обновление каждый понедельник: марафоны, полумарафоны, трейлы, шоссейные и манежные старты, экспорт в iCal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #090b10;
+      --bg-secondary: #11151f;
+      --bg-card: #151a26;
+      --bg-card-hover: #1b2232;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(212, 255, 0, 0.45);
+      --text-primary: #f3f5f8;
+      --text-secondary: #9ba3b5;
+      --text-muted: #646d82;
+      --accent-volt: #d4ff00;
+      --accent-volt-dim: rgba(212, 255, 0, 0.12);
+      --accent-crimson: #ff3b5c;
+      --accent-crimson-dim: rgba(255, 59, 92, 0.14);
+      --accent-emerald: #10b981;
+      --accent-emerald-dim: rgba(16, 185, 129, 0.14);
+      --accent-cyan: #06b6d4;
+      --accent-cyan-dim: rgba(6, 182, 212, 0.14);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(212, 255, 0, 0.07), transparent 32%),
+        radial-gradient(circle at 88% 14%, rgba(255, 59, 92, 0.07), transparent 32%);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Navigation Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(9, 11, 16, 0.84);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-volt);
+      color: #090b10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.04em;
+      box-shadow: 0 0 24px rgba(212, 255, 0, 0.25);
+    }
+
+    .brand-text-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: block;
+    }
+
+    .brand-text-sub {
+      font-size: 11px;
+      color: var(--text-secondary);
+      display: block;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-volt {
+      background: var(--accent-volt);
+      color: #090b10;
+    }
+
+    .btn-volt:hover {
+      background: #e1ff3d;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(212, 255, 0, 0.25);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-primary);
+      border-color: var(--border-subtle);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 44px 0 32px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-volt-dim);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-volt);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-volt);
+      box-shadow: 0 0 8px var(--accent-volt);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.88); }
+    }
+
+    .hero-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: var(--accent-volt);
+    }
+
+    .hero-subtitle {
+      color: var(--text-secondary);
+      font-size: 15px;
+      max-width: 640px;
+      margin-bottom: 24px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+    }
+
+    .stat-value {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Next Major Race Spotlight Card */
+    .spotlight-card {
+      background: linear-gradient(145deg, #171d2c 0%, #10141f 100%);
+      border: 1px solid rgba(212, 255, 0, 0.28);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-volt);
+      margin-bottom: 10px;
+    }
+
+    .spotlight-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .spotlight-meta {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .countdown-cell {
+      background: rgba(9, 11, 16, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      text-align: center;
+    }
+
+    .countdown-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-volt);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown-unit {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* Controls & Filters */
+    .controls-section {
+      padding: 24px 0 16px;
+    }
+
+    .controls-bar {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .search-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 11px 14px 11px 38px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-volt);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .select-input {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 11px 14px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-input:focus {
+      border-color: var(--accent-volt);
+    }
+
+    .pills-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .pill-btn:hover {
+      color: var(--text-primary);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .pill-btn.active {
+      background: var(--accent-volt);
+      color: #090b10;
+      border-color: var(--accent-volt);
+    }
+
+    /* Events Section */
+    .month-group {
+      margin-top: 28px;
+    }
+
+    .month-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .month-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .month-count {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-secondary);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 420px) {
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .race-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      position: relative;
+    }
+
+    .race-card:hover {
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .race-card.featured {
+      border-color: rgba(212, 255, 0, 0.35);
+      box-shadow: inset 0 0 0 1px rgba(212, 255, 0, 0.08);
+    }
+
+    .race-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .date-badge {
+      display: inline-flex;
+      flex-direction: column;
+      background: rgba(9, 11, 16, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px;
+      min-width: 92px;
+    }
+
+    .date-badge-main {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-volt);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .date-badge-weekday {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .tags-wrap {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .badge-road {
+      background: var(--accent-crimson-dim);
+      color: #ff6b84;
+    }
+
+    .badge-trail {
+      background: var(--accent-emerald-dim);
+      color: #34d399;
+    }
+
+    .badge-indoor {
+      background: var(--accent-cyan-dim);
+      color: #22d3ee;
+    }
+
+    .badge-featured {
+      background: var(--accent-volt-dim);
+      color: var(--accent-volt);
+      border: 1px solid rgba(212, 255, 0, 0.3);
+    }
+
+    .race-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+
+    .race-location {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .distances-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .dist-chip {
+      font-size: 12px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .race-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .race-source {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .race-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-sm {
+      padding: 7px 12px;
+      font-size: 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--bg-secondary);
+      border: 1px dashed var(--border-subtle);
+      border-radius: var(--radius-lg);
+      margin-top: 28px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 64px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer a {
+      color: var(--accent-volt);
+      text-decoration: none;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--accent-volt);
+      color: #090b10;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 100;
+    }
+
+    .toast.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#" class="brand">
+        <div class="brand-badge">RUN</div>
+        <div>
+          <span class="brand-text-title">MOSCOW RUN CALENDAR</span>
+          <span class="brand-text-sub" id="updated-status">Автообновление по понедельникам в 08:00 МСК</span>
+        </div>
+      </a>
+      <div class="topbar-actions">
+        <a href="./moscow_running_events.ics" download="moscow_running_events.ics" class="btn btn-volt">
+          <span>📅 Скачать iCal (.ics)</span>
+        </a>
+        <button type="button" id="copy-ics-btn" class="btn btn-outline">
+          <span>🔗 Ссылка для подписки</span>
+        </button>
+        <a href="./moscow_running_events.json" target="_blank" rel="noopener" class="btn btn-outline">
+          <span>{ } JSON API</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-kicker">
+          <span class="pulse-dot"></span>
+          <span>ЖИВАЯ БАЗА ЗАБЕГОВ МОСКВЫ И ПОДМОСКОВЬЯ</span>
+        </div>
+        <h1 class="hero-title">
+          Календарь беговых стартов <span>Москвы 2026–2027</span>
+        </h1>
+        <p class="hero-subtitle">
+          Все шоссейные марафоны, полумарафоны, трейлы и старты в манеже в одном окне. База автоматически обновляется через GitHub Actions каждый понедельник из календарей «Бегового сообщества» и «ПроБЕГ».
+        </p>
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-value" id="stat-total">—</div>
+            <div class="stat-label">Всего стартов</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-moscow">—</div>
+            <div class="stat-label">В Москве</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-trail">—</div>
+            <div class="stat-label">Трейлы и кроссы</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-marathons">—</div>
+            <div class="stat-label">Марафоны и 21.1 км</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spotlight Next Major Race -->
+      <div class="spotlight-card" id="spotlight-card">
+        <div>
+          <div class="spotlight-badge">⚡ Ближайший крупный старт</div>
+          <div class="spotlight-title" id="spot-title">Загрузка календаря...</div>
+          <div class="spotlight-meta">
+            <span id="spot-date">—</span>
+            <span id="spot-location">—</span>
+          </div>
+        </div>
+        <div>
+          <div class="countdown-grid">
+            <div class="countdown-cell">
+              <div class="countdown-num" id="cd-days">0</div>
+              <div class="countdown-unit">дней</div>
+            </div>
+            <div class="countdown-cell">
+              <div class="countdown-num" id="cd-hours">0</div>
+              <div class="countdown-unit">часов</div>
+            </div>
+            <div class="countdown-cell">
+              <div class="countdown-num" id="cd-mins">0</div>
+              <div class="countdown-unit">минут</div>
+            </div>
+          </div>
+          <a href="#" id="spot-link" target="_blank" rel="noopener" class="btn btn-volt" style="width: 100%; justify-content: center;">
+            Перейти к регистрации →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters & Search -->
+  <section class="controls-section">
+    <div class="container">
+      <div class="controls-bar">
+        <div class="search-row">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input
+              type="text"
+              id="search-input"
+              class="search-input"
+              placeholder="Поиск по названию, парку, городу или дистанции (например: Лужники, Гром, 21.1, трейл)..."
+            />
+          </div>
+          <select id="month-select" class="select-input">
+            <option value="all">Все месяцы</option>
+          </select>
+          <select id="region-select" class="select-input">
+            <option value="all">Москва и Подмосковье</option>
+            <option value="Москва">Только Москва</option>
+            <option value="Подмосковье">Только Подмосковье</option>
+          </select>
+        </div>
+
+        <div class="pills-row">
+          <div class="pill-group" id="surface-pills">
+            <button type="button" class="pill-btn active" data-surface="all">Все покрытия</button>
+            <button type="button" class="pill-btn" data-surface="Шоссе">🛣️ Шоссе</button>
+            <button type="button" class="pill-btn" data-surface="Трейл / Грунт">🌲 Трейл / Грунт</button>
+            <button type="button" class="pill-btn" data-surface="Манеж">🏟️ Манеж</button>
+            <button type="button" class="pill-btn" data-surface="featured">⭐ Главные старты</button>
+          </div>
+
+          <div class="pill-group" id="distance-pills">
+            <button type="button" class="pill-btn active" data-dist="all">Любая дистанция</button>
+            <button type="button" class="pill-btn" data-dist="5">5 км</button>
+            <button type="button" class="pill-btn" data-dist="10">10 км</button>
+            <button type="button" class="pill-btn" data-dist="21">21.1 км</button>
+            <button type="button" class="pill-btn" data-dist="42">42.2 км</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Feed -->
+  <main class="container" id="events-container">
+    <div class="empty-state">Загружаем расписание забегов Москвы...</div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Moscow Running Calendar</strong> — автоматический агрегатор беговых событий Москвы и МО.
+      </div>
+      <div>
+        Источники данных: <a href="https://runc.run/" target="_blank" rel="noopener">Беговое сообщество</a> ·
+        <a href="https://probeg.org/" target="_blank" rel="noopener">ПроБЕГ</a> ·
+        <a href="https://github.com/prartem476-dev/running_calendar_moscow" target="_blank" rel="noopener">GitHub Репозиторий</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast">Ссылка на iCal-календарь скопирована в буфер обмена!</div>
+
+  <script>
+    const RU_MONTH_NAMES = [
+      'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+      'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+    ];
+    const RU_MONTH_GENITIVE = [
+      'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+      'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+    ];
+    const RU_WEEKDAYS = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+
+    let allEvents = [];
+    let activeSurface = 'all';
+    let activeDistance = 'all';
+
+    function formatHumanDate(isoStart, isoEnd) {
+      const d1 = new Date(isoStart + 'T09:00:00');
+      const day1 = d1.getDate();
+      const month1 = RU_MONTH_GENITIVE[d1.getMonth()];
+      const year1 = d1.getFullYear();
+      const weekday = RU_WEEKDAYS[d1.getDay()];
+
+      if (isoEnd && isoEnd !== isoStart) {
+        const d2 = new Date(isoEnd + 'T09:00:00');
+        const day2 = d2.getDate();
+        if (d1.getMonth() === d2.getMonth()) {
+          return { main: `${day1}–${day2} ${month1}`, sub: `${year1} · Выходные` };
+        }
+        return { main: `${day1} ${month1} – ${day2} ${RU_MONTH_GENITIVE[d2.getMonth()]}`, sub: `${year1}` };
+      }
+      return { main: `${day1} ${month1}`, sub: `${year1} · ${weekday}` };
+    }
+
+    function getSurfaceBadgeClass(surface) {
+      if (surface === 'Трейл / Грунт') return 'badge-trail';
+      if (surface === 'Манеж') return 'badge-indoor';
+      return 'badge-road';
+    }
+
+    function matchesDistanceFilter(distances, filterVal) {
+      if (filterVal === 'all') return true;
+      const joined = distances.join(' ').toLowerCase();
+      if (filterVal === '5') return /\b5\s*км\b/.test(joined) || joined.includes('5000 м');
+      if (filterVal === '10') return /\b10\s*км\b/.test(joined) || joined.includes('10000 м');
+      if (filterVal === '21') return joined.includes('21') || joined.includes('полумарафон');
+      if (filterVal === '42') return joined.includes('42') || (joined.includes('марафон') && !joined.includes('полумарафон'));
+      return true;
+    }
+
+    function generateGoogleCalendarUrl(ev) {
+      const start = ev.date.replace(/-/g, '');
+      const endDt = new Date((ev.end_date || ev.date) + 'T12:00:00');
+      endDt.setDate(endDt.getDate() + 1);
+      const end = endDt.toISOString().slice(0, 10).replace(/-/g, '');
+      const text = encodeURIComponent(`🏃 ${ev.title}`);
+      const details = encodeURIComponent(`Дистанции: ${(ev.distances || []).join(', ')}\nСсылка: ${ev.url}`);
+      const location = encodeURIComponent(ev.location || 'Москва');
+      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${start}/${end}&details=${details}&location=${location}`;
+    }
+
+    function updateStats(events) {
+      document.getElementById('stat-total').textContent = events.length;
+      document.getElementById('stat-moscow').textContent = events.filter(e => e.region === 'Москва').length;
+      document.getElementById('stat-trail').textContent = events.filter(e => e.surface === 'Трейл / Грунт').length;
+      document.getElementById('stat-marathons').textContent = events.filter(e =>
+        e.category === 'Марафон' || e.category === 'Полумарафон' || e.category === 'Ультрамарафон'
+      ).length;
+    }
+
+    function updateSpotlight(events) {
+      const todayIso = new Date().toISOString().slice(0, 10);
+      const upcoming = events.filter(e => e.date >= todayIso);
+      const nextMajor = upcoming.find(e => e.featured) || upcoming[0] || events[0];
+      if (!nextMajor) return;
+
+      const human = formatHumanDate(nextMajor.date, nextMajor.end_date);
+      document.getElementById('spot-title').textContent = nextMajor.title;
+      document.getElementById('spot-date').textContent = `📅 ${human.main} ${nextMajor.date.slice(0, 4)} (${ (nextMajor.distances || []).slice(0, 3).join(', ') })`;
+      document.getElementById('spot-location').textContent = `📍 ${nextMajor.location}`;
+      document.getElementById('spot-link').href = nextMajor.url;
+
+      const targetTime = new Date(nextMajor.date + 'T09:00:00+03:00').getTime();
+      function tick() {
+        const diff = Math.max(0, targetTime - Date.now());
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        document.getElementById('cd-days').textContent = days;
+        document.getElementById('cd-hours').textContent = hours;
+        document.getElementById('cd-mins').textContent = mins;
+      }
+      tick();
+      setInterval(tick, 30000);
+    }
+
+    function populateMonthSelect(events) {
+      const select = document.getElementById('month-select');
+      const monthsSet = new Set();
+      events.forEach(ev => {
+        monthsSet.add(ev.date.slice(0, 7));
+      });
+      Array.from(monthsSet).sort().forEach(ym => {
+        const [y, m] = ym.split('-');
+        const opt = document.createElement('option');
+        opt.value = ym;
+        opt.textContent = `${RU_MONTH_NAMES[parseInt(m, 10) - 1]} ${y}`;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderEvents() {
+      const query = document.getElementById('search-input').value.trim().toLowerCase();
+      const selectedMonth = document.getElementById('month-select').value;
+      const selectedRegion = document.getElementById('region-select').value;
+      const container = document.getElementById('events-container');
+
+      const filtered = allEvents.filter(ev => {
+        if (selectedMonth !== 'all' && !ev.date.startsWith(selectedMonth)) return false;
+        if (selectedRegion !== 'all' && ev.region !== selectedRegion) return false;
+        if (activeSurface === 'featured' && !ev.featured) return false;
+        if (activeSurface !== 'all' && activeSurface !== 'featured' && ev.surface !== activeSurface) return false;
+        if (!matchesDistanceFilter(ev.distances || [], activeDistance)) return false;
+
+        if (query) {
+          const hay = `${ev.title} ${ev.location} ${(ev.distances || []).join(' ')} ${ev.category} ${ev.organizer}`.toLowerCase();
+          if (!hay.includes(query)) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <h3 style="margin-bottom:8px; font-family:'Unbounded',sans-serif;">Забеги по заданным фильтрам не найдены</h3>
+            <p style="color:var(--text-secondary);">Попробуйте сбросить фильтры дистанции или поисковый запрос.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Group by YYYY-MM
+      const groups = {};
+      filtered.forEach(ev => {
+        const ym = ev.date.slice(0, 7);
+        if (!groups[ym]) groups[ym] = [];
+        groups[ym].push(ev);
+      });
+
+      let html = '';
+      Object.keys(groups).sort().forEach(ym => {
+        const [y, m] = ym.split('-');
+        const monthTitle = `${RU_MONTH_NAMES[parseInt(m, 10) - 1]} ${y}`;
+        const items = groups[ym];
+
+        html += `
+          <section class="month-group">
+            <div class="month-header">
+              <h2 class="month-title">
+                <span>${monthTitle}</span>
+                <span class="month-count">${items.length}</span>
+              </h2>
+            </div>
+            <div class="events-grid">
+        `;
+
+        items.forEach(ev => {
+          const human = formatHumanDate(ev.date, ev.end_date);
+          const surfaceClass = getSurfaceBadgeClass(ev.surface);
+          const gcalUrl = generateGoogleCalendarUrl(ev);
+          const chips = (ev.distances || []).slice(0, 6).map(d => `<span class="dist-chip">${d}</span>`).join('');
+
+          html += `
+            <article class="race-card ${ev.featured ? 'featured' : ''}">
+              <div>
+                <div class="race-top">
+                  <div class="date-badge">
+                    <span class="date-badge-main">${human.main}</span>
+                    <span class="date-badge-weekday">${human.sub}</span>
+                  </div>
+                  <div class="tags-wrap">
+                    ${ev.featured ? '<span class="badge badge-featured">★ Топ старт</span>' : ''}
+                    <span class="badge ${surfaceClass}">${ev.surface}</span>
+                  </div>
+                </div>
+                <h3 class="race-title" style="margin-top:12px;">${ev.title}</h3>
+                <div class="race-location" style="margin-top:6px;">
+                  <span>📍 ${ev.location}</span>
+                </div>
+                <div class="distances-wrap" style="margin-top:12px;">
+                  ${chips}
+                </div>
+              </div>
+              <div class="race-footer">
+                <span class="race-source">${ev.source}${ev.rating ? ` · ★ ${ev.rating}` : ''}</span>
+                <div class="race-actions">
+                  <a href="${gcalUrl}" target="_blank" rel="noopener" class="btn btn-outline btn-sm" title="Добавить в Google Календарь">
+                    + В календарь
+                  </a>
+                  <a href="${ev.url}" target="_blank" rel="noopener" class="btn btn-volt btn-sm">
+                    Подробнее ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+          `;
+        });
+
+        html += `
+            </div>
+          </section>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    async function initCalendar() {
+      try {
+        const resp = await fetch('./moscow_running_events.json?t=' + Date.now());
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        const data = await resp.json();
+        allEvents = data.events || [];
+
+        if (data.updated_at_human) {
+          document.getElementById('updated-status').textContent = `Обновлено: ${data.updated_at_human}`;
+        }
+
+        updateStats(allEvents);
+        updateSpotlight(allEvents);
+        populateMonthSelect(allEvents);
+        renderEvents();
+      } catch (err) {
+        console.error('Ошибка загрузки базы забегов:', err);
+        document.getElementById('events-container').innerHTML = `
+          <div class="empty-state">
+            <h3>Не удалось загрузить moscow_running_events.json</h3>
+            <p style="margin-top:8px;color:var(--text-secondary);">Запустите <code>python moscow_running_parser.py</code> для генерации базы.</p>
+          </div>
+        `;
+      }
+    }
+
+    // Event listeners
+    document.getElementById('search-input').addEventListener('input', renderEvents);
+    document.getElementById('month-select').addEventListener('change', renderEvents);
+    document.getElementById('region-select').addEventListener('change', renderEvents);
+
+    document.querySelectorAll('#surface-pills .pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#surface-pills .pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeSurface = btn.dataset.surface;
+        renderEvents();
+      });
+    });
+
+    document.querySelectorAll('#distance-pills .pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#distance-pills .pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeDistance = btn.dataset.dist;
+        renderEvents();
+      });
+    });
+
+    document.getElementById('copy-ics-btn').addEventListener('click', () => {
+      const icsUrl = new URL('./moscow_running_events.ics', window.location.href).href;
+      navigator.clipboard.writeText(icsUrl).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('visible');
+        setTimeout(() => toast.classList.remove('visible'), 3000);
+      });
+    });
+
+    initCalendar();
+  </script>
+</body>
+</html>

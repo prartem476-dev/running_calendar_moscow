@@ -1,0 +1,957 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Moscow Running Calendar//running_calendar_moscow//RU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Беговой календарь Москвы и МО
+X-WR-TIMEZONE:Europe/Moscow
+X-WR-CALDESC:Актуальное расписание забегов, марафонов и трейлов в Москве и Подмосковье
+BEGIN:VEVENT
+UID:ff3f0b7991@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+SUMMARY:🏃 XXI Матч-Забег «Бегуны vs. Лыжники» (3 км\, 2500 м)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 3 км\, 2500 м\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://vk.ru/topic-59992542_68314935?offset=0
+URL:https://vk.ru/topic-59992542_68314935?offset=0
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:59aba667f7@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏃 Пробег «Grom 10k» (10 км\, 5 км\, 1 км\, 1 км (взрослые))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 10 км\, 5 км\, 1 км\, 1 км (взрослые)\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.family/
+URL:https://grom.family/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2717da761c@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏃 Spas-Kamenka Gryadka Trail (22300 м (Long)\, 11500 м (Middle)\, 6680 м (Sprint)\, 2820 м (Teen)\, 430 м (Kids))
+LOCATION:Московская область\, Дмитровский район\, д. Спас-Каменка
+DESCRIPTION:Дистанции: 22300 м (Long)\, 11500 м (Middle)\, 6680 м (Sprint)\, 2820 м (Teen)\, 430 м (Kids)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Дмитровский район\, д. Спас-Каменка\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.place/events/spaskamenka2026
+URL:https://reg.place/events/spaskamenka2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6186be64e1@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏃 Кросс «Осенний вальс. В гостях у зубров» (30 км\, 20 км\, 10 км)
+LOCATION:Московская область\, Серпухов
+DESCRIPTION:Дистанции: 30 км\, 20 км\, 10 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Серпухов\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://goldenultra.ru/waltz/
+URL:https://goldenultra.ru/waltz/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:da2b2a142c@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏃 Пробег «Казачья слава» (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10550 м)
+LOCATION:Московская область\, Мураново
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10550 м\nКатегория: Полумарафон (Шоссе)\nЛокация: Московская область\, Мураново\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/Kazachyaslava26
+URL:https://reg.russiarunning.com/event/Kazachyaslava26
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:859395855f@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏃 Соревнования по горному бегу «Парсек-Трофи» №65. Чемпионат Москвы. Финал Гран-При России. Финал Гран-При России Мастерс (11880 м (+816м\, -816м)\, 7920 м (+544м\, -544м)\, 5940 м (+408м\, -408м)\, 3960 м (+272м\, -272м)\, 1980 м (+136м\, -136м))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 11880 м (+816м\, -816м)\, 7920 м (+544м\, -544м)\, 5940 м (+408м\, -408м)\, 3960 м (+272м\, -272м)\, 1980 м (+136м\, -136м)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://myrace.info/events/2183
+URL:https://myrace.info/events/2183
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:116e25a3f0@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:🏃 139 Некрасовский марафон\, посвященный Международному дню снежного барса (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/The139thNekrasovskyMarathondedicatedtoInternationalSnowLeopardDay?scrollToTop=1
+URL:https://reg.russiarunning.com/event/The139thNekrasovskyMarathondedicatedtoInternationalSnowLeopardDay?scrollToTop=1
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0116254411@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:🏃 177 Пробег-Марафон «Битцевская прямая» (50 км\, сертификат WA-AIMS\, 42.2 км (Марафон)\, 30 км\, сертификат WA-AIMS\, 21.1 км (Полумарафон)\, сертификат WA-AIMS\, 15 км\, сертификат WA-AIMS\, 15 км (старт 13-00)\, сертификат WA-AIMS\, 10 км\, сертификат WA-AIMS\, 10 км (старт 13-00)\, сертификат WA-AIMS\, 5 км\, сертификат WA-AIMS\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 км\, 500 м\, 6 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 50 км\, сертификат WA-AIMS\, 42.2 км (Марафон)\, 30 км\, сертификат WA-AIMS\, 21.1 км (Полумарафон)\, сертификат WA-AIMS\, 15 км\, сертификат WA-AIMS\, 15 км (старт 13-00)\, сертификат WA-AIMS\, 10 км\, сертификат WA-AIMS\, 10 км (старт 13-00)\, сертификат WA-AIMS\, 5 км\, сертификат WA-AIMS\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 км\, 500 м\, 6 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/177ProbegMarafonBittsevskayaPryamaya25102026
+URL:https://reg.russiarunning.com/event/177ProbegMarafonBittsevskayaPryamaya25102026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:66803d60e1@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:🏃 Облепиховый кросс (6 км (+200м\, -200м))
+LOCATION:Московская область\, Рузский район\, п.г.т. Тучково
+DESCRIPTION:Дистанции: 6 км (+200м\, -200м)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Рузский район\, п.г.т. Тучково\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://sbh.ruza.ru/events/4
+URL:https://sbh.ruza.ru/events/4
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1b5cbf8842@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:🏃 Соревнования по лёгкой атлетике «Территория бега» (5-й этап) (1 км\, 200 м\, 50 м)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 1 км\, 200 м\, 50 м\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://mosathletics.ru/соревнования/соревнования-2026/
+URL:https://mosathletics.ru/соревнования/соревнования-2026/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6ac6f2d60b@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:🏃 178 Пробег-Марафон «Битцевская прямая — День Народного Единства 2026» (50 км\, сертификат WA-AIMS\, 42.2 км (Марафон)\, 30 км\, сертификат WA-AIMS\, 21.1 км (Полумарафон)\, сертификат WA-AIMS\, 15 км\, сертификат WA-AIMS\, 15 км (старт 13-00)\, сертификат WA-AIMS\, 10 км\, сертификат WA-AIMS\, 10 км (старт 13-00)\, сертификат WA-AIMS\, 5 км\, сертификат WA-AIMS\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 км\, 500 м\, 6 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 50 км\, сертификат WA-AIMS\, 42.2 км (Марафон)\, 30 км\, сертификат WA-AIMS\, 21.1 км (Полумарафон)\, сертификат WA-AIMS\, 15 км\, сертификат WA-AIMS\, 15 км (старт 13-00)\, сертификат WA-AIMS\, 10 км\, сертификат WA-AIMS\, 10 км (старт 13-00)\, сертификат WA-AIMS\, 5 км\, сертификат WA-AIMS\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 км\, 500 м\, 6 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/178ProbegMarafonBittsevskayaPryamayaDenNarodnogoEdinstva202601112026
+URL:https://reg.russiarunning.com/event/178ProbegMarafonBittsevskayaPryamayaDenNarodnogoEdinstva202601112026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d641053e63@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:🏃 Благотворительный забег «8 городов. Москва» (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/8gorodovMoskva
+URL:https://reg.russiarunning.com/event/8gorodovMoskva
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0ae39bcaa3@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:🏃 Забег «City Trail — 6 X-race» (33 км\, 20 км\, 10 км\, 4500 м)
+LOCATION:Московская область\, Дмитровский район\, с. Ильинское
+DESCRIPTION:Дистанции: 33 км\, 20 км\, 10 км\, 4500 м\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Дмитровский район\, с. Ильинское\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://city-trail.ru/
+URL:https://city-trail.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6b2887c57f@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:🏃 Забег «Белых помпонов» (15 км\, 12 км\, 9 км\, 6 км\, 3 км)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 15 км\, 12 км\, 9 км\, 6 км\, 3 км\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/ZabegBELYKhPOMPONOV2
+URL:https://reg.russiarunning.com/event/ZabegBELYKhPOMPONOV2
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bd71c83f8d@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:🏃 Пробег «Белые журавли» (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 7 км)
+LOCATION:Московская область\, Ивантеевка
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 7 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Московская область\, Ивантеевка\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/elyezhuravli26
+URL:https://reg.russiarunning.com/event/elyezhuravli26
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:8b661dc1e0@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🏃 26-й традиционный «Осенний кросс МАИ» (21.1 км (Полумарафон)\, 10 км)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\nКатегория: Полумарафон (Трейл / Грунт)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: http://www.alpclb.ru
+URL:http://www.alpclb.ru
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:26731a44ac@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🏃 84 Пробег-Марафон «Покровские Пруды — День Народного Единства 2026» (марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/84ProbegMarafonPokrovskiePrudyDenNarodnogoEdinstva202604112026
+URL:https://reg.russiarunning.com/event/84ProbegMarafonPokrovskiePrudyDenNarodnogoEdinstva202604112026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:b5f58db368@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🏃 Забег-марафон «Братский забег» (30 км\, 25 км\, 21.1 км (Полумарафон)\, 15 км\, 10 км\, 7 км\, 5 км\, 3 км\, 1 км\, скандинавская ходьба 10 км\, скандинавская ходьба 7 км\, скандинавская ходьба 5 км\, скандинавская ходьба 3 км)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 30 км\, 25 км\, 21.1 км (Полумарафон)\, 15 км\, 10 км\, 7 км\, 5 км\, 3 км\, 1 км\, скандинавская ходьба 10 км\, скандинавская ходьба 7 км\, скандинавская ходьба 5 км\, скандинавская ходьба 3 км\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/Bratskiyzabeg9
+URL:https://reg.russiarunning.com/event/Bratskiyzabeg9
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a22048f4c4@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🏃 Кросс «Кекусник» (17500 м)
+LOCATION:Московская область\, Салтыковка
+DESCRIPTION:Дистанции: 17500 м\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Салтыковка\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://probeg.org/event/85657/
+URL:https://probeg.org/event/85657/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2cfeea9a5b@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🏃 Народный трейл (20200 м\, 11800 м\, 6390 м\, 2200 м\, 1 км (дети))
+LOCATION:Московская область\, Истра
+DESCRIPTION:Дистанции: 20200 м\, 11800 м\, 6390 м\, 2200 м\, 1 км (дети)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Истра\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.o-time.ru/race/26100
+URL:https://reg.o-time.ru/race/26100
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:b199eee73e@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🏃 Трейл «Germes: X-Cross» 2026 (43 км (XL) (+300м)\, 21500 м (L)\, 10 км (S)\, 5 км (XS))
+LOCATION:Московская область\, Бронницы
+DESCRIPTION:Дистанции: 43 км (XL) (+300м)\, 21500 м (L)\, 10 км (S)\, 5 км (XS)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Бронницы\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.place/events/germes-x-cross-2026?tags=base
+URL:https://reg.place/events/germes-x-cross-2026?tags=base
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:65559dc04e@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Забег «Марьинская стрела» (30 км\, 25 км\, 21.1 км (Полумарафон)\, 15 км\, 10 км\, 7 км\, 5 км\, 3 км\, 2 км\, 1 км\, скандинавская ходьба 10 км\, скандинавская ходьба 7 км\, скандинавская ходьба 5 км\, скандинавская ходьба 3 км)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 30 км\, 25 км\, 21.1 км (Полумарафон)\, 15 км\, 10 км\, 7 км\, 5 км\, 3 км\, 2 км\, 1 км\, скандинавская ходьба 10 км\, скандинавская ходьба 7 км\, скандинавская ходьба 5 км\, скандинавская ходьба 3 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/ZabegpolumarafonMarinskayaStrela12
+URL:https://reg.russiarunning.com/event/ZabegpolumarafonMarinskayaStrela12
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2812880287@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Зеленоградский пробег-марафон «Осень-2026» (42.2 км (Марафон)\, 30 км\, 20 км\, 10 км)
+LOCATION:г. Москва\, Зеленоград
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 30 км\, 20 км\, 10 км\nКатегория: Марафон (Шоссе)\nЛокация: г. Москва\, Зеленоград\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://racetime.online/xclimbing/ZelenogradMarathon2026
+URL:https://racetime.online/xclimbing/ZelenogradMarathon2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cdb6619f0c@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Осенний полумарафон «Дмитров трейл» (21 км\, 7 км\, 3 км\, скандинавская ходьба 7 км\, скандинавская ходьба 3 км)
+LOCATION:Московская область\, Дмитров
+DESCRIPTION:Дистанции: 21 км\, 7 км\, 3 км\, скандинавская ходьба 7 км\, скандинавская ходьба 3 км\nКатегория: Полумарафон (Трейл / Грунт)\nЛокация: Московская область\, Дмитров\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://tvpt.ru
+URL:https://tvpt.ru
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a6a06462e9@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:🏃 Забег «ANTA Moscow Drift Cross Fall» (9 км (+450м))
+LOCATION:Московская область\, Истринский район\, д. Вельяминово
+DESCRIPTION:Дистанции: 9 км (+450м)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Истринский район\, д. Вельяминово\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://ultras.goldenultra.ru
+URL:https://ultras.goldenultra.ru
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6f1705471a@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:🏃 85 Пробег-Марафон «Покровские Пруды» (марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/85ProbegMarafonPokrovskiePrudy15112026
+URL:https://reg.russiarunning.com/event/85ProbegMarafonPokrovskiePrudy15112026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ab9cc91ece@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:🏃 VI Осенний Трэйл (10 км\, 5 км\, 2500 м)
+LOCATION:Московская область\, Фрязино
+DESCRIPTION:Дистанции: 10 км\, 5 км\, 2500 м\nКатегория: Городской забег (Шоссе)\nЛокация: Московская область\, Фрязино\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://orgeo.ru/event/info/55299
+URL:https://orgeo.ru/event/info/55299
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4cab319845@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:🏃 Забег «Open Band Trails — Буря» (20600 м (M)\, 20600 м (M-гандикап)\, 9540 м (S)\, 9540 м (S-гандикап)\, 4800 м (XS)\, 4800 м (XS-гандикап)\, 2100 м (дети)\, 520 м (дети))
+LOCATION:Московская область\, Красногорск
+DESCRIPTION:Дистанции: 20600 м (M)\, 20600 м (M-гандикап)\, 9540 м (S)\, 9540 м (S-гандикап)\, 4800 м (XS)\, 4800 м (XS-гандикап)\, 2100 м (дети)\, 520 м (дети)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Красногорск\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.place/events/burya2026
+URL:https://reg.place/events/burya2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2b764595e0@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏃 Пробег «Grom 10k IzMyLove» (10 км\, 5 км\, 400 м)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 10 км\, 5 км\, 400 м\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.place/competitions/grom-10k-izmajlovo
+URL:https://grom.place/competitions/grom-10k-izmajlovo
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ad856ca55b@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261123
+SUMMARY:🏃 Соревнования «Скорость» (60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м)
+LOCATION:Москва\, ЛФК ЦСКА
+DESCRIPTION:Дистанции: 60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м\nКатегория: Трек / Манеж (Манеж)\nЛокация: Москва\, ЛФК ЦСКА\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://speedrace.runc.run/
+URL:https://speedrace.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dff6e61edf@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261123
+SUMMARY:🏃 Соревнования в помещении «Скорость» (1500 м\, 800 м\, 400 м\, 200 м\, 200 м (этап эстафеты 4х200м)\, 60 м)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 1500 м\, 800 м\, 400 м\, 200 м\, 200 м (этап эстафеты 4х200м)\, 60 м\nКатегория: Трек / Манеж (Манеж)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://speedrace.runc.run/
+URL:https://speedrace.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f1f10941b8@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:🏃 Соревнования по лёгкой атлетике «Территория бега» (финал) (600 м\, 300 м\, 60 м)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 600 м\, 300 м\, 60 м\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://mosathletics.ru/соревнования/соревнования-2026/
+URL:https://mosathletics.ru/соревнования/соревнования-2026/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:9bb2c236dc@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:🏃 Трейл «DAB Vertical Autumn Night» (14 км (+650м)\, 10 км (+500м)\, 7 км (+300м)\, 3500 м (+150м)\, 1 км (дети) (+40м))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 14 км (+650м)\, 10 км (+500м)\, 7 км (+300м)\, 3500 м (+150м)\, 1 км (дети) (+40м)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://dab-running.ru/races/DAB_Vertical_AUTUMN_Night_2026/
+URL:https://dab-running.ru/races/DAB_Vertical_AUTUMN_Night_2026/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:23fb3a4cb9@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:🏃 XХVI Зеленоградский зимний «БиМ»-марафон\, посвящённый 85-й годовщине начала контрнаступления советских войск под Москвой (42.2 км (Марафон)\, 10 км\, 10 км (2 этап эстафеты)\, 10 км (3 этап эстафеты)\, 10 км (4 этап эстафеты)\, 7200 м (1 этап эстафеты)\, 5 км (5 этап эстафеты))
+LOCATION:г. Москва\, Зеленоград
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 10 км\, 10 км (2 этап эстафеты)\, 10 км (3 этап эстафеты)\, 10 км (4 этап эстафеты)\, 7200 м (1 этап эстафеты)\, 5 км (5 этап эстафеты)\nКатегория: Марафон (Шоссе)\nЛокация: г. Москва\, Зеленоград\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://www.bim-marathon.ru
+URL:https://www.bim-marathon.ru
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6b16f90e6e@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:🏃 Карнавальный пробег | Space Carnival (10 км\, 5 км\, 800 м\, 400 м)
+LOCATION:Московская область\, Королёв
+DESCRIPTION:Дистанции: 10 км\, 5 км\, 800 м\, 400 м\nКатегория: Городской забег (Шоссе)\nЛокация: Московская область\, Королёв\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/spacecarnival2026
+URL:https://reg.russiarunning.com/event/spacecarnival2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:882506dec6@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:🏃 86 Пробег-Марафон «Покровские Пруды» (марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/86ProbegMarafonPokrovskiePrudy20122026
+URL:https://reg.russiarunning.com/event/86ProbegMarafonPokrovskiePrudy20122026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:04a6c71057@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+SUMMARY:🏃 Трейл «DAB Vertical Winter Night» (10 км (+200м)\, 7500 м (+150м)\, 5 км (+100м)\, 2500 м (+50м)\, 2500 м (этап эстафеты 4*2\,5 км) (+50м)\, 1 км (дети))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 10 км (+200м)\, 7500 м (+150м)\, 5 км (+100м)\, 2500 м (+50м)\, 2500 м (этап эстафеты 4*2\,5 км) (+50м)\, 1 км (дети)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://dab-running.ru/races/DAB_Vertical_Winter_Night_2026/
+URL:https://dab-running.ru/races/DAB_Vertical_Winter_Night_2026/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:24cd3c3ca4@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:🏃 179 Предновогодний Пробег-Марафон «Битцевская прямая» (50 км\, 42.2 км (Марафон)\, 30 км\, 21.1 км (Полумарафон)\, 15 км\, 15 км (старт 13-00)\, 10 км\, 10 км (старт 13-00)\, 5 км\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 миля\, 1 км\, 500 м\, 6 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 50 км\, 42.2 км (Марафон)\, 30 км\, 21.1 км (Полумарафон)\, 15 км\, 15 км (старт 13-00)\, 10 км\, 10 км (старт 13-00)\, 5 км\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 миля\, 1 км\, 500 м\, 6 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/179PrednvogodniyProbegMarafonBittsevskayaPryamaya
+URL:https://reg.russiarunning.com/event/179PrednvogodniyProbegMarafonBittsevskayaPryamaya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:753077d490@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:🏃 87 Пробег-Марафон «Покровские Пруды — Здравствуй Новый Год 2027» (марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/87ProbegMarafonPokrovskiePrudyZdravstvuyNovyyGod202731122026
+URL:https://reg.russiarunning.com/event/87ProbegMarafonPokrovskiePrudyZdravstvuyNovyyGod202731122026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e0b7aaf025@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:🏃 180 Пробег-Марафон «Битцевская прямая — Здравствуй Новый Год 2027» (50 км\, 42.2 км (Марафон)\, 30 км\, 21.1 км (Полумарафон)\, 15 км\, 15 км (старт 13-00)\, 10 км\, 10 км (старт 13-00)\, 5 км\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 миля\, 1 км\, 500 м\, 6 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 50 км\, 42.2 км (Марафон)\, 30 км\, 21.1 км (Полумарафон)\, 15 км\, 15 км (старт 13-00)\, 10 км\, 10 км (старт 13-00)\, 5 км\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 миля\, 1 км\, 500 м\, 6 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/180ProbegMarafonBittsevskayaPryamayaZdravstvuyNovyyGod202703012027
+URL:https://reg.russiarunning.com/event/180ProbegMarafonBittsevskayaPryamayaZdravstvuyNovyyGod202703012027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6ce692200d@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:🏃 88 Пробег-Марафон «Покровские Пруды — Рождество 2027» (марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: марафон (старт 10-00)\, полумарафон (старт 10-00)\, 15 км (12-00)\, 15 км (старт 10-00)\, 10 км (старт 10-00)\, 10 км (старт 12-00)\, 5 км (старт 10-00)\, 5 км (старт 12-00)\, 2 км\, 1 км\, 12 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/88ProbegMarafonPokrovskiePrudyRozhdestvo202706012027
+URL:https://reg.russiarunning.com/event/88ProbegMarafonPokrovskiePrudyRozhdestvo202706012027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0b8dee4b79@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:🏃 181 Пробег-Марафон «Битцевская прямая — Рождество 2027» (50 км\, 42.2 км (Марафон)\, 30 км\, 21.1 км (Полумарафон)\, 15 км\, 15 км (старт 13-00)\, 10 км\, 10 км (старт 13-00)\, 5 км\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 миля\, 1 км\, 500 м\, 6 часов)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 50 км\, 42.2 км (Марафон)\, 30 км\, 21.1 км (Полумарафон)\, 15 км\, 15 км (старт 13-00)\, 10 км\, 10 км (старт 13-00)\, 5 км\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 миля\, 1 км\, 500 м\, 6 часов\nКатегория: Марафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://reg.russiarunning.com/event/181ProbegMarafonBittsevskayaPryamayaRozhdestvo202710012027
+URL:https://reg.russiarunning.com/event/181ProbegMarafonBittsevskayaPryamayaRozhdestvo202710012027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7782518ce8@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270223
+SUMMARY:🏃 Соревнования «Скорость» (60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м)
+LOCATION:Москва\, ЛФК ЦСКА
+DESCRIPTION:Дистанции: 60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м\nКатегория: Трек / Манеж (Манеж)\nЛокация: Москва\, ЛФК ЦСКА\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://speedrace-winter26.runc.run/
+URL:https://speedrace-winter26.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:639edbd802@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:🏃 Трейл «DAB Vertical Spring Night» (10 км (+200м)\, 7500 м (+150м)\, 5 км (+100м)\, 2500 м (+50м)\, 1 км (дети) (+40м))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 10 км (+200м)\, 7500 м (+150м)\, 5 км (+100м)\, 2500 м (+50м)\, 1 км (дети) (+40м)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://dab-running.ru/races/DAB_Vertical_SPRING_Night_2027/
+URL:https://dab-running.ru/races/DAB_Vertical_SPRING_Night_2027/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0697073b15@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270405
+DTEND;VALUE=DATE:20270406
+SUMMARY:🏃 Забег «Апрель» (5 км)
+LOCATION:Москва\, ОК «Лужники»
+DESCRIPTION:Дистанции: 5 км\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\, ОК «Лужники»\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://aprilrun5km.runc.run/
+URL:https://aprilrun5km.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4745159bdc@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:🏃 Эстафета «Grom Relay Весна 2027» (4200 м\, 4200 м (этап эстафеты 5х4\,2км))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 4200 м\, 4200 м (этап эстафеты 5х4\,2км)\nКатегория: Эстафета (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.family/
+URL:https://grom.family/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:5ec21c992c@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:🏃 Кросс «Быстрый пёс» (2 км (каникросс))
+LOCATION:Москва\, Битцевский лес
+DESCRIPTION:Дистанции: 2 км (каникросс)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\, Битцевский лес\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://fastdogxc-spring26.runc.run/
+URL:https://fastdogxc-spring26.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:fbda995bfa@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:🏃 Трейл "Химкинский лес. Юбилей. 2027” (27 км\, 13 км\, 7 км\, 1 км (дети))
+LOCATION:Московская область\, Химки
+DESCRIPTION:Дистанции: 27 км\, 13 км\, 7 км\, 1 км (дети)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Химки\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://dtrail.ru/xlt_dg/
+URL:https://dtrail.ru/xlt_dg/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:22efd8dda6@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270413
+SUMMARY:🏃 Кросс «Лисья гора» (2 км\, 4 км\, 6 км\, 8 км)
+LOCATION:Москва\, Битцевский лес
+DESCRIPTION:Дистанции: 2 км\, 4 км\, 6 км\, 8 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\, Битцевский лес\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://foxhillxc-spring26.runc.run/
+URL:https://foxhillxc-spring26.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:532efbd6fc@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:🏃 Полумарафон «Весенний гром» (21.1 км (Полумарафон)\, 10 км\, 9 км (этап эстафеты 7+5+9 км)\, 7 км (этап эстафеты 7+5+9 км)\, 5 км\, 5 км (этап эстафеты 7+5+9 км)\, 1 км (дети))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 9 км (этап эстафеты 7+5+9 км)\, 7 км (этап эстафеты 7+5+9 км)\, 5 км\, 5 км (этап эстафеты 7+5+9 км)\, 1 км (дети)\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.place/competitions/vesennij-grom-2027
+URL:https://grom.place/competitions/vesennij-grom-2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1d0c7a0f24@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:🏃 Детский забег (400 м (дети)\, 800 м (дети))
+LOCATION:Москва\, ОК «Лужники»
+DESCRIPTION:Дистанции: 400 м (дети)\, 800 м (дети)\nКатегория: Детский забег (Шоссе)\nЛокация: Москва\, ОК «Лужники»\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://kids.runc.run/#moscowhalf
+URL:https://kids.runc.run/#moscowhalf
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:99bb21ed73@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270427
+SUMMARY:🏃 Московский полумарафон (21.1 км (Полумарафон)\, 5 км)
+LOCATION:Москва\, ОК «Лужники»
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 5 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\, ОК «Лужники»\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://moscowhalf.runc.run/
+URL:https://moscowhalf.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:aab2d3dea6@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:🏃 Эстафета по Садовому кольцу (16 км\, Эстафета по Садовому кольцу)
+LOCATION:Москва\, Садовое кольцо
+DESCRIPTION:Дистанции: 16 км\, Эстафета по Садовому кольцу\nКатегория: Эстафета (Шоссе)\nЛокация: Москва\, Садовое кольцо\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://gardenring.runc.run/
+URL:https://gardenring.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4b1a9b6352@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:🏃 Всероссийский полумарафон «ЗаБег.РФ» (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://забег.рф/Москва
+URL:https://забег.рф/Москва
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ddd83e5e0c@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270525
+SUMMARY:🏃 Детский забег (400 м (дети)\, 800 м (дети))
+LOCATION:Москва\, ЛФК ЦСКА
+DESCRIPTION:Дистанции: 400 м (дети)\, 800 м (дети)\nКатегория: Детский забег (Шоссе)\nЛокация: Москва\, ЛФК ЦСКА\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://kids.runc.run/#SpeedRace
+URL:https://kids.runc.run/#SpeedRace
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:180f79ad1a@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270525
+SUMMARY:🏃 Соревнования «Скорость» (60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м)
+LOCATION:Москва\, ЛФК ЦСКА
+DESCRIPTION:Дистанции: 60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м\nКатегория: Трек / Манеж (Манеж)\nЛокация: Москва\, ЛФК ЦСКА\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://speedrace-spring26.runc.run/
+URL:https://speedrace-spring26.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:fb1ad128a9@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:🏃 Близко-трейл — Blizko Trail (54500 м\, 27250 м\, 13540 м\, 3700 м (Дети)\, 1400 м (Дети))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 54500 м\, 27250 м\, 13540 м\, 3700 м (Дети)\, 1400 м (Дети)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: http://blizkotrail.ru/
+URL:http://blizkotrail.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:80bbd5dead@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:🏃 Большой Московский Триатлон (полумарафон (беговой этап половинки)\, полумарафон (беговой этап эстафеты)\, 10 км (беговой этап олимпийки)\, 10 км (беговой этап эстафеты)\, триатлон\, половинка (1\,9 + 90 + 21\,1)\, триатлон\, олимпийка (1\,5 + 40 + 10))
+LOCATION:Москва
+DESCRIPTION:Дистанции: полумарафон (беговой этап половинки)\, полумарафон (беговой этап эстафеты)\, 10 км (беговой этап олимпийки)\, 10 км (беговой этап эстафеты)\, триатлон\, половинка (1\,9 + 90 + 21\,1)\, триатлон\, олимпийка (1\,5 + 40 + 10)\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.family/
+URL:https://grom.family/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:432db7d474@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270608
+SUMMARY:🏃 Красочный забег (5 км)
+LOCATION:Москва\, ОК «Лужники»
+DESCRIPTION:Дистанции: 5 км\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\, ОК «Лужники»\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://colorrun5km.runc.run/
+URL:https://colorrun5km.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:b748806eb2@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:🏃 Grom Tri Sprint — I этап кубка «Московский Гром» (5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5)\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.family/
+URL:https://grom.family/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:8b920dcd33@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270621
+SUMMARY:🏃 Трейл «Северная дорога в Лавру» (ITRA 5\, 100 миль (+1610м\, -1550м)\, ITRA 3\, 120 км (120К) (+1270м\, -1290м)\, ITRA 2\, 60\,9 км (60К) (+790м\, -770м)\, ITRA 1\, 33800 м (30К) (+450м\, -515м))
+LOCATION:Московская область\, Сергиев Посад
+DESCRIPTION:Дистанции: ITRA 5\, 100 миль (+1610м\, -1550м)\, ITRA 3\, 120 км (120К) (+1270м\, -1290м)\, ITRA 2\, 60\,9 км (60К) (+790м\, -770м)\, ITRA 1\, 33800 м (30К) (+450м\, -515м)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Сергиев Посад\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: http://blizkotrail.ru/
+URL:http://blizkotrail.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7eb65848b3@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:🏃 Ночной забег (10 км)
+LOCATION:Москва\, ОК «Лужники»
+DESCRIPTION:Дистанции: 10 км\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\, ОК «Лужники»\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://nightrun10km.runc.run/
+URL:https://nightrun10km.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:58b94f020b@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:🏃 Grom Tri Sprint — II этап кубка «Московский Гром» (5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5)\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.family/
+URL:https://grom.family/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:55a52de0d0@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:🏃 Полумарафон «Сергиевым путём» (21.1 км (Полумарафон)\, 10 км\, 5275 м\, 500 м (дети))
+LOCATION:Московская область\, Сергиев Посад
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5275 м\, 500 м (дети)\nКатегория: Полумарафон (Шоссе)\nЛокация: Московская область\, Сергиев Посад\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: http://goldenringrun.ru/Steps/SergievPosad
+URL:http://goldenringrun.ru/Steps/SergievPosad
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d9ca2d3c80@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270715
+DTEND;VALUE=DATE:20270716
+SUMMARY:🏃 Трейл «DAB Vertical Summer Night» (14240 м (+460м)\, 10680 м (+345м)\, 7120 м (+230м)\, 3560 м (+115м)\, 3560 м (этап эстафеты 4*3\,56 км) (+115м)\, 1 км (детский забег) (+45м))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 14240 м (+460м)\, 10680 м (+345м)\, 7120 м (+230м)\, 3560 м (+115м)\, 3560 м (этап эстафеты 4*3\,56 км) (+115м)\, 1 км (детский забег) (+45м)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://dab-running.ru/races/DAB_Vertical_Summer_2027/
+URL:https://dab-running.ru/races/DAB_Vertical_Summer_2027/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d90833fac4@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:🏃 Легкоатлетический забег «Забег 2030» (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://zabeg2030.ru/
+URL:https://zabeg2030.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d1d143089a@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:🏃 Grom Tri Sprint — III этап кубка «Московский Гром» (5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5)\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.family/
+URL:https://grom.family/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:96580776ea@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:🏃 Угреша-Трейл — Ugresha Trail (60600 м (60К) (+600м)\, 31300 м (30К) (+400м)\, 15800 м (15К) (+200м)\, 7500 м (Blitz) (+100м)\, 4100 м (дети)\, 1200 м (дети))
+LOCATION:Московская область\, Дзержинский
+DESCRIPTION:Дистанции: 60600 м (60К) (+600м)\, 31300 м (30К) (+400м)\, 15800 м (15К) (+200м)\, 7500 м (Blitz) (+100м)\, 4100 м (дети)\, 1200 м (дети)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Московская область\, Дзержинский\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://blizkotrail.ru/ugresha2027
+URL:https://blizkotrail.ru/ugresha2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:5af2fc9e50@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270824
+SUMMARY:🏃 БОЛЬШОЙ ФЕСТИВАЛЬ БЕГА (15 км\, 10 км\, 5 км)
+LOCATION:Москва\, Садовое кольцо / Лужники
+DESCRIPTION:Дистанции: 15 км\, 10 км\, 5 км\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\, Садовое кольцо / Лужники\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://runfest.runc.run/
+URL:https://runfest.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:fb368bd479@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:🏃 Пробег «Grom 10k» (10 км\, 5 км\, 1 км\, 1 км (взрослые))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 10 км\, 5 км\, 1 км\, 1 км (взрослые)\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.family/
+URL:https://grom.family/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:718434b2e5@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:🏃 Backyard Ultra Moscow (228004 м\, 221298 м\, 207886 м\, 201180 м\, 181062 м\, 174356 м\, 167650 м\, 160944 м\, 147532 м\, 140826 м\, 134120 м\, 127414 м\, 120708 м\, 114002 м\, 107296 м\, 100590 м\, 93884 м\, 87178 м\, 80472 м\, 73766 м\, 67060 м\, 60354 м\, 53648 м\, 46942 м\, 40236 м\, 33530 м\, 26824 м\, 20118 м\, 13412 м\, 6706 м)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 228004 м\, 221298 м\, 207886 м\, 201180 м\, 181062 м\, 174356 м\, 167650 м\, 160944 м\, 147532 м\, 140826 м\, 134120 м\, 127414 м\, 120708 м\, 114002 м\, 107296 м\, 100590 м\, 93884 м\, 87178 м\, 80472 м\, 73766 м\, 67060 м\, 60354 м\, 53648 м\, 46942 м\, 40236 м\, 33530 м\, 26824 м\, 20118 м\, 13412 м\, 6706 м\nКатегория: Ультрамарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: http://blizkotrail.ru/bum2027
+URL:http://blizkotrail.ru/bum2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0d786ae7e5@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:🏃 Детский забег (400 м (дети)\, 800 м (дети))
+LOCATION:Москва\, ОК «Лужники»
+DESCRIPTION:Дистанции: 400 м (дети)\, 800 м (дети)\nКатегория: Детский забег (Шоссе)\nЛокация: Москва\, ОК «Лужники»\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://kids.runc.run/#moscowmarathon
+URL:https://kids.runc.run/#moscowmarathon
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7783962f17@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270928
+SUMMARY:🏃 СберПрайм Московский Марафон (42.2 км (Марафон)\, 10 км)
+LOCATION:Москва\, ОК «Лужники»
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 10 км\nКатегория: Марафон (Шоссе)\nЛокация: Москва\, ОК «Лужники»\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://moscowmarathon.runc.run/
+URL:https://moscowmarathon.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:b36cccd9c2@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271011
+SUMMARY:🏃 X Полумарафон «Моя столица» (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\, 600 м (дети)\, 300 м (дети))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\, 600 м (дети)\, 300 м (дети)\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://moscowhalf.ru/
+URL:https://moscowhalf.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1ab1e1782a@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+SUMMARY:🏃 Кросс «Быстрый пёс» (2 км (каникросс))
+LOCATION:Москва\, Битцевский лес
+DESCRIPTION:Дистанции: 2 км (каникросс)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\, Битцевский лес\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://fastdogxc.runc.run/
+URL:https://fastdogxc.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c466abc4e0@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271012
+SUMMARY:🏃 Кросс «Лисья гора» (2 км\, 4 км\, 6 км\, 8 км)
+LOCATION:Москва\, Битцевский лес
+DESCRIPTION:Дистанции: 2 км\, 4 км\, 6 км\, 8 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Москва\, Битцевский лес\nОрганизатор / Источник: Беговое сообщество (RunC)\nСсылка: https://foxhillxc.runc.run/
+URL:https://foxhillxc.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:34cdb8ffeb@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:🏃 Полумарафон «Осенний Гром» (21.1 км (Полумарафон)\, 10 км\, 8 км (этап эстафеты 6км+7км+8км)\, 7 км (этап эстафеты 6км+7км+8км)\, 6 км (этап эстафеты 6км+7км+8км)\, 5 км\, 1 км (дети))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 8 км (этап эстафеты 6км+7км+8км)\, 7 км (этап эстафеты 6км+7км+8км)\, 6 км (этап эстафеты 6км+7км+8км)\, 5 км\, 1 км (дети)\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.place/competitions/osennij-grom-2027
+URL:https://grom.place/competitions/osennij-grom-2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:569af85b9c@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20271023
+DTEND;VALUE=DATE:20271024
+SUMMARY:🏃 Эстафета «Grom Relay Осень 2027» (4200 м\, 4200 м (этап эстафеты 5х4200 м))
+LOCATION:Москва
+DESCRIPTION:Дистанции: 4200 м\, 4200 м (этап эстафеты 5х4200 м)\nКатегория: Эстафета (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.family/calendar
+URL:https://grom.family/calendar
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0f06e7b3c8@running-calendar-moscow
+DTSTAMP:20261023T124332Z
+DTSTART;VALUE=DATE:20271120
+DTEND;VALUE=DATE:20271121
+SUMMARY:🏃 Пробег «Grom 10k IzMyLove» (10 км\, 5 км\, 400 м)
+LOCATION:Москва
+DESCRIPTION:Дистанции: 10 км\, 5 км\, 400 м\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nОрганизатор / Источник: Клубы и организаторы Москвы / ПроБЕГ\nСсылка: https://grom.place/competitions/grom-10k-izmajlovo
+URL:https://grom.place/competitions/grom-10k-izmajlovo
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
