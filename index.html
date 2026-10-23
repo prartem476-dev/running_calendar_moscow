@@ -588,6 +588,12 @@
       border: 1px solid rgba(212, 255, 0, 0.3);
     }
 
+    .badge-golden {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
     .race-title {
       font-family: 'Unbounded', sans-serif;
       font-size: 16px;
@@ -953,9 +959,10 @@
             <option value="all">Все месяцы</option>
           </select>
           <select id="region-select" class="select-input">
-            <option value="all">Москва и Подмосковье</option>
+            <option value="all">Все регионы (Москва, МО, БЗК)</option>
             <option value="Москва">Только Москва</option>
             <option value="Подмосковье">Только Подмосковье</option>
+            <option value="Золотое кольцо">Золотое кольцо / Выездные (БЗК)</option>
           </select>
         </div>
 
@@ -965,9 +972,10 @@
             <button type="button" class="pill-btn" data-surface="Шоссе">🛣️ Шоссе</button>
             <button type="button" class="pill-btn" data-surface="Трейл / Грунт">🌲 Трейл / Грунт</button>
             <button type="button" class="pill-btn" data-surface="Манеж">🏟️ Манеж</button>
+            <button type="button" class="pill-btn" data-surface="golden_ring">🏛️ Золотое кольцо (БЗК)</button>
             <button type="button" class="pill-btn" data-surface="featured">⭐ Главные старты</button>
             <button type="button" class="pill-btn" data-surface="Парковый забег">🌳 5 вёрст / S95 (90 парков)</button>
-            <button type="button" class="pill-btn" data-surface="all_with_parks">📋 Всё вместе (245+)</button>
+            <button type="button" class="pill-btn" data-surface="all_with_parks">📋 Всё вместе (255+)</button>
           </div>
 
           <div class="pill-group" id="distance-pills">
@@ -1133,14 +1141,21 @@
 
       const filtered = allEvents.filter(ev => {
         if (selectedMonth !== 'all' && !ev.date.startsWith(selectedMonth)) return false;
-        if (selectedRegion !== 'all' && ev.region !== selectedRegion) return false;
+        if (selectedRegion !== 'all') {
+          if (selectedRegion === 'Золотое кольцо') {
+            if (ev.region !== 'Золотое кольцо' && !ev.is_golden_ring) return false;
+          } else if (ev.region !== selectedRegion) {
+            return false;
+          }
+        }
         if (activeSurface === 'all_races' && ev.is_parkrun && !query) return false;
         if (activeSurface === 'featured' && !ev.featured) return false;
-        if (!['all_races', 'all_with_parks', 'featured'].includes(activeSurface) && ev.surface !== activeSurface) return false;
+        if (activeSurface === 'golden_ring' && !ev.is_golden_ring && ev.region !== 'Золотое кольцо') return false;
+        if (!['all_races', 'all_with_parks', 'featured', 'golden_ring'].includes(activeSurface) && ev.surface !== activeSurface) return false;
         if (!matchesDistanceFilter(ev.distances || [], activeDistance)) return false;
 
         if (query) {
-          const hay = `${ev.title} ${ev.location} ${(ev.distances || []).join(' ')} ${ev.category} ${ev.organizer}`.toLowerCase();
+          const hay = `${ev.title} ${ev.location} ${ev.region || ''} ${ev.series || ''} ${(ev.distances || []).join(' ')} ${ev.category} ${ev.organizer}`.toLowerCase();
           if (!hay.includes(query)) return false;
         }
         return true;
@@ -1196,6 +1211,7 @@
                     <span class="date-badge-weekday">${human.sub}</span>
                   </div>
                   <div class="tags-wrap">
+                    ${ev.is_golden_ring || ev.region === 'Золотое кольцо' ? '<span class="badge badge-golden">🏛️ БЗК · Золотое кольцо</span>' : ''}
                     ${ev.featured ? '<span class="badge badge-featured">★ Топ старт</span>' : ''}
                     <span class="badge ${surfaceClass}">${ev.surface}</span>
                   </div>

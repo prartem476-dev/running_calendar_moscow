@@ -796,7 +796,7 @@ def fetch_russiarunning_events(ref_date: datetime) -> List[Dict[str, Any]]:
     today_iso = ref_date.strftime("%Y-%m-%d")
     seen_codes = set()
 
-    for skip in range(0, 264, 24):
+    for skip in range(0, 360, 24):
         payload = {
             "page": {"take": 24, "skip": skip},
             "language": "ru",
@@ -835,15 +835,30 @@ def fetch_russiarunning_events(ref_date: datetime) -> List[Dict[str, Any]]:
             place = re.sub(r"\s+", " ", (it.get("place") or "").strip())
             address = re.sub(r"\s+", " ", (it.get("address") or "").strip())
             city_name = re.sub(r"\s+", " ", (it.get("cityName") or "").strip())
+            sport_series_code = (it.get("sportSeriesCode") or "").strip()
+            sport_series_title = (it.get("sportSeriesTitle") or "").strip()
 
-            # Отсеиваем события других городов (например, если в названии другой город)
+            is_bzk = bool(
+                sport_series_code.lower().startswith("goldenring")
+                or code.lower().startswith("bzk_")
+                or "золотому кольцу" in sport_series_title.lower()
+                or "золотое кольцо" in title.lower()
+            )
+
+            # Отсеиваем события других городов (кроме этапов серии «Бегом по Золотому кольцу»)
             combined_loc = f"{place} {address} {city_name}"
-            if any(other in combined_loc.lower() for other in ["санкт-петербург", "нижний новгород", "самара", "тюмень", "грозный"]):
+            if not is_bzk and any(
+                other in combined_loc.lower()
+                for other in ["санкт-петербург", "нижний новгород", "самара", "тюмень", "грозный"]
+            ):
                 continue
 
             is_msk, region_tag = is_moscow_or_mo(f"{combined_loc} {title}")
             if not is_msk:
-                continue
+                if is_bzk:
+                    region_tag = "Золотое кольцо"
+                else:
+                    continue
 
             begin_raw = (it.get("beginDate") or "")[:10]
             end_raw = (it.get("endDate") or begin_raw)[:10]
@@ -887,6 +902,8 @@ def fetch_russiarunning_events(ref_date: datetime) -> List[Dict[str, Any]]:
                     "display_date": datetime.strptime(begin_raw, "%Y-%m-%d").strftime("%d.%m.%Y"),
                     "location": location_display,
                     "region": region_tag,
+                    "series": "Бегом по Золотому кольцу (БЗК)" if is_bzk else None,
+                    "is_golden_ring": is_bzk,
                     "distances": distances,
                     "surface": surface,
                     "category": category,
@@ -900,7 +917,8 @@ def fetch_russiarunning_events(ref_date: datetime) -> List[Dict[str, Any]]:
                     "source": "RussiaRunning",
                     "is_parkrun": False,
                     "featured": bool(
-                        it.get("rrRecomended")
+                        is_bzk
+                        or it.get("rrRecomended")
                         or any(k in title.lower() for k in ["моя столица", "сергиевым", "патриот", "8 городов", "полумарафон"])
                     ),
                 }
@@ -1356,7 +1374,7 @@ def normalize_dedup_title(title: str) -> str:
 def merge_and_deduplicate(event_lists: List[List[Dict[str, Any]]]) -> List[Dict[str, Any]]:
     """Объединяет события из всех источников без дублей и сортирует по дате."""
     merged: List[Dict[str, Any]] = []
-    seen = set()
+    seen: Dict[Tuple[str, str], Dict[str, Any]] = {}
 
     for ev_list in event_lists:
         for ev in ev_list:
@@ -1365,8 +1383,12 @@ def merge_and_deduplicate(event_lists: List[List[Dict[str, Any]]]) -> List[Dict[
                 norm_title = re.sub(r"[^a-zа-яё0-9]", "", ev["title"].lower())
             key = (ev["date"], norm_title[:14])
             if key in seen:
+                existing = seen[key]
+                if ev.get("is_golden_ring"):
+                    existing["is_golden_ring"] = True
+                    existing["series"] = ev.get("series") or "Бегом по Золотому кольцу (БЗК)"
                 continue
-            seen.add(key)
+            seen[key] = ev
             merged.append(ev)
 
     merged.sort(
@@ -1479,8 +1501,8 @@ def main() -> None:
             bearrace_events,
             crace_events,
             gto_events,
-            probeg_events,
             russiarunning_events,
+            probeg_events,
             mountain_events,
             myrace_events,
             regplace_events,
