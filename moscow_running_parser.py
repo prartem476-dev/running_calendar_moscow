@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 """
 Мульти-источниковый автоматический парсер беговых событий Москвы и Московской области.
-Собирает актуальное расписание забегов с 6 площадок:
-1. ПроБЕГ (probeg.org) — календарь шоссейных забегов, марафонов и трейлов Москвы и МО
-2. Беговое сообщество (runc.run) — главная серия московских стартов (Лужники, Садовое кольцо, ЦСКА)
-3. Reg.Place (reg.place) — агрегатор регистрации на беговые и трейловые старты Москвы и МО
-4. MyRace (myrace.info) — серия стартов City Trail, X-Race, Кубок России Мастерс и др.
-5. Mountain-Race (mountain-race.ru) — специализированный календарь трейлов и кроссов Москвы и МО
-6. ПроБЕГ Parkrun / 5 вёрст / S95 — субботние парковые забеги 5 км в парках Москвы и Подмосковья
+Собирает актуальное расписание забегов с 8 площадок:
+1. Беговое сообщество (runc.run) — главная серия московских стартов (Лужники, Садовое кольцо, ЦСКА)
+2. ПроБЕГ (probeg.org) — календарь шоссейных забегов, марафонов и трейлов Москвы и МО
+3. RussiaRunning (reg.russiarunning.com) — крупнейшая платформа регистрации на забеги и марафоны России
+4. Лига Героев (heroleague.ru/calendar) — ЗаБег.РФ, Забег 2030, Гонка Героев в Москве и Алабино
+5. Reg.Place (reg.place) — агрегатор регистрации на беговые и трейловые старты Москвы и МО
+6. MyRace (myrace.info) — серия стартов City Trail, X-Race, Кубок России Мастерс и др.
+7. Mountain-Race (mountain-race.ru) — специализированный календарь трейлов и кроссов Москвы и МО
+8. ПроБЕГ Parkrun / 5 вёрст / S95 — субботние парковые забеги 5 км в парках Москвы и Подмосковья
 
 Генерирует:
 - moscow_running_events.json (структурированная база забегов для веб-приложения)
@@ -34,6 +36,8 @@ USER_AGENT = (
 PROBEG_MOSCOW_URL = "https://probeg.org/races/region_group/46,47/date_region/2/?hide_parkruns=on"
 PROBEG_PARKRUNS_URL = "https://probeg.org/races/region_group/46,47/date_region/2/"
 RUNC_URL = "https://runc.run/"
+RUSSIARUNNING_API_URL = "https://reg.russiarunning.com/api/events/list"
+HEROLEAGUE_API_URL = "https://heroleague.ru/api/event_city/filtered"
 REGPLACE_RUN_URL = "https://reg.place/events?q[scope]=future&q[sport_id]=1"
 MYRACE_URL = "https://myrace.info/"
 MOUNTAIN_RACE_URL = "https://mountain-race.ru/events/"
@@ -747,6 +751,255 @@ def fetch_mountain_race_events(ref_date: datetime) -> List[Dict[str, Any]]:
     return events
 
 
+def format_rr_distance(dist_km: Any, name: str) -> Optional[str]:
+    """Форматирует дистанцию из элемента raceItems платформы RussiaRunning."""
+    if dist_km and isinstance(dist_km, (int, float)) and dist_km > 0:
+        if abs(dist_km - 42.195) < 0.3 or abs(dist_km - 42.2) < 0.2:
+            return "42.2 км (Марафон)"
+        if abs(dist_km - 21.0975) < 0.2 or abs(dist_km - 21.1) < 0.2:
+            return "21.1 км (Полумарафон)"
+        if dist_km < 1:
+            meters = int(round(dist_km * 1000))
+            return f"{meters} м"
+        if float(dist_km).is_integer():
+            return f"{int(dist_km)} км"
+        return f"{round(float(dist_km), 2)} км"
+    clean_name = (name or "").strip()
+    if any(k in clean_name.lower() for k in ["км", "метр", "марафон", "миля"]):
+        return clean_name
+    return None
+
+
+def fetch_russiarunning_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит предстоящие забеги Москвы и МО через официальный JSON API reg.russiarunning.com."""
+    events: List[Dict[str, Any]] = []
+    today_iso = ref_date.strftime("%Y-%m-%d")
+    seen_codes = set()
+
+    for skip in range(0, 264, 24):
+        payload = {
+            "page": {"take": 24, "skip": skip},
+            "language": "ru",
+            "filter": {
+                "eventsLoaderType": 0,
+                "search": "",
+                "championshipIds": [],
+            },
+        }
+        try:
+            resp = requests.post(
+                RUSSIARUNNING_API_URL,
+                json=payload,
+                headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
+                timeout=20,
+            )
+            if resp.status_code != 200:
+                break
+            batch = resp.json().get("list") or []
+            if not batch:
+                break
+        except Exception as exc:
+            print(f"[WARN] Ошибка загрузки RussiaRunning (skip={skip}): {exc}")
+            break
+
+        for it in batch:
+            code = (it.get("code") or "").strip()
+            if not code or code in seen_codes:
+                continue
+
+            disc = (it.get("disciplineCode") or "").lower()
+            if disc and disc not in ["run", "trail", "obstacle-racing", "nordic-walking", "athletics"]:
+                continue
+
+            title = re.sub(r"\s+", " ", (it.get("title") or "").strip()).strip("^")
+            place = re.sub(r"\s+", " ", (it.get("place") or "").strip())
+            address = re.sub(r"\s+", " ", (it.get("address") or "").strip())
+            city_name = re.sub(r"\s+", " ", (it.get("cityName") or "").strip())
+
+            # Отсеиваем события других городов (например, если в названии другой город)
+            combined_loc = f"{place} {address} {city_name}"
+            if any(other in combined_loc.lower() for other in ["санкт-петербург", "нижний новгород", "самара", "тюмень", "грозный"]):
+                continue
+
+            is_msk, region_tag = is_moscow_or_mo(f"{combined_loc} {title}")
+            if not is_msk:
+                continue
+
+            begin_raw = (it.get("beginDate") or "")[:10]
+            end_raw = (it.get("endDate") or begin_raw)[:10]
+            if not re.match(r"^\d{4}-\d{2}-\d{2}$", begin_raw) or begin_raw < today_iso:
+                continue
+
+            seen_codes.add(code)
+
+            # Извлекаем дистанции из raceItems
+            distances: List[str] = []
+            for ri in it.get("raceItems") or []:
+                ri_disc = (ri.get("disciplineCode") or "").lower()
+                if ri_disc == "goods-services":
+                    continue
+                d_str = format_rr_distance(ri.get("distance"), ri.get("name") or "")
+                if d_str and d_str not in distances:
+                    distances.append(d_str)
+
+            if not distances:
+                distances = ["5 км", "10 км", "21.1 км"]
+
+            location_display = place if place and "описании" not in place.lower() else (address or "Москва")
+            url = f"https://reg.russiarunning.com/event/{code}"
+            surface, category = classify_surface_and_type(title, distances)
+
+            rating = it.get("participantRating") or it.get("approvedStarRating") or it.get("starRating")
+            if isinstance(rating, (int, float)) and rating > 0:
+                rating = round(float(rating), 1)
+            else:
+                rating = None
+
+            uid_seed = f"{begin_raw}-{code.lower()}-rr"
+            event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+            events.append(
+                {
+                    "id": event_id,
+                    "title": title,
+                    "date": begin_raw,
+                    "end_date": end_raw if end_raw >= begin_raw else begin_raw,
+                    "display_date": datetime.strptime(begin_raw, "%Y-%m-%d").strftime("%d.%m.%Y"),
+                    "location": location_display,
+                    "region": region_tag,
+                    "distances": distances,
+                    "surface": surface,
+                    "category": category,
+                    "rating": rating,
+                    "organizer": it.get("organizerName") or "RussiaRunning",
+                    "url": url,
+                    "registration_url": url,
+                    "official_url": url,
+                    "source_url": "https://reg.russiarunning.com/",
+                    "vk_url": None,
+                    "source": "RussiaRunning",
+                    "is_parkrun": False,
+                    "featured": bool(
+                        it.get("rrRecomended")
+                        or any(k in title.lower() for k in ["моя столица", "сергиевым", "патриот", "8 городов", "полумарафон"])
+                    ),
+                }
+            )
+
+    print(f"[INFO] Получено московских событий с RussiaRunning: {len(events)}")
+    return events
+
+
+def fetch_heroleague_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит московские старты «Лиги Героев» (heroleague.ru/calendar): ЗаБег.РФ, Гонка Героев, Забег 2030."""
+    events: List[Dict[str, Any]] = []
+    date_from = ref_date.strftime("%Y-%m-%dT00:00:00.000Z")
+    date_to = f"{ref_date.year + 1}-12-31T23:59:59.000Z"
+
+    payload = {
+        "city": {"id": 0},
+        "date_from": date_from,
+        "date_to": date_to,
+        "event_type": {"public_id": None},
+    }
+
+    try:
+        resp = requests.post(
+            HEROLEAGUE_API_URL,
+            json=payload,
+            headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
+            timeout=20,
+        )
+        resp.raise_for_status()
+        values = resp.json().get("values") or []
+    except Exception as exc:
+        print(f"[WARN] Ошибка загрузки Лиги Героев (heroleague.ru): {exc}")
+        return events
+
+    seen_ids = set()
+    for item in values:
+        pub_id = item.get("public_id") or ""
+        if not pub_id or pub_id in seen_ids:
+            continue
+
+        address = re.sub(r"\s+", " ", (item.get("address") or "").strip())
+        city_id = (item.get("city") or {}).get("id")
+        ev_obj = item.get("event") or {}
+        ev_type_obj = item.get("event_type") or {}
+
+        base_title = (ev_obj.get("title") or ev_type_obj.get("title") or "").strip()
+        subtitle = (ev_obj.get("title_above") or "").strip()
+
+        if city_id != 524901 and not is_moscow_or_mo(f"{address} {base_title}")[0]:
+            continue
+
+        start_raw = (item.get("start_time") or "")[:10]
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", start_raw):
+            continue
+
+        seen_ids.add(pub_id)
+
+        if subtitle and subtitle.lower() not in base_title.lower() and len(subtitle) < 48:
+            full_title = f"{base_title} — {subtitle}"
+        else:
+            full_title = base_title
+
+        ext_url = (ev_obj.get("external_url") or "").strip()
+        if ext_url.startswith("/"):
+            url = f"https://heroleague.ru{ext_url}"
+        elif ext_url.startswith("http"):
+            url = ext_url
+        else:
+            url = "https://heroleague.ru/calendar"
+
+        if "забег.рф" in full_title.lower() or "всероссийский полумарафон" in full_title.lower():
+            distances = ["21.1 км (Полумарафон)", "10 км", "5 км", "1 км"]
+            surface = "Шоссе"
+            category = "Полумарафон"
+        elif "гонка героев" in full_title.lower():
+            distances = ["8–10 км (25+ препятствий)"]
+            surface = "Трейл / Грунт"
+            category = "Трейл / Кросс"
+        else:
+            distances = ["21.1 км", "10 км", "5 км", "1 км"]
+            surface, category = classify_surface_and_type(full_title, distances)
+
+        is_msk, region_tag = is_moscow_or_mo(address or "Москва")
+        if "алабино" in address.lower():
+            region_tag = "Подмосковье"
+
+        uid_seed = f"{start_raw}-{pub_id.lower()}-hl"
+        event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+        events.append(
+            {
+                "id": event_id,
+                "title": full_title,
+                "date": start_raw,
+                "end_date": start_raw,
+                "display_date": datetime.strptime(start_raw, "%Y-%m-%d").strftime("%d.%m.%Y"),
+                "location": address or "Москва",
+                "region": region_tag,
+                "distances": distances,
+                "surface": surface,
+                "category": category,
+                "rating": 5.0,
+                "organizer": "Лига Героев",
+                "url": url,
+                "registration_url": url,
+                "official_url": "https://heroleague.ru/calendar",
+                "source_url": "https://heroleague.ru/calendar",
+                "vk_url": "https://vk.com/heroleague",
+                "source": "Лига Героев",
+                "is_parkrun": False,
+                "featured": True,
+            }
+        )
+
+    print(f"[INFO] Получено московских событий Лиги Героев: {len(events)}")
+    return events
+
+
 def normalize_dedup_title(title: str) -> str:
     """Нормализует название для умной дедупликации между разными агрегаторами."""
     low = title.lower()
@@ -859,7 +1112,9 @@ def main() -> None:
     print(f"[INFO] Запуск мульти-источникового парсера забегов Москвы ({now_msk.isoformat()})")
 
     runc_events = fetch_runc_events(now_msk)
+    heroleague_events = fetch_heroleague_events(now_msk)
     probeg_events = fetch_probeg_events(include_parkruns=False)
+    russiarunning_events = fetch_russiarunning_events(now_msk)
     mountain_events = fetch_mountain_race_events(now_msk)
     myrace_events = fetch_myrace_events(now_msk)
     regplace_events = fetch_regplace_events(now_msk)
@@ -868,7 +1123,9 @@ def main() -> None:
     events = merge_and_deduplicate(
         [
             runc_events,
+            heroleague_events,
             probeg_events,
+            russiarunning_events,
             mountain_events,
             myrace_events,
             regplace_events,
@@ -889,6 +1146,8 @@ def main() -> None:
         "sources": [
             {"name": "Беговое сообщество (runc.run)", "url": "https://runc.run/"},
             {"name": "ПроБЕГ (probeg.org)", "url": "https://probeg.org/"},
+            {"name": "RussiaRunning (reg.russiarunning.com)", "url": "https://reg.russiarunning.com/"},
+            {"name": "Лига Героев (heroleague.ru)", "url": "https://heroleague.ru/calendar"},
             {"name": "Reg.Place (reg.place)", "url": "https://reg.place/events"},
             {"name": "MyRace (myrace.info)", "url": "https://myrace.info/"},
             {"name": "Mountain-Race (mountain-race.ru)", "url": "https://mountain-race.ru/events/"},
