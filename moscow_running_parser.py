@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Мульти-источниковый автоматический парсер беговых событий Москвы и Московской области.
-Собирает актуальное расписание забегов с 8 площадок:
+Собирает актуальное расписание забегов с 12 площадок:
 1. Беговое сообщество (runc.run) — главная серия московских стартов (Лужники, Садовое кольцо, ЦСКА)
 2. ПроБЕГ (probeg.org) — календарь шоссейных забегов, марафонов и трейлов Москвы и МО
 3. RussiaRunning (reg.russiarunning.com) — крупнейшая платформа регистрации на забеги и марафоны России
@@ -10,7 +10,11 @@
 5. Reg.Place (reg.place) — агрегатор регистрации на беговые и трейловые старты Москвы и МО
 6. MyRace (myrace.info) — серия стартов City Trail, X-Race, Кубок России Мастерс и др.
 7. Mountain-Race (mountain-race.ru) — специализированный календарь трейлов и кроссов Москвы и МО
-8. ПроБЕГ Parkrun / 5 вёрст / S95 — субботние парковые забеги 5 км в парках Москвы и Подмосковья
+8. City Trail (city-trail.ru) — серия городских трейлов в парках Москвы и Подмосковья
+9. DAB Running (dab-running.ru) — серия горных трейлов DAB Vertical Four Seasons в СК «Кант» (м. Нагорная)
+10. Медвежья гонка (bearrace.ru) — экстремальные забеги с препятствиями в ОУСЦ «Планерная» (Химки)
+11. CRACE (cracerun.ru) — российская серия фитнес-гонок (бег + функциональные станции Hyrox)
+12. Лето ГТО / Московский Спорт (gto-leto.sport.mos.ru) + 5 вёрст / S95 — фестивали ГТО и парковые забеги Москвы
 
 Генерирует:
 - moscow_running_events.json (структурированная база забегов для веб-приложения)
@@ -41,6 +45,11 @@ HEROLEAGUE_API_URL = "https://heroleague.ru/api/event_city/filtered"
 REGPLACE_RUN_URL = "https://reg.place/events?q[scope]=future&q[sport_id]=1"
 MYRACE_URL = "https://myrace.info/"
 MOUNTAIN_RACE_URL = "https://mountain-race.ru/events/"
+CITY_TRAIL_URL = "https://city-trail.ru/"
+DAB_RUNNING_URL = "https://dab-running.ru/trails/"
+BEARRACE_URL = "https://bearrace.ru/"
+CRACERUN_URL = "https://cracerun.ru/"
+GTO_LETO_URL = "https://gto-leto.sport.mos.ru/"
 
 JSON_OUTPUT = Path("moscow_running_events.json")
 ICS_OUTPUT = Path("moscow_running_events.ics")
@@ -493,13 +502,13 @@ def fetch_runc_events(ref_date: datetime) -> List[Dict[str, Any]]:
 
 
 def fetch_regplace_events(ref_date: datetime) -> List[Dict[str, Any]]:
-    """Парсит беговые старты Москвы и МО с платформы регистрации Reg.Place."""
+    """Парсит беговые старты Москвы и МО с платформы регистрации Reg.Place (все страницы каталога)."""
     events: List[Dict[str, Any]] = []
     urls_to_check = [
         REGPLACE_RUN_URL,
         f"{REGPLACE_RUN_URL}&page=2",
         "https://reg.place/events?q[scope]=future&q[city]=Москва",
-    ]
+    ] + [f"https://reg.place/events?q[scope]=future&page={p}" for p in range(1, 7)]
     seen_hrefs = set()
 
     for page_url in urls_to_check:
@@ -528,17 +537,28 @@ def fetch_regplace_events(ref_date: datetime) -> List[Dict[str, Any]]:
             if not parts:
                 continue
 
-            # Проверяем вид спорта: должен быть Бег или Трейл
             tags_text = " ".join(t.get_text(" ", strip=True) for t in card.select(".b-event-card__tag")).lower()
-            if "бег" not in tags_text and "трейл" not in title.lower() and "забег" not in title.lower():
+            t_low = title.lower()
+            is_running = (
+                "бег" in tags_text
+                or "рогейн" in tags_text
+                or "ориентирование" in tags_text
+                or "дог-трейл" in tags_text
+                or any(k in t_low for k in ["трейл", "забег", "марафон", "кросс", "crace", "hyrox", "буря"])
+            )
+            if not is_running:
                 continue
 
             date_part = parts[0]
             city_part = parts[1] if len(parts) >= 3 else "Москва / Московская область"
 
+            # Если город не указан, но это известная московская серия (например, Open Band Буря)
             is_msk, region_tag = is_moscow_or_mo(f"{city_part} {title}")
-            if not is_msk:
+            if not is_msk and "open band" not in t_low:
                 continue
+            if "open band" in t_low and not is_msk:
+                region_tag = "Подмосковье"
+                city_part = "Московская область, Красногорск"
 
             start_date, end_date = parse_russian_date_flexible(date_part, ref_date)
             if not start_date:
@@ -572,7 +592,7 @@ def fetch_regplace_events(ref_date: datetime) -> List[Dict[str, Any]]:
                     "vk_url": None,
                     "source": "Reg.Place",
                     "is_parkrun": False,
-                    "featured": False,
+                    "featured": "буря" in t_low or "самопреодоление" in t_low,
                 }
             )
 
@@ -1000,6 +1020,331 @@ def fetch_heroleague_events(ref_date: datetime) -> List[Dict[str, Any]]:
     return events
 
 
+def fetch_dab_running_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит серию горных трейлов DAB Vertical Four Seasons (СК «Кант», Москва, м. Нагорная) с dab-running.ru."""
+    events: List[Dict[str, Any]] = []
+    today_iso = ref_date.strftime("%Y-%m-%d")
+    try:
+        resp = requests.get(DAB_RUNNING_URL, headers={"User-Agent": USER_AGENT}, timeout=20)
+        resp.raise_for_status()
+    except Exception as exc:
+        print(f"[WARN] Ошибка загрузки DAB Running ({DAB_RUNNING_URL}): {exc}")
+        return events
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    seen_hrefs = set()
+
+    for a in soup.select("a[href*='/races/']"):
+        href = (a.get("href") or "").strip()
+        if not href or href in seen_hrefs:
+            continue
+
+        text = re.sub(r"\s+", " ", a.get_text(" | ", strip=True))
+        if "отменен" in text.lower() or "online" in text.lower() or "онлайн" in text.lower():
+            continue
+
+        m_date = re.search(r"(\d{2}\.\d{2}\.\d{4})", text)
+        if not m_date:
+            continue
+
+        raw_date = m_date.group(1)
+        start_date, end_date = parse_probeg_date(raw_date)
+        if not start_date or start_date < today_iso:
+            continue
+
+        seen_hrefs.add(href)
+        # Извлекаем название забега после даты
+        parts = [p.strip() for p in text.split("|") if p.strip()]
+        title = parts[-1] if parts else "DAB Vertical Night Trail"
+
+        full_url = f"https://dab-running.ru{href}" if href.startswith("/") else href
+        distances = ["14 км (+700м)", "10 км (+500м)", "7 км (+350м)", "3.5 км (+150м)", "1 км (дети)"]
+        uid_seed = f"{start_date}-{title.lower()}-dab"
+        event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+        events.append(
+            {
+                "id": event_id,
+                "title": title,
+                "date": start_date,
+                "end_date": end_date,
+                "display_date": raw_date,
+                "location": "Москва, м. Нагорная, СК «Кант» (Электролитный пр., 7Б)",
+                "region": "Москва",
+                "distances": distances,
+                "surface": "Трейл / Грунт",
+                "category": "Трейл / Кросс",
+                "rating": 5.0,
+                "organizer": "DAB Running",
+                "url": full_url,
+                "registration_url": full_url,
+                "official_url": full_url,
+                "source_url": DAB_RUNNING_URL,
+                "vk_url": "https://vk.com/dabrunning",
+                "source": "DAB Running",
+                "is_parkrun": False,
+                "featured": True,
+            }
+        )
+
+    print(f"[INFO] Получено событий с DAB Running: {len(events)}")
+    return events
+
+
+def fetch_city_trail_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит серию городских трейлов City Trail by Wild Trail (city-trail.ru) в парках Москвы и МО."""
+    events: List[Dict[str, Any]] = []
+    try:
+        resp = requests.get(CITY_TRAIL_URL, headers={"User-Agent": USER_AGENT}, timeout=20)
+        if resp.status_code != 200:
+            return events
+    except Exception as exc:
+        print(f"[WARN] Ошибка загрузки City Trail ({CITY_TRAIL_URL}): {exc}")
+        return events
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    seen_stages = set()
+
+    for a in soup.find_all("a", href=re.compile(r"^/[1-9]$")):
+        href = (a.get("href") or "").strip()
+        text = re.sub(r"\s+", " ", a.get_text(" | ", strip=True))
+        parts = [p.strip() for p in text.split("|") if p.strip()]
+        # Ожидаем структуру: ['6', 'x-race', '1 ноября', 'парк X-Land', ...]
+        if len(parts) < 4 or not parts[0].isdigit():
+            continue
+
+        stage_num = parts[0]
+        if stage_num in seen_stages:
+            continue
+
+        stage_slug = parts[1].title()
+        raw_date = parts[2]
+        park_loc = parts[3]
+
+        start_date, end_date = parse_russian_date_flexible(raw_date, ref_date)
+        if not start_date:
+            continue
+
+        seen_stages.add(stage_num)
+        title = f"City Trail #{stage_num} — {stage_slug} ({park_loc})"
+        full_url = f"https://city-trail.ru{href}"
+        is_msk, region_tag = is_moscow_or_mo(park_loc)
+        if "x-land" in park_loc.lower() or "ромашково" in park_loc.lower():
+            region_tag = "Подмосковье"
+        else:
+            region_tag = "Москва"
+
+        distances = ["5 км", "10 км", "15 км", "25–30 км"]
+        uid_seed = f"{start_date}-{stage_num}-citytrail"
+        event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+        events.append(
+            {
+                "id": event_id,
+                "title": title,
+                "date": start_date,
+                "end_date": end_date,
+                "display_date": raw_date,
+                "location": f"{region_tag}, {park_loc}",
+                "region": region_tag,
+                "distances": distances,
+                "surface": "Трейл / Грунт",
+                "category": "Трейл / Кросс",
+                "rating": 5.0,
+                "organizer": "Wild Trail / City Trail",
+                "url": full_url,
+                "registration_url": full_url,
+                "official_url": full_url,
+                "source_url": CITY_TRAIL_URL,
+                "vk_url": "https://vk.com/city_trail",
+                "source": "City Trail",
+                "is_parkrun": False,
+                "featured": True,
+            }
+        )
+
+    print(f"[INFO] Получено этапов с City-Trail.ru: {len(events)}")
+    return events
+
+
+def fetch_bearrace_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит экстремальные забеги с препятствиями «Медвежья гонка» (bearrace.ru, ОУСЦ Планерная, Химки)."""
+    events: List[Dict[str, Any]] = []
+    today_iso = ref_date.strftime("%Y-%m-%d")
+    try:
+        resp = requests.get(BEARRACE_URL, headers={"User-Agent": USER_AGENT}, timeout=20)
+        resp.raise_for_status()
+    except Exception as exc:
+        print(f"[WARN] Ошибка загрузки BearRace ({BEARRACE_URL}): {exc}")
+        return events
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    seen_urls = set()
+
+    for a in soup.find_all("a", href=True):
+        href = (a.get("href") or "").strip()
+        if "russiarunning.com/event/" not in href or href in seen_urls:
+            continue
+
+        # Извлекаем дату DDMMYYYY из кода ссылки, например ZabegsprepyatstviyamiMedvezhyagonka13122026
+        m_date = re.search(r"(\d{2})(\d{2})(202\d)", href)
+        if not m_date:
+            continue
+
+        d, m, y = m_date.groups()
+        start_date = f"{y}-{m}-{d}"
+        if start_date < today_iso:
+            continue
+
+        seen_urls.add(href)
+        clean_reg_url = href.split("?")[0]
+        title = "Забег с препятствиями «Медвежья гонка»"
+        uid_seed = f"{start_date}-bearrace"
+        event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+        events.append(
+            {
+                "id": event_id,
+                "title": title,
+                "date": start_date,
+                "end_date": start_date,
+                "display_date": f"{d}.{m}.{y}",
+                "location": "Московская область, г. Химки, ОУСЦ «Планерная»",
+                "region": "Подмосковье",
+                "distances": ["5+ км (30+ препятствий)", "Командная эстафета"],
+                "surface": "Трейл / Грунт",
+                "category": "Трейл / Кросс",
+                "rating": 4.9,
+                "organizer": "Медвежья гонка (BearRace)",
+                "url": clean_reg_url,
+                "registration_url": clean_reg_url,
+                "official_url": BEARRACE_URL,
+                "source_url": BEARRACE_URL,
+                "vk_url": "https://vk.com/bearrace",
+                "source": "BearRace.ru",
+                "is_parkrun": False,
+                "featured": True,
+            }
+        )
+
+    print(f"[INFO] Получено событий с BearRace.ru: {len(events)}")
+    return events
+
+
+def fetch_cracerun_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит фитнес-гонки CRACE / HYROX (cracerun.ru) и проверяет наличие московских стартов."""
+    events: List[Dict[str, Any]] = []
+    today_iso = ref_date.strftime("%Y-%m-%d")
+    try:
+        resp = requests.get(CRACERUN_URL, headers={"User-Agent": USER_AGENT}, timeout=20)
+        if resp.status_code != 200:
+            return events
+    except Exception as exc:
+        print(f"[WARN] Ошибка загрузки CRACE ({CRACERUN_URL}): {exc}")
+        return events
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    for a in soup.find_all("a", href=True):
+        title = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
+        href = (a.get("href") or "").strip()
+        if "crace" not in title.lower():
+            continue
+        is_msk, region_tag = is_moscow_or_mo(title)
+        if not is_msk:
+            continue
+
+        m_date = re.search(r"/(\d{2})(\d{2})(\d{2})$", href)
+        if not m_date:
+            continue
+        d, m, y_short = m_date.groups()
+        start_date = f"20{y_short}-{m}-{d}"
+        if start_date < today_iso:
+            continue
+
+        uid_seed = f"{start_date}-{title.lower()}-crace"
+        event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+        events.append(
+            {
+                "id": event_id,
+                "title": f"Фитнес-гонка {title} (HYROX формат)",
+                "date": start_date,
+                "end_date": start_date,
+                "display_date": f"{d}.{m}.20{y_short}",
+                "location": "Москва",
+                "region": region_tag,
+                "distances": ["8×1 км бег + 8 функциональных станций"],
+                "surface": "Манеж",
+                "category": "Трек / Манеж",
+                "rating": 5.0,
+                "organizer": "CRACE Russia",
+                "url": href if href.startswith("http") else f"https://cracerun.ru{href}",
+                "registration_url": href,
+                "official_url": CRACERUN_URL,
+                "source_url": CRACERUN_URL,
+                "vk_url": "https://vk.com/cracerussia",
+                "source": "CRACE",
+                "is_parkrun": False,
+                "featured": True,
+            }
+        )
+
+    print(f"[INFO] Получено московских событий с CRACE: {len(events)}")
+    return events
+
+
+def fetch_gto_leto_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит фестивали «Лето ГТО | Московский Спорт» (gto-leto.sport.mos.ru)."""
+    events: List[Dict[str, Any]] = []
+    today_iso = ref_date.strftime("%Y-%m-%d")
+    try:
+        import urllib3
+        urllib3.disable_warnings()
+        resp = requests.get(GTO_LETO_URL, headers={"User-Agent": USER_AGENT}, timeout=15, verify=False)
+        if resp.status_code != 200:
+            return events
+    except Exception as exc:
+        print(f"[WARN] Ошибка загрузки Лето ГТО ({GTO_LETO_URL}): {exc}")
+        return events
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    text = soup.get_text("\n", strip=True)
+    # Ищем опубликованные даты вида DD.MM.YYYY или DD месяца
+    for m in re.finditer(r"(\d{2}\.\d{2}\.202\d)", text):
+        raw_date = m.group(1)
+        start_date, _ = parse_probeg_date(raw_date)
+        if not start_date or start_date < today_iso:
+            continue
+        uid_seed = f"{start_date}-gto-leto"
+        event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+        events.append(
+            {
+                "id": event_id,
+                "title": "Фестиваль «Лето ГТО» — Московский Спорт",
+                "date": start_date,
+                "end_date": start_date,
+                "display_date": raw_date,
+                "location": "Москва, площадки Московского Спорта",
+                "region": "Москва",
+                "distances": ["Бег ГТО (60 м, 1 км, 2 км, 3 км)"],
+                "surface": "Трек / Манеж",
+                "category": "Городской забег",
+                "rating": 4.9,
+                "organizer": "Московский Спорт",
+                "url": GTO_LETO_URL,
+                "registration_url": GTO_LETO_URL,
+                "official_url": GTO_LETO_URL,
+                "source_url": GTO_LETO_URL,
+                "vk_url": None,
+                "source": "Московский Спорт (ГТО)",
+                "is_parkrun": False,
+                "featured": True,
+            }
+        )
+
+    print(f"[INFO] Получено событий с Лето ГТО (sport.mos.ru): {len(events)}")
+    return events
+
+
 def normalize_dedup_title(title: str) -> str:
     """Нормализует название для умной дедупликации между разными агрегаторами."""
     low = title.lower()
@@ -1113,6 +1458,11 @@ def main() -> None:
 
     runc_events = fetch_runc_events(now_msk)
     heroleague_events = fetch_heroleague_events(now_msk)
+    dab_events = fetch_dab_running_events(now_msk)
+    city_trail_events = fetch_city_trail_events(now_msk)
+    bearrace_events = fetch_bearrace_events(now_msk)
+    crace_events = fetch_cracerun_events(now_msk)
+    gto_events = fetch_gto_leto_events(now_msk)
     probeg_events = fetch_probeg_events(include_parkruns=False)
     russiarunning_events = fetch_russiarunning_events(now_msk)
     mountain_events = fetch_mountain_race_events(now_msk)
@@ -1124,6 +1474,11 @@ def main() -> None:
         [
             runc_events,
             heroleague_events,
+            dab_events,
+            city_trail_events,
+            bearrace_events,
+            crace_events,
+            gto_events,
             probeg_events,
             russiarunning_events,
             mountain_events,
@@ -1149,6 +1504,11 @@ def main() -> None:
             {"name": "RussiaRunning (reg.russiarunning.com)", "url": "https://reg.russiarunning.com/"},
             {"name": "Лига Героев (heroleague.ru)", "url": "https://heroleague.ru/calendar"},
             {"name": "Reg.Place (reg.place)", "url": "https://reg.place/events"},
+            {"name": "City Trail (city-trail.ru)", "url": "https://city-trail.ru/"},
+            {"name": "DAB Running (dab-running.ru)", "url": "https://dab-running.ru/"},
+            {"name": "Медвежья гонка (bearrace.ru)", "url": "https://bearrace.ru/"},
+            {"name": "CRACE (cracerun.ru)", "url": "https://cracerun.ru/"},
+            {"name": "Лето ГТО (gto-leto.sport.mos.ru)", "url": "https://gto-leto.sport.mos.ru/"},
             {"name": "MyRace (myrace.info)", "url": "https://myrace.info/"},
             {"name": "Mountain-Race (mountain-race.ru)", "url": "https://mountain-race.ru/events/"},
             {"name": "5 вёрст & S95 (субботние парковые забеги)", "url": "https://5verst.ru/"},

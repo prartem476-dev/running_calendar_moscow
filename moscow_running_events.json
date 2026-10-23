@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-10-23T16:23:11+03:00",
-  "updated_at_human": "23.10.2026 в 16:23 МСК",
+  "updated_at": "2026-10-23T16:31:59+03:00",
+  "updated_at_human": "23.10.2026 в 16:31 МСК",
   "region": "Москва и Московская область",
-  "total_events": 238,
-  "main_races_count": 148,
+  "total_events": 247,
+  "main_races_count": 157,
   "parkruns_count": 90,
   "sources": [
     {
@@ -25,6 +25,26 @@
     {
       "name": "Reg.Place (reg.place)",
       "url": "https://reg.place/events"
+    },
+    {
+      "name": "City Trail (city-trail.ru)",
+      "url": "https://city-trail.ru/"
+    },
+    {
+      "name": "DAB Running (dab-running.ru)",
+      "url": "https://dab-running.ru/"
+    },
+    {
+      "name": "Медвежья гонка (bearrace.ru)",
+      "url": "https://bearrace.ru/"
+    },
+    {
+      "name": "CRACE (cracerun.ru)",
+      "url": "https://cracerun.ru/"
+    },
+    {
+      "name": "Лето ГТО (gto-leto.sport.mos.ru)",
+      "url": "https://gto-leto.sport.mos.ru/"
     },
     {
       "name": "MyRace (myrace.info)",
@@ -2107,6 +2127,32 @@
       "featured": false
     },
     {
+      "id": "da46d4b66c",
+      "title": "Немарафон «Осенний флоу» 25.10.2026",
+      "date": "2026-10-25",
+      "end_date": "2026-10-25",
+      "display_date": "25 октября",
+      "location": "Московская область, Балашиха",
+      "region": "Подмосковье",
+      "distances": [
+        "5 км",
+        "10 км",
+        "21.1 км"
+      ],
+      "surface": "Шоссе",
+      "category": "Марафон",
+      "rating": null,
+      "organizer": "Reg.Place",
+      "url": "https://reg.place/events/osenniy-flow-2026",
+      "registration_url": "https://reg.place/events/osenniy-flow-2026",
+      "official_url": "https://reg.place/events/osenniy-flow-2026",
+      "source_url": "https://reg.place/events",
+      "vk_url": null,
+      "source": "Reg.Place",
+      "is_parkrun": false,
+      "featured": false
+    },
+    {
       "id": "b9f3f8aac2",
       "title": "Офлайн и онлайн Любительский забег в помощь бездомным 🐶🐱 500м, 1 / 2,5 / 5 / 10км Марьино - 25.10 Бег с любовью/ Run With Love",
       "date": "2026-10-25",
@@ -2199,9 +2245,9 @@
       "location": "101000, г Москва",
       "region": "Подмосковье",
       "distances": [
-        "1.6 км",
+        "16 км",
         "5 км",
-        "16 км"
+        "1.6 км"
       ],
       "surface": "Шоссе",
       "category": "Городской забег",
@@ -2835,6 +2881,33 @@
       "featured": false
     },
     {
+      "id": "d47d2d6c3e",
+      "title": "City Trail #6 — X-Race (парк X-Land)",
+      "date": "2026-11-01",
+      "end_date": "2026-11-01",
+      "display_date": "1 ноября",
+      "location": "Подмосковье, парк X-Land",
+      "region": "Подмосковье",
+      "distances": [
+        "5 км",
+        "10 км",
+        "15 км",
+        "25–30 км"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Трейл / Кросс",
+      "rating": 5.0,
+      "organizer": "Wild Trail / City Trail",
+      "url": "https://city-trail.ru/6",
+      "registration_url": "https://city-trail.ru/6",
+      "official_url": "https://city-trail.ru/6",
+      "source_url": "https://city-trail.ru/",
+      "vk_url": "https://vk.com/city_trail",
+      "source": "City Trail",
+      "is_parkrun": false,
+      "featured": true
+    },
+    {
       "id": "3318aec23d",
       "title": "Забег 8 городов. Москва",
       "date": "2026-11-01",
@@ -3016,6 +3089,32 @@
       "source_url": "https://probeg.org/event/77042/",
       "vk_url": "https://vk.com/id876065261",
       "source": "ПроБЕГ",
+      "is_parkrun": false,
+      "featured": false
+    },
+    {
+      "id": "502b171104",
+      "title": "Открытое первенство Одинцовского городского округа по кросс-кантри (маунтинбайк)",
+      "date": "2026-11-01",
+      "end_date": "2026-11-01",
+      "display_date": "1 ноября",
+      "location": "Московская область, Одинцово",
+      "region": "Подмосковье",
+      "distances": [
+        "5 км",
+        "10 км",
+        "21.1 км"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Полумарафон",
+      "rating": null,
+      "organizer": "Reg.Place",
+      "url": "https://reg.place/events/odintsovomtb2026",
+      "registration_url": "https://reg.place/events/odintsovomtb2026",
+      "official_url": "https://reg.place/events/odintsovomtb2026",
+      "source_url": "https://reg.place/events",
+      "vk_url": null,
+      "source": "Reg.Place",
       "is_parkrun": false,
       "featured": false
     },
@@ -3261,8 +3360,8 @@
       "region": "Москва",
       "distances": [
         "130 м",
-        "260 м",
-        "5 км"
+        "5 км",
+        "260 м"
       ],
       "surface": "Шоссе",
       "category": "Городской забег",
@@ -3669,6 +3768,32 @@
       "featured": false
     },
     {
+      "id": "3a33f237f4",
+      "title": "Буря - Open Band Трейлы 2026",
+      "date": "2026-11-15",
+      "end_date": "2026-11-15",
+      "display_date": "15 ноября",
+      "location": "Москва / Московская область",
+      "region": "Подмосковье",
+      "distances": [
+        "5 км",
+        "10 км",
+        "21.1 км"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Полумарафон",
+      "rating": null,
+      "organizer": "Reg.Place",
+      "url": "https://reg.place/events/burya2026",
+      "registration_url": "https://reg.place/events/burya2026",
+      "official_url": "https://reg.place/events/burya2026",
+      "source_url": "https://reg.place/events",
+      "vk_url": null,
+      "source": "Reg.Place",
+      "is_parkrun": false,
+      "featured": true
+    },
+    {
       "id": "ae9ab566ed",
       "title": "Буря 2026",
       "date": "2026-11-15",
@@ -3694,6 +3819,32 @@
       "source_url": "https://mountain-race.ru/events/",
       "vk_url": "https://vk.com/mountain_race",
       "source": "Mountain-Race.ru",
+      "is_parkrun": false,
+      "featured": true
+    },
+    {
+      "id": "02139f8ecd",
+      "title": "Детский «Дино-клуб» на трейле «Буря» 2026",
+      "date": "2026-11-15",
+      "end_date": "2026-11-15",
+      "display_date": "15 ноября",
+      "location": "Москва / Московская область",
+      "region": "Подмосковье",
+      "distances": [
+        "5 км",
+        "10 км",
+        "21.1 км"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Полумарафон",
+      "rating": null,
+      "organizer": "Reg.Place",
+      "url": "https://reg.place/events/dino-copy-2",
+      "registration_url": "https://reg.place/events/dino-copy-2",
+      "official_url": "https://reg.place/events/dino-copy-2",
+      "source_url": "https://reg.place/events",
+      "vk_url": null,
+      "source": "Reg.Place",
       "is_parkrun": false,
       "featured": true
     },
@@ -3724,6 +3875,32 @@
       "source_url": "https://reg.russiarunning.com/",
       "vk_url": null,
       "source": "RussiaRunning",
+      "is_parkrun": false,
+      "featured": true
+    },
+    {
+      "id": "8c55fb02ee",
+      "title": "Кубок Шри Чинмоя \"Самопреодоление\", 1-й этап (2026-2027)",
+      "date": "2026-11-15",
+      "end_date": "2026-11-15",
+      "display_date": "15 ноября",
+      "location": "Москва",
+      "region": "Москва",
+      "distances": [
+        "5 км",
+        "10 км",
+        "21.1 км"
+      ],
+      "surface": "Шоссе",
+      "category": "Полумарафон",
+      "rating": null,
+      "organizer": "Reg.Place",
+      "url": "https://reg.place/events/7yew5e-1729161874-4316835-176043sdhgfvjdf5",
+      "registration_url": "https://reg.place/events/7yew5e-1729161874-4316835-176043sdhgfvjdf5",
+      "official_url": "https://reg.place/events/7yew5e-1729161874-4316835-176043sdhgfvjdf5",
+      "source_url": "https://reg.place/events",
+      "vk_url": null,
+      "source": "Reg.Place",
       "is_parkrun": false,
       "featured": true
     },
@@ -3788,32 +3965,6 @@
       "featured": false
     },
     {
-      "id": "3a33f237f4",
-      "title": "Буря - Open Band Трейлы 2026",
-      "date": "2026-11-15",
-      "end_date": "2026-11-15",
-      "display_date": "15 ноября",
-      "location": "Москва / Московская область",
-      "region": "Подмосковье",
-      "distances": [
-        "5 км",
-        "10 км",
-        "21.1 км"
-      ],
-      "surface": "Трейл / Грунт",
-      "category": "Полумарафон",
-      "rating": null,
-      "organizer": "Reg.Place",
-      "url": "https://reg.place/events/burya2026",
-      "registration_url": "https://reg.place/events/burya2026",
-      "official_url": "https://reg.place/events/burya2026",
-      "source_url": "https://reg.place/events",
-      "vk_url": null,
-      "source": "Reg.Place",
-      "is_parkrun": false,
-      "featured": false
-    },
-    {
       "id": "4cab319845",
       "title": "Забег «Open Band Trails — Буря»",
       "date": "2026-11-15",
@@ -3841,32 +3992,6 @@
       "source_url": "https://probeg.org/event/72353/",
       "vk_url": "https://vk.com/openbandtrail",
       "source": "ПроБЕГ",
-      "is_parkrun": false,
-      "featured": false
-    },
-    {
-      "id": "8c55fb02ee",
-      "title": "Кубок Шри Чинмоя \"Самопреодоление\", 1-й этап (2026-2027)",
-      "date": "2026-11-15",
-      "end_date": "2026-11-15",
-      "display_date": "15 ноября",
-      "location": "Москва",
-      "region": "Москва",
-      "distances": [
-        "5 км",
-        "10 км",
-        "21.1 км"
-      ],
-      "surface": "Шоссе",
-      "category": "Полумарафон",
-      "rating": null,
-      "organizer": "Reg.Place",
-      "url": "https://reg.place/events/7yew5e-1729161874-4316835-176043sdhgfvjdf5",
-      "registration_url": "https://reg.place/events/7yew5e-1729161874-4316835-176043sdhgfvjdf5",
-      "official_url": "https://reg.place/events/7yew5e-1729161874-4316835-176043sdhgfvjdf5",
-      "source_url": "https://reg.place/events",
-      "vk_url": null,
-      "source": "Reg.Place",
       "is_parkrun": false,
       "featured": false
     },
@@ -3980,6 +4105,34 @@
       "featured": false
     },
     {
+      "id": "3927d27292",
+      "title": "DAB Vertical AUTUMN Night 2026",
+      "date": "2026-11-28",
+      "end_date": "2026-11-28",
+      "display_date": "28.11.2026",
+      "location": "Москва, м. Нагорная, СК «Кант» (Электролитный пр., 7Б)",
+      "region": "Москва",
+      "distances": [
+        "14 км (+700м)",
+        "10 км (+500м)",
+        "7 км (+350м)",
+        "3.5 км (+150м)",
+        "1 км (дети)"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Трейл / Кросс",
+      "rating": 5.0,
+      "organizer": "DAB Running",
+      "url": "https://dab-running.ru/races/DAB_Vertical_AUTUMN_Night_2026/",
+      "registration_url": "https://dab-running.ru/races/DAB_Vertical_AUTUMN_Night_2026/",
+      "official_url": "https://dab-running.ru/races/DAB_Vertical_AUTUMN_Night_2026/",
+      "source_url": "https://dab-running.ru/trails/",
+      "vk_url": "https://vk.com/dabrunning",
+      "source": "DAB Running",
+      "is_parkrun": false,
+      "featured": true
+    },
+    {
       "id": "bfe88987fa",
       "title": "Иммерсивный Жуков Трейл 2026",
       "date": "2026-11-28",
@@ -4026,34 +4179,6 @@
       "official_url": "https://mosathletics.ru/соревнования/соревнования-2026/",
       "source_url": "https://probeg.org/event/78905/",
       "vk_url": "https://vk.com/running.territory",
-      "source": "ПроБЕГ",
-      "is_parkrun": false,
-      "featured": false
-    },
-    {
-      "id": "9bb2c236dc",
-      "title": "Трейл «DAB Vertical Autumn Night»",
-      "date": "2026-11-28",
-      "end_date": "2026-11-28",
-      "display_date": "28.11.2026",
-      "location": "Москва",
-      "region": "Москва",
-      "distances": [
-        "14 км (+650м)",
-        "10 км (+500м)",
-        "7 км (+300м)",
-        "3500 м (+150м)",
-        "1 км (дети) (+40м)"
-      ],
-      "surface": "Трейл / Грунт",
-      "category": "Трейл / Кросс",
-      "rating": 4.8,
-      "organizer": "Клубы и организаторы / ПроБЕГ",
-      "url": "https://dab-running.ru/races/DAB_Vertical_AUTUMN_Night_2026/",
-      "registration_url": null,
-      "official_url": "https://dab-running.ru/races/DAB_Vertical_AUTUMN_Night_2026/",
-      "source_url": "https://probeg.org/event/84851/",
-      "vk_url": "https://vk.com/dabrunning",
       "source": "ПроБЕГ",
       "is_parkrun": false,
       "featured": false
@@ -4120,6 +4245,31 @@
       "featured": false
     },
     {
+      "id": "a6bea001a9",
+      "title": "Забег с препятствиями «Медвежья гонка»",
+      "date": "2026-12-13",
+      "end_date": "2026-12-13",
+      "display_date": "13.12.2026",
+      "location": "Московская область, г. Химки, ОУСЦ «Планерная»",
+      "region": "Подмосковье",
+      "distances": [
+        "5+ км (30+ препятствий)",
+        "Командная эстафета"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Трейл / Кросс",
+      "rating": 4.9,
+      "organizer": "Медвежья гонка (BearRace)",
+      "url": "https://reg.russiarunning.com/event/ZabegsprepyatstviyamiMedvezhyagonka13122026",
+      "registration_url": "https://reg.russiarunning.com/event/ZabegsprepyatstviyamiMedvezhyagonka13122026",
+      "official_url": "https://bearrace.ru/",
+      "source_url": "https://bearrace.ru/",
+      "vk_url": "https://vk.com/bearrace",
+      "source": "BearRace.ru",
+      "is_parkrun": false,
+      "featured": true
+    },
+    {
       "id": "b64513c95b",
       "title": "Space Carnival 2026",
       "date": "2026-12-13",
@@ -4140,30 +4290,6 @@
       "url": "https://reg.russiarunning.com/event/spacecarnival2026",
       "registration_url": "https://reg.russiarunning.com/event/spacecarnival2026",
       "official_url": "https://reg.russiarunning.com/event/spacecarnival2026",
-      "source_url": "https://reg.russiarunning.com/",
-      "vk_url": null,
-      "source": "RussiaRunning",
-      "is_parkrun": false,
-      "featured": false
-    },
-    {
-      "id": "d54fedc264",
-      "title": "Забег с препятствиями «Медвежья гонка»",
-      "date": "2026-12-13",
-      "end_date": "2026-12-13",
-      "display_date": "13.12.2026",
-      "location": "Московская область, г. Химки, микрорайон Планерная, вл 1",
-      "region": "Подмосковье",
-      "distances": [
-        "5 км"
-      ],
-      "surface": "Шоссе",
-      "category": "Городской забег",
-      "rating": null,
-      "organizer": "ИП Кочергин Олег Вячеславович",
-      "url": "https://reg.russiarunning.com/event/ZabegsprepyatstviyamiMedvezhyagonka13122026",
-      "registration_url": "https://reg.russiarunning.com/event/ZabegsprepyatstviyamiMedvezhyagonka13122026",
-      "official_url": "https://reg.russiarunning.com/event/ZabegsprepyatstviyamiMedvezhyagonka13122026",
       "source_url": "https://reg.russiarunning.com/",
       "vk_url": null,
       "source": "RussiaRunning",
@@ -4232,33 +4358,32 @@
       "featured": false
     },
     {
-      "id": "04a6c71057",
-      "title": "Трейл «DAB Vertical Winter Night»",
+      "id": "cc8af44e25",
+      "title": "DAB Vertical Winter Night 2026",
       "date": "2026-12-26",
       "end_date": "2026-12-26",
       "display_date": "26.12.2026",
-      "location": "Москва",
+      "location": "Москва, м. Нагорная, СК «Кант» (Электролитный пр., 7Б)",
       "region": "Москва",
       "distances": [
-        "10 км (+200м)",
-        "7500 м (+150м)",
-        "5 км (+100м)",
-        "2500 м (+50м)",
-        "2500 м (этап эстафеты 4*2,5 км) (+50м)",
+        "14 км (+700м)",
+        "10 км (+500м)",
+        "7 км (+350м)",
+        "3.5 км (+150м)",
         "1 км (дети)"
       ],
       "surface": "Трейл / Грунт",
       "category": "Трейл / Кросс",
-      "rating": 4.8,
-      "organizer": "Клубы и организаторы / ПроБЕГ",
+      "rating": 5.0,
+      "organizer": "DAB Running",
       "url": "https://dab-running.ru/races/DAB_Vertical_Winter_Night_2026/",
-      "registration_url": null,
+      "registration_url": "https://dab-running.ru/races/DAB_Vertical_Winter_Night_2026/",
       "official_url": "https://dab-running.ru/races/DAB_Vertical_Winter_Night_2026/",
-      "source_url": "https://probeg.org/event/84852/",
+      "source_url": "https://dab-running.ru/trails/",
       "vk_url": "https://vk.com/dabrunning",
-      "source": "ПроБЕГ",
+      "source": "DAB Running",
       "is_parkrun": false,
-      "featured": false
+      "featured": true
     },
     {
       "id": "f05118afc9",
@@ -4807,32 +4932,32 @@
       "featured": false
     },
     {
-      "id": "639edbd802",
-      "title": "Трейл «DAB Vertical Spring Night»",
+      "id": "93cc03dd09",
+      "title": "DAB Vertical SPRING Night 2027",
       "date": "2027-03-20",
       "end_date": "2027-03-20",
       "display_date": "20.03.2027",
-      "location": "Москва",
+      "location": "Москва, м. Нагорная, СК «Кант» (Электролитный пр., 7Б)",
       "region": "Москва",
       "distances": [
-        "10 км (+200м)",
-        "7500 м (+150м)",
-        "5 км (+100м)",
-        "2500 м (+50м)",
-        "1 км (дети) (+40м)"
+        "14 км (+700м)",
+        "10 км (+500м)",
+        "7 км (+350м)",
+        "3.5 км (+150м)",
+        "1 км (дети)"
       ],
       "surface": "Трейл / Грунт",
       "category": "Трейл / Кросс",
-      "rating": 4.8,
-      "organizer": "Клубы и организаторы / ПроБЕГ",
+      "rating": 5.0,
+      "organizer": "DAB Running",
       "url": "https://dab-running.ru/races/DAB_Vertical_SPRING_Night_2027/",
-      "registration_url": null,
+      "registration_url": "https://dab-running.ru/races/DAB_Vertical_SPRING_Night_2027/",
       "official_url": "https://dab-running.ru/races/DAB_Vertical_SPRING_Night_2027/",
-      "source_url": "https://probeg.org/event/84853/",
+      "source_url": "https://dab-running.ru/trails/",
       "vk_url": "https://vk.com/dabrunning",
-      "source": "ПроБЕГ",
+      "source": "DAB Running",
       "is_parkrun": false,
-      "featured": false
+      "featured": true
     },
     {
       "id": "d5f48c4d62",
@@ -5558,6 +5683,33 @@
       "featured": false
     },
     {
+      "id": "e31d172ea5",
+      "title": "City Trail #1 — Romashkovo (Ромашково)",
+      "date": "2027-05-24",
+      "end_date": "2027-05-24",
+      "display_date": "24 мая",
+      "location": "Подмосковье, Ромашково",
+      "region": "Подмосковье",
+      "distances": [
+        "5 км",
+        "10 км",
+        "15 км",
+        "25–30 км"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Трейл / Кросс",
+      "rating": 5.0,
+      "organizer": "Wild Trail / City Trail",
+      "url": "https://city-trail.ru/1",
+      "registration_url": "https://city-trail.ru/1",
+      "official_url": "https://city-trail.ru/1",
+      "source_url": "https://city-trail.ru/",
+      "vk_url": "https://vk.com/city_trail",
+      "source": "City Trail",
+      "is_parkrun": false,
+      "featured": true
+    },
+    {
       "id": "ddd83e5e0c",
       "title": "Детский забег",
       "date": "2027-05-24",
@@ -5797,6 +5949,33 @@
       "featured": true
     },
     {
+      "id": "09fbcbbbce",
+      "title": "City Trail #2 — Butovo (альфа-битца)",
+      "date": "2027-06-21",
+      "end_date": "2027-06-21",
+      "display_date": "21 июня",
+      "location": "Москва, альфа-битца",
+      "region": "Москва",
+      "distances": [
+        "5 км",
+        "10 км",
+        "15 км",
+        "25–30 км"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Трейл / Кросс",
+      "rating": 5.0,
+      "organizer": "Wild Trail / City Trail",
+      "url": "https://city-trail.ru/2",
+      "registration_url": "https://city-trail.ru/2",
+      "official_url": "https://city-trail.ru/2",
+      "source_url": "https://city-trail.ru/",
+      "vk_url": "https://vk.com/city_trail",
+      "source": "City Trail",
+      "is_parkrun": false,
+      "featured": true
+    },
+    {
       "id": "58b94f020b",
       "title": "Grom Tri Sprint — II этап кубка «Московский Гром»",
       "date": "2027-07-10",
@@ -5875,33 +6054,59 @@
       "featured": false
     },
     {
-      "id": "d9ca2d3c80",
-      "title": "Трейл «DAB Vertical Summer Night»",
-      "date": "2027-07-15",
-      "end_date": "2027-07-15",
-      "display_date": "15.07.2027",
-      "location": "Москва",
+      "id": "ace6d231dc",
+      "title": "City Trail #3 — Bitsa (Битцевский лес)",
+      "date": "2027-07-12",
+      "end_date": "2027-07-12",
+      "display_date": "12 июля",
+      "location": "Москва, Битцевский лес",
       "region": "Москва",
       "distances": [
-        "14240 м (+460м)",
-        "10680 м (+345м)",
-        "7120 м (+230м)",
-        "3560 м (+115м)",
-        "3560 м (этап эстафеты 4*3,56 км) (+115м)",
-        "1 км (детский забег) (+45м)"
+        "5 км",
+        "10 км",
+        "15 км",
+        "25–30 км"
       ],
       "surface": "Трейл / Грунт",
       "category": "Трейл / Кросс",
-      "rating": 4.8,
-      "organizer": "Клубы и организаторы / ПроБЕГ",
-      "url": "https://dab-running.ru/races/DAB_Vertical_Summer_2027/",
-      "registration_url": null,
-      "official_url": "https://dab-running.ru/races/DAB_Vertical_Summer_2027/",
-      "source_url": "https://probeg.org/event/84854/",
-      "vk_url": "https://vk.com/dabrunning",
-      "source": "ПроБЕГ",
+      "rating": 5.0,
+      "organizer": "Wild Trail / City Trail",
+      "url": "https://city-trail.ru/3",
+      "registration_url": "https://city-trail.ru/3",
+      "official_url": "https://city-trail.ru/3",
+      "source_url": "https://city-trail.ru/",
+      "vk_url": "https://vk.com/city_trail",
+      "source": "City Trail",
       "is_parkrun": false,
-      "featured": false
+      "featured": true
+    },
+    {
+      "id": "df71db60d2",
+      "title": "DAB Vertical Summer Night 2027",
+      "date": "2027-07-15",
+      "end_date": "2027-07-15",
+      "display_date": "15.07.2027",
+      "location": "Москва, м. Нагорная, СК «Кант» (Электролитный пр., 7Б)",
+      "region": "Москва",
+      "distances": [
+        "14 км (+700м)",
+        "10 км (+500м)",
+        "7 км (+350м)",
+        "3.5 км (+150м)",
+        "1 км (дети)"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Трейл / Кросс",
+      "rating": 5.0,
+      "organizer": "DAB Running",
+      "url": "https://dab-running.ru/races/DAB_Vertical_Summer_2027/",
+      "registration_url": "https://dab-running.ru/races/DAB_Vertical_Summer_2027/",
+      "official_url": "https://dab-running.ru/races/DAB_Vertical_Summer_2027/",
+      "source_url": "https://dab-running.ru/trails/",
+      "vk_url": "https://vk.com/dabrunning",
+      "source": "DAB Running",
+      "is_parkrun": false,
+      "featured": true
     },
     {
       "id": "0dbe6bec2c",
@@ -5980,6 +6185,33 @@
       "source": "ПроБЕГ",
       "is_parkrun": false,
       "featured": false
+    },
+    {
+      "id": "36a2e255b4",
+      "title": "City Trail #4 — Losiny Ostrov (Лосиный остров)",
+      "date": "2027-08-16",
+      "end_date": "2027-08-16",
+      "display_date": "16 августа",
+      "location": "Москва, Лосиный остров",
+      "region": "Москва",
+      "distances": [
+        "5 км",
+        "10 км",
+        "15 км",
+        "25–30 км"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Трейл / Кросс",
+      "rating": 5.0,
+      "organizer": "Wild Trail / City Trail",
+      "url": "https://city-trail.ru/4",
+      "registration_url": "https://city-trail.ru/4",
+      "official_url": "https://city-trail.ru/4",
+      "source_url": "https://city-trail.ru/",
+      "vk_url": "https://vk.com/city_trail",
+      "source": "City Trail",
+      "is_parkrun": false,
+      "featured": true
     },
     {
       "id": "d1d143089a",
@@ -6140,6 +6372,33 @@
       "source": "ПроБЕГ",
       "is_parkrun": false,
       "featured": false
+    },
+    {
+      "id": "7528151e04",
+      "title": "City Trail #5 — Izmailovo (Парк Измайлово)",
+      "date": "2027-09-20",
+      "end_date": "2027-09-20",
+      "display_date": "20 сентября",
+      "location": "Москва, Парк Измайлово",
+      "region": "Москва",
+      "distances": [
+        "5 км",
+        "10 км",
+        "15 км",
+        "25–30 км"
+      ],
+      "surface": "Трейл / Грунт",
+      "category": "Трейл / Кросс",
+      "rating": 5.0,
+      "organizer": "Wild Trail / City Trail",
+      "url": "https://city-trail.ru/5",
+      "registration_url": "https://city-trail.ru/5",
+      "official_url": "https://city-trail.ru/5",
+      "source_url": "https://city-trail.ru/",
+      "vk_url": "https://vk.com/city_trail",
+      "source": "City Trail",
+      "is_parkrun": false,
+      "featured": true
     },
     {
       "id": "0d786ae7e5",
