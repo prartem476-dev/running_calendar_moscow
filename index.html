@@ -803,11 +803,13 @@
 
         <div class="pills-row">
           <div class="pill-group" id="surface-pills">
-            <button type="button" class="pill-btn active" data-surface="all">Все покрытия</button>
+            <button type="button" class="pill-btn active" data-surface="all_races">Все соревнования</button>
             <button type="button" class="pill-btn" data-surface="Шоссе">🛣️ Шоссе</button>
             <button type="button" class="pill-btn" data-surface="Трейл / Грунт">🌲 Трейл / Грунт</button>
             <button type="button" class="pill-btn" data-surface="Манеж">🏟️ Манеж</button>
             <button type="button" class="pill-btn" data-surface="featured">⭐ Главные старты</button>
+            <button type="button" class="pill-btn" data-surface="Парковый забег">🌳 5 вёрст / S95 (90 парков)</button>
+            <button type="button" class="pill-btn" data-surface="all_with_parks">📋 Всё вместе (180+)</button>
           </div>
 
           <div class="pill-group" id="distance-pills">
@@ -834,9 +836,13 @@
         <strong>Moscow Running Calendar</strong> — автоматический агрегатор беговых событий Москвы и МО.
       </div>
       <div>
-        Источники данных: <a href="https://runc.run/" target="_blank" rel="noopener">Беговое сообщество</a> ·
+        Источники данных (6 платформ): <a href="https://runc.run/" target="_blank" rel="noopener">Беговое сообщество</a> ·
         <a href="https://probeg.org/" target="_blank" rel="noopener">ПроБЕГ</a> ·
-        <a href="https://github.com/prartem476-dev/running_calendar_moscow" target="_blank" rel="noopener">GitHub Репозиторий</a>
+        <a href="https://reg.place/events" target="_blank" rel="noopener">Reg.Place</a> ·
+        <a href="https://myrace.info/" target="_blank" rel="noopener">MyRace</a> ·
+        <a href="https://mountain-race.ru/events/" target="_blank" rel="noopener">Mountain-Race</a> ·
+        <a href="https://5verst.ru/" target="_blank" rel="noopener">5 вёрст / S95</a> ·
+        <a href="https://github.com/prartem476-dev/running_calendar_moscow" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </footer>
@@ -855,7 +861,7 @@
     const RU_WEEKDAYS = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 
     let allEvents = [];
-    let activeSurface = 'all';
+    let activeSurface = 'all_races';
     let activeDistance = 'all';
 
     function formatHumanDate(isoStart, isoEnd) {
@@ -877,7 +883,7 @@
     }
 
     function getSurfaceBadgeClass(surface) {
-      if (surface === 'Трейл / Грунт') return 'badge-trail';
+      if (surface === 'Трейл / Грунт' || surface === 'Парковый забег') return 'badge-trail';
       if (surface === 'Манеж') return 'badge-indoor';
       return 'badge-road';
     }
@@ -962,8 +968,9 @@
       const filtered = allEvents.filter(ev => {
         if (selectedMonth !== 'all' && !ev.date.startsWith(selectedMonth)) return false;
         if (selectedRegion !== 'all' && ev.region !== selectedRegion) return false;
+        if (activeSurface === 'all_races' && ev.is_parkrun && !query) return false;
         if (activeSurface === 'featured' && !ev.featured) return false;
-        if (activeSurface !== 'all' && activeSurface !== 'featured' && ev.surface !== activeSurface) return false;
+        if (!['all_races', 'all_with_parks', 'featured'].includes(activeSurface) && ev.surface !== activeSurface) return false;
         if (!matchesDistanceFilter(ev.distances || [], activeDistance)) return false;
 
         if (query) {

@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Автоматический парсер беговых событий Москвы и Московской области.
-Собирает актуальное расписание забегов с порталов:
-1. ПроБЕГ (probeg.org) — календарь забегов Москвы и МО
-2. Беговое сообщество (runc.run) — серия главных московских стартов
+Мульти-источниковый автоматический парсер беговых событий Москвы и Московской области.
+Собирает актуальное расписание забегов с 6 площадок:
+1. ПроБЕГ (probeg.org) — календарь шоссейных забегов, марафонов и трейлов Москвы и МО
+2. Беговое сообщество (runc.run) — главная серия московских стартов (Лужники, Садовое кольцо, ЦСКА)
+3. Reg.Place (reg.place) — агрегатор регистрации на беговые и трейловые старты Москвы и МО
+4. MyRace (myrace.info) — серия стартов City Trail, X-Race, Кубок России Мастерс и др.
+5. Mountain-Race (mountain-race.ru) — специализированный календарь трейлов и кроссов Москвы и МО
+6. ПроБЕГ Parkrun / 5 вёрст / S95 — субботние парковые забеги 5 км в парках Москвы и Подмосковья
 
 Генерирует:
 - moscow_running_events.json (структурированная база забегов для веб-приложения)
@@ -28,7 +32,11 @@ USER_AGENT = (
 )
 
 PROBEG_MOSCOW_URL = "https://probeg.org/races/region_group/46,47/date_region/2/?hide_parkruns=on"
+PROBEG_PARKRUNS_URL = "https://probeg.org/races/region_group/46,47/date_region/2/"
 RUNC_URL = "https://runc.run/"
+REGPLACE_RUN_URL = "https://reg.place/events?q[scope]=future&q[sport_id]=1"
+MYRACE_URL = "https://myrace.info/"
+MOUNTAIN_RACE_URL = "https://mountain-race.ru/events/"
 
 JSON_OUTPUT = Path("moscow_running_events.json")
 ICS_OUTPUT = Path("moscow_running_events.ics")
@@ -48,15 +56,76 @@ RU_MONTHS = {
     "декабря": 12,
 }
 
+RU_MONTHS_NOMINATIVE = {
+    "январь": 1,
+    "февраль": 2,
+    "март": 3,
+    "апрель": 4,
+    "май": 5,
+    "июнь": 6,
+    "июль": 7,
+    "август": 8,
+    "сентябрь": 9,
+    "октябрь": 10,
+    "ноябрь": 11,
+    "декабрь": 12,
+}
+
+MOSCOW_OBLAST_KEYWORDS = [
+    "москва", "московск", "зеленоград", "троицк", "балашиха", "красногорск",
+    "одинцов", "химки", "мытищ", "королёв", "королев", "люберц", "подольск",
+    "домодедов", "щёлков", "щелков", "серпухов", "коломн", "раменск",
+    "долгопрудн", "жуковск", "пушкин", "реутов", "ногинск", "сергиев посад",
+    "воскресенск", "лобня", "клин", "дубна", "истра", "истринск", "дмитров",
+    "чехов", "наро-фоминск", "солнечногорск", "видное", "фрязино", "бронниц",
+    "павловский посад", "звенигород", "шатура", "можайск", "бородино", "руза",
+    "спас-каменка", "мураново", "трубино", "пересвет", "яхрома", "габо",
+    "битца", "мещерск", "крылатск", "лужники", "измайлов", "царицын",
+    "кузьминк", "сокольник", "вднх", "черноголовк", "протвино", "пущино",
+    "кубинка", "апрелевк", "дедовск", "голицыно", "котельник", "дзержинск",
+    "лыткарин", "красноармейск", "ивантеевк", "орехово-зуев", "егорьевск",
+    "кашир", "ступин", "зарайск", "волоколамск", "талдом", "шаховск",
+    "лотошин", "селятин", "кратово", "малаховк", "салтыковк", "вельяминов",
+]
+
+
+def is_moscow_or_mo(location_or_text: str) -> Tuple[bool, str]:
+    """Проверяет, относится ли локация к Москве или Московской области."""
+    low = location_or_text.lower()
+    if not any(kw in low for kw in MOSCOW_OBLAST_KEYWORDS):
+        return False, "Москва"
+
+    is_city = (
+        low.startswith("москва")
+        or low.startswith("г. москва")
+        or "зеленоград" in low
+        or "троицк" in low
+        or "лужники" in low
+        or "крылатск" in low
+    )
+    if "московская область" in low or "московская обл" in low or "подмосковье" in low:
+        is_city = False
+
+    return True, ("Москва" if is_city else "Подмосковье")
+
 
 def classify_surface_and_type(title: str, distances: List[str]) -> Tuple[str, str]:
     """Определяет тип покрытия и категорию забега по названию и дистанциям."""
     t_lower = title.lower()
     d_joined = " ".join(distances).lower()
 
-    if any(k in t_lower for k in ["манеж", "скорость", "в помещении", "indoor"]):
+    if any(k in t_lower for k in ["5 вёрст", "5 верст", "s95", "паркран", "parkrun", "паркбег", "пятюня"]):
+        return "Парковый забег", "Парковый забег 5 км"
+
+    if any(k in t_lower for k in ["манеж", "скорость", "в помещении", "indoor", "кубок россии мастерс"]):
         surface = "Манеж"
-    elif any(k in t_lower for k in ["трейл", "trail", "кросс", "cross", "горн", "лес", "парсек", "ultras", "gryadka"]):
+    elif any(
+        k in t_lower
+        for k in [
+            "трейл", "trail", "кросс", "cross", "горн", "лес", "парсек",
+            "ultras", "gryadka", "бородино", "туман", "буря", "вальс", "open band",
+        ]
+    ):
         surface = "Трейл / Грунт"
     else:
         surface = "Шоссе"
@@ -82,39 +151,70 @@ def classify_surface_and_type(title: str, distances: List[str]) -> Tuple[str, st
 
 
 def parse_probeg_date(raw_date: str) -> Tuple[Optional[str], Optional[str]]:
-    """
-    Парсит даты вида:
-    - '24.10.2026' -> ('2026-10-24', '2026-10-24')
-    - '09–10.10.2027' -> ('2027-10-09', '2027-10-10')
-    - '28.02–01.03.2027' -> ('2027-02-28', '2027-03-01')
-    """
+    """Парсит даты вида '24.10.2026', '09–10.10.2027', '28.02–01.03.2027'."""
     s = raw_date.strip().replace("—", "-").replace("–", "-")
 
-    # Простая дата DD.MM.YYYY
     m_single = re.match(r"^(\d{2})\.(\d{2})\.(\d{4})$", s)
     if m_single:
         d, m, y = m_single.groups()
         iso = f"{y}-{m}-{d}"
         return iso, iso
 
-    # Диапазон внутри одного месяца DD-DD.MM.YYYY
     m_range_same = re.match(r"^(\d{2})-(\d{2})\.(\d{2})\.(\d{4})$", s)
     if m_range_same:
         d1, d2, m, y = m_range_same.groups()
         return f"{y}-{m}-{d1}", f"{y}-{m}-{d2}"
 
-    # Диапазон разных месяцев DD.MM-DD.MM.YYYY
     m_range_diff = re.match(r"^(\d{2})\.(\d{2})-(\d{2})\.(\d{2})\.(\d{4})$", s)
     if m_range_diff:
         d1, m1, d2, m2, y = m_range_diff.groups()
         return f"{y}-{m1}-{d1}", f"{y}-{m2}-{d2}"
 
-    # Фолбэк: ищем первую дату DD.MM.YYYY
     m_any = re.search(r"(\d{2})\.(\d{2})\.(\d{4})", s)
     if m_any:
         d, m, y = m_any.groups()
         iso = f"{y}-{m}-{d}"
         return iso, iso
+
+    return None, None
+
+
+def parse_russian_date_flexible(label: str, ref_date: datetime) -> Tuple[Optional[str], Optional[str]]:
+    """
+    Парсит русские даты:
+    - '21-22 ноября'
+    - '24 октября'
+    - '27 - 28 ноября'
+    - '9 - 10 января 2027'
+    - '30 октября — 1 ноября'
+    """
+    s = re.sub(r"\s+", " ", label.strip().lower().replace("—", "-").replace("–", "-"))
+
+    # Формат: '30 октября - 1 ноября [2026]'
+    m_two_months = re.match(r"^(\d{1,2})\s+([а-яё]+)\s*-\s*(\d{1,2})\s+([а-яё]+)(?:\s+(\d{4}))?$", s)
+    if m_two_months:
+        d1_s, m1_name, d2_s, m2_name, y_s = m_two_months.groups()
+        m1 = RU_MONTHS.get(m1_name)
+        m2 = RU_MONTHS.get(m2_name)
+        if m1 and m2:
+            year = int(y_s) if y_s else ref_date.year
+            if not y_s and datetime(year, m1, int(d1_s)).date() < ref_date.date():
+                year += 1
+            y2 = year + 1 if m2 < m1 else year
+            return f"{year:04d}-{m1:02d}-{int(d1_s):02d}", f"{y2:04d}-{m2:02d}-{int(d2_s):02d}"
+
+    # Формат: '21-22 ноября [2026]' или '24 октября [2026]'
+    m_same_month = re.match(r"^(\d{1,2})(?:\s*-\s*(\d{1,2}))?\s+([а-яё]+)(?:\s+(\d{4}))?$", s)
+    if m_same_month:
+        d1_s, d2_s, m_name, y_s = m_same_month.groups()
+        month = RU_MONTHS.get(m_name)
+        if month:
+            d1 = int(d1_s)
+            d2 = int(d2_s) if d2_s else d1
+            year = int(y_s) if y_s else ref_date.year
+            if not y_s and datetime(year, month, d1).date() < ref_date.date():
+                year += 1
+            return f"{year:04d}-{month:02d}-{d1:02d}", f"{year:04d}-{month:02d}-{d2:02d}"
 
     return None, None
 
@@ -134,18 +234,19 @@ def clean_distance_list(raw_spans: List[str]) -> List[str]:
     return cleaned if cleaned else ["5 км", "10 км"]
 
 
-def fetch_probeg_events() -> List[Dict[str, Any]]:
+def fetch_probeg_events(include_parkruns: bool = False) -> List[Dict[str, Any]]:
     """Парсит календарь забегов Москвы и МО с портала ПроБЕГ."""
     events: List[Dict[str, Any]] = []
+    target_url = PROBEG_PARKRUNS_URL if include_parkruns else PROBEG_MOSCOW_URL
     try:
         resp = requests.get(
-            PROBEG_MOSCOW_URL,
+            target_url,
             headers={"User-Agent": USER_AGENT},
             timeout=25,
         )
         resp.raise_for_status()
     except Exception as exc:
-        print(f"[WARN] Ошибка загрузки ПроБЕГ: {exc}")
+        print(f"[WARN] Ошибка загрузки ПроБЕГ ({target_url}): {exc}")
         return events
 
     soup = BeautifulSoup(resp.text, "html.parser")
@@ -161,16 +262,18 @@ def fetch_probeg_events() -> List[Dict[str, Any]]:
         if not start_date:
             continue
 
-        # Название забега и ссылка на карточку события на ПроБЕГ
         title_cell = tds[2]
         main_link = title_cell.find("a", href=re.compile(r"^/event/\d+/"))
         if not main_link:
             continue
 
         title = re.sub(r"\s+", " ", main_link.get_text(strip=True))
+        is_parkrun = any(k in title.lower() for k in ["5 вёрст", "5 верст", "s95", "паркран", "parkrun", "паркбег"])
+        if include_parkruns and not is_parkrun:
+            continue
+
         probeg_url = f"https://probeg.org{main_link.get('href')}"
 
-        # Рейтинг, если есть
         rating = None
         cell_text = title_cell.get_text(" ", strip=True)
         m_rating = re.search(r"(\d\.\d),\s*число оценивших", cell_text)
@@ -180,19 +283,13 @@ def fetch_probeg_events() -> List[Dict[str, Any]]:
             except ValueError:
                 rating = None
 
-        # Город / локация
-        location = re.sub(r"\s+", " ", tds[3].get_text(" ", strip=True))
-        if not location:
-            location = "Москва"
-
-        # Дистанции
+        location = re.sub(r"\s+", " ", tds[3].get_text(" ", strip=True)) or "Москва"
         dist_spans = [sp.get_text(" ", strip=True) for sp in tds[4].find_all("span")]
         if not dist_spans:
             raw_dist = tds[4].get_text(" ", strip=True)
             dist_spans = [raw_dist] if raw_dist else []
         distances = clean_distance_list(dist_spans)
 
-        # Ссылки (официальный сайт, регистрация, соцсети)
         links_cell = tds[5]
         site_url = None
         reg_url = None
@@ -214,15 +311,12 @@ def fetch_probeg_events() -> List[Dict[str, Any]]:
 
         primary_url = reg_url or site_url or probeg_url
         surface, category = classify_surface_and_type(title, distances)
-
-        is_moscow_city = (
-            location.lower().startswith("москва")
-            or location.lower().startswith("г. москва")
-        )
-        region_tag = "Москва" if is_moscow_city else "Подмосковье"
+        _, region_tag = is_moscow_or_mo(location)
 
         uid_seed = f"{start_date}-{title.lower()}"
         event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+        source_label = "5 вёрст / S95" if is_parkrun else "ПроБЕГ"
 
         events.append(
             {
@@ -237,14 +331,16 @@ def fetch_probeg_events() -> List[Dict[str, Any]]:
                 "surface": surface,
                 "category": category,
                 "rating": rating,
-                "organizer": "Клубы и организаторы Москвы / ПроБЕГ",
+                "organizer": "Парковые забеги (5 вёрст / S95)" if is_parkrun else "Клубы и организаторы / ПроБЕГ",
                 "url": primary_url,
                 "registration_url": reg_url,
                 "official_url": site_url,
                 "source_url": probeg_url,
                 "vk_url": vk_url,
-                "source": "ПроБЕГ",
-                "featured": any(
+                "source": source_label,
+                "is_parkrun": is_parkrun,
+                "featured": (not is_parkrun)
+                and any(
                     kw in title.lower()
                     for kw in [
                         "московский марафон",
@@ -260,37 +356,9 @@ def fetch_probeg_events() -> List[Dict[str, Any]]:
             }
         )
 
-    print(f"[INFO] Получено событий с ПроБЕГ: {len(events)}")
+    label_info = "парковых стартов 5 вёрст / S95" if include_parkruns else "событий с ПроБЕГ"
+    print(f"[INFO] Получено {label_info}: {len(events)}")
     return events
-
-
-def parse_runc_russian_date(label: str, ref_date: datetime) -> Tuple[Optional[str], Optional[str]]:
-    """
-    Парсит русские даты с runc.run, например:
-    '21-22 ноября', '5 апреля', '25-26 апреля'
-    Если дата уже прошла относительно ref_date более чем на 15 дней, относит к следующему году.
-    """
-    s = label.strip().lower().replace("—", "-").replace("–", "-")
-    m = re.match(r"^(\d{1,2})(?:-(\d{1,2}))?\s+([а-яё]+)$", s)
-    if not m:
-        return None, None
-
-    d1_str, d2_str, month_name = m.groups()
-    month = RU_MONTHS.get(month_name)
-    if not month:
-        return None, None
-
-    d1 = int(d1_str)
-    d2 = int(d2_str) if d2_str else d1
-
-    year = ref_date.year
-    try_date = datetime(year, month, d1)
-    if try_date.date() < ref_date.date():
-        year += 1
-
-    start_iso = f"{year:04d}-{month:02d}-{d1:02d}"
-    end_iso = f"{year:04d}-{month:02d}-{d2:02d}"
-    return start_iso, end_iso
 
 
 RUNC_PRESET_DETAILS = {
@@ -361,11 +429,13 @@ def fetch_runc_events(ref_date: datetime) -> List[Dict[str, Any]]:
         title = link_el.get_text(" ", strip=True)
         href = (link_el.get("href") or "").strip()
 
-        # Пропускаем старты Санкт-Петербурга («Белые ночи» и «Северная столица»)
-        if any(spb_kw in href.lower() or spb_kw in title.lower() for spb_kw in ["wnmarathon", "spbhalf", "белые ночи", "северная столица"]):
+        if any(
+            spb_kw in href.lower() or spb_kw in title.lower()
+            for spb_kw in ["wnmarathon", "spbhalf", "белые ночи", "северная столица"]
+        ):
             continue
 
-        start_date, end_date = parse_runc_russian_date(raw_date, ref_date)
+        start_date, end_date = parse_russian_date_flexible(raw_date, ref_date)
         if not start_date:
             continue
 
@@ -374,7 +444,6 @@ def fetch_runc_events(ref_date: datetime) -> List[Dict[str, Any]]:
             continue
         seen_keys.add(dedup_key)
 
-        # Определяем детали по пресету
         distances = ["5 км", "10 км"]
         location = "Москва, ОК «Лужники»"
         for slug, meta in RUNC_PRESET_DETAILS.items():
@@ -410,6 +479,7 @@ def fetch_runc_events(ref_date: datetime) -> List[Dict[str, Any]]:
                 "source_url": RUNC_URL,
                 "vk_url": "https://vk.com/runcrun",
                 "source": "Беговое сообщество",
+                "is_parkrun": False,
                 "featured": True,
             }
         )
@@ -418,24 +488,297 @@ def fetch_runc_events(ref_date: datetime) -> List[Dict[str, Any]]:
     return events
 
 
-def merge_and_deduplicate(
-    probeg_list: List[Dict[str, Any]],
-    runc_list: List[Dict[str, Any]],
-) -> List[Dict[str, Any]]:
-    """Объединяет события из разных источников без дублей и сортирует по дате."""
+def fetch_regplace_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит беговые старты Москвы и МО с платформы регистрации Reg.Place."""
+    events: List[Dict[str, Any]] = []
+    urls_to_check = [
+        REGPLACE_RUN_URL,
+        f"{REGPLACE_RUN_URL}&page=2",
+        "https://reg.place/events?q[scope]=future&q[city]=Москва",
+    ]
+    seen_hrefs = set()
+
+    for page_url in urls_to_check:
+        try:
+            resp = requests.get(page_url, headers={"User-Agent": USER_AGENT}, timeout=20)
+            if resp.status_code != 200:
+                continue
+        except Exception as exc:
+            print(f"[WARN] Ошибка загрузки Reg.Place ({page_url}): {exc}")
+            continue
+
+        soup = BeautifulSoup(resp.text, "html.parser")
+        for card in soup.select("article.b-event-card"):
+            title_link = card.select_one(".b-event-card__title-link")
+            meta_el = card.select_one(".b-event-card__meta")
+            if not title_link or not meta_el:
+                continue
+
+            title = re.sub(r"\s+", " ", title_link.get_text(" ", strip=True))
+            raw_href = (title_link.get("href") or "").split("?")[0]
+            if not raw_href or raw_href in seen_hrefs:
+                continue
+
+            meta_text = re.sub(r"\s+", " ", meta_el.get_text(" ", strip=True))
+            parts = [p.strip() for p in meta_text.split("•") if p.strip()]
+            if not parts:
+                continue
+
+            # Проверяем вид спорта: должен быть Бег или Трейл
+            tags_text = " ".join(t.get_text(" ", strip=True) for t in card.select(".b-event-card__tag")).lower()
+            if "бег" not in tags_text and "трейл" not in title.lower() and "забег" not in title.lower():
+                continue
+
+            date_part = parts[0]
+            city_part = parts[1] if len(parts) >= 3 else "Москва / Московская область"
+
+            is_msk, region_tag = is_moscow_or_mo(f"{city_part} {title}")
+            if not is_msk:
+                continue
+
+            start_date, end_date = parse_russian_date_flexible(date_part, ref_date)
+            if not start_date:
+                continue
+
+            seen_hrefs.add(raw_href)
+            full_url = f"https://reg.place{raw_href}" if raw_href.startswith("/") else raw_href
+            distances = ["5 км", "10 км", "21.1 км"]
+            surface, category = classify_surface_and_type(title, distances)
+            uid_seed = f"{start_date}-{title.lower()}-regplace"
+            event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+            events.append(
+                {
+                    "id": event_id,
+                    "title": title,
+                    "date": start_date,
+                    "end_date": end_date,
+                    "display_date": date_part,
+                    "location": city_part if "моск" in city_part.lower() else f"Московская область, {city_part}",
+                    "region": region_tag,
+                    "distances": distances,
+                    "surface": surface,
+                    "category": category,
+                    "rating": None,
+                    "organizer": "Reg.Place",
+                    "url": full_url,
+                    "registration_url": full_url,
+                    "official_url": full_url,
+                    "source_url": "https://reg.place/events",
+                    "vk_url": None,
+                    "source": "Reg.Place",
+                    "is_parkrun": False,
+                    "featured": False,
+                }
+            )
+
+    print(f"[INFO] Получено событий с Reg.Place: {len(events)}")
+    return events
+
+
+def fetch_myrace_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит московские старты с платформы MyRace.info (City Trail, X-Race, Мастерс)."""
+    events: List[Dict[str, Any]] = []
+    try:
+        resp = requests.get(MYRACE_URL, headers={"User-Agent": USER_AGENT}, timeout=20)
+        resp.raise_for_status()
+    except Exception as exc:
+        print(f"[WARN] Ошибка загрузки MyRace.info: {exc}")
+        return events
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    for item in soup.select("a.events-list__item"):
+        date_el = item.select_one(".date")
+        city_el = item.select_one(".flag")
+        h2_el = item.select_one("h2")
+        type_el = item.select_one(".type")
+        if not date_el or not city_el or not h2_el:
+            continue
+
+        sport_type = (type_el.get_text(" ", strip=True) if type_el else "").lower()
+        if sport_type not in ["бег", "трейл", "скайраннинг", "гонки с препятствиями", "фестиваль"]:
+            continue
+
+        city_text = city_el.get_text(" ", strip=True)
+        # Извлекаем чистый заголовок без вложенного div.registration-status
+        h2_clone = BeautifulSoup(str(h2_el), "html.parser").find("h2")
+        for st in h2_clone.select(".registration-status"):
+            st.decompose()
+        title = re.sub(r"\s+", " ", h2_clone.get_text(" ", strip=True))
+
+        is_msk, region_tag = is_moscow_or_mo(f"{city_text} {title}")
+        if not is_msk:
+            continue
+
+        raw_date = date_el.get_text(" ", strip=True)
+        start_date, end_date = parse_russian_date_flexible(raw_date, ref_date)
+        if not start_date or start_date < ref_date.strftime("%Y-%m-%d"):
+            continue
+
+        href = (item.get("href") or "").strip()
+        full_url = f"https://myrace.info{href}" if href.startswith("/") else href
+
+        distances = ["5 км", "10 км", "20 км"] if "трейл" in sport_type else ["5 км", "10 км"]
+        surface, category = classify_surface_and_type(f"{title} {sport_type}", distances)
+        uid_seed = f"{start_date}-{title.lower()}-myrace"
+        event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+        events.append(
+            {
+                "id": event_id,
+                "title": title,
+                "date": start_date,
+                "end_date": end_date,
+                "display_date": raw_date,
+                "location": city_text if "моск" in city_text.lower() else f"Московская область, {city_text}",
+                "region": region_tag,
+                "distances": distances,
+                "surface": surface,
+                "category": category,
+                "rating": 4.9,
+                "organizer": "MyRace",
+                "url": full_url,
+                "registration_url": full_url,
+                "official_url": full_url,
+                "source_url": MYRACE_URL,
+                "vk_url": None,
+                "source": "MyRace.info",
+                "is_parkrun": False,
+                "featured": "city trail" in title.lower(),
+            }
+        )
+
+    print(f"[INFO] Получено событий с MyRace.info: {len(events)}")
+    return events
+
+
+def fetch_mountain_race_events(ref_date: datetime) -> List[Dict[str, Any]]:
+    """Парсит трейловые забеги Москвы и Подмосковья с портала Mountain-Race.ru."""
+    events: List[Dict[str, Any]] = []
+    try:
+        resp = requests.get(MOUNTAIN_RACE_URL, headers={"User-Agent": USER_AGENT}, timeout=20)
+        resp.raise_for_status()
+    except Exception as exc:
+        print(f"[WARN] Ошибка загрузки Mountain-Race.ru: {exc}")
+        return events
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    today_iso = ref_date.strftime("%Y-%m-%d")
+
+    for section in soup.find_all("section"):
+        h2 = section.find("h2")
+        section_year = ref_date.year
+        if h2:
+            m_year = re.search(r"(\d{4})", h2.get_text(" ", strip=True))
+            if m_year:
+                section_year = int(m_year.group(1))
+
+        for row in section.select("div.row.border-bottom"):
+            if row.select_one(".bg-status-canceled"):
+                continue
+
+            link_el = row.select_one("a[href*='/events/']")
+            if not link_el:
+                continue
+
+            title = re.sub(r"\s+", " ", link_el.get_text(" ", strip=True))
+            loc_div = row.select_one(".fs-sm.text-secondary")
+            location = re.sub(r"\s+", " ", loc_div.get_text(" ", strip=True)) if loc_div else ""
+
+            is_msk, region_tag = is_moscow_or_mo(f"{location} {title}")
+            if not is_msk:
+                continue
+
+            # Парсим дату вида '24.10' или '01.11 – 02.11'
+            date_col = row.select_one(".col-md-2")
+            if not date_col:
+                continue
+            raw_date = date_col.get_text(" ", strip=True)
+            m_dates = re.findall(r"(\d{2})\.(\d{2})", raw_date)
+            if not m_dates:
+                continue
+
+            d1, m1 = m_dates[0]
+            d2, m2 = m_dates[-1]
+            start_date = f"{section_year:04d}-{int(m1):02d}-{int(d1):02d}"
+            end_date = f"{section_year:04d}-{int(m2):02d}-{int(d2):02d}"
+            if start_date < today_iso:
+                continue
+
+            dist_chips = []
+            for badge in row.select("span.bg-secondary"):
+                spans = [s.get_text(" ", strip=True) for s in badge.find_all("span")]
+                if spans:
+                    dist_chips.append(" ".join(spans))
+            distances = clean_distance_list(dist_chips)
+
+            href = (link_el.get("href") or "").strip()
+            full_url = f"https://mountain-race.ru{href}" if href.startswith("/") else href
+            surface, category = classify_surface_and_type(title, distances)
+            uid_seed = f"{start_date}-{title.lower()}-mr"
+            event_id = hashlib.md5(uid_seed.encode("utf-8")).hexdigest()[:10]
+
+            events.append(
+                {
+                    "id": event_id,
+                    "title": title,
+                    "date": start_date,
+                    "end_date": end_date,
+                    "display_date": f"{raw_date}.{section_year}",
+                    "location": location or "Москва и Московская область",
+                    "region": region_tag,
+                    "distances": distances,
+                    "surface": "Трейл / Грунт",
+                    "category": "Трейл / Кросс",
+                    "rating": 4.9,
+                    "organizer": "Mountain-Race",
+                    "url": full_url,
+                    "registration_url": full_url,
+                    "official_url": full_url,
+                    "source_url": MOUNTAIN_RACE_URL,
+                    "vk_url": "https://vk.com/mountain_race",
+                    "source": "Mountain-Race.ru",
+                    "is_parkrun": False,
+                    "featured": True,
+                }
+            )
+
+    print(f"[INFO] Получено событий с Mountain-Race.ru: {len(events)}")
+    return events
+
+
+def normalize_dedup_title(title: str) -> str:
+    """Нормализует название для умной дедупликации между разными агрегаторами."""
+    low = title.lower()
+    for stop in ["забег", "пробег", "трейл", "trail", "кросс", "серия", "2026", "2027"]:
+        low = low.replace(stop, "")
+    return re.sub(r"[^a-zа-яё0-9]", "", low)
+
+
+def merge_and_deduplicate(event_lists: List[List[Dict[str, Any]]]) -> List[Dict[str, Any]]:
+    """Объединяет события из всех источников без дублей и сортирует по дате."""
     merged: List[Dict[str, Any]] = []
     seen = set()
 
-    # Сначала добавляем фирменные старты RunC, затем полный календарь ПроБЕГ
-    for ev in runc_list + probeg_list:
-        norm_title = re.sub(r"[^a-zа-яё0-9]", "", ev["title"].lower())
-        key = (ev["date"], norm_title[:18])
-        if key in seen:
-            continue
-        seen.add(key)
-        merged.append(ev)
+    for ev_list in event_lists:
+        for ev in ev_list:
+            norm_title = normalize_dedup_title(ev["title"])
+            if not norm_title:
+                norm_title = re.sub(r"[^a-zа-яё0-9]", "", ev["title"].lower())
+            key = (ev["date"], norm_title[:14])
+            if key in seen:
+                continue
+            seen.add(key)
+            merged.append(ev)
 
-    merged.sort(key=lambda x: (x["date"], not x.get("featured", False), x["title"]))
+    merged.sort(
+        key=lambda x: (
+            x["date"],
+            x.get("is_parkrun", False),
+            not x.get("featured", False),
+            x["title"],
+        )
+    )
     return merged
 
 
@@ -453,7 +796,7 @@ def escape_ics_text(text: str) -> str:
 
 
 def generate_ics(events: List[Dict[str, Any]], output_path: Path) -> None:
-    """Создает валидный .ics файл для импорта и подписки в календарях."""
+    """Создает валидный .ics файл для импорта и подписки в календарях (без еженедельного спама паркранов)."""
     now_utc = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lines = [
         "BEGIN:VCALENDAR",
@@ -466,10 +809,11 @@ def generate_ics(events: List[Dict[str, Any]], output_path: Path) -> None:
         "X-WR-CALDESC:Актуальное расписание забегов, марафонов и трейлов в Москве и Подмосковье",
     ]
 
-    for ev in events:
+    ics_events = [e for e in events if not e.get("is_parkrun", False)]
+
+    for ev in ics_events:
         start_dt = datetime.strptime(ev["date"], "%Y-%m-%d").date()
         end_dt_raw = datetime.strptime(ev.get("end_date") or ev["date"], "%Y-%m-%d").date()
-        # В стандарте iCalendar для целодневных событий DTEND не включителен (+1 день)
         end_dt_exclusive = end_dt_raw + timedelta(days=1)
 
         dtstart_str = start_dt.strftime("%Y%m%d")
@@ -480,7 +824,7 @@ def generate_ics(events: List[Dict[str, Any]], output_path: Path) -> None:
             f"Дистанции: {distances_str}",
             f"Категория: {ev.get('category', 'Забег')} ({ev.get('surface', 'Шоссе')})",
             f"Локация: {ev.get('location', 'Москва')}",
-            f"Организатор / Источник: {ev.get('organizer', '')}",
+            f"Источник: {ev.get('source', '')}",
             f"Ссылка: {ev.get('url', '')}",
         ]
         description = escape_ics_text("\n".join(desc_parts))
@@ -507,121 +851,48 @@ def generate_ics(events: List[Dict[str, Any]], output_path: Path) -> None:
 
     lines.append("END:VCALENDAR")
     output_path.write_text("\r\n".join(lines) + "\r\n", encoding="utf-8")
-    print(f"[INFO] Календарь iCal успешно сохранён в {output_path} ({len(events)} событий)")
-
-
-def get_fallback_events(ref_date: datetime) -> List[Dict[str, Any]]:
-    """Резервный набор главных московских забегов на случай недоступности внешних сайтов."""
-    year = ref_date.year
-    next_year = year + 1
-    return [
-        {
-            "id": "fallback01",
-            "title": "Соревнования «Скорость» в манеже",
-            "date": f"{year}-11-21",
-            "end_date": f"{year}-11-22",
-            "display_date": "21–22 ноября",
-            "location": "Москва, ЛФК ЦСКА",
-            "region": "Москва",
-            "distances": ["60 м", "400 м", "800 м", "1500 м", "3000 м"],
-            "surface": "Манеж",
-            "category": "Трек / Манеж",
-            "rating": 5.0,
-            "organizer": "Беговое сообщество (RunC)",
-            "url": "https://speedrace.runc.run/",
-            "registration_url": "https://speedrace.runc.run/",
-            "official_url": "https://speedrace.runc.run/",
-            "source_url": "https://runc.run/",
-            "vk_url": "https://vk.com/runcrun",
-            "source": "Беговое сообщество",
-            "featured": True,
-        },
-        {
-            "id": "fallback02",
-            "title": "Забег «Апрель»",
-            "date": f"{next_year}-04-05",
-            "end_date": f"{next_year}-04-05",
-            "display_date": "5 апреля",
-            "location": "Москва, ОК «Лужники»",
-            "region": "Москва",
-            "distances": ["5 км"],
-            "surface": "Шоссе",
-            "category": "Городской забег",
-            "rating": 5.0,
-            "organizer": "Беговое сообщество (RunC)",
-            "url": "https://aprilrun5km.runc.run/",
-            "registration_url": "https://aprilrun5km.runc.run/",
-            "official_url": "https://aprilrun5km.runc.run/",
-            "source_url": "https://runc.run/",
-            "vk_url": "https://vk.com/runcrun",
-            "source": "Беговое сообщество",
-            "featured": True,
-        },
-        {
-            "id": "fallback03",
-            "title": "Московский полумарафон",
-            "date": f"{next_year}-04-25",
-            "end_date": f"{next_year}-04-26",
-            "display_date": "25–26 апреля",
-            "location": "Москва, ОК «Лужники»",
-            "region": "Москва",
-            "distances": ["21.1 км (Полумарафон)", "5 км"],
-            "surface": "Шоссе",
-            "category": "Полумарафон",
-            "rating": 5.0,
-            "organizer": "Беговое сообщество (RunC)",
-            "url": "https://moscowhalf.runc.run/",
-            "registration_url": "https://moscowhalf.runc.run/",
-            "official_url": "https://moscowhalf.runc.run/",
-            "source_url": "https://runc.run/",
-            "vk_url": "https://vk.com/runcrun",
-            "source": "Беговое сообщество",
-            "featured": True,
-        },
-        {
-            "id": "fallback04",
-            "title": "Московский Марафон",
-            "date": f"{next_year}-09-26",
-            "end_date": f"{next_year}-09-27",
-            "display_date": "26–27 сентября",
-            "location": "Москва, ОК «Лужники»",
-            "region": "Москва",
-            "distances": ["42.2 км (Марафон)", "10 км"],
-            "surface": "Шоссе",
-            "category": "Марафон",
-            "rating": 5.0,
-            "organizer": "Беговое сообщество (RunC)",
-            "url": "https://moscowmarathon.runc.run/",
-            "registration_url": "https://moscowmarathon.runc.run/",
-            "official_url": "https://moscowmarathon.runc.run/",
-            "source_url": "https://runc.run/",
-            "vk_url": "https://vk.com/runcrun",
-            "source": "Беговое сообщество",
-            "featured": True,
-        },
-    ]
+    print(f"[INFO] Календарь iCal успешно сохранён в {output_path} ({len(ics_events)} событий)")
 
 
 def main() -> None:
     now_msk = datetime.now(timezone(timedelta(hours=3)))
-    print(f"[INFO] Запуск парсера беговых событий Москвы ({now_msk.isoformat()})")
+    print(f"[INFO] Запуск мульти-источникового парсера забегов Москвы ({now_msk.isoformat()})")
 
-    probeg_events = fetch_probeg_events()
     runc_events = fetch_runc_events(now_msk)
+    probeg_events = fetch_probeg_events(include_parkruns=False)
+    mountain_events = fetch_mountain_race_events(now_msk)
+    myrace_events = fetch_myrace_events(now_msk)
+    regplace_events = fetch_regplace_events(now_msk)
+    parkrun_events = fetch_probeg_events(include_parkruns=True)
 
-    events = merge_and_deduplicate(probeg_events, runc_events)
-    if not events:
-        print("[WARN] Внешние источники не вернули данных, используем резервный список.")
-        events = get_fallback_events(now_msk)
+    events = merge_and_deduplicate(
+        [
+            runc_events,
+            probeg_events,
+            mountain_events,
+            myrace_events,
+            regplace_events,
+            parkrun_events,
+        ]
+    )
+
+    main_races_count = sum(1 for e in events if not e.get("is_parkrun", False))
+    parkruns_count = sum(1 for e in events if e.get("is_parkrun", False))
 
     payload = {
         "updated_at": now_msk.strftime("%Y-%m-%dT%H:%M:%S+03:00"),
         "updated_at_human": now_msk.strftime("%d.%m.%Y в %H:%M МСК"),
         "region": "Москва и Московская область",
         "total_events": len(events),
+        "main_races_count": main_races_count,
+        "parkruns_count": parkruns_count,
         "sources": [
-            {"name": "ПроБЕГ (probeg.org)", "url": "https://probeg.org/"},
             {"name": "Беговое сообщество (runc.run)", "url": "https://runc.run/"},
+            {"name": "ПроБЕГ (probeg.org)", "url": "https://probeg.org/"},
+            {"name": "Reg.Place (reg.place)", "url": "https://reg.place/events"},
+            {"name": "MyRace (myrace.info)", "url": "https://myrace.info/"},
+            {"name": "Mountain-Race (mountain-race.ru)", "url": "https://mountain-race.ru/events/"},
+            {"name": "5 вёрст & S95 (субботние парковые забеги)", "url": "https://5verst.ru/"},
         ],
         "events": events,
     }
@@ -630,7 +901,10 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    print(f"[INFO] JSON база сохранена в {JSON_OUTPUT} ({len(events)} событий)")
+    print(
+        f"[INFO] JSON база сохранена в {JSON_OUTPUT}: всего {len(events)} стартов "
+        f"({main_races_count} целевых соревнований + {parkruns_count} парковых забегов 5 вёрст/S95)"
+    )
 
     generate_ics(events, ICS_OUTPUT)
 
