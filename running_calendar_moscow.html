@@ -2,7 +2,8 @@
 <html lang="ru" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#090b10" />
   <title>Беговой календарь Москвы и МО 2026–2027 — Марафоны, Полумарафоны, Трейлы</title>
   <meta name="description" content="Актуальное расписание забегов Москвы и Московской области. Автоматическое обновление каждый понедельник: марафоны, полумарафоны, трейлы, шоссейные и манежные старты, экспорт в iCal." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,6 +65,7 @@
       backdrop-filter: blur(16px);
       background: rgba(9, 11, 16, 0.88);
       border-bottom: 1px solid var(--border-subtle);
+      padding-top: env(safe-area-inset-top, 0px);
     }
 
     .topbar-inner {
@@ -784,7 +786,7 @@
     /* Footer */
     .footer {
       margin-top: 64px;
-      padding: 32px 0;
+      padding: 32px 0 calc(32px + env(safe-area-inset-bottom, 0px));
       border-top: 1px solid var(--border-subtle);
       color: var(--text-secondary);
       font-size: 13px;
@@ -846,6 +848,257 @@
       transform: translateY(0);
       opacity: 1;
     }
+
+    .badge-new {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+
+    .badge-past {
+      background: rgba(148, 163, 184, 0.14);
+      color: #94a3b8;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .btn-star {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-star:hover {
+      border-color: var(--border-accent);
+      color: var(--accent-volt);
+    }
+
+    .btn-star.saved {
+      background: var(--accent-volt-dim);
+      color: var(--accent-volt);
+      border-color: var(--border-accent);
+    }
+
+    /* Personal Cabinet & Auth Modal Styles */
+    .cabinet-section {
+      display: none;
+      padding: 28px 0 40px;
+    }
+
+    .cabinet-section.active {
+      display: block;
+    }
+
+    .cabinet-header-card {
+      background: linear-gradient(145deg, #171d2c 0%, #10141f 100%);
+      border: 1px solid rgba(212, 255, 0, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .cabinet-header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .token-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Unbounded', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(212, 255, 0, 0.12);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-volt);
+      cursor: pointer;
+    }
+
+    .pb-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 860px) {
+      .pb-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .pb-card {
+      background: rgba(9, 11, 16, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pb-dist {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pb-time {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-volt);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pb-pace {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .cabinet-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .cab-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 9px 16px;
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .cab-tab-btn.active {
+      background: var(--accent-volt);
+      color: #090b10;
+      border-color: var(--accent-volt);
+    }
+
+    .cab-pane {
+      display: none;
+    }
+
+    .cab-pane.active {
+      display: block;
+    }
+
+    .cab-item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cab-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      align-items: end;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .field-input {
+      width: 100%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      outline: none;
+    }
+
+    .field-input:focus {
+      border-color: var(--accent-volt);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(5, 7, 11, 0.82);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 255, 0, 0.35);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 500px;
+      padding: 26px 24px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65);
+      position: relative;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .privacy-banner {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 12px;
+      color: #a7f3d0;
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
   </style>
 </head>
 <body>
@@ -853,7 +1106,7 @@
   <!-- Top Navigation -->
   <header class="topbar">
     <div class="container topbar-inner">
-      <a href="#" class="brand">
+      <a href="#" class="brand" id="brand-home-link">
         <div class="brand-badge">RUN</div>
         <div>
           <span class="brand-text-title">MOSCOW RUN CALENDAR</span>
@@ -861,15 +1114,18 @@
         </div>
       </a>
       <div class="topbar-actions">
-        <a href="./moscow_running_events.ics" download="moscow_running_events.ics" class="btn btn-volt">
-          <span>📅 Скачать iCal (.ics)</span>
+        <button type="button" id="cabinet-toggle-btn" class="btn btn-volt">
+          <span id="cabinet-btn-label">👤 Войти / Личный кабинет</span>
+        </button>
+        <button type="button" id="refresh-db-btn" class="btn btn-outline" title="Проверить и загрузить новые старты в базу">
+          <span>🔄 Обновить базу</span>
+        </button>
+        <a href="./moscow_running_events.ics" download="moscow_running_events.ics" class="btn btn-outline">
+          <span>📅 iCal (.ics)</span>
         </a>
         <button type="button" id="copy-ics-btn" class="btn btn-outline">
-          <span>🔗 Ссылка для подписки</span>
+          <span>🔗 Подписка</span>
         </button>
-        <a href="./moscow_running_events.json" target="_blank" rel="noopener" class="btn btn-outline">
-          <span>{ } JSON API</span>
-        </a>
       </div>
     </div>
   </header>
@@ -969,13 +1225,15 @@
         <div class="pills-row">
           <div class="pill-group" id="surface-pills">
             <button type="button" class="pill-btn active" data-surface="all_races">Все соревнования</button>
+            <button type="button" class="pill-btn" data-surface="new_events" id="pill-new-events">🆕 Новые в базе</button>
+            <button type="button" class="pill-btn" data-surface="my_saved" id="pill-my-saved">⭐ Мои старты</button>
             <button type="button" class="pill-btn" data-surface="Шоссе">🛣️ Шоссе</button>
             <button type="button" class="pill-btn" data-surface="Трейл / Грунт">🌲 Трейл / Грунт</button>
             <button type="button" class="pill-btn" data-surface="Манеж">🏟️ Манеж</button>
             <button type="button" class="pill-btn" data-surface="golden_ring">🏛️ Золотое кольцо (БЗК)</button>
             <button type="button" class="pill-btn" data-surface="featured">⭐ Главные старты</button>
             <button type="button" class="pill-btn" data-surface="Парковый забег">🌳 5 вёрст / S95 (90 парков)</button>
-            <button type="button" class="pill-btn" data-surface="all_with_parks">📋 Всё вместе (255+)</button>
+            <button type="button" class="pill-btn" data-surface="all_with_parks">📋 Всё вместе (260+)</button>
           </div>
 
           <div class="pill-group" id="distance-pills">
@@ -994,6 +1252,290 @@
   <main class="container" id="events-container">
     <div class="empty-state">Загружаем расписание забегов Москвы...</div>
   </main>
+
+  <!-- Personal Cabinet View -->
+  <section class="cabinet-section" id="cabinet-view">
+    <div class="container">
+      <div class="cabinet-header-card">
+        <div class="cabinet-header-top">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+              <span class="badge badge-featured">🏃 ЛИЧНЫЙ КАБИНЕТ БЕГУНА</span>
+              <span class="token-pill" id="cab-token-badge" title="Нажмите, чтобы скопировать ваш Токен доступа">RUN-XXXX-XXXX-XXXX 📋</span>
+              <span class="badge badge-new" id="cab-sync-badge">Автономный + Облачный режим</span>
+            </div>
+            <h2 style="font-family:'Unbounded',sans-serif;font-size:clamp(18px,3vw,26px);margin-bottom:4px;" id="cab-greeting">
+              Профиль спортсмена
+            </h2>
+            <p style="font-size:13px;color:var(--text-secondary);" id="cab-subinfo">
+              Доступ без запроса персональных данных (152-ФЗ). Ваши выбранные старты, целевой темп и личные рекорды.
+            </p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-outline btn-sm" id="cab-back-to-cal-btn">← К календарю забегов</button>
+            <button type="button" class="btn btn-volt btn-sm" id="cab-export-ics-btn">📅 Скачать мой iCal (.ics)</button>
+            <button type="button" class="btn btn-outline btn-sm" id="cab-logout-btn">Выйти</button>
+          </div>
+        </div>
+
+        <!-- Summary Stats & Personal Bests (PB) -->
+        <div class="stats-row" style="margin-bottom:14px;">
+          <div class="stat-box">
+            <div class="stat-value" id="cab-stat-planned">0</div>
+            <div class="stat-label">В моих стартах</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="cab-stat-registered">0</div>
+            <div class="stat-label">Слот куплен ✓</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="cab-stat-finished">0</div>
+            <div class="stat-label">Финишей в архиве</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="cab-stat-km">0 км</div>
+            <div class="stat-label">Соревновательный объём</div>
+          </div>
+        </div>
+
+        <div style="font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;">
+          🏆 Личные рекорды (PB — рассчитываются автоматически по результатам или задаются вручную)
+        </div>
+        <div class="pb-grid" id="cab-pb-grid">
+          <div class="pb-card">
+            <span class="pb-dist">5 км</span>
+            <span class="pb-time" id="pb-time-5">—</span>
+            <span class="pb-pace" id="pb-meta-5">Нет результата</span>
+          </div>
+          <div class="pb-card">
+            <span class="pb-dist">10 км</span>
+            <span class="pb-time" id="pb-time-10">—</span>
+            <span class="pb-pace" id="pb-meta-10">Нет результата</span>
+          </div>
+          <div class="pb-card">
+            <span class="pb-dist">21.1 км · Полумарафон</span>
+            <span class="pb-time" id="pb-time-21">—</span>
+            <span class="pb-pace" id="pb-meta-21">Нет результата</span>
+          </div>
+          <div class="pb-card">
+            <span class="pb-dist">42.2 км · Марафон</span>
+            <span class="pb-time" id="pb-time-42">—</span>
+            <span class="pb-pace" id="pb-meta-42">Нет результата</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabinet Tabs -->
+      <div class="cabinet-tabs">
+        <button type="button" class="cab-tab-btn active" data-cab-tab="my-races">
+          📅 Мои старты (<span id="tab-count-races">0</span>)
+        </button>
+        <button type="button" class="cab-tab-btn" data-cab-tab="my-results">
+          🏆 Результаты и рекорды (<span id="tab-count-results">0</span>)
+        </button>
+        <button type="button" class="cab-tab-btn" data-cab-tab="new-events">
+          🆕 Новые старты в базе (<span id="tab-count-new">0</span>)
+        </button>
+        <button type="button" class="cab-tab-btn" data-cab-tab="profile-security">
+          🔐 Токен, Почта и Доступ
+        </button>
+      </div>
+
+      <!-- Tab 1: My Planned Races -->
+      <div class="cab-pane active" id="cab-pane-my-races">
+        <div id="cab-my-races-list"></div>
+      </div>
+
+      <!-- Tab 2: My Results & PB -->
+      <div class="cab-pane" id="cab-pane-my-results">
+        <div class="cab-item-card" style="border-color:rgba(212,255,0,0.3);">
+          <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">+ Добавить результат забега</h3>
+          <form id="add-result-form" class="cab-form-grid">
+            <div>
+              <label class="field-label">Название старта</label>
+              <input type="text" id="res-title" class="field-input" list="events-datalist" placeholder="Например: Московский полумарафон" required />
+              <datalist id="events-datalist"></datalist>
+            </div>
+            <div>
+              <label class="field-label">Дата забега</label>
+              <input type="date" id="res-date" class="field-input" required />
+            </div>
+            <div>
+              <label class="field-label">Дистанция</label>
+              <select id="res-dist" class="field-input">
+                <option value="5">5 км</option>
+                <option value="10">10 км</option>
+                <option value="21.1" selected>21.1 км (Полумарафон)</option>
+                <option value="42.2">42.2 км (Марафон)</option>
+                <option value="15">15 км</option>
+                <option value="30">30 км</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Финишное время (ЧЧ:ММ:СС)</label>
+              <input type="text" id="res-time" class="field-input" placeholder="01:42:30 или 45:20" required />
+            </div>
+            <div>
+              <label class="field-label">Стартовый номер / Заметка</label>
+              <input type="text" id="res-note" class="field-input" placeholder="BIB #2410, личник!" />
+            </div>
+            <div>
+              <button type="submit" class="btn btn-volt" style="width:100%;">Сохранить результат</button>
+            </div>
+          </form>
+        </div>
+        <div id="cab-results-list"></div>
+      </div>
+
+      <!-- Tab 3: Newly Parsed Events & Live Database Update -->
+      <div class="cab-pane" id="cab-pane-new-events">
+        <div class="cab-item-card" style="border-color:rgba(16,185,129,0.35);">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+            <div>
+              <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;margin-bottom:4px;">
+                Актуальность базы и мониторинг новых событий
+              </h3>
+              <p style="font-size:13px;color:var(--text-secondary);" id="cab-parser-status-text">
+                Парсер автоматически проверяет 13 беговых площадок, дописывает новые анонсы в базу и сохраняет историю.
+              </p>
+            </div>
+            <button type="button" class="btn btn-volt" id="cab-trigger-parse-btn">
+              🔄 Запустить проверку новых стартов
+            </button>
+          </div>
+        </div>
+        <div class="events-grid" id="cab-new-events-grid"></div>
+      </div>
+
+      <!-- Tab 4: Security, Token, Email & Backup -->
+      <div class="cab-pane" id="cab-pane-profile-security">
+        <div class="cab-item-card">
+          <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">🔑 Ваши реквизиты доступа (без персональных данных)</h3>
+          <div class="privacy-banner">
+            🔒 В соответствии с 152-ФЗ приложение не запрашивает ФИО, телефон или паспортные данные. Доступ осуществляется по вашему уникальному <strong>Токену (`RUN-...`)</strong> и паролю. По желанию вы также можете указать <strong>Email</strong>, чтобы входить как по токену, так и по почте.
+          </div>
+          <div class="cab-form-grid">
+            <div>
+              <label class="field-label">Персональный Токен доступа</label>
+              <input type="text" id="prof-token-readonly" class="field-input" readonly style="font-family:monospace;font-weight:700;color:var(--accent-volt);" />
+            </div>
+            <div>
+              <label class="field-label">Email для входа (необязательно)</label>
+              <input type="email" id="prof-email-input" class="field-input" placeholder="runner@example.com (по желанию)" />
+            </div>
+            <div>
+              <label class="field-label">Псевдоним / Никнейм (необязательно)</label>
+              <input type="text" id="prof-nick-input" class="field-input" placeholder="Например: Марафонец" />
+            </div>
+            <div style="display:flex;gap:8px;">
+              <button type="button" class="btn btn-volt" id="prof-save-btn" style="flex:1;">Сохранить профиль</button>
+              <button type="button" class="btn btn-outline" id="prof-download-card-btn" title="Скачать памятку с токеном">📥 Памятка .txt</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cab-item-card">
+          <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">🔒 Смена пароля</h3>
+          <form id="change-pw-form" class="cab-form-grid">
+            <div>
+              <label class="field-label">Текущий пароль</label>
+              <input type="password" id="pw-current" class="field-input" required />
+            </div>
+            <div>
+              <label class="field-label">Новый пароль (мин. 4 символа)</label>
+              <input type="password" id="pw-new" class="field-input" minlength="4" required />
+            </div>
+            <div>
+              <button type="submit" class="btn btn-outline" style="width:100%;">Обновить пароль</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="cab-item-card">
+          <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">📲 Перенос профиля между устройствами (Код синхронизации)</h3>
+          <p style="font-size:13px;color:var(--text-secondary);">
+            Вы можете скопировать компактный код синхронизации, чтобы мгновенно перенести свои старты и рекорды между веб-версией и Android-приложением даже без подключения к общему серверу.
+          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-outline btn-sm" id="export-sync-code-btn">📋 Скопировать код переноса</button>
+            <button type="button" class="btn btn-outline btn-sm" id="export-json-backup-btn">💾 Скачать JSON-бэкап</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Auth Modal (Token / Email + Password, No Personal Data) -->
+  <div class="modal-backdrop" id="auth-modal">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="auth-modal-close" aria-label="Закрыть">✕</button>
+      <div class="spotlight-badge">🔐 ДОСТУП БЕЗ ПЕРСОНАЛЬНЫХ ДАННЫХ</div>
+      <h2 style="font-family:'Unbounded',sans-serif;font-size:20px;margin-bottom:8px;">Личный кабинет бегуна</h2>
+      <div class="privacy-banner">
+        Мы не запрашиваем ФИО и номер телефона. Создайте анонимный <strong>Токен доступа</strong> (и при желании укажите Email) + пароль для сохранения ваших стартов и личных рекордов.
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:18px;">
+        <button type="button" class="cab-tab-btn active" data-auth-tab="login" style="justify-content:center;padding:8px;">Вход</button>
+        <button type="button" class="cab-tab-btn" data-auth-tab="register" style="justify-content:center;padding:8px;">Новый токен</button>
+        <button type="button" class="cab-tab-btn" data-auth-tab="restore" style="justify-content:center;padding:8px;">Код переноса</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="auth-login-form" style="display:flex;flex-direction:column;gap:12px;">
+        <div>
+          <label class="field-label">Ваш Токен (`RUN-XXXX-...`) или Email</label>
+          <input type="text" id="login-identifier" class="field-input" placeholder="RUN-XXXX-XXXX-XXXX или email@example.com" required />
+        </div>
+        <div>
+          <label class="field-label">Пароль</label>
+          <input type="password" id="login-password" class="field-input" placeholder="Введите пароль" required />
+        </div>
+        <div id="login-error" style="color:#ff6b84;font-size:12px;display:none;"></div>
+        <button type="submit" class="btn btn-volt" style="width:100%;margin-top:4px;">Войти в Личный кабинет →</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="auth-register-form" style="display:none;flex-direction:column;gap:12px;">
+        <div>
+          <label class="field-label">Сгенерированный персональный Токен (сохраните его)</label>
+          <div style="display:flex;gap:8px;">
+            <input type="text" id="reg-token" class="field-input" readonly style="font-family:monospace;font-weight:700;color:var(--accent-volt);" />
+            <button type="button" class="btn btn-outline btn-sm" id="reg-regen-token-btn" title="Сгенерировать другой">🎲</button>
+            <button type="button" class="btn btn-outline btn-sm" id="reg-copy-token-btn" title="Скопировать токен">📋</button>
+          </div>
+        </div>
+        <div>
+          <label class="field-label">Email (необязательно — для входа по почте или токену)</label>
+          <input type="email" id="reg-email" class="field-input" placeholder="Можно оставить пустым или ввести email" />
+        </div>
+        <div>
+          <label class="field-label">Псевдоним / Никнейм (необязательно)</label>
+          <input type="text" id="reg-nickname" class="field-input" placeholder="Например: Марафонец" />
+        </div>
+        <div>
+          <label class="field-label">Придумайте пароль (минимум 4 символа)</label>
+          <input type="password" id="reg-password" class="field-input" minlength="4" placeholder="Минимум 4 символа" required />
+        </div>
+        <div id="reg-error" style="color:#ff6b84;font-size:12px;display:none;"></div>
+        <button type="submit" class="btn btn-volt" style="width:100%;margin-top:4px;">Создать кабинет и сохранить токен →</button>
+      </form>
+
+      <!-- Restore from Portable Sync Code -->
+      <form id="auth-restore-form" style="display:none;flex-direction:column;gap:12px;">
+        <div>
+          <label class="field-label">Вставьте код переноса профиля (`MRC1:...`)</label>
+          <textarea id="restore-code-input" class="field-input" rows="4" placeholder="MRC1:..." required></textarea>
+        </div>
+        <div>
+          <label class="field-label">Задайте пароль для входа на этом устройстве</label>
+          <input type="password" id="restore-password" class="field-input" minlength="4" placeholder="Пароль (мин. 4 символа)" required />
+        </div>
+        <div id="restore-error" style="color:#ff6b84;font-size:12px;display:none;"></div>
+        <button type="submit" class="btn btn-volt" style="width:100%;">Импортировать профиль →</button>
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -1017,6 +1559,7 @@
         <a href="https://mountain-race.ru/events/" target="_blank" rel="noopener">Mountain-Race</a>
         <a href="https://5verst.ru/" target="_blank" rel="noopener">5 вёрст / S95</a>
         <a href="https://github.com/prartem476-dev/running_calendar_moscow" target="_blank" rel="noopener">GitHub</a>
+        <a href="./privacy.html">Политика конфиденциальности</a>
       </div>
     </div>
   </footer>
@@ -1024,6 +1567,14 @@
   <div id="toast" class="toast">Ссылка на iCal-календарь скопирована в буфер обмена!</div>
 
   <script>
+    const PUBLIC_BASE_URL = 'https://prartem476-dev.github.io/running_calendar_moscow';
+    const STORAGE_CACHE_KEY = 'moscow_running_events_cache_v1';
+    const isNativeApp = Boolean(
+      window.Capacitor ||
+      window.location.protocol === 'capacitor:' ||
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1'
+    );
     const RU_MONTH_NAMES = [
       'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
       'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
@@ -1035,8 +1586,126 @@
     const RU_WEEKDAYS = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 
     let allEvents = [];
+    let recentNewEvents = [];
     let activeSurface = 'all_races';
     let activeDistance = 'all';
+    let isCabinetOpen = false;
+    let serverOnline = false;
+
+    const LOCAL_ACCOUNTS_KEY = 'mrc_local_accounts_v1';
+    const ACTIVE_SESSION_KEY = 'mrc_active_session_v1';
+
+    let currentUser = null; // { id, accessToken, email, nickname, createdAt, sessionToken }
+    let cabinetData = {
+      myRaces: {}, // eventId -> { eventId, title, date, end_date, location, url, distance, status: 'planned'|'registered', bib: '', goalTime: '', note: '', addedAt }
+      myResults: [], // [{ id, eventId, title, date, distanceKm, timeStr, seconds, note, createdAt }]
+      manualRecords: {},
+      updatedAt: ''
+    };
+
+    function generateClientToken() {
+      const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+      const randGroup = () => {
+        const arr = new Uint8Array(4);
+        if (window.crypto && window.crypto.getRandomValues) {
+          window.crypto.getRandomValues(arr);
+        } else {
+          for (let i = 0; i < 4; i++) arr[i] = Math.floor(Math.random() * 256);
+        }
+        return Array.from(arr, b => chars[b % chars.length]).join('');
+      };
+      return `RUN-${randGroup()}-${randGroup()}-${randGroup()}`;
+    }
+
+    function normalizeTokenString(raw) {
+      const clean = String(raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (clean.startsWith('RUN') && clean.length === 15) {
+        const b = clean.slice(3);
+        return `RUN-${b.slice(0, 4)}-${b.slice(4, 8)}-${b.slice(8, 12)}`;
+      }
+      return String(raw || '').trim().toUpperCase();
+    }
+
+    async function sha256Hex(str) {
+      if (window.crypto && window.crypto.subtle) {
+        const buf = new TextEncoder().encode(str);
+        const digest = await window.crypto.subtle.digest('SHA-256', buf);
+        return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+      }
+      let h = 0;
+      for (let i = 0; i < str.length; i++) h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
+      return String(h >>> 0);
+    }
+
+    function getLocalAccounts() {
+      try {
+        return JSON.parse(localStorage.getItem(LOCAL_ACCOUNTS_KEY) || '{}');
+      } catch {
+        return {};
+      }
+    }
+
+    function saveLocalAccounts(accounts) {
+      try {
+        localStorage.setItem(LOCAL_ACCOUNTS_KEY, JSON.stringify(accounts));
+      } catch {}
+    }
+
+    async function checkServerApi() {
+      try {
+        const res = await fetch('/api/health', { signal: AbortSignal.timeout(2500) });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.ok) {
+            serverOnline = true;
+            const badge = document.getElementById('cab-sync-badge');
+            if (badge) badge.textContent = '🟢 Синхронизировано с SQLite сервером';
+            return true;
+          }
+        }
+      } catch {}
+      serverOnline = false;
+      const badge = document.getElementById('cab-sync-badge');
+      if (badge) badge.textContent = '⚡ Автономный режим (Local + Portable Token)';
+      return false;
+    }
+
+    function parseTimeToSeconds(timeStr) {
+      const clean = String(timeStr || '').trim();
+      const parts = clean.split(':').map(Number);
+      if (parts.some(isNaN)) return 0;
+      if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+      if (parts.length === 2) return parts[0] * 60 + parts[1];
+      return 0;
+    }
+
+    function formatSecondsToTime(sec) {
+      if (!sec || sec <= 0) return '—';
+      const h = Math.floor(sec / 3600);
+      const m = Math.floor((sec % 3600) / 60);
+      const s = Math.round(sec % 60);
+      if (h > 0) {
+        return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      }
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function formatPace(seconds, distKm) {
+      const d = parseFloat(distKm);
+      if (!seconds || !d || d <= 0) return '';
+      const secPerKm = seconds / d;
+      const pm = Math.floor(secPerKm / 60);
+      const ps = Math.round(secPerKm % 60);
+      return `${pm}:${String(ps).padStart(2, '0')} /км`;
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
 
     function formatHumanDate(isoStart, isoEnd) {
       const d1 = new Date(isoStart + 'T09:00:00');
@@ -1120,6 +1789,8 @@
 
     function populateMonthSelect(events) {
       const select = document.getElementById('month-select');
+      const prevVal = select.value || 'all';
+      select.innerHTML = '<option value="all">Все месяцы</option>';
       const monthsSet = new Set();
       events.forEach(ev => {
         monthsSet.add(ev.date.slice(0, 7));
@@ -1131,6 +1802,9 @@
         opt.textContent = `${RU_MONTH_NAMES[parseInt(m, 10) - 1]} ${y}`;
         select.appendChild(opt);
       });
+      if (Array.from(select.options).some(o => o.value === prevVal)) {
+        select.value = prevVal;
+      }
     }
 
     function renderEvents() {
@@ -1149,9 +1823,11 @@
           }
         }
         if (activeSurface === 'all_races' && ev.is_parkrun && !query) return false;
+        if (activeSurface === 'new_events' && (!ev.is_new || ev.is_parkrun)) return false;
+        if (activeSurface === 'my_saved' && !(cabinetData.myRaces && cabinetData.myRaces[ev.id])) return false;
         if (activeSurface === 'featured' && !ev.featured) return false;
         if (activeSurface === 'golden_ring' && !ev.is_golden_ring && ev.region !== 'Золотое кольцо') return false;
-        if (!['all_races', 'all_with_parks', 'featured', 'golden_ring'].includes(activeSurface) && ev.surface !== activeSurface) return false;
+        if (!['all_races', 'all_with_parks', 'featured', 'golden_ring', 'new_events', 'my_saved'].includes(activeSurface) && ev.surface !== activeSurface) return false;
         if (!matchesDistanceFilter(ev.distances || [], activeDistance)) return false;
 
         if (query) {
@@ -1200,7 +1876,8 @@
           const human = formatHumanDate(ev.date, ev.end_date);
           const surfaceClass = getSurfaceBadgeClass(ev.surface);
           const gcalUrl = generateGoogleCalendarUrl(ev);
-          const chips = (ev.distances || []).slice(0, 6).map(d => `<span class="dist-chip">${d}</span>`).join('');
+          const chips = (ev.distances || []).slice(0, 6).map(d => `<span class="dist-chip">${escapeHtml(d)}</span>`).join('');
+          const isSaved = Boolean(cabinetData.myRaces && cabinetData.myRaces[ev.id]);
 
           html += `
             <article class="race-card ${ev.featured ? 'featured' : ''}">
@@ -1211,22 +1888,26 @@
                     <span class="date-badge-weekday">${human.sub}</span>
                   </div>
                   <div class="tags-wrap">
+                    ${ev.is_new && !ev.is_parkrun ? '<span class="badge badge-new">🆕 Новинка</span>' : ''}
                     ${ev.is_golden_ring || ev.region === 'Золотое кольцо' ? '<span class="badge badge-golden">🏛️ БЗК · Золотое кольцо</span>' : ''}
                     ${ev.featured ? '<span class="badge badge-featured">★ Топ старт</span>' : ''}
-                    <span class="badge ${surfaceClass}">${ev.surface}</span>
+                    <span class="badge ${surfaceClass}">${escapeHtml(ev.surface)}</span>
                   </div>
                 </div>
-                <h3 class="race-title" style="margin-top:12px;">${ev.title}</h3>
+                <h3 class="race-title" style="margin-top:12px;">${escapeHtml(ev.title)}</h3>
                 <div class="race-location" style="margin-top:6px;">
-                  <span>📍 ${ev.location}</span>
+                  <span>📍 ${escapeHtml(ev.location)}</span>
                 </div>
                 <div class="distances-wrap" style="margin-top:12px;">
                   ${chips}
                 </div>
               </div>
               <div class="race-footer">
-                <span class="race-source">${ev.source}${ev.rating ? ` · ★ ${ev.rating}` : ''}</span>
+                <span class="race-source">${escapeHtml(ev.source)}${ev.rating ? ` · ★ ${ev.rating}` : ''}</span>
                 <div class="race-actions">
+                  <button type="button" class="btn btn-star btn-sm js-toggle-my-race ${isSaved ? 'saved' : ''}" data-event-id="${escapeHtml(ev.id)}" title="Сохранить в Мои старты в Личном кабинете">
+                    ${isSaved ? '✓ В моих стартах' : '⭐ В мои старты'}
+                  </button>
                   <a href="${gcalUrl}" target="_blank" rel="noopener" class="btn btn-outline btn-sm" title="Добавить в Google Календарь">
                     + В календарь
                   </a>
@@ -1246,32 +1927,733 @@
       });
 
       container.innerHTML = html;
+
+      container.querySelectorAll('.js-toggle-my-race').forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggleMyRace(btn.dataset.eventId);
+        });
+      });
+    }
+
+    function mergeEventsPayloads(baseData, incomingData) {
+      if (!incomingData || !Array.isArray(incomingData.events)) return baseData;
+      if (!baseData || !Array.isArray(baseData.events)) return incomingData;
+
+      const byId = new Map();
+      baseData.events.forEach(ev => {
+        if (ev && ev.id) byId.set(ev.id, ev);
+      });
+
+      let newlyMerged = 0;
+      incomingData.events.forEach(ev => {
+        if (!ev || !ev.id) return;
+        if (!byId.has(ev.id)) {
+          byId.set(ev.id, { ...ev, is_new: true });
+          newlyMerged++;
+        } else {
+          byId.set(ev.id, { ...byId.get(ev.id), ...ev });
+        }
+      });
+
+      const mergedList = Array.from(byId.values()).sort((a, b) => {
+        if (a.date !== b.date) return a.date.localeCompare(b.date);
+        if (Boolean(a.is_parkrun) !== Boolean(b.is_parkrun)) return a.is_parkrun ? 1 : -1;
+        if (Boolean(a.featured) !== Boolean(b.featured)) return a.featured ? -1 : 1;
+        return (a.title || '').localeCompare(b.title || '', 'ru');
+      });
+
+      return {
+        ...baseData,
+        ...incomingData,
+        total_events: mergedList.length,
+        events: mergedList,
+        newlyMerged
+      };
+    }
+
+    function applyCalendarData(data) {
+      if (!data || !Array.isArray(data.events)) return;
+      allEvents = data.events;
+      recentNewEvents = Array.isArray(data.recent_new_events)
+        ? data.recent_new_events
+        : allEvents.filter(e => e.is_new && !e.is_parkrun).slice(0, 20);
+
+      const newCount = allEvents.filter(e => e.is_new && !e.is_parkrun).length;
+      if (data.updated_at_human) {
+        document.getElementById('updated-status').textContent =
+          `Обновлено: ${data.updated_at_human} · Новых в базе: ${newCount}`;
+      }
+
+      const pillNew = document.getElementById('pill-new-events');
+      if (pillNew) pillNew.textContent = `🆕 Новые в базе (${newCount})`;
+
+      const datalist = document.getElementById('events-datalist');
+      if (datalist) {
+        datalist.innerHTML = allEvents
+          .filter(e => !e.is_parkrun)
+          .slice(0, 180)
+          .map(e => `<option value="${escapeHtml(e.title)}"></option>`)
+          .join('');
+      }
+
+      updateStats(allEvents);
+      updateSpotlight(allEvents);
+      populateMonthSelect(allEvents);
+      renderEvents();
+      renderCabinet();
+    }
+
+    async function refreshEventsDatabase(manualTrigger = false) {
+      const btnTop = document.getElementById('refresh-db-btn');
+      const btnCab = document.getElementById('cab-trigger-parse-btn');
+      if (manualTrigger) {
+        if (btnTop) btnTop.innerHTML = '<span>⏳ Проверка стартов...</span>';
+        if (btnCab) btnCab.textContent = '⏳ Опрос 13 беговых площадок...';
+      }
+
+      let updatedPayload = null;
+      let addedCount = 0;
+
+      // 1. Try live server incremental parser (/api/events/refresh)
+      try {
+        const apiResp = await fetch('/api/events/refresh', {
+          method: 'POST',
+          signal: AbortSignal.timeout(30000)
+        });
+        if (apiResp.ok) {
+          const resJson = await apiResp.json();
+          if (resJson && resJson.ok && resJson.payload) {
+            updatedPayload = resJson.payload;
+            addedCount = resJson.last_run_added_count || 0;
+            serverOnline = true;
+          }
+        }
+      } catch {}
+
+      // 2. Also check GitHub Pages remote JSON and local JSON for any new events
+      if (!updatedPayload) {
+        try {
+          const urls = [
+            `./moscow_running_events.json?t=${Date.now()}`,
+            `${PUBLIC_BASE_URL}/moscow_running_events.json?t=${Date.now()}`
+          ];
+          for (const url of urls) {
+            try {
+              const r = await fetch(url, { signal: AbortSignal.timeout(10000) });
+              if (r.ok) {
+                const d = await r.json();
+                if (d && Array.isArray(d.events)) {
+                  if (!updatedPayload) {
+                    updatedPayload = d;
+                  } else {
+                    updatedPayload = mergeEventsPayloads(updatedPayload, d);
+                  }
+                }
+              }
+            } catch {}
+          }
+        } catch {}
+      }
+
+      if (updatedPayload && Array.isArray(updatedPayload.events)) {
+        const prevCount = allEvents.length;
+        const merged = mergeEventsPayloads({ events: allEvents }, updatedPayload);
+        const diffCount = Math.max(addedCount, merged.events.length - prevCount);
+        applyCalendarData(merged);
+        try {
+          localStorage.setItem(STORAGE_CACHE_KEY, JSON.stringify(merged));
+        } catch {}
+        if (manualTrigger) {
+          const newFlagged = merged.events.filter(e => e.is_new && !e.is_parkrun).length;
+          showToast(
+            diffCount > 0
+              ? `✅ Найдено и добавлено в базу новых стартов: +${diffCount} (всего новинок: ${newFlagged})`
+              : `✅ База актуальна (${merged.events.length} стартов, свежих анонсов: ${newFlagged})`
+          );
+        }
+      } else if (manualTrigger) {
+        showToast('Работаем с сохранённой офлайн-базой забегов');
+      }
+
+      if (btnTop) btnTop.innerHTML = '<span>🔄 Обновить базу</span>';
+      if (btnCab) btnCab.textContent = '🔄 Запустить проверку новых стартов';
     }
 
     async function initCalendar() {
-      try {
-        const resp = await fetch('./moscow_running_events.json?t=' + Date.now());
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        const data = await resp.json();
-        allEvents = data.events || [];
+      if (isNativeApp) {
+        const icsLink = document.querySelector('a[download="moscow_running_events.ics"]');
+        if (icsLink) {
+          icsLink.href = `${PUBLIC_BASE_URL}/moscow_running_events.ics`;
+          icsLink.target = '_blank';
+          icsLink.rel = 'noopener';
+        }
+      }
 
-        if (data.updated_at_human) {
-          document.getElementById('updated-status').textContent = `Обновлено: ${data.updated_at_human}`;
+      await checkServerApi();
+      await restoreSessionOnLoad();
+
+      let currentData = null;
+
+      // 1. Load bundled/server database first
+      try {
+        const resp = await fetch('./moscow_running_events.json');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        currentData = await resp.json();
+      } catch (err) {
+        console.error('Ошибка загрузки локальной базы забегов:', err);
+      }
+
+      // 2. Merge with localStorage cached database so no events are ever lost
+      try {
+        const cachedRaw = localStorage.getItem(STORAGE_CACHE_KEY);
+        if (cachedRaw) {
+          const cachedData = JSON.parse(cachedRaw);
+          if (cachedData && Array.isArray(cachedData.events)) {
+            currentData = currentData ? mergeEventsPayloads(currentData, cachedData) : cachedData;
+          }
+        }
+      } catch {}
+
+      if (currentData) {
+        applyCalendarData(currentData);
+      }
+
+      // 3. Background check for newer events from GitHub Pages when online
+      if (navigator.onLine !== false) {
+        try {
+          const remoteResp = await fetch(`${PUBLIC_BASE_URL}/moscow_running_events.json?t=${Date.now()}`);
+          if (remoteResp.ok) {
+            const remoteData = await remoteResp.json();
+            if (remoteData && Array.isArray(remoteData.events)) {
+              const merged = currentData ? mergeEventsPayloads(currentData, remoteData) : remoteData;
+              applyCalendarData(merged);
+              try {
+                localStorage.setItem(STORAGE_CACHE_KEY, JSON.stringify(merged));
+              } catch {}
+            }
+          }
+        } catch {}
+      }
+    }
+
+    // ================= PERSONAL CABINET & HYBRID AUTH (TOKEN / EMAIL + PASSWORD) =================
+
+    async function restoreSessionOnLoad() {
+      try {
+        const raw = localStorage.getItem(ACTIVE_SESSION_KEY);
+        if (!raw) {
+          updateTopbarCabinetBtn();
+          return;
+        }
+        const saved = JSON.parse(raw);
+        if (!saved || !saved.accessToken) return;
+
+        // First load local account data
+        const accounts = getLocalAccounts();
+        const acc = accounts[saved.accessToken];
+        if (acc) {
+          currentUser = {
+            id: acc.id || saved.accessToken,
+            accessToken: acc.accessToken,
+            email: acc.email || '',
+            nickname: acc.nickname || '',
+            createdAt: acc.createdAt || '',
+            sessionToken: saved.sessionToken || ''
+          };
+          cabinetData = acc.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} };
+        } else {
+          currentUser = saved;
         }
 
-        updateStats(allEvents);
-        updateSpotlight(allEvents);
-        populateMonthSelect(allEvents);
+        // If server is online and we have sessionToken, sync latest state from SQLite
+        if (serverOnline && saved.sessionToken) {
+          try {
+            const resp = await fetch('/api/cabinet', {
+              headers: { Authorization: `Bearer ${saved.sessionToken}` }
+            });
+            if (resp.ok) {
+              const data = await resp.json();
+              if (data && data.ok && data.user) {
+                currentUser = { ...data.user, sessionToken: saved.sessionToken };
+                if (data.cabinetData) {
+                  cabinetData = {
+                    myRaces: data.cabinetData.myRaces || {},
+                    myResults: data.cabinetData.myResults || [],
+                    manualRecords: data.cabinetData.manualRecords || {},
+                    updatedAt: data.cabinetData.updatedAt || ''
+                  };
+                }
+                persistLocalMirror();
+              }
+            }
+          } catch {}
+        }
+      } catch {}
+      updateTopbarCabinetBtn();
+    }
+
+    function persistLocalMirror(pwHashOptional) {
+      if (!currentUser || !currentUser.accessToken) return;
+      const accounts = getLocalAccounts();
+      const prev = accounts[currentUser.accessToken] || {};
+      accounts[currentUser.accessToken] = {
+        ...prev,
+        id: currentUser.id || currentUser.accessToken,
+        accessToken: currentUser.accessToken,
+        email: (currentUser.email || '').toLowerCase(),
+        nickname: currentUser.nickname || '',
+        passwordHash: pwHashOptional || prev.passwordHash || '',
+        createdAt: currentUser.createdAt || prev.createdAt || new Date().toISOString(),
+        cabinetData
+      };
+      saveLocalAccounts(accounts);
+      try {
+        localStorage.setItem(ACTIVE_SESSION_KEY, JSON.stringify(currentUser));
+      } catch {}
+    }
+
+    async function saveCabinetState() {
+      cabinetData.updatedAt = new Date().toISOString();
+      persistLocalMirror();
+      updateTopbarCabinetBtn();
+
+      if (serverOnline && currentUser && currentUser.sessionToken) {
+        try {
+          await fetch('/api/cabinet', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${currentUser.sessionToken}`
+            },
+            body: JSON.stringify({
+              nickname: currentUser.nickname || '',
+              email: currentUser.email || '',
+              cabinetData
+            })
+          });
+        } catch {}
+      }
+    }
+
+    function updateTopbarCabinetBtn() {
+      const label = document.getElementById('cabinet-btn-label');
+      const pillSaved = document.getElementById('pill-my-saved');
+      const count = Object.keys(cabinetData.myRaces || {}).length;
+      if (pillSaved) {
+        pillSaved.textContent = count > 0 ? `⭐ Мои старты (${count})` : '⭐ Мои старты';
+      }
+      if (!label) return;
+      if (currentUser && currentUser.accessToken) {
+        const displayName = currentUser.nickname || currentUser.accessToken.slice(0, 8);
+        label.textContent = isCabinetOpen
+          ? '← В календарь стартов'
+          : `👤 Кабинет (${displayName}) · ${count}`;
+      } else {
+        label.textContent = '👤 Войти / Личный кабинет';
+      }
+    }
+
+    function switchView(openCabinet) {
+      isCabinetOpen = Boolean(openCabinet);
+      const heroEl = document.querySelector('.hero');
+      const controlsEl = document.querySelector('.controls-section');
+      const eventsEl = document.getElementById('events-container');
+      const cabEl = document.getElementById('cabinet-view');
+
+      if (isCabinetOpen) {
+        if (heroEl) heroEl.style.display = 'none';
+        if (controlsEl) controlsEl.style.display = 'none';
+        if (eventsEl) eventsEl.style.display = 'none';
+        if (cabEl) cabEl.classList.add('active');
+        renderCabinet();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        if (heroEl) heroEl.style.display = '';
+        if (controlsEl) controlsEl.style.display = '';
+        if (eventsEl) eventsEl.style.display = '';
+        if (cabEl) cabEl.classList.remove('active');
         renderEvents();
-      } catch (err) {
-        console.error('Ошибка загрузки базы забегов:', err);
-        document.getElementById('events-container').innerHTML = `
-          <div class="empty-state">
-            <h3>Не удалось загрузить moscow_running_events.json</h3>
-            <p style="margin-top:8px;color:var(--text-secondary);">Запустите <code>python moscow_running_parser.py</code> для генерации базы.</p>
+      }
+      updateTopbarCabinetBtn();
+    }
+
+    function openAuthModal(defaultTab = 'login') {
+      const modal = document.getElementById('auth-modal');
+      const regTokenInput = document.getElementById('reg-token');
+      if (regTokenInput && !regTokenInput.value) {
+        regTokenInput.value = generateClientToken();
+      }
+      switchAuthTab(defaultTab);
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeAuthModal() {
+      const modal = document.getElementById('auth-modal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function switchAuthTab(tabName) {
+      document.querySelectorAll('[data-auth-tab]').forEach(b => {
+        b.classList.toggle('active', b.dataset.authTab === tabName);
+      });
+      document.getElementById('auth-login-form').style.display = tabName === 'login' ? 'flex' : 'none';
+      document.getElementById('auth-register-form').style.display = tabName === 'register' ? 'flex' : 'none';
+      document.getElementById('auth-restore-form').style.display = tabName === 'restore' ? 'flex' : 'none';
+    }
+
+    function toggleMyRace(eventId) {
+      if (!currentUser) {
+        openAuthModal('register');
+        showToast('Войдите по токену или создайте кабинет за 5 секунд, чтобы сохранять свои старты!');
+        return;
+      }
+      if (!cabinetData.myRaces) cabinetData.myRaces = {};
+      if (cabinetData.myRaces[eventId]) {
+        delete cabinetData.myRaces[eventId];
+        showToast('Старт удалён из раздела «Мои старты»');
+      } else {
+        const ev = allEvents.find(e => e.id === eventId);
+        if (!ev) return;
+        cabinetData.myRaces[eventId] = {
+          eventId: ev.id,
+          title: ev.title,
+          date: ev.date,
+          end_date: ev.end_date || ev.date,
+          location: ev.location || 'Москва',
+          url: ev.url || '',
+          distances: ev.distances || ['10 км'],
+          selectedDistance: (ev.distances && ev.distances[0]) || '10 км',
+          status: 'planned',
+          bib: '',
+          goalTime: '',
+          note: '',
+          addedAt: new Date().toISOString()
+        };
+        showToast(`✅ «${ev.title}» добавлен в Мои старты!`);
+      }
+      saveCabinetState();
+      renderEvents();
+      if (isCabinetOpen) renderCabinet();
+    }
+
+    function computePersonalBests() {
+      const targets = [
+        { key: '5', km: 5, match: d => Math.abs(d - 5) <= 0.25 },
+        { key: '10', km: 10, match: d => Math.abs(d - 10) <= 0.4 },
+        { key: '21', km: 21.1, match: d => Math.abs(d - 21.1) <= 0.6 },
+        { key: '42', km: 42.2, match: d => Math.abs(d - 42.2) <= 0.8 }
+      ];
+      const bests = {};
+      for (const t of targets) {
+        const candidates = (cabinetData.myResults || [])
+          .filter(r => r.seconds > 0 && t.match(parseFloat(r.distanceKm)))
+          .sort((a, b) => a.seconds - b.seconds);
+        bests[t.key] = candidates[0] || null;
+      }
+      return bests;
+    }
+
+    function renderCabinet() {
+      if (!currentUser) return;
+
+      document.getElementById('cab-token-badge').textContent = `${currentUser.accessToken} 📋`;
+      document.getElementById('cab-greeting').textContent = currentUser.nickname
+        ? `Личный кабинет · ${currentUser.nickname}`
+        : `Личный кабинет · ${currentUser.accessToken}`;
+      document.getElementById('cab-subinfo').textContent = currentUser.email
+        ? `Вход доступен по Токену (${currentUser.accessToken}) или Email (${currentUser.email}) + Пароль`
+        : `Анонимный доступ по Токену (${currentUser.accessToken}) + Пароль · Без персональных данных`;
+
+      document.getElementById('prof-token-readonly').value = currentUser.accessToken;
+      document.getElementById('prof-email-input').value = currentUser.email || '';
+      document.getElementById('prof-nick-input').value = currentUser.nickname || '';
+
+      const myRacesArr = Object.values(cabinetData.myRaces || {}).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+      const myResultsArr = (cabinetData.myResults || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      const newEventsArr = allEvents.filter(e => e.is_new && !e.is_parkrun);
+
+      const regCount = myRacesArr.filter(r => r.status === 'registered').length;
+      const totalKm = myResultsArr.reduce((acc, r) => acc + (parseFloat(r.distanceKm) || 0), 0);
+
+      document.getElementById('cab-stat-planned').textContent = myRacesArr.length;
+      document.getElementById('cab-stat-registered').textContent = regCount;
+      document.getElementById('cab-stat-finished').textContent = myResultsArr.length;
+      document.getElementById('cab-stat-km').textContent = `${Math.round(totalKm * 10) / 10} км`;
+
+      document.getElementById('tab-count-races').textContent = myRacesArr.length;
+      document.getElementById('tab-count-results').textContent = myResultsArr.length;
+      document.getElementById('tab-count-new').textContent = newEventsArr.length;
+
+      // Render Personal Bests (PB)
+      const bests = computePersonalBests();
+      ['5', '10', '21', '42'].forEach(k => {
+        const timeEl = document.getElementById(`pb-time-${k}`);
+        const metaEl = document.getElementById(`pb-meta-${k}`);
+        const rec = bests[k];
+        if (rec) {
+          timeEl.textContent = formatSecondsToTime(rec.seconds);
+          const pace = formatPace(rec.seconds, rec.distanceKm);
+          metaEl.textContent = `${pace} · ${rec.title.slice(0, 26)}`;
+        } else {
+          timeEl.textContent = '—';
+          metaEl.textContent = 'Добавьте результат во вкладке «Результаты»';
+        }
+      });
+
+      // Render Tab 1: My Planned Races
+      const racesListEl = document.getElementById('cab-my-races-list');
+      if (myRacesArr.length === 0) {
+        racesListEl.innerHTML = `
+          <div class="empty-state" style="margin-top:0;">
+            <h3 style="font-family:'Unbounded',sans-serif;margin-bottom:8px;">У вас пока нет выбранных стартов</h3>
+            <p style="color:var(--text-secondary);margin-bottom:16px;">Нажмите кнопку <strong>«⭐ В мои старты»</strong> на любой карточке забега в календаре, чтобы составить свой план сезона, отметить купленные слоты и скачать персональный iCal.</p>
+            <button type="button" class="btn btn-volt" id="empty-go-cal-btn">Перейти к выбору забегов →</button>
           </div>
         `;
+        const goBtn = document.getElementById('empty-go-cal-btn');
+        if (goBtn) goBtn.addEventListener('click', () => switchView(false));
+      } else {
+        racesListEl.innerHTML = myRacesArr.map(item => {
+          const human = formatHumanDate(item.date, item.end_date);
+          const distOptions = (item.distances && item.distances.length ? item.distances : ['5 км', '10 км', '21.1 км', '42.2 км'])
+            .map(d => `<option value="${escapeHtml(d)}" ${d === item.selectedDistance ? 'selected' : ''}>${escapeHtml(d)}</option>`)
+            .join('');
+          const goalSec = parseTimeToSeconds(item.goalTime);
+          const numDist = parseFloat(String(item.selectedDistance).replace(',', '.')) || 10;
+          const goalPace = goalSec > 0 ? formatPace(goalSec, numDist) : '';
+
+          return `
+            <div class="cab-item-card" data-race-id="${escapeHtml(item.eventId)}">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <div>
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                    <span class="badge badge-featured">📅 ${human.main} ${item.date.slice(0, 4)}</span>
+                    <span class="badge ${item.status === 'registered' ? 'badge-new' : 'badge-indoor'}">
+                      ${item.status === 'registered' ? '✓ Слот куплен' : '⏳ В планах'}
+                    </span>
+                    ${goalPace ? `<span class="badge badge-golden">🎯 Целевой темп: ${goalPace}</span>` : ''}
+                  </div>
+                  <h3 class="race-title">${escapeHtml(item.title)}</h3>
+                  <div class="race-location" style="margin-top:4px;">📍 ${escapeHtml(item.location)}</div>
+                </div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                  <button type="button" class="btn btn-outline btn-sm js-finish-race" data-id="${escapeHtml(item.eventId)}">🏁 Записать финиш</button>
+                  <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Сайт ↗</a>
+                  <button type="button" class="btn btn-outline btn-sm js-remove-race" data-id="${escapeHtml(item.eventId)}">✕</button>
+                </div>
+              </div>
+              <div class="cab-form-grid">
+                <div>
+                  <label class="field-label">Моя дистанция</label>
+                  <select class="field-input js-race-field" data-id="${escapeHtml(item.eventId)}" data-field="selectedDistance">
+                    ${distOptions}
+                  </select>
+                </div>
+                <div>
+                  <label class="field-label">Статус участия</label>
+                  <select class="field-input js-race-field" data-id="${escapeHtml(item.eventId)}" data-field="status">
+                    <option value="planned" ${item.status !== 'registered' ? 'selected' : ''}>Планирую бежать</option>
+                    <option value="registered" ${item.status === 'registered' ? 'selected' : ''}>Слот куплен ✓</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="field-label">Стартовый номер (BIB)</label>
+                  <input type="text" class="field-input js-race-field" data-id="${escapeHtml(item.eventId)}" data-field="bib" value="${escapeHtml(item.bib || '')}" placeholder="Например: 1042" />
+                </div>
+                <div>
+                  <label class="field-label">Целевое время (ЧЧ:ММ:СС)</label>
+                  <input type="text" class="field-input js-race-field" data-id="${escapeHtml(item.eventId)}" data-field="goalTime" value="${escapeHtml(item.goalTime || '')}" placeholder="01:45:00" />
+                </div>
+                <div>
+                  <label class="field-label">Заметка (медсправка, кластер, экипировка)</label>
+                  <input type="text" class="field-input js-race-field" data-id="${escapeHtml(item.eventId)}" data-field="note" value="${escapeHtml(item.note || '')}" placeholder="Взять оригинал справки" />
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        racesListEl.querySelectorAll('.js-race-field').forEach(el => {
+          el.addEventListener('change', () => {
+            const id = el.dataset.id;
+            const field = el.dataset.field;
+            if (cabinetData.myRaces && cabinetData.myRaces[id]) {
+              cabinetData.myRaces[id][field] = el.value;
+              saveCabinetState();
+              renderCabinet();
+            }
+          });
+        });
+
+        racesListEl.querySelectorAll('.js-remove-race').forEach(btn => {
+          btn.addEventListener('click', () => toggleMyRace(btn.dataset.id));
+        });
+
+        racesListEl.querySelectorAll('.js-finish-race').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const item = cabinetData.myRaces[btn.dataset.id];
+            if (!item) return;
+            document.getElementById('res-title').value = item.title;
+            document.getElementById('res-date').value = item.date;
+            const numD = parseFloat(String(item.selectedDistance).replace(',', '.'));
+            if ([5, 10, 15, 21.1, 30, 42.2].includes(numD)) {
+              document.getElementById('res-dist').value = String(numD);
+            }
+            if (item.goalTime) document.getElementById('res-time').value = item.goalTime;
+            if (item.bib) document.getElementById('res-note').value = `BIB #${item.bib}`;
+            switchCabTab('my-results');
+            document.getElementById('res-time').focus();
+          });
+        });
       }
+
+      // Render Tab 2: My Results & Personal Bests
+      const resListEl = document.getElementById('cab-results-list');
+      if (myResultsArr.length === 0) {
+        resListEl.innerHTML = `
+          <div class="empty-state" style="margin-top:0;">
+            <h3 style="font-family:'Unbounded',sans-serif;margin-bottom:8px;">Архив финишей пока пуст</h3>
+            <p style="color:var(--text-secondary);">Добавьте свой первый результат через форму выше — система автоматически рассчитает средний темп (мин/км) и обновит ваши личные рекорды (PB).</p>
+          </div>
+        `;
+      } else {
+        const pbIds = new Set(Object.values(bests).filter(Boolean).map(b => b.id));
+        resListEl.innerHTML = myResultsArr.map(r => {
+          const pace = formatPace(r.seconds, r.distanceKm);
+          const isPb = pbIds.has(r.id);
+          return `
+            <div class="cab-item-card" style="padding:16px 20px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <div>
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
+                    <span class="badge badge-road">${escapeHtml(r.distanceKm)} км</span>
+                    <span class="badge badge-featured">⏱️ ${formatSecondsToTime(r.seconds)}</span>
+                    <span class="badge badge-indoor">⚡ Темп: ${pace}</span>
+                    ${isPb ? '<span class="badge badge-golden">🏆 Личный рекорд (PB)</span>' : ''}
+                  </div>
+                  <h4 class="race-title" style="font-size:15px;">${escapeHtml(r.title)}</h4>
+                  <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">
+                    📅 ${escapeHtml(r.date)} ${r.note ? ` · 📝 ${escapeHtml(r.note)}` : ''}
+                  </div>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm js-del-result" data-id="${escapeHtml(r.id)}">Удалить</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        resListEl.querySelectorAll('.js-del-result').forEach(btn => {
+          btn.addEventListener('click', () => {
+            cabinetData.myResults = (cabinetData.myResults || []).filter(r => r.id !== btn.dataset.id);
+            saveCabinetState();
+            renderCabinet();
+            showToast('Результат удалён');
+          });
+        });
+      }
+
+      // Render Tab 3: Newly Parsed Events
+      const newGrid = document.getElementById('cab-new-events-grid');
+      if (newGrid) {
+        const listToShow = newEventsArr.slice(0, 24);
+        newGrid.innerHTML = listToShow.map(ev => {
+          const human = formatHumanDate(ev.date, ev.end_date);
+          const isSaved = Boolean(cabinetData.myRaces && cabinetData.myRaces[ev.id]);
+          return `
+            <article class="race-card">
+              <div>
+                <div class="race-top">
+                  <div class="date-badge">
+                    <span class="date-badge-main">${human.main}</span>
+                    <span class="date-badge-weekday">${human.sub}</span>
+                  </div>
+                  <div class="tags-wrap">
+                    <span class="badge badge-new">🆕 Новинка базы</span>
+                    <span class="badge ${getSurfaceBadgeClass(ev.surface)}">${escapeHtml(ev.surface)}</span>
+                  </div>
+                </div>
+                <h3 class="race-title" style="margin-top:10px;">${escapeHtml(ev.title)}</h3>
+                <div class="race-location" style="margin-top:4px;">📍 ${escapeHtml(ev.location)}</div>
+              </div>
+              <div class="race-footer">
+                <span class="race-source">${escapeHtml(ev.source)}</span>
+                <div class="race-actions">
+                  <button type="button" class="btn btn-star btn-sm js-cab-add-new ${isSaved ? 'saved' : ''}" data-id="${escapeHtml(ev.id)}">
+                    ${isSaved ? '✓ В моих стартах' : '⭐ В мои старты'}
+                  </button>
+                  <a href="${escapeHtml(ev.url)}" target="_blank" rel="noopener" class="btn btn-volt btn-sm">Сайт ↗</a>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        newGrid.querySelectorAll('.js-cab-add-new').forEach(btn => {
+          btn.addEventListener('click', () => toggleMyRace(btn.dataset.id));
+        });
+      }
+    }
+
+    function switchCabTab(tabId) {
+      document.querySelectorAll('[data-cab-tab]').forEach(b => {
+        b.classList.toggle('active', b.dataset.cabTab === tabId);
+      });
+      document.querySelectorAll('.cab-pane').forEach(p => {
+        p.classList.toggle('active', p.id === `cab-pane-${tabId}`);
+      });
+    }
+
+    function exportPersonalIcs() {
+      const myRacesArr = Object.values(cabinetData.myRaces || {});
+      if (myRacesArr.length === 0) {
+        showToast('Добавьте хотя бы один забег в «Мои старты» для экспорта личного календаря');
+        return;
+      }
+      const nowUtc = new Date().toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z';
+      const lines = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Moscow Running Calendar//Personal Runner Cabinet//RU',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        `X-WR-CALNAME:Мои забеги (${currentUser ? currentUser.accessToken : 'Runner'})`
+      ];
+      myRacesArr.forEach(r => {
+        const dtStart = (r.date || '').replace(/-/g, '');
+        const endObj = new Date((r.end_date || r.date) + 'T12:00:00Z');
+        endObj.setUTCDate(endObj.getUTCDate() + 1);
+        const dtEnd = endObj.toISOString().slice(0, 10).replace(/-/g, '');
+        const desc = [
+          `Моя дистанция: ${r.selectedDistance || ''}`,
+          `Статус: ${r.status === 'registered' ? 'Слот куплен' : 'Планирую'}`,
+          r.bib ? `Стартовый номер (BIB): ${r.bib}` : '',
+          r.goalTime ? `Целевое время: ${r.goalTime}` : '',
+          r.note ? `Заметка: ${r.note}` : '',
+          `Ссылка: ${r.url || ''}`
+        ].filter(Boolean).join('\\n');
+
+        lines.push(
+          'BEGIN:VEVENT',
+          `UID:myrace-${r.eventId}@running-calendar-moscow`,
+          `DTSTAMP:${nowUtc}`,
+          `DTSTART;VALUE=DATE:${dtStart}`,
+          `DTEND;VALUE=DATE:${dtEnd}`,
+          `SUMMARY:🏃 ${r.title} (${r.selectedDistance || ''})`,
+          `LOCATION:${r.location || 'Москва'}`,
+          `DESCRIPTION:${desc}`,
+          'STATUS:CONFIRMED',
+          'END:VEVENT'
+        );
+      });
+      lines.push('END:VCALENDAR');
+      const blob = new Blob([lines.join('\r\n') + '\r\n'], { type: 'text/calendar;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `my_running_calendar_${(currentUser?.accessToken || 'runner').toLowerCase()}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('📅 Ваш персональный iCal-календарь скачан!');
     }
 
     // Event listeners
@@ -1279,8 +2661,386 @@
     document.getElementById('month-select').addEventListener('change', renderEvents);
     document.getElementById('region-select').addEventListener('change', renderEvents);
 
+    document.getElementById('refresh-db-btn').addEventListener('click', () => refreshEventsDatabase(true));
+    document.getElementById('cab-trigger-parse-btn').addEventListener('click', () => refreshEventsDatabase(true));
+
+    document.getElementById('cabinet-toggle-btn').addEventListener('click', () => {
+      if (!currentUser) {
+        openAuthModal('login');
+      } else {
+        switchView(!isCabinetOpen);
+      }
+    });
+
+    document.getElementById('brand-home-link').addEventListener('click', e => {
+      e.preventDefault();
+      switchView(false);
+    });
+
+    document.getElementById('cab-back-to-cal-btn').addEventListener('click', () => switchView(false));
+    document.getElementById('cab-export-ics-btn').addEventListener('click', exportPersonalIcs);
+
+    document.getElementById('cab-token-badge').addEventListener('click', () => {
+      if (currentUser && currentUser.accessToken) {
+        fallbackCopy(currentUser.accessToken);
+        showToast(`Токен ${currentUser.accessToken} скопирован в буфер обмена!`);
+      }
+    });
+
+    document.getElementById('cab-logout-btn').addEventListener('click', async () => {
+      if (serverOnline && currentUser && currentUser.sessionToken) {
+        try {
+          await fetch('/api/auth/logout', {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${currentUser.sessionToken}` }
+          });
+        } catch {}
+      }
+      currentUser = null;
+      cabinetData = { myRaces: {}, myResults: [], manualRecords: {} };
+      try {
+        localStorage.removeItem(ACTIVE_SESSION_KEY);
+      } catch {}
+      switchView(false);
+      showToast('Вы вышли из Личного кабинета');
+    });
+
+    document.querySelectorAll('[data-cab-tab]').forEach(btn => {
+      btn.addEventListener('click', () => switchCabTab(btn.dataset.cabTab));
+    });
+
+    document.querySelectorAll('[data-auth-tab]').forEach(btn => {
+      btn.addEventListener('click', () => switchAuthTab(btn.dataset.authTab));
+    });
+
+    document.getElementById('auth-modal-close').addEventListener('click', closeAuthModal);
+    document.getElementById('auth-modal').addEventListener('click', e => {
+      if (e.target.id === 'auth-modal') closeAuthModal();
+    });
+
+    document.getElementById('reg-regen-token-btn').addEventListener('click', () => {
+      document.getElementById('reg-token').value = generateClientToken();
+    });
+
+    document.getElementById('reg-copy-token-btn').addEventListener('click', () => {
+      const val = document.getElementById('reg-token').value;
+      fallbackCopy(val);
+      showToast(`Токен ${val} скопирован!`);
+    });
+
+    // Register Handler (Token + Optional Email + Password)
+    document.getElementById('auth-register-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const errEl = document.getElementById('reg-error');
+      errEl.style.display = 'none';
+
+      const accessToken = normalizeTokenString(document.getElementById('reg-token').value) || generateClientToken();
+      const email = document.getElementById('reg-email').value.trim().toLowerCase();
+      const nickname = document.getElementById('reg-nickname').value.trim();
+      const password = document.getElementById('reg-password').value;
+
+      if (password.length < 4) {
+        errEl.textContent = 'Пароль должен содержать минимум 4 символа';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      const pwHash = await sha256Hex(`${accessToken}::${password}`);
+
+      if (serverOnline) {
+        try {
+          const resp = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ accessToken, email, nickname, password, cabinetData })
+          });
+          const data = await resp.json();
+          if (!resp.ok || !data.ok) {
+            errEl.textContent = data.error || 'Ошибка создания профиля';
+            errEl.style.display = 'block';
+            return;
+          }
+          currentUser = { ...data.user, sessionToken: data.sessionToken };
+          cabinetData = data.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} };
+          persistLocalMirror(pwHash);
+          closeAuthModal();
+          switchView(true);
+          showToast(`🎉 Кабинет создан! Ваш токен: ${currentUser.accessToken}`);
+          return;
+        } catch {}
+      }
+
+      // Autonomous Local Registration
+      const accounts = getLocalAccounts();
+      if (email) {
+        const dupEmail = Object.values(accounts).find(a => a.email && a.email.toLowerCase() === email);
+        if (dupEmail) {
+          errEl.textContent = 'Этот Email уже привязан к токену на устройстве. Используйте вкладку «Вход».';
+          errEl.style.display = 'block';
+          return;
+        }
+      }
+
+      currentUser = {
+        id: accessToken,
+        accessToken,
+        email,
+        nickname,
+        createdAt: new Date().toISOString(),
+        sessionToken: ''
+      };
+      cabinetData = { myRaces: {}, myResults: [], manualRecords: {}, updatedAt: new Date().toISOString() };
+      persistLocalMirror(pwHash);
+      closeAuthModal();
+      switchView(true);
+      showToast(`🎉 Кабинет создан! Сохраните ваш токен: ${accessToken}`);
+    });
+
+    // Login Handler (Token OR Email + Password)
+    document.getElementById('auth-login-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const errEl = document.getElementById('login-error');
+      errEl.style.display = 'none';
+
+      const identifier = document.getElementById('login-identifier').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      if (serverOnline) {
+        try {
+          const resp = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ identifier, password })
+          });
+          const data = await resp.json();
+          if (resp.ok && data.ok) {
+            const pwHash = await sha256Hex(`${data.user.accessToken}::${password}`);
+            currentUser = { ...data.user, sessionToken: data.sessionToken };
+            cabinetData = data.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} };
+            persistLocalMirror(pwHash);
+            closeAuthModal();
+            switchView(true);
+            showToast(`С возвращением, ${currentUser.nickname || currentUser.accessToken}!`);
+            return;
+          }
+        } catch {}
+      }
+
+      // Check local accounts by Token or Email
+      const accounts = getLocalAccounts();
+      let found = null;
+      if (identifier.includes('@')) {
+        found = Object.values(accounts).find(a => (a.email || '').toLowerCase() === identifier.toLowerCase());
+      } else {
+        const normTok = normalizeTokenString(identifier);
+        found = accounts[normTok];
+      }
+
+      if (!found) {
+        errEl.textContent = 'Профиль с таким Токеном или Email не найден. Проверьте ввод или создайте новый токен.';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      const expectedHash = await sha256Hex(`${found.accessToken}::${password}`);
+      if (found.passwordHash && found.passwordHash !== expectedHash) {
+        errEl.textContent = 'Неверный пароль';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      currentUser = {
+        id: found.id || found.accessToken,
+        accessToken: found.accessToken,
+        email: found.email || '',
+        nickname: found.nickname || '',
+        createdAt: found.createdAt || '',
+        sessionToken: ''
+      };
+      cabinetData = found.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} };
+      persistLocalMirror(expectedHash);
+      closeAuthModal();
+      switchView(true);
+      showToast(`Вход выполнен: ${currentUser.accessToken}`);
+    });
+
+    // Restore from Portable Sync Code (MRC1:...)
+    document.getElementById('auth-restore-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const errEl = document.getElementById('restore-error');
+      errEl.style.display = 'none';
+      const rawCode = document.getElementById('restore-code-input').value.trim();
+      const newPass = document.getElementById('restore-password').value;
+
+      try {
+        const cleanB64 = rawCode.startsWith('MRC1:') ? rawCode.slice(5) : rawCode;
+        const jsonStr = decodeURIComponent(escape(atob(cleanB64)));
+        const parsed = JSON.parse(jsonStr);
+        if (!parsed || !parsed.accessToken || !parsed.cabinetData) {
+          throw new Error('Invalid');
+        }
+        const pwHash = await sha256Hex(`${parsed.accessToken}::${newPass}`);
+        currentUser = {
+          id: parsed.accessToken,
+          accessToken: parsed.accessToken,
+          email: parsed.email || '',
+          nickname: parsed.nickname || '',
+          createdAt: parsed.createdAt || new Date().toISOString(),
+          sessionToken: ''
+        };
+        cabinetData = parsed.cabinetData;
+        persistLocalMirror(pwHash);
+        closeAuthModal();
+        switchView(true);
+        showToast(`✅ Профиль ${parsed.accessToken} успешно перенесён!`);
+      } catch {
+        errEl.textContent = 'Некорректный формат кода переноса (ожидается строка MRC1:...)';
+        errEl.style.display = 'block';
+      }
+    });
+
+    // Add Result Handler
+    document.getElementById('add-result-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const title = document.getElementById('res-title').value.trim();
+      const date = document.getElementById('res-date').value;
+      const distanceKm = parseFloat(document.getElementById('res-dist').value);
+      const timeStr = document.getElementById('res-time').value.trim();
+      const note = document.getElementById('res-note').value.trim();
+
+      const seconds = parseTimeToSeconds(timeStr);
+      if (!seconds || seconds <= 0) {
+        showToast('Введите время в формате ЧЧ:ММ:СС или ММ:СС (например, 01:45:20)');
+        return;
+      }
+
+      if (!cabinetData.myResults) cabinetData.myResults = [];
+      cabinetData.myResults.push({
+        id: 'res_' + Date.now(),
+        title,
+        date,
+        distanceKm,
+        timeStr,
+        seconds,
+        note,
+        createdAt: new Date().toISOString()
+      });
+
+      document.getElementById('res-title').value = '';
+      document.getElementById('res-time').value = '';
+      document.getElementById('res-note').value = '';
+
+      saveCabinetState();
+      renderCabinet();
+      showToast('🏆 Результат сохранён и учтён в личных рекордах!');
+    });
+
+    // Profile Save & Download Access Card
+    document.getElementById('prof-save-btn').addEventListener('click', async () => {
+      if (!currentUser) return;
+      currentUser.email = document.getElementById('prof-email-input').value.trim().toLowerCase();
+      currentUser.nickname = document.getElementById('prof-nick-input').value.trim();
+      await saveCabinetState();
+      renderCabinet();
+      showToast('✅ Настройки профиля сохранены');
+    });
+
+    document.getElementById('prof-download-card-btn').addEventListener('click', () => {
+      if (!currentUser) return;
+      const text = [
+        '====================================================',
+        'БЕГОВОЙ КАЛЕНДАРЬ МОСКВЫ И МО — КАРТОЧКА ДОСТУПА',
+        '====================================================',
+        `Персональный Токен: ${currentUser.accessToken}`,
+        currentUser.email ? `Привязанный Email: ${currentUser.email}` : 'Email: не указан (анонимный доступ)',
+        currentUser.nickname ? `Псевдоним: ${currentUser.nickname}` : '',
+        `Дата создания: ${currentUser.createdAt || new Date().toISOString()}`,
+        '',
+        'Для входа в Личный кабинет укажите этот Токен (или Email) и ваш пароль.',
+        'Персональные данные (ФИО, телефон) не запрашиваются и не хранятся.'
+      ].filter(Boolean).join('\r\n');
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `token_${currentUser.accessToken}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('📥 Памятка с токеном скачана');
+    });
+
+    // Change Password Handler
+    document.getElementById('change-pw-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!currentUser) return;
+      const curPw = document.getElementById('pw-current').value;
+      const newPw = document.getElementById('pw-new').value;
+
+      if (serverOnline && currentUser.sessionToken) {
+        try {
+          const resp = await fetch('/api/auth/change-password', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${currentUser.sessionToken}`
+            },
+            body: JSON.stringify({ currentPassword: curPw, newPassword: newPw })
+          });
+          const data = await resp.json();
+          if (!resp.ok || !data.ok) {
+            showToast(data.error || 'Ошибка смены пароля');
+            return;
+          }
+        } catch {}
+      }
+
+      const newHash = await sha256Hex(`${currentUser.accessToken}::${newPw}`);
+      persistLocalMirror(newHash);
+      document.getElementById('pw-current').value = '';
+      document.getElementById('pw-new').value = '';
+      showToast('🔒 Пароль успешно обновлён!');
+    });
+
+    // Portable Sync Code & JSON Backup
+    document.getElementById('export-sync-code-btn').addEventListener('click', () => {
+      if (!currentUser) return;
+      const payload = {
+        accessToken: currentUser.accessToken,
+        email: currentUser.email || '',
+        nickname: currentUser.nickname || '',
+        createdAt: currentUser.createdAt,
+        cabinetData
+      };
+      const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+      fallbackCopy(`MRC1:${b64}`);
+      showToast('📋 Код переноса профиля (MRC1:...) скопирован в буфер обмена!');
+    });
+
+    document.getElementById('export-json-backup-btn').addEventListener('click', () => {
+      if (!currentUser) return;
+      const payload = {
+        accessToken: currentUser.accessToken,
+        email: currentUser.email || '',
+        nickname: currentUser.nickname || '',
+        cabinetData
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `backup_${currentUser.accessToken}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('💾 Резервная копия JSON сохранена');
+    });
+
     document.querySelectorAll('#surface-pills .pill-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        if (btn.dataset.surface === 'my_saved' && !currentUser) {
+          openAuthModal('login');
+          showToast('Войдите по токену или почте, чтобы просматривать свои сохранённые старты');
+          return;
+        }
         document.querySelectorAll('#surface-pills .pill-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeSurface = btn.dataset.surface;
@@ -1297,14 +3057,44 @@
       });
     });
 
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      if (msg) toast.textContent = msg;
+      toast.classList.add('visible');
+      setTimeout(() => toast.classList.remove('visible'), 3000);
+    }
+
     document.getElementById('copy-ics-btn').addEventListener('click', () => {
-      const icsUrl = new URL('./moscow_running_events.ics', window.location.href).href;
-      navigator.clipboard.writeText(icsUrl).then(() => {
-        const toast = document.getElementById('toast');
-        toast.classList.add('visible');
-        setTimeout(() => toast.classList.remove('visible'), 3000);
-      });
+      const icsUrl = isNativeApp
+        ? `${PUBLIC_BASE_URL}/moscow_running_events.ics`
+        : new URL('./moscow_running_events.ics', window.location.href).href;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(icsUrl).then(() => {
+          showToast('Ссылка на iCal-календарь скопирована в буфер обмена!');
+        }).catch(() => {
+          fallbackCopy(icsUrl);
+        });
+      } else {
+        fallbackCopy(icsUrl);
+      }
     });
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast('Скопировано в буфер обмена!');
+      } catch {
+        showToast(text);
+      }
+      document.body.removeChild(ta);
+    }
 
     initCalendar();
   </script>

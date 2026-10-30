@@ -1,0 +1,12 @@
+node_modules/
+dist/
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/build/
+android/local.properties
+android/keystore.properties
+keystore/
+rustore/builds/
+running_calendar.db*
+.DS_Store

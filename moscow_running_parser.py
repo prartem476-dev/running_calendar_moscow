@@ -24,6 +24,7 @@
 import hashlib
 import json
 import re
+import sqlite3
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -53,6 +54,7 @@ GTO_LETO_URL = "https://gto-leto.sport.mos.ru/"
 
 JSON_OUTPUT = Path("moscow_running_events.json")
 ICS_OUTPUT = Path("moscow_running_events.ics")
+SQLITE_DB_PATH = Path("running_calendar.db")
 
 RU_MONTHS = {
     "января": 1,
@@ -1402,6 +1404,243 @@ def merge_and_deduplicate(event_lists: List[List[Dict[str, Any]]]) -> List[Dict[
     return merged
 
 
+def make_dedup_key(ev: Dict[str, Any]) -> Tuple[str, str]:
+    """Возвращает нормализованный ключ (дата, префикс названия) для сверки событий."""
+    norm_title = normalize_dedup_title(ev.get("title", ""))
+    if not norm_title:
+        norm_title = re.sub(r"[^a-zа-яё0-9]", "", ev.get("title", "").lower())
+    return (ev.get("date", ""), norm_title[:14])
+
+
+def load_existing_database(json_path: Path) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], str]:
+    """Загружает существующую JSON-базу для инкрементального пополнения без потери данных."""
+    if not json_path.exists():
+        return [], [], ""
+    try:
+        raw = json.loads(json_path.read_text(encoding="utf-8"))
+        events = raw.get("events") if isinstance(raw.get("events"), list) else []
+        recent_new = raw.get("recent_new_events") if isinstance(raw.get("recent_new_events"), list) else []
+        prev_updated_at = raw.get("updated_at") or ""
+        return events, recent_new, prev_updated_at
+    except Exception as exc:
+        print(f"[WARN] Не удалось прочитать существующую базу {json_path}: {exc}")
+        return [], [], ""
+
+
+def merge_incremental_database(
+    scraped_events: List[Dict[str, Any]],
+    existing_events: List[Dict[str, Any]],
+    existing_recent_new: List[Dict[str, Any]],
+    prev_updated_at: str,
+    now_msk: datetime,
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], int]:
+    """
+    Инкрементально дополняет существующую базу новыми событиями:
+    - Новые старты получают first_seen_at = now_iso и флаг is_new = True;
+    - Уже существующие старты обновляют свои поля, сохраняя оригинальный id и first_seen_at;
+    - Старты из прошлой базы, которые временно не вернулись с сайтов или уже прошли, сохраняются.
+    """
+    now_iso = now_msk.strftime("%Y-%m-%dT%H:%M:%S+03:00")
+    today_iso = now_msk.strftime("%Y-%m-%d")
+    cutoff_new_dt = (now_msk - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%S+03:00")
+    initial_baseline_iso = "2026-10-26T09:40:09+03:00"
+
+    by_id: Dict[str, Dict[str, Any]] = {}
+    by_key: Dict[Tuple[str, str], Dict[str, Any]] = {}
+
+    for ex in existing_events:
+        if not isinstance(ex, dict) or not ex.get("id") or not ex.get("date"):
+            continue
+        if not ex.get("first_seen_at"):
+            ex["first_seen_at"] = initial_baseline_iso
+        by_id[ex["id"]] = ex
+        by_key[make_dedup_key(ex)] = ex
+
+    matched_existing_ids = set()
+    final_events: List[Dict[str, Any]] = []
+    newly_added_in_run: List[Dict[str, Any]] = []
+
+    for sc in scraped_events:
+        key = make_dedup_key(sc)
+        ex = by_id.get(sc["id"]) or by_key.get(key)
+
+        if ex is not None:
+            matched_existing_ids.add(ex["id"])
+            merged_ev = dict(ex)
+            merged_ev.update(sc)
+            merged_ev["id"] = ex["id"]
+            merged_ev["first_seen_at"] = ex.get("first_seen_at") or initial_baseline_iso
+            merged_ev["last_seen_at"] = now_iso
+            end_d = merged_ev.get("end_date") or merged_ev.get("date") or today_iso
+            merged_ev["is_past"] = end_d < today_iso
+            merged_ev["is_new"] = bool(
+                merged_ev["first_seen_at"] > initial_baseline_iso
+                and merged_ev["first_seen_at"] >= cutoff_new_dt
+            )
+            final_events.append(merged_ev)
+        else:
+            new_ev = dict(sc)
+            new_ev["first_seen_at"] = now_iso
+            new_ev["last_seen_at"] = now_iso
+            end_d = new_ev.get("end_date") or new_ev.get("date") or today_iso
+            new_ev["is_past"] = end_d < today_iso
+            new_ev["is_new"] = True
+            final_events.append(new_ev)
+            newly_added_in_run.append(new_ev)
+
+    # Сохраняем ранее известные события, которых не оказалось в текущем ответе источников
+    for ex in existing_events:
+        ex_id = ex.get("id")
+        if not ex_id or ex_id in matched_existing_ids:
+            continue
+        key = make_dedup_key(ex)
+        if any(make_dedup_key(f) == key for f in final_events):
+            continue
+
+        end_d = ex.get("end_date") or ex.get("date") or today_iso
+        is_past = end_d < today_iso
+        # Прошедшие еженедельные паркраны не накапливаем, но целевые старты и будущие паркраны бережём
+        if ex.get("is_parkrun", False) and is_past:
+            continue
+
+        first_seen = ex.get("first_seen_at") or initial_baseline_iso
+        preserved = dict(ex)
+        preserved["first_seen_at"] = first_seen
+        preserved["last_seen_at"] = ex.get("last_seen_at") or first_seen
+        preserved["is_past"] = is_past
+        preserved["is_new"] = bool(
+            first_seen > initial_baseline_iso
+            and first_seen >= cutoff_new_dt
+        )
+        final_events.append(preserved)
+
+    final_events.sort(
+        key=lambda x: (
+            x["date"],
+            x.get("is_parkrun", False),
+            not x.get("featured", False),
+            x["title"],
+        )
+    )
+
+    # Обновляем ленту недавних новинок (recent_new_events)
+    recent_map: Dict[str, Dict[str, Any]] = {}
+    for item in newly_added_in_run:
+        if not item.get("is_parkrun", False):
+            recent_map[item["id"]] = {
+                "id": item["id"],
+                "title": item["title"],
+                "date": item["date"],
+                "display_date": item.get("display_date") or item["date"],
+                "location": item.get("location") or "Москва",
+                "surface": item.get("surface") or "Шоссе",
+                "distances": item.get("distances") or [],
+                "source": item.get("source") or "",
+                "url": item.get("url") or "",
+                "first_seen_at": item["first_seen_at"],
+            }
+    for old_item in existing_recent_new:
+        oid = old_item.get("id")
+        if oid and oid not in recent_map:
+            recent_map[oid] = old_item
+
+    recent_list = sorted(
+        recent_map.values(),
+        key=lambda x: (x.get("first_seen_at") or "", x.get("date") or ""),
+        reverse=True,
+    )[:30]
+
+    # Если все события были в базовом снимке, помечаем топ свежих анонсов для витрины новинок
+    if not any(e.get("is_new") for e in final_events) and recent_list:
+        recent_ids = {r["id"] for r in recent_list[:12]}
+        for ev in final_events:
+            if ev["id"] in recent_ids:
+                ev["is_new"] = True
+
+    return final_events, recent_list, len(newly_added_in_run)
+
+
+def sync_events_to_sqlite(events: List[Dict[str, Any]], db_path: Path) -> None:
+    """Синхронизирует актуальную базу событий с локальной SQLite БД (running_calendar.db)."""
+    try:
+        conn = sqlite3.connect(str(db_path))
+        cur = conn.cursor()
+        cur.execute(
+            """
+            CREATE TABLE IF NOT EXISTS events (
+                id TEXT PRIMARY KEY,
+                title TEXT NOT NULL,
+                date TEXT NOT NULL,
+                end_date TEXT,
+                location TEXT,
+                region TEXT,
+                surface TEXT,
+                category TEXT,
+                source TEXT,
+                url TEXT,
+                is_parkrun INTEGER DEFAULT 0,
+                featured INTEGER DEFAULT 0,
+                is_new INTEGER DEFAULT 0,
+                is_past INTEGER DEFAULT 0,
+                first_seen_at TEXT,
+                last_seen_at TEXT,
+                raw_json TEXT NOT NULL
+            )
+            """
+        )
+        for ev in events:
+            cur.execute(
+                """
+                INSERT INTO events (
+                    id, title, date, end_date, location, region, surface, category,
+                    source, url, is_parkrun, featured, is_new, is_past,
+                    first_seen_at, last_seen_at, raw_json
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(id) DO UPDATE SET
+                    title=excluded.title,
+                    date=excluded.date,
+                    end_date=excluded.end_date,
+                    location=excluded.location,
+                    region=excluded.region,
+                    surface=excluded.surface,
+                    category=excluded.category,
+                    source=excluded.source,
+                    url=excluded.url,
+                    is_parkrun=excluded.is_parkrun,
+                    featured=excluded.featured,
+                    is_new=excluded.is_new,
+                    is_past=excluded.is_past,
+                    first_seen_at=COALESCE(events.first_seen_at, excluded.first_seen_at),
+                    last_seen_at=excluded.last_seen_at,
+                    raw_json=excluded.raw_json
+                """,
+                (
+                    ev["id"],
+                    ev["title"],
+                    ev["date"],
+                    ev.get("end_date") or ev["date"],
+                    ev.get("location") or "",
+                    ev.get("region") or "Москва",
+                    ev.get("surface") or "Шоссе",
+                    ev.get("category") or "Городской забег",
+                    ev.get("source") or "",
+                    ev.get("url") or "",
+                    1 if ev.get("is_parkrun") else 0,
+                    1 if ev.get("featured") else 0,
+                    1 if ev.get("is_new") else 0,
+                    1 if ev.get("is_past") else 0,
+                    ev.get("first_seen_at") or "",
+                    ev.get("last_seen_at") or "",
+                    json.dumps(ev, ensure_ascii=False),
+                ),
+            )
+        conn.commit()
+        conn.close()
+        print(f"[INFO] SQLite база синхронизирована: {db_path} ({len(events)} записей)")
+    except Exception as exc:
+        print(f"[WARN] Ошибка синхронизации SQLite ({db_path}): {exc}")
+
+
 def escape_ics_text(text: str) -> str:
     """Экранирует спецсимволы согласно RFC 5545 (iCalendar)."""
     if not text:
@@ -1478,6 +1717,10 @@ def main() -> None:
     now_msk = datetime.now(timezone(timedelta(hours=3)))
     print(f"[INFO] Запуск мульти-источникового парсера забегов Москвы ({now_msk.isoformat()})")
 
+    existing_events, existing_recent_new, prev_updated_at = load_existing_database(JSON_OUTPUT)
+    if existing_events:
+        print(f"[INFO] Загружена существующая база: {len(existing_events)} стартов (от {prev_updated_at})")
+
     runc_events = fetch_runc_events(now_msk)
     heroleague_events = fetch_heroleague_events(now_msk)
     dab_events = fetch_dab_running_events(now_msk)
@@ -1492,7 +1735,7 @@ def main() -> None:
     regplace_events = fetch_regplace_events(now_msk)
     parkrun_events = fetch_probeg_events(include_parkruns=True)
 
-    events = merge_and_deduplicate(
+    scraped_events = merge_and_deduplicate(
         [
             runc_events,
             heroleague_events,
@@ -1510,16 +1753,32 @@ def main() -> None:
         ]
     )
 
+    events, recent_new_events, added_in_run_count = merge_incremental_database(
+        scraped_events=scraped_events,
+        existing_events=existing_events,
+        existing_recent_new=existing_recent_new,
+        prev_updated_at=prev_updated_at,
+        now_msk=now_msk,
+    )
+
     main_races_count = sum(1 for e in events if not e.get("is_parkrun", False))
     parkruns_count = sum(1 for e in events if e.get("is_parkrun", False))
+    upcoming_count = sum(1 for e in events if not e.get("is_past", False))
+    past_count = sum(1 for e in events if e.get("is_past", False))
+    new_events_count = sum(1 for e in events if e.get("is_new", False) and not e.get("is_parkrun", False))
 
     payload = {
         "updated_at": now_msk.strftime("%Y-%m-%dT%H:%M:%S+03:00"),
         "updated_at_human": now_msk.strftime("%d.%m.%Y в %H:%M МСК"),
         "region": "Москва и Московская область",
         "total_events": len(events),
+        "upcoming_events_count": upcoming_count,
+        "past_events_count": past_count,
         "main_races_count": main_races_count,
         "parkruns_count": parkruns_count,
+        "new_events_count": new_events_count,
+        "last_run_added_count": added_in_run_count,
+        "recent_new_events": recent_new_events,
         "sources": [
             {"name": "Беговое сообщество (runc.run)", "url": "https://runc.run/"},
             {"name": "ПроБЕГ (probeg.org)", "url": "https://probeg.org/"},
@@ -1543,10 +1802,11 @@ def main() -> None:
         encoding="utf-8",
     )
     print(
-        f"[INFO] JSON база сохранена в {JSON_OUTPUT}: всего {len(events)} стартов "
-        f"({main_races_count} целевых соревнований + {parkruns_count} парковых забегов 5 вёрст/S95)"
+        f"[INFO] JSON база обновлена в {JSON_OUTPUT}: всего {len(events)} стартов "
+        f"({main_races_count} целевых + {parkruns_count} паркранов, новых добавлено в этом запуске: {added_in_run_count})"
     )
 
+    sync_events_to_sqlite(events, SQLITE_DB_PATH)
     generate_ics(events, ICS_OUTPUT)
 
 

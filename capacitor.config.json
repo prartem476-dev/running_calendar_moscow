@@ -1,0 +1,12 @@
+{
+  "appId": "ru.moscowrun.calendar",
+  "appName": "Беговой календарь Москвы",
+  "webDir": "dist",
+  "backgroundColor": "#090b10",
+  "android": {
+    "backgroundColor": "#090b10",
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  }
+}

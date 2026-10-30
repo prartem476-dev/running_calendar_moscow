@@ -1,0 +1,25 @@
+{
+  "name": "moscow-running-calendar",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Беговой календарь Москвы и МО — марафоны, полумарафоны, трейлы и старты в манеже (Android / RuStore & Web)",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "parse": "node scripts/parse-events.mjs",
+    "build": "node scripts/build-web.mjs",
+    "android:icons": "node scripts/generate-icons.mjs",
+    "android:sync": "npm run build && npx cap sync android",
+    "android:open": "npx cap open android",
+    "android:release": "npm run build && node scripts/build-android-release.mjs",
+    "rustore:screenshots": "npm run build && node scripts/capture-rustore-screenshots.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3"
+  }
+}

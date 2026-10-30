@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Беговой календарь Москвы</string>
+    <string name="title_activity_main">Беговой календарь Москвы</string>
+    <string name="package_name">ru.moscowrun.calendar</string>
+    <string name="custom_url_scheme">ru.moscowrun.calendar</string>
+</resources>
