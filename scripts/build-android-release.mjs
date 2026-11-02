@@ -6,8 +6,14 @@ const rootDir = process.cwd();
 const androidDir = path.join(rootDir, 'android');
 const outDir = path.join(rootDir, 'rustore', 'builds');
 
+const localAndroidJdkDir = path.join(process.env.LOCALAPPDATA || '', 'Android', 'jdk');
+const localAndroidJdks = fs.existsSync(localAndroidJdkDir)
+  ? fs.readdirSync(localAndroidJdkDir).map((d) => path.join(localAndroidJdkDir, d))
+  : [];
+
 const jdkCandidates = [
   process.env.JAVA_HOME,
+  ...localAndroidJdks,
   path.join(process.env.USERPROFILE || '', '.jdks', 'jbr-21.0.11'),
   'C:\\Program Files\\Android\\Android Studio\\jbr',
 ].filter((p) => p && fs.existsSync(path.join(p, 'bin', 'java.exe')));

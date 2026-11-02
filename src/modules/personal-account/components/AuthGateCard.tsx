@@ -88,7 +88,7 @@ export const AuthGateCard: React.FC<AuthGateCardProps> = ({
           <div>
             <div className="text-xs font-extrabold text-white">За 5 секунд</div>
             <div className="text-[11px] font-bold text-slate-300 mt-0.5">
-              Только никнейм, аватар и 4-значный PIN-код
+              Только никнейм и пароль или 4-значный PIN-код
             </div>
           </div>
         </div>

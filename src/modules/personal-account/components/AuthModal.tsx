@@ -713,37 +713,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             {activeTab === 'register' && (
               <form onSubmit={handleRegisterSubmit} className="flex flex-col gap-3.5">
                 <div>
-                  <label className="text-xs font-extrabold text-slate-200 block mb-1.5">
-                    1. Выберите аватар профиля:
-                  </label>
-                  <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-                    {AUTH_AVATAR_OPTIONS.map((emoji) => (
-                      <button
-                        key={emoji}
-                        type="button"
-                        onClick={() => {
-                          playClick(soundEnabled);
-                          setRegAvatar(emoji);
-                        }}
-                        className={`w-10 h-10 rounded-xl text-xl flex items-center justify-center shrink-0 transition-all cursor-pointer border ${
-                          regAvatar === emoji
-                            ? 'bg-emerald-500/20 border-emerald-400 scale-105 shadow ring-1 ring-emerald-400'
-                            : 'bg-slate-950 border-slate-800 hover:bg-slate-800'
-                        }`}
-                      >
-                        {emoji}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
                   <div className="flex items-center justify-between mb-1">
                     <label
                       htmlFor="input-reg-nickname"
                       className="text-xs font-extrabold text-slate-200"
                     >
-                      2. Ваш никнейм (без ФИО и телефона):
+                      1. Ваш никнейм (без ФИО и телефона):
                     </label>
                     <button
                       type="button"
@@ -792,8 +767,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       <Lock className="w-3.5 h-3.5 text-emerald-400" />
                       <span>
                         {regMethod === 'pin'
-                          ? '3. Придумайте 4-значный PIN-код:'
-                          : '3. Придумайте пароль (от 4 символов):'}
+                          ? '2. Придумайте 4-значный PIN-код:'
+                          : '2. Придумайте пароль (от 4 символов):'}
                       </span>
                     </label>
                     <button
@@ -858,7 +833,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     >
                       <span className="flex items-center gap-1.5">
                         <Gift className="w-3.5 h-3.5 text-amber-400" />
-                        <span>4. Код приглашения от друга (необязательно):</span>
+                        <span>3. Код приглашения от друга (необязательно):</span>
                       </span>
                     </label>
                     <input

@@ -1843,7 +1843,7 @@
             <div>
               <div style="font-size:12px;font-weight:800;color:#ffffff;">За 5 секунд</div>
               <div style="font-size:11px;font-weight:600;color:#94a3b8;margin-top:2px;">
-                Только логин (никнейм), аватар и пароль или 4-значный PIN-код
+                Только логин (никнейм) и пароль или 4-значный PIN-код
               </div>
             </div>
           </div>
@@ -2373,16 +2373,9 @@
         <!-- TAB 1: REGISTRATION -->
         <form id="auth-register-form" style="display:none;flex-direction:column;gap:12px;">
           <div>
-            <label class="field-label" style="color:#e2e8f0;font-weight:800;">
-              1. Выберите аватар профиля:
-            </label>
-            <div class="avatar-picker-row" id="reg-avatar-picker"></div>
-          </div>
-
-          <div>
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
               <label for="input-reg-nickname" class="field-label" style="margin-bottom:0;color:#e2e8f0;font-weight:800;">
-                2. Ваш логин / никнейм (без ФИО и телефона):
+                1. Ваш логин / никнейм (без ФИО и телефона):
               </label>
               <button type="button" id="btn-reg-random-nick" style="background:transparent;border:none;color:#34d399;font-size:11px;font-family:monospace;font-weight:800;cursor:pointer;">
                 🎲 Случайный
@@ -2405,7 +2398,7 @@
           <div>
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
               <label for="input-reg-secret" class="field-label" style="margin-bottom:0;color:#e2e8f0;font-weight:800;" id="label-reg-secret">
-                🔒 3. Придумайте пароль (от 4 символов):
+                🔒 2. Придумайте пароль (от 4 символов):
               </label>
               <button type="button" id="btn-toggle-reg-method" style="background:transparent;border:none;color:#cbd5e1;font-size:11px;font-family:monospace;font-weight:700;cursor:pointer;text-decoration:underline;">
                 Использовать 4-значный PIN
@@ -2427,7 +2420,7 @@
 
           <div>
             <label for="input-reg-referral" class="field-label" style="color:#e2e8f0;font-weight:800;">
-              🎁 4. Код приглашения от друга (необязательно):
+              🎁 3. Код приглашения от друга (необязательно):
             </label>
             <input
               id="input-reg-referral"
@@ -4182,20 +4175,6 @@
     }
 
     function renderAvatarPickers() {
-      const regRow = document.getElementById('reg-avatar-picker');
-      if (regRow) {
-        regRow.innerHTML = ACCOUNT_CONFIG.avatarOptions
-          .map(emoji => `<button type="button" class="avatar-option-btn ${regSelectedAvatar === emoji ? 'selected' : ''}" data-reg-avatar="${emoji}">${emoji}</button>`)
-          .join('');
-        regRow.querySelectorAll('[data-reg-avatar]').forEach(btn => {
-          btn.addEventListener('click', () => {
-            playClick();
-            regSelectedAvatar = btn.dataset.regAvatar;
-            renderAvatarPickers();
-          });
-        });
-      }
-
       const modalEditRow = document.getElementById('modal-edit-avatar-picker');
       if (modalEditRow) {
         modalEditRow.innerHTML = ACCOUNT_CONFIG.avatarOptions
@@ -5043,13 +5022,13 @@
       const secretInput = document.getElementById('input-reg-secret');
       secretInput.value = '';
       if (regAuthMethod === 'pin') {
-        labelEl.textContent = '🔢 3. Придумайте 4-значный PIN-код:';
+        labelEl.textContent = '🔢 2. Придумайте 4-значный PIN-код:';
         toggleBtn.textContent = 'Использовать обычный пароль';
         secretInput.maxLength = 4;
         secretInput.inputMode = 'numeric';
         secretInput.placeholder = 'Например: 2580';
       } else {
-        labelEl.textContent = '🔒 3. Придумайте пароль (от 4 символов):';
+        labelEl.textContent = '🔒 2. Придумайте пароль (от 4 символов):';
         toggleBtn.textContent = 'Использовать 4-значный PIN';
         secretInput.maxLength = 32;
         secretInput.inputMode = 'text';
