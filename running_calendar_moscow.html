@@ -414,6 +414,147 @@
       border-color: var(--accent-volt);
     }
 
+    .date-filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 10px 14px;
+      background: rgba(9, 11, 16, 0.55);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .date-range-inputs {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .date-range-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .date-field-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 4px 10px;
+      transition: border-color 0.15s ease;
+    }
+
+    .date-field-group:focus-within {
+      border-color: var(--accent-volt);
+    }
+
+    .date-field-prefix {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    .date-input {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 2px;
+      outline: none;
+      color-scheme: dark;
+      cursor: pointer;
+    }
+
+    .date-presets {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .date-preset-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .date-preset-btn:hover {
+      color: var(--text-primary);
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .date-preset-btn.active {
+      background: var(--accent-volt-dim);
+      color: var(--accent-volt);
+      border-color: var(--border-accent);
+    }
+
+    .date-clear-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-crimson-dim);
+      border: 1px solid rgba(255, 59, 92, 0.35);
+      color: #ff6b84;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .date-clear-btn.visible {
+      display: inline-flex;
+    }
+
+    .date-clear-btn:hover {
+      background: rgba(255, 59, 92, 0.24);
+    }
+
+    .filter-results-summary {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .filter-results-summary strong {
+      color: var(--accent-volt);
+      font-family: 'Unbounded', sans-serif;
+      font-size: 12px;
+    }
+
     .pills-row {
       display: flex;
       align-items: center;
@@ -718,6 +859,50 @@
         min-height: 44px;
       }
 
+      .date-filter-row {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+      }
+
+      .date-range-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .date-range-title {
+        grid-column: 1 / -1;
+      }
+
+      .date-field-group {
+        width: 100%;
+        min-height: 44px;
+      }
+
+      .date-input {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      .date-presets {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .date-presets::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-results-summary {
+        margin-left: 0;
+      }
+
       .pill-group {
         width: 100%;
         overflow-x: auto;
@@ -878,7 +1063,7 @@
       border-color: var(--border-accent);
     }
 
-    /* Personal Cabinet & Auth Modal Styles */
+    /* Personal Cabinet & Portable Personal Account Kit Styles */
     .cabinet-section {
       display: none;
       padding: 28px 0 40px;
@@ -905,18 +1090,50 @@
       margin-bottom: 20px;
     }
 
+    .profile-header-btn {
+      height: 40px;
+      padding: 0 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid #34d399;
+      background: #10b981;
+      color: #090b10;
+      font-weight: 800;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .profile-header-btn:hover {
+      background: #34d399;
+    }
+
+    .profile-header-btn.logged-in {
+      border-color: rgba(16, 185, 129, 0.45);
+      background: rgba(16, 185, 129, 0.15);
+      color: #f3f5f8;
+    }
+
+    .profile-header-btn.logged-in:hover {
+      background: rgba(16, 185, 129, 0.25);
+    }
+
     .token-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-family: 'Unbounded', monospace;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      padding: 6px 12px;
+      padding: 5px 11px;
       border-radius: var(--radius-sm);
-      background: rgba(212, 255, 0, 0.12);
-      border: 1px solid var(--border-accent);
-      color: var(--accent-volt);
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #34d399;
       cursor: pointer;
     }
 
@@ -1041,20 +1258,110 @@
     }
 
     .field-input:focus {
-      border-color: var(--accent-volt);
+      border-color: #10b981;
     }
 
-    /* Modal */
+    /* AuthGateCard */
+    .auth-gate-card {
+      width: 100%;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 28px 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .auth-gate-icon-wrap {
+      position: relative;
+    }
+
+    .auth-gate-icon-main {
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(16, 185, 129, 0.15);
+      border: 2px solid rgba(52, 211, 153, 0.5);
+      color: #34d399;
+      font-size: 28px;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+    }
+
+    .auth-gate-icon-lock {
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: #090b10;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .auth-gate-pillars {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: left;
+    }
+
+    @media (max-width: 720px) {
+      .auth-gate-pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .auth-gate-pillar {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(9, 11, 16, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .auth-gate-actions {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 520px;
+    }
+
+    @media (max-width: 560px) {
+      .auth-gate-actions {
+        flex-direction: column;
+      }
+      .auth-gate-actions button {
+        width: 100%;
+      }
+    }
+
+    /* Portable AuthModal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 90;
-      background: rgba(5, 7, 11, 0.82);
-      backdrop-filter: blur(8px);
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(10px);
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 14px;
       overflow-y: auto;
     }
 
@@ -1063,41 +1370,269 @@
     }
 
     .modal-box {
-      background: var(--bg-card);
-      border: 1px solid rgba(212, 255, 0, 0.35);
-      border-radius: var(--radius-lg);
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
       width: 100%;
-      max-width: 500px;
-      padding: 26px 24px;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65);
+      max-width: 460px;
+      padding: 20px 22px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75);
       position: relative;
       max-height: 92vh;
       overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .auth-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #1e293b;
+      gap: 10px;
+    }
+
+    .auth-modal-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #34d399;
+      font-size: 18px;
+      flex-shrink: 0;
     }
 
     .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
       width: 34px;
       height: 34px;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.15s;
+    }
+
+    .modal-close:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+
+    .auth-tabs-switcher {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 16px;
+      background: #020617;
+      border: 1px solid #1e293b;
+    }
+
+    .auth-tab-pill {
+      min-height: 40px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: #cbd5e1;
+      transition: all 0.15s;
+    }
+
+    .auth-tab-pill.active {
+      background: #10b981;
+      color: #020617;
+      font-weight: 900;
+    }
+
+    .avatar-picker-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .avatar-picker-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .avatar-option-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      background: #020617;
+      border: 1px solid #1e293b;
+      transition: all 0.15s;
+    }
+
+    .avatar-option-btn:hover {
+      background: #1e293b;
+    }
+
+    .avatar-option-btn.selected {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #34d399;
+      transform: scale(1.06);
+      box-shadow: 0 0 0 1px #34d399;
+    }
+
+    .user-chip-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .user-chip-btn {
+      padding: 7px 12px;
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+      background: #020617;
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      transition: all 0.15s;
+    }
+
+    .user-chip-btn.selected {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #34d399;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .secret-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .secret-eye-btn {
+      position: absolute;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 15px;
+      padding: 4px;
+    }
+
+    .secret-eye-btn:hover {
+      color: #ffffff;
+    }
+
+    .auth-submit-btn {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      background: #10b981;
+      color: #020617;
+      font-weight: 900;
+      font-size: 14px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.22);
+      transition: all 0.15s;
+    }
+
+    .auth-submit-btn:hover {
+      background: #34d399;
+    }
+
+    .auth-error-box {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(136, 19, 55, 0.45);
+      border: 1px solid rgba(244, 63, 94, 0.45);
+      color: #fda4af;
+      font-size: 12px;
+      font-weight: 700;
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .auth-error-box.visible {
+      display: flex;
     }
 
     .privacy-banner {
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: var(--radius-sm);
+      border-radius: 14px;
       padding: 10px 12px;
       font-size: 12px;
       color: #a7f3d0;
-      margin-bottom: 16px;
       line-height: 1.45;
+    }
+
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .quick-links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .quick-link-card {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #020617;
+      border: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+      color: #ffffff;
+    }
+
+    .quick-link-card:hover {
+      border-color: rgba(16, 185, 129, 0.45);
+      background: #0f172a;
     }
   </style>
 </head>
@@ -1114,8 +1649,12 @@
         </div>
       </a>
       <div class="topbar-actions">
+        <button type="button" id="btn-header-auth" class="profile-header-btn" title="Войти или зарегистрироваться">
+          <span id="header-auth-avatar">🔑</span>
+          <span id="header-auth-label">Войти</span>
+        </button>
         <button type="button" id="cabinet-toggle-btn" class="btn btn-volt">
-          <span id="cabinet-btn-label">👤 Войти / Личный кабинет</span>
+          <span id="cabinet-btn-label">🏃 Личный кабинет</span>
         </button>
         <button type="button" id="refresh-db-btn" class="btn btn-outline" title="Проверить и загрузить новые старты в базу">
           <span>🔄 Обновить базу</span>
@@ -1222,6 +1761,30 @@
           </select>
         </div>
 
+        <div class="date-filter-row">
+          <div class="date-range-inputs">
+            <span class="date-range-title">📅 Период дат:</span>
+            <label class="date-field-group" for="date-from">
+              <span class="date-field-prefix">От</span>
+              <input type="date" id="date-from" class="date-input" aria-label="Дата от" />
+            </label>
+            <label class="date-field-group" for="date-to">
+              <span class="date-field-prefix">До</span>
+              <input type="date" id="date-to" class="date-input" aria-label="Дата до" />
+            </label>
+          </div>
+          <div class="date-presets" id="date-presets">
+            <button type="button" class="date-preset-btn" data-date-preset="weekend">На выходных</button>
+            <button type="button" class="date-preset-btn" data-date-preset="7days">7 дней</button>
+            <button type="button" class="date-preset-btn" data-date-preset="30days">30 дней</button>
+            <button type="button" class="date-preset-btn" data-date-preset="90days">3 месяца</button>
+            <button type="button" class="date-clear-btn" id="clear-dates-btn" title="Сбросить выбранный диапазон дат">✕ Сбросить даты</button>
+          </div>
+          <div class="filter-results-summary" id="filter-results-summary">
+            Найдено стартов: <strong id="filter-results-count">—</strong>
+          </div>
+        </div>
+
         <div class="pills-row">
           <div class="pill-group" id="surface-pills">
             <button type="button" class="pill-btn active" data-surface="all_races">Все соревнования</button>
@@ -1256,284 +1819,728 @@
   <!-- Personal Cabinet View -->
   <section class="cabinet-section" id="cabinet-view">
     <div class="container">
-      <div class="cabinet-header-card">
-        <div class="cabinet-header-top">
-          <div>
-            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-              <span class="badge badge-featured">🏃 ЛИЧНЫЙ КАБИНЕТ БЕГУНА</span>
-              <span class="token-pill" id="cab-token-badge" title="Нажмите, чтобы скопировать ваш Токен доступа">RUN-XXXX-XXXX-XXXX 📋</span>
-              <span class="badge badge-new" id="cab-sync-badge">Автономный + Облачный режим</span>
-            </div>
-            <h2 style="font-family:'Unbounded',sans-serif;font-size:clamp(18px,3vw,26px);margin-bottom:4px;" id="cab-greeting">
-              Профиль спортсмена
-            </h2>
-            <p style="font-size:13px;color:var(--text-secondary);" id="cab-subinfo">
-              Доступ без запроса персональных данных (152-ФЗ). Ваши выбранные старты, целевой темп и личные рекорды.
-            </p>
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button type="button" class="btn btn-outline btn-sm" id="cab-back-to-cal-btn">← К календарю забегов</button>
-            <button type="button" class="btn btn-volt btn-sm" id="cab-export-ics-btn">📅 Скачать мой iCal (.ics)</button>
-            <button type="button" class="btn btn-outline btn-sm" id="cab-logout-btn">Выйти</button>
-          </div>
+      <!-- AuthGateCard (shown when Guest opens Cabinet) -->
+      <div id="auth-gate-stats" class="auth-gate-card" style="display:none;">
+        <div class="auth-gate-icon-wrap">
+          <div class="auth-gate-icon-main">📊</div>
+          <div class="auth-gate-icon-lock">🔒</div>
         </div>
-
-        <!-- Summary Stats & Personal Bests (PB) -->
-        <div class="stats-row" style="margin-bottom:14px;">
-          <div class="stat-box">
-            <div class="stat-value" id="cab-stat-planned">0</div>
-            <div class="stat-label">В моих стартах</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="cab-stat-registered">0</div>
-            <div class="stat-label">Слот куплен ✓</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="cab-stat-finished">0</div>
-            <div class="stat-label">Финишей в архиве</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="cab-stat-km">0 км</div>
-            <div class="stat-label">Соревновательный объём</div>
-          </div>
-        </div>
-
-        <div style="font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;">
-          🏆 Личные рекорды (PB — рассчитываются автоматически по результатам или задаются вручную)
-        </div>
-        <div class="pb-grid" id="cab-pb-grid">
-          <div class="pb-card">
-            <span class="pb-dist">5 км</span>
-            <span class="pb-time" id="pb-time-5">—</span>
-            <span class="pb-pace" id="pb-meta-5">Нет результата</span>
-          </div>
-          <div class="pb-card">
-            <span class="pb-dist">10 км</span>
-            <span class="pb-time" id="pb-time-10">—</span>
-            <span class="pb-pace" id="pb-meta-10">Нет результата</span>
-          </div>
-          <div class="pb-card">
-            <span class="pb-dist">21.1 км · Полумарафон</span>
-            <span class="pb-time" id="pb-time-21">—</span>
-            <span class="pb-pace" id="pb-meta-21">Нет результата</span>
-          </div>
-          <div class="pb-card">
-            <span class="pb-dist">42.2 км · Марафон</span>
-            <span class="pb-time" id="pb-time-42">—</span>
-            <span class="pb-pace" id="pb-meta-42">Нет результата</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cabinet Tabs -->
-      <div class="cabinet-tabs">
-        <button type="button" class="cab-tab-btn active" data-cab-tab="my-races">
-          📅 Мои старты (<span id="tab-count-races">0</span>)
-        </button>
-        <button type="button" class="cab-tab-btn" data-cab-tab="my-results">
-          🏆 Результаты и рекорды (<span id="tab-count-results">0</span>)
-        </button>
-        <button type="button" class="cab-tab-btn" data-cab-tab="new-events">
-          🆕 Новые старты в базе (<span id="tab-count-new">0</span>)
-        </button>
-        <button type="button" class="cab-tab-btn" data-cab-tab="profile-security">
-          🔐 Токен, Почта и Доступ
-        </button>
-      </div>
-
-      <!-- Tab 1: My Planned Races -->
-      <div class="cab-pane active" id="cab-pane-my-races">
-        <div id="cab-my-races-list"></div>
-      </div>
-
-      <!-- Tab 2: My Results & PB -->
-      <div class="cab-pane" id="cab-pane-my-results">
-        <div class="cab-item-card" style="border-color:rgba(212,255,0,0.3);">
-          <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">+ Добавить результат забега</h3>
-          <form id="add-result-form" class="cab-form-grid">
-            <div>
-              <label class="field-label">Название старта</label>
-              <input type="text" id="res-title" class="field-input" list="events-datalist" placeholder="Например: Московский полумарафон" required />
-              <datalist id="events-datalist"></datalist>
-            </div>
-            <div>
-              <label class="field-label">Дата забега</label>
-              <input type="date" id="res-date" class="field-input" required />
-            </div>
-            <div>
-              <label class="field-label">Дистанция</label>
-              <select id="res-dist" class="field-input">
-                <option value="5">5 км</option>
-                <option value="10">10 км</option>
-                <option value="21.1" selected>21.1 км (Полумарафон)</option>
-                <option value="42.2">42.2 км (Марафон)</option>
-                <option value="15">15 км</option>
-                <option value="30">30 км</option>
-              </select>
-            </div>
-            <div>
-              <label class="field-label">Финишное время (ЧЧ:ММ:СС)</label>
-              <input type="text" id="res-time" class="field-input" placeholder="01:42:30 или 45:20" required />
-            </div>
-            <div>
-              <label class="field-label">Стартовый номер / Заметка</label>
-              <input type="text" id="res-note" class="field-input" placeholder="BIB #2410, личник!" />
-            </div>
-            <div>
-              <button type="submit" class="btn btn-volt" style="width:100%;">Сохранить результат</button>
-            </div>
-          </form>
-        </div>
-        <div id="cab-results-list"></div>
-      </div>
-
-      <!-- Tab 3: Newly Parsed Events & Live Database Update -->
-      <div class="cab-pane" id="cab-pane-new-events">
-        <div class="cab-item-card" style="border-color:rgba(16,185,129,0.35);">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-            <div>
-              <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;margin-bottom:4px;">
-                Актуальность базы и мониторинг новых событий
-              </h3>
-              <p style="font-size:13px;color:var(--text-secondary);" id="cab-parser-status-text">
-                Парсер автоматически проверяет 13 беговых площадок, дописывает новые анонсы в базу и сохраняет историю.
-              </p>
-            </div>
-            <button type="button" class="btn btn-volt" id="cab-trigger-parse-btn">
-              🔄 Запустить проверку новых стартов
-            </button>
-          </div>
-        </div>
-        <div class="events-grid" id="cab-new-events-grid"></div>
-      </div>
-
-      <!-- Tab 4: Security, Token, Email & Backup -->
-      <div class="cab-pane" id="cab-pane-profile-security">
-        <div class="cab-item-card">
-          <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">🔑 Ваши реквизиты доступа (без персональных данных)</h3>
-          <div class="privacy-banner">
-            🔒 В соответствии с 152-ФЗ приложение не запрашивает ФИО, телефон или паспортные данные. Доступ осуществляется по вашему уникальному <strong>Токену (`RUN-...`)</strong> и паролю. По желанию вы также можете указать <strong>Email</strong>, чтобы входить как по токену, так и по почте.
-          </div>
-          <div class="cab-form-grid">
-            <div>
-              <label class="field-label">Персональный Токен доступа</label>
-              <input type="text" id="prof-token-readonly" class="field-input" readonly style="font-family:monospace;font-weight:700;color:var(--accent-volt);" />
-            </div>
-            <div>
-              <label class="field-label">Email для входа (необязательно)</label>
-              <input type="email" id="prof-email-input" class="field-input" placeholder="runner@example.com (по желанию)" />
-            </div>
-            <div>
-              <label class="field-label">Псевдоним / Никнейм (необязательно)</label>
-              <input type="text" id="prof-nick-input" class="field-input" placeholder="Например: Марафонец" />
-            </div>
-            <div style="display:flex;gap:8px;">
-              <button type="button" class="btn btn-volt" id="prof-save-btn" style="flex:1;">Сохранить профиль</button>
-              <button type="button" class="btn btn-outline" id="prof-download-card-btn" title="Скачать памятку с токеном">📥 Памятка .txt</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="cab-item-card">
-          <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">🔒 Смена пароля</h3>
-          <form id="change-pw-form" class="cab-form-grid">
-            <div>
-              <label class="field-label">Текущий пароль</label>
-              <input type="password" id="pw-current" class="field-input" required />
-            </div>
-            <div>
-              <label class="field-label">Новый пароль (мин. 4 символа)</label>
-              <input type="password" id="pw-new" class="field-input" minlength="4" required />
-            </div>
-            <div>
-              <button type="submit" class="btn btn-outline" style="width:100%;">Обновить пароль</button>
-            </div>
-          </form>
-        </div>
-
-        <div class="cab-item-card">
-          <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">📲 Перенос профиля между устройствами (Код синхронизации)</h3>
-          <p style="font-size:13px;color:var(--text-secondary);">
-            Вы можете скопировать компактный код синхронизации, чтобы мгновенно перенести свои старты и рекорды между веб-версией и Android-приложением даже без подключения к общему серверу.
+        <div style="max-width:480px;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <span style="font-size:11px;font-family:monospace;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;padding:3px 10px;border-radius:999px;background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.35);">
+            🔒 Требуется авторизация
+          </span>
+          <h3 style="font-family:'Unbounded',sans-serif;font-size:clamp(18px,3vw,22px);font-weight:800;color:#ffffff;margin-top:4px;">
+            Личный кабинет и статистика доступны авторизованным пользователям
+          </h3>
+          <p style="font-size:13px;font-weight:600;color:#cbd5e1;line-height:1.5;">
+            Войдите по логину и паролю или создайте безопасный профиль за 5 секунд, чтобы сохранять свои старты, целевой темп, личные рекорды (PB) и приглашать друзей!
           </p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button type="button" class="btn btn-outline btn-sm" id="export-sync-code-btn">📋 Скопировать код переноса</button>
-            <button type="button" class="btn btn-outline btn-sm" id="export-json-backup-btn">💾 Скачать JSON-бэкап</button>
+        </div>
+
+        <div class="auth-gate-pillars">
+          <div class="auth-gate-pillar">
+            <span style="font-size:18px;flex-shrink:0;">⚡</span>
+            <div>
+              <div style="font-size:12px;font-weight:800;color:#ffffff;">За 5 секунд</div>
+              <div style="font-size:11px;font-weight:600;color:#94a3b8;margin-top:2px;">
+                Только логин (никнейм), аватар и пароль или 4-значный PIN-код
+              </div>
+            </div>
+          </div>
+          <div class="auth-gate-pillar">
+            <span style="font-size:18px;flex-shrink:0;">🛡️</span>
+            <div>
+              <div style="font-size:12px;font-weight:800;color:#ffffff;">Без личных данных</div>
+              <div style="font-size:11px;font-weight:600;color:#94a3b8;margin-top:2px;">
+                Не просим телефон и почту (DLP 152-ФЗ) — 0% спама и утечек
+              </div>
+            </div>
+          </div>
+          <div class="auth-gate-pillar">
+            <span style="font-size:18px;flex-shrink:0;">🔑</span>
+            <div>
+              <div style="font-size:12px;font-weight:800;color:#ffffff;">Криптозащита</div>
+              <div style="font-size:11px;font-weight:600;color:#94a3b8;margin-top:2px;">
+                Хеширование PBKDF2-SHA256 (100 000 итераций) и резервный ключ
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-gate-actions">
+          <button type="button" id="btn-gate-register-stats" class="auth-submit-btn" style="flex:1;">
+            <span>➕ Быстрая регистрация</span>
+          </button>
+          <button type="button" id="btn-gate-login-stats" class="btn btn-outline" style="min-height:48px;padding:12px 20px;font-weight:800;">
+            <span id="gate-login-btn-text">🔑 Войти</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Authenticated Runner Cabinet Content -->
+      <div id="cabinet-authenticated-content">
+        <div class="cabinet-header-card">
+          <div class="cabinet-header-top">
+            <div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;">
+              <div id="cab-avatar-box" style="width:56px;height:56px;border-radius:18px;background:#020617;border:2px solid #34d399;display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;">
+                🦉
+              </div>
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span class="badge badge-featured">🏃 ЛИЧНЫЙ КАБИНЕТ БЕГУНА</span>
+                  <span class="token-pill" id="cab-security-badge" title="Открыть настройки профиля и безопасности">🛡️ АВТОРИЗОВАН · PBKDF2</span>
+                  <span class="badge badge-golden" id="cab-ambassador-badge" style="display:none;">💎 АМБАССАДОР</span>
+                  <span class="badge badge-new" id="cab-sync-badge">Автономный + Облачный режим</span>
+                </div>
+                <h2 style="font-family:'Unbounded',sans-serif;font-size:clamp(18px,3vw,26px);margin-bottom:4px;" id="cab-greeting">
+                  Профиль спортсмена
+                </h2>
+                <p style="font-size:13px;color:var(--text-secondary);" id="cab-subinfo">
+                  Доступ по логину и паролю без запроса персональных данных (152-ФЗ). Ваши выбранные старты, целевой темп и личные рекорды.
+                </p>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-outline btn-sm" id="cab-back-to-cal-btn">← К календарю забегов</button>
+              <button type="button" class="btn btn-outline btn-sm" id="cab-open-profile-modal-btn">⚙️ Профиль</button>
+              <button type="button" class="btn btn-volt btn-sm" id="cab-export-ics-btn">📅 Скачать мой iCal (.ics)</button>
+              <button type="button" class="btn btn-outline btn-sm" id="cab-logout-btn">Выйти</button>
+            </div>
+          </div>
+
+          <!-- Summary Stats & Personal Bests (PB) -->
+          <div class="stats-row" style="margin-bottom:14px;">
+            <div class="stat-box">
+              <div class="stat-value" id="cab-stat-planned">0</div>
+              <div class="stat-label">В моих стартах</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" id="cab-stat-registered">0</div>
+              <div class="stat-label">Слот куплен ✓</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" id="cab-stat-finished">0</div>
+              <div class="stat-label">Финишей в архиве</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" id="cab-stat-km">0 км</div>
+              <div class="stat-label">Соревновательный объём</div>
+            </div>
+          </div>
+
+          <div style="font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;">
+            🏆 Личные рекорды (PB — рассчитываются автоматически по результатам)
+          </div>
+          <div class="pb-grid" id="cab-pb-grid">
+            <div class="pb-card">
+              <span class="pb-dist">5 км</span>
+              <span class="pb-time" id="pb-time-5">—</span>
+              <span class="pb-pace" id="pb-meta-5">Нет результата</span>
+            </div>
+            <div class="pb-card">
+              <span class="pb-dist">10 км</span>
+              <span class="pb-time" id="pb-time-10">—</span>
+              <span class="pb-pace" id="pb-meta-10">Нет результата</span>
+            </div>
+            <div class="pb-card">
+              <span class="pb-dist">21.1 км · Полумарафон</span>
+              <span class="pb-time" id="pb-time-21">—</span>
+              <span class="pb-pace" id="pb-meta-21">Нет результата</span>
+            </div>
+            <div class="pb-card">
+              <span class="pb-dist">42.2 км · Марафон</span>
+              <span class="pb-time" id="pb-time-42">—</span>
+              <span class="pb-pace" id="pb-meta-42">Нет результата</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cabinet Tabs -->
+        <div class="cabinet-tabs">
+          <button type="button" class="cab-tab-btn active" data-cab-tab="my-races">
+            📅 Мои старты (<span id="tab-count-races">0</span>)
+          </button>
+          <button type="button" class="cab-tab-btn" data-cab-tab="my-results">
+            🏆 Результаты и рекорды (<span id="tab-count-results">0</span>)
+          </button>
+          <button type="button" class="cab-tab-btn" data-cab-tab="referrals">
+            💎 Друзья и Амбассадор (<span id="tab-count-referrals">0/3</span>)
+          </button>
+          <button type="button" class="cab-tab-btn" data-cab-tab="new-events">
+            🆕 Новые старты в базе (<span id="tab-count-new">0</span>)
+          </button>
+          <button type="button" class="cab-tab-btn" data-cab-tab="profile-security">
+            🔐 Профиль и Безопасность
+          </button>
+        </div>
+
+        <!-- Tab 1: My Planned Races -->
+        <div class="cab-pane active" id="cab-pane-my-races">
+          <div id="cab-my-races-list"></div>
+        </div>
+
+        <!-- Tab 2: My Results & PB -->
+        <div class="cab-pane" id="cab-pane-my-results">
+          <div class="cab-item-card" style="border-color:rgba(212,255,0,0.3);">
+            <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">+ Добавить результат забега</h3>
+            <form id="add-result-form" class="cab-form-grid">
+              <div>
+                <label class="field-label">Название старта</label>
+                <input type="text" id="res-title" class="field-input" list="events-datalist" placeholder="Например: Московский полумарафон" required />
+                <datalist id="events-datalist"></datalist>
+              </div>
+              <div>
+                <label class="field-label">Дата забега</label>
+                <input type="date" id="res-date" class="field-input" required />
+              </div>
+              <div>
+                <label class="field-label">Дистанция</label>
+                <select id="res-dist" class="field-input">
+                  <option value="5">5 км</option>
+                  <option value="10">10 км</option>
+                  <option value="21.1" selected>21.1 км (Полумарафон)</option>
+                  <option value="42.2">42.2 км (Марафон)</option>
+                  <option value="15">15 км</option>
+                  <option value="30">30 км</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label">Финишное время (ЧЧ:ММ:СС)</label>
+                <input type="text" id="res-time" class="field-input" placeholder="01:42:30 или 45:20" required />
+              </div>
+              <div>
+                <label class="field-label">Стартовый номер / Заметка</label>
+                <input type="text" id="res-note" class="field-input" placeholder="BIB #2410, личник!" />
+              </div>
+              <div>
+                <button type="submit" class="btn btn-volt" style="width:100%;">Сохранить результат</button>
+              </div>
+            </form>
+          </div>
+          <div id="cab-results-list"></div>
+        </div>
+
+        <!-- Tab 3: Referrals & Ambassador Status -->
+        <div class="cab-pane" id="cab-pane-referrals">
+          <div class="cab-item-card" style="border-color:rgba(16,185,129,0.4);">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span class="badge badge-new">💎 РЕФЕРАЛЬНАЯ ПРОГРАММА БЕГУНОВ</span>
+                  <span class="badge badge-golden" id="ref-status-pill">0 / 3 приглашений</span>
+                </div>
+                <h3 style="font-family:'Unbounded',sans-serif;font-size:17px;margin-bottom:4px;" id="ref-headline">
+                  Пригласите 3 друзей и откройте эксклюзивный статус Амбассадора 💎
+                </h3>
+                <p style="font-size:13px;color:var(--text-secondary);">
+                  Поделитесь своим персональным инвайт-кодом с друзьями по беговому клубу. При регистрации по вашему коду друг получает бонус, а вам засчитывается приглашение!
+                </p>
+              </div>
+            </div>
+
+            <div class="cab-form-grid" style="margin-top:4px;">
+              <div>
+                <label class="field-label">Ваш персональный код приглашения</label>
+                <input type="text" id="cab-own-ref-code" class="field-input" readonly style="font-family:monospace;font-weight:800;color:#fbbf24;font-size:15px;" />
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" class="btn btn-volt" id="btn-copy-ref-code" style="flex:1;">📋 Скопировать код</button>
+                <button type="button" class="btn btn-outline" id="btn-copy-ref-link" style="flex:1;">🔗 Инвайт-ссылка</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cab-item-card">
+            <h3 style="font-family:'Unbounded',sans-serif;font-size:15px;">🎁 Активировать код приглашения от друга</h3>
+            <form id="redeem-ref-form" class="cab-form-grid">
+              <div>
+                <label class="field-label">Введите код друга (формат AMB-XXXXX)</label>
+                <input type="text" id="input-cab-redeem-ref" class="field-input" maxlength="20" placeholder="Например: AMB-7K4M9" style="text-transform:uppercase;font-family:monospace;font-weight:700;" required />
+              </div>
+              <div>
+                <button type="submit" class="btn btn-outline" style="width:100%;">Активировать код приглашения</button>
+              </div>
+            </form>
+            <div id="cab-referred-by-info" style="font-size:12px;color:#34d399;font-weight:700;display:none;"></div>
+          </div>
+
+          <div class="cab-item-card">
+            <h3 style="font-family:'Unbounded',sans-serif;font-size:15px;">👥 Приглашенные друзья</h3>
+            <div id="cab-invited-friends-list"></div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Newly Parsed Events & Live Database Update -->
+        <div class="cab-pane" id="cab-pane-new-events">
+          <div class="cab-item-card" style="border-color:rgba(16,185,129,0.35);">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+              <div>
+                <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;margin-bottom:4px;">
+                  Актуальность базы и мониторинг новых событий
+                </h3>
+                <p style="font-size:13px;color:var(--text-secondary);" id="cab-parser-status-text">
+                  Парсер автоматически проверяет 13 беговых площадок, дописывает новые анонсы в базу и сохраняет историю.
+                </p>
+              </div>
+              <button type="button" class="btn btn-volt" id="cab-trigger-parse-btn">
+                🔄 Запустить проверку новых стартов
+              </button>
+            </div>
+          </div>
+          <div class="events-grid" id="cab-new-events-grid"></div>
+        </div>
+
+        <!-- Tab 5: Profile, Security (PBKDF2-SHA256 / 152-FZ), Backup & Account Deletion -->
+        <div class="cab-pane" id="cab-pane-profile-security">
+          <div class="cab-item-card">
+            <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">👤 Настройки профиля (152-ФЗ / DLP-защита)</h3>
+            <div class="privacy-banner">
+              🛡️ <strong>Безопасность (152-ФЗ):</strong> мы не собираем email, телефон или ФИО. Встроенный DLP-фильтр автоматически защищает от случайного ввода номера телефона или почты в поле никнейма. Пароль/PIN и резервный ключ хешируются алгоритмом <code>PBKDF2-SHA256</code> (100 000 итераций).
+            </div>
+
+            <div>
+              <label class="field-label">Выберите эмодзи-аватар профиля:</label>
+              <div class="avatar-picker-row" id="cab-avatar-picker"></div>
+            </div>
+
+            <div class="cab-form-grid">
+              <div>
+                <label class="field-label">Ваш логин / никнейм (от 2 до 20 символов)</label>
+                <input type="text" id="prof-nick-input" class="field-input" maxlength="20" placeholder="Например: ТурбоСокол42" />
+              </div>
+              <div>
+                <label class="field-label">Город</label>
+                <select id="prof-city-select" class="field-input"></select>
+              </div>
+              <div>
+                <label class="field-label">ID профиля и метод защиты</label>
+                <input type="text" id="prof-id-readonly" class="field-input" readonly style="font-family:monospace;color:#34d399;font-weight:700;" />
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button type="button" class="btn btn-volt" id="prof-save-btn" style="flex:1;">✓ Сохранить профиль</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cab-item-card">
+            <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">🔒 Смена пароля или PIN-кода (PBKDF2-SHA256)</h3>
+            <form id="change-pw-form" class="cab-form-grid">
+              <div>
+                <label class="field-label">Текущий пароль / PIN-код</label>
+                <input type="password" id="pw-current" class="field-input" placeholder="Введите текущий пароль/PIN" required />
+              </div>
+              <div>
+                <label class="field-label">Новый пароль (от 4 символов) или 4-значный PIN</label>
+                <input type="password" id="pw-new" class="field-input" minlength="4" placeholder="Минимум 4 символа" required />
+              </div>
+              <div>
+                <button type="submit" class="btn btn-outline" style="width:100%;">Обновить пароль / PIN</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="cab-item-card">
+            <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">📲 Перенос профиля и резервное копирование</h3>
+            <p style="font-size:13px;color:var(--text-secondary);">
+              Вы можете скопировать компактный код синхронизации (<code>MRC1:...</code>) или скачать JSON-бэкап, чтобы перенести свои старты и рекорды между устройствами.
+            </p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-outline btn-sm" id="export-sync-code-btn">📋 Скопировать код переноса</button>
+              <button type="button" class="btn btn-outline btn-sm" id="export-json-backup-btn">💾 Скачать JSON-бэкап</button>
+            </div>
+            <form id="cab-import-sync-form" class="cab-form-grid" style="margin-top:6px;">
+              <div>
+                <label class="field-label">Импорт кода переноса (<code>MRC1:...</code>)</label>
+                <input type="text" id="cab-import-code-input" class="field-input" placeholder="Вставьте строку MRC1:..." required />
+              </div>
+              <div>
+                <button type="submit" class="btn btn-outline btn-sm" style="width:100%;">Импортировать старты и рекорды</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="cab-item-card" style="border-color:rgba(244,63,94,0.35);">
+            <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;color:#fda4af;">🗑️ Полное удаление аккаунта и данных (152-ФЗ / RuStore)</h3>
+            <p style="font-size:13px;color:var(--text-secondary);">
+              Удаляет ваш профиль, хеши ключей, сессию, сохранённые старты, рекорды и реферальные данные с этого устройства и сервера без возможности восстановления.
+            </p>
+            <div>
+              <button type="button" class="btn btn-outline btn-sm" id="cab-delete-account-btn" style="border-color:rgba(244,63,94,0.45);color:#fda4af;">
+                🗑️ Удалить аккаунт и все данные с устройства
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Auth Modal (Token / Email + Password, No Personal Data) -->
+  <!-- Portable Personal Account Modal (Register / Login / Recover / Profile / Delete) -->
   <div class="modal-backdrop" id="auth-modal">
     <div class="modal-box">
-      <button type="button" class="modal-close" id="auth-modal-close" aria-label="Закрыть">✕</button>
-      <div class="spotlight-badge">🔐 ДОСТУП БЕЗ ПЕРСОНАЛЬНЫХ ДАННЫХ</div>
-      <h2 style="font-family:'Unbounded',sans-serif;font-size:20px;margin-bottom:8px;">Личный кабинет бегуна</h2>
-      <div class="privacy-banner">
-        Мы не запрашиваем ФИО и номер телефона. Создайте анонимный <strong>Токен доступа</strong> (и при желании укажите Email) + пароль для сохранения ваших стартов и личных рекордов.
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:18px;">
-        <button type="button" class="cab-tab-btn active" data-auth-tab="login" style="justify-content:center;padding:8px;">Вход</button>
-        <button type="button" class="cab-tab-btn" data-auth-tab="register" style="justify-content:center;padding:8px;">Новый токен</button>
-        <button type="button" class="cab-tab-btn" data-auth-tab="restore" style="justify-content:center;padding:8px;">Код переноса</button>
-      </div>
-
-      <!-- Login Form -->
-      <form id="auth-login-form" style="display:flex;flex-direction:column;gap:12px;">
-        <div>
-          <label class="field-label">Ваш Токен (`RUN-XXXX-...`) или Email</label>
-          <input type="text" id="login-identifier" class="field-input" placeholder="RUN-XXXX-XXXX-XXXX или email@example.com" required />
-        </div>
-        <div>
-          <label class="field-label">Пароль</label>
-          <input type="password" id="login-password" class="field-input" placeholder="Введите пароль" required />
-        </div>
-        <div id="login-error" style="color:#ff6b84;font-size:12px;display:none;"></div>
-        <button type="submit" class="btn btn-volt" style="width:100%;margin-top:4px;">Войти в Личный кабинет →</button>
-      </form>
-
-      <!-- Register Form -->
-      <form id="auth-register-form" style="display:none;flex-direction:column;gap:12px;">
-        <div>
-          <label class="field-label">Сгенерированный персональный Токен (сохраните его)</label>
-          <div style="display:flex;gap:8px;">
-            <input type="text" id="reg-token" class="field-input" readonly style="font-family:monospace;font-weight:700;color:var(--accent-volt);" />
-            <button type="button" class="btn btn-outline btn-sm" id="reg-regen-token-btn" title="Сгенерировать другой">🎲</button>
-            <button type="button" class="btn btn-outline btn-sm" id="reg-copy-token-btn" title="Скопировать токен">📋</button>
+      <!-- Top Header -->
+      <div class="auth-modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="auth-modal-icon" id="auth-modal-icon">🛡️</div>
+          <div>
+            <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:#ffffff;line-height:1.2;" id="auth-modal-title">
+              Безопасная авторизация
+            </h3>
+            <p style="font-size:11px;font-family:monospace;font-weight:700;color:#94a3b8;margin-top:2px;" id="auth-modal-subtitle">
+              Без телефона, почты и личных данных
+            </p>
           </div>
         </div>
-        <div>
-          <label class="field-label">Email (необязательно — для входа по почте или токену)</label>
-          <input type="email" id="reg-email" class="field-input" placeholder="Можно оставить пустым или ввести email" />
-        </div>
-        <div>
-          <label class="field-label">Псевдоним / Никнейм (необязательно)</label>
-          <input type="text" id="reg-nickname" class="field-input" placeholder="Например: Марафонец" />
-        </div>
-        <div>
-          <label class="field-label">Придумайте пароль (минимум 4 символа)</label>
-          <input type="password" id="reg-password" class="field-input" minlength="4" placeholder="Минимум 4 символа" required />
-        </div>
-        <div id="reg-error" style="color:#ff6b84;font-size:12px;display:none;"></div>
-        <button type="submit" class="btn btn-volt" style="width:100%;margin-top:4px;">Создать кабинет и сохранить токен →</button>
-      </form>
+        <button type="button" class="modal-close" id="btn-close-auth-modal" aria-label="Закрыть окно авторизации">✕</button>
+      </div>
 
-      <!-- Restore from Portable Sync Code -->
-      <form id="auth-restore-form" style="display:none;flex-direction:column;gap:12px;">
-        <div>
-          <label class="field-label">Вставьте код переноса профиля (`MRC1:...`)</label>
-          <textarea id="restore-code-input" class="field-input" rows="4" placeholder="MRC1:..." required></textarea>
+      <!-- VIEW A: POST-REGISTRATION RECOVERY CODE STEP -->
+      <div id="auth-view-recovery-step" style="display:none;flex-direction:column;gap:14px;">
+        <div style="padding:14px;border-radius:16px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);display:flex;align-items:center;gap:12px;">
+          <span style="font-size:32px;flex-shrink:0;" id="post-reg-avatar">🦉</span>
+          <div style="min-width:0;">
+            <div style="font-size:11px;font-family:monospace;font-weight:800;color:#34d399;text-transform:uppercase;">
+              Аккаунт активирован
+            </div>
+            <div style="font-size:16px;font-weight:900;color:#ffffff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" id="post-reg-nickname">
+              Бегун
+            </div>
+            <div style="font-size:12px;font-weight:700;color:#cbd5e1;" id="post-reg-city">
+              Москва • Профиль подключен
+            </div>
+          </div>
         </div>
-        <div>
-          <label class="field-label">Задайте пароль для входа на этом устройстве</label>
-          <input type="password" id="restore-password" class="field-input" minlength="4" placeholder="Пароль (мин. 4 символа)" required />
+
+        <div style="padding:14px;border-radius:16px;background:#020617;border:1px solid rgba(245,158,11,0.45);display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-family:monospace;font-weight:800;color:#fbbf24;">
+            <span>🔑</span>
+            <span>Ваш резервный ключ восстановления:</span>
+          </div>
+          <p style="font-size:12px;font-weight:600;color:#cbd5e1;line-height:1.5;">
+            Так как мы не запрашиваем ваш телефон или почту, сохраните этот код. С его помощью вы сможете сбросить пароль или PIN-код, если забудете его:
+          </p>
+          <div style="padding:10px 12px;border-radius:12px;background:#0f172a;border:1px solid #334155;display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <span style="font-family:monospace;font-weight:900;font-size:15px;color:#fcd34d;letter-spacing:0.06em;user-select:all;" id="post-reg-recovery-code">
+              RUN-XXXX-XXXX
+            </span>
+            <button type="button" id="btn-copy-recovery-code" style="padding:6px 12px;border-radius:8px;background:#f59e0b;color:#020617;font-weight:900;font-size:12px;border:none;cursor:pointer;flex-shrink:0;">
+              📋 Скопировать
+            </button>
+          </div>
         </div>
-        <div id="restore-error" style="color:#ff6b84;font-size:12px;display:none;"></div>
-        <button type="submit" class="btn btn-volt" style="width:100%;">Импортировать профиль →</button>
-      </form>
+
+        <button type="button" id="btn-finish-registration" class="auth-submit-btn">
+          <span>✨ Отлично, продолжить</span>
+        </button>
+      </div>
+
+      <!-- VIEW B: LOGGED-IN USER PROFILE & SECURITY -->
+      <div id="auth-view-profile" style="display:none;flex-direction:column;gap:14px;">
+        <div style="padding:14px;border-radius:16px;background:linear-gradient(90deg,rgba(16,185,129,0.16),#020617,rgba(245,158,11,0.1));border:1px solid rgba(16,185,129,0.38);display:flex;align-items:center;justify-content:space-between;gap:12px;">
+          <div style="display:flex;align-items:center;gap:12px;min-width:0;">
+            <div id="modal-prof-avatar-badge" style="width:48px;height:48px;border-radius:16px;background:#1e293b;border:1px solid rgba(52,211,153,0.5);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">
+              🦉
+            </div>
+            <div style="min-width:0;">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                <span style="font-size:16px;font-weight:900;color:#ffffff;" id="modal-prof-nickname">Бегун</span>
+                <span style="font-size:10px;font-family:monospace;font-weight:900;padding:2px 8px;border-radius:999px;background:#10b981;color:#020617;">
+                  АВТОРИЗОВАН
+                </span>
+              </div>
+              <div style="font-size:12px;font-weight:700;color:#cbd5e1;margin-top:2px;" id="modal-prof-meta">
+                📍 Москва • Защита: Пароль (PBKDF2)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Navigation Cards -->
+        <div class="quick-links-grid">
+          <button type="button" class="quick-link-card" data-quick-cab-tab="my-races">
+            <span style="font-size:18px;">📅</span>
+            <div style="min-width:0;">
+              <div style="font-size:12px;font-weight:800;color:#ffffff;">Мои старты</div>
+              <div style="font-size:11px;font-family:monospace;font-weight:700;color:#34d399;" id="quick-stat-races">0 стартов</div>
+            </div>
+          </button>
+          <button type="button" class="quick-link-card" data-quick-cab-tab="my-results">
+            <span style="font-size:18px;">🏆</span>
+            <div style="min-width:0;">
+              <div style="font-size:12px;font-weight:800;color:#ffffff;">Рекорды (PB)</div>
+              <div style="font-size:11px;font-family:monospace;font-weight:700;color:#34d399;" id="quick-stat-results">0 финишей</div>
+            </div>
+          </button>
+          <button type="button" class="quick-link-card" data-quick-cab-tab="referrals">
+            <span style="font-size:18px;">💎</span>
+            <div style="min-width:0;">
+              <div style="font-size:12px;font-weight:800;color:#ffffff;">Друзья</div>
+              <div style="font-size:11px;font-family:monospace;font-weight:700;color:#fbbf24;" id="quick-stat-friends">0/3 Амб.</div>
+            </div>
+          </button>
+        </div>
+
+        <!-- Dedicated Friends & Ambassador Banner -->
+        <div style="padding:12px 14px;border-radius:16px;background:#020617;border:1px solid rgba(16,185,129,0.35);display:flex;align-items:center;justify-content:space-between;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;min-width:0;">
+            <div style="width:38px;height:38px;border-radius:12px;background:rgba(16,185,129,0.15);border:1px solid rgba(251,191,36,0.4);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">
+              👥
+            </div>
+            <div style="min-width:0;">
+              <div style="font-size:13px;font-weight:800;color:#ffffff;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                <span>Друзья и рефералы</span>
+                <span style="font-size:10px;font-family:monospace;font-weight:900;padding:1px 6px;border-radius:6px;background:rgba(16,185,129,0.2);color:#34d399;" id="modal-ref-counter">0/3</span>
+              </div>
+              <div style="font-size:11px;font-weight:700;color:#cbd5e1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" id="modal-ref-subtext">
+                Пригласите 3 друзей → статус Амбассадора 💎
+              </div>
+            </div>
+          </div>
+          <button type="button" id="btn-modal-open-referrals" style="padding:7px 12px;border-radius:10px;background:#10b981;color:#020617;font-weight:900;font-size:12px;border:none;cursor:pointer;flex-shrink:0;">
+            Друзья →
+          </button>
+        </div>
+
+        <!-- Edit Nickname / Avatar / City Form -->
+        <form id="modal-profile-edit-form" style="display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:16px;background:#020617;border:1px solid #1e293b;">
+          <div style="font-size:12px;font-weight:800;color:#e2e8f0;">Настройки профиля:</div>
+          <div class="avatar-picker-row" id="modal-edit-avatar-picker"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div>
+              <label class="field-label" style="font-size:11px;font-family:monospace;">Никнейм (логин):</label>
+              <input type="text" id="modal-edit-nickname" class="field-input" maxlength="20" required />
+            </div>
+            <div>
+              <label class="field-label" style="font-size:11px;font-family:monospace;">Город:</label>
+              <select id="modal-edit-city" class="field-input"></select>
+            </div>
+          </div>
+          <div id="modal-profile-error" class="auth-error-box"></div>
+          <div id="modal-profile-saved-toast" style="display:none;padding:8px 12px;border-radius:10px;background:rgba(6,78,59,0.6);border:1px solid rgba(16,185,129,0.4);color:#6ee7b7;font-size:12px;font-weight:700;">
+            ✓ Профиль успешно обновлён!
+          </div>
+          <button type="submit" style="width:100%;padding:10px 14px;border-radius:12px;background:#10b981;color:#020617;font-weight:900;font-size:12px;border:none;cursor:pointer;">
+            ✓ Сохранить изменения
+          </button>
+        </form>
+
+        <!-- Logout & Account Deletion Controls -->
+        <div style="padding-top:8px;border-top:1px solid #1e293b;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <button type="button" id="btn-auth-logout" style="padding:10px 14px;border-radius:12px;background:#1e293b;border:1px solid #334155;color:#e2e8f0;font-size:12px;font-weight:800;cursor:pointer;">
+              🚪 Выйти из профиля
+            </button>
+            <button type="button" id="btn-modal-open-full-cab" style="padding:10px 18px;border-radius:12px;background:#10b981;color:#020617;font-size:12px;font-weight:900;border:none;cursor:pointer;">
+              🏃 Открыть кабинет →
+            </button>
+          </div>
+
+          <button type="button" id="btn-auth-delete-init" style="width:100%;padding:8px 12px;border-radius:12px;background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.28);color:#fda4af;font-size:12px;font-weight:700;cursor:pointer;">
+            🗑️ Удалить аккаунт и данные с устройства
+          </button>
+
+          <div id="modal-delete-confirm-box" style="display:none;padding:12px;border-radius:14px;background:rgba(136,19,55,0.55);border:1px solid rgba(244,63,94,0.45);flex-direction:column;gap:8px;">
+            <div style="font-size:12px;font-weight:800;color:#fecdd3;" id="modal-delete-confirm-text">
+              Удалить профиль и все данные с устройства?
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <button type="button" id="btn-auth-delete-confirm" style="flex:1;padding:8px 12px;border-radius:10px;background:#f43f5e;color:#ffffff;font-size:12px;font-weight:900;border:none;cursor:pointer;">
+                🗑️ Да, удалить навсегда
+              </button>
+              <button type="button" id="btn-auth-delete-cancel" style="padding:8px 14px;border-radius:10px;background:#1e293b;color:#e2e8f0;font-size:12px;font-weight:700;border:1px solid #334155;cursor:pointer;">
+                Отмена
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW C: GUEST REGISTRATION / LOGIN / RECOVERY -->
+      <div id="auth-view-guest" style="display:flex;flex-direction:column;gap:14px;">
+        <div class="auth-tabs-switcher">
+          <button type="button" id="tab-auth-register" class="auth-tab-pill" data-auth-tab="register">
+            <span>➕ Регистрация</span>
+          </button>
+          <button type="button" id="tab-auth-login" class="auth-tab-pill active" data-auth-tab="login">
+            <span id="tab-auth-login-label">🔑 Вход</span>
+          </button>
+        </div>
+
+        <button type="button" id="btn-telegram-onetap" style="display:none;width:100%;padding:12px 16px;border-radius:16px;background:#229ED9;color:#ffffff;font-weight:900;font-size:13px;border:none;align-items:center;justify-content:center;gap:8px;cursor:pointer;">
+          <span>✈️ Войти в 1 клик через Telegram</span>
+        </button>
+
+        <!-- TAB 1: REGISTRATION -->
+        <form id="auth-register-form" style="display:none;flex-direction:column;gap:12px;">
+          <div>
+            <label class="field-label" style="color:#e2e8f0;font-weight:800;">
+              1. Выберите аватар профиля:
+            </label>
+            <div class="avatar-picker-row" id="reg-avatar-picker"></div>
+          </div>
+
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <label for="input-reg-nickname" class="field-label" style="margin-bottom:0;color:#e2e8f0;font-weight:800;">
+                2. Ваш логин / никнейм (без ФИО и телефона):
+              </label>
+              <button type="button" id="btn-reg-random-nick" style="background:transparent;border:none;color:#34d399;font-size:11px;font-family:monospace;font-weight:800;cursor:pointer;">
+                🎲 Случайный
+              </button>
+            </div>
+            <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:8px;">
+              <input
+                id="input-reg-nickname"
+                type="text"
+                maxlength="20"
+                required
+                placeholder="Например: ТурбоСокол42"
+                class="field-input"
+                style="font-weight:700;"
+              />
+              <select id="input-reg-city" class="field-input" aria-label="Город" style="font-weight:700;"></select>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <label for="input-reg-secret" class="field-label" style="margin-bottom:0;color:#e2e8f0;font-weight:800;" id="label-reg-secret">
+                🔒 3. Придумайте пароль (от 4 символов):
+              </label>
+              <button type="button" id="btn-toggle-reg-method" style="background:transparent;border:none;color:#cbd5e1;font-size:11px;font-family:monospace;font-weight:700;cursor:pointer;text-decoration:underline;">
+                Использовать 4-значный PIN
+              </button>
+            </div>
+            <div class="secret-input-wrap">
+              <input
+                id="input-reg-secret"
+                type="password"
+                maxlength="32"
+                required
+                placeholder="Минимум 4 символа..."
+                class="field-input"
+                style="padding-right:38px;font-family:monospace;font-weight:700;letter-spacing:0.08em;"
+              />
+              <button type="button" class="secret-eye-btn" id="btn-reg-secret-eye" aria-label="Показать или скрыть пароль">👁️</button>
+            </div>
+          </div>
+
+          <div>
+            <label for="input-reg-referral" class="field-label" style="color:#e2e8f0;font-weight:800;">
+              🎁 4. Код приглашения от друга (необязательно):
+            </label>
+            <input
+              id="input-reg-referral"
+              type="text"
+              maxlength="20"
+              placeholder="Например: AMB-7K4M9"
+              class="field-input"
+              style="font-family:monospace;font-weight:700;color:#fcd34d;text-transform:uppercase;"
+            />
+          </div>
+
+          <div class="privacy-banner">
+            🛡️ <strong>Безопасность (152-ФЗ):</strong> мы не собираем email и телефон. Ваш пароль/PIN шифруется алгоритмом <code>PBKDF2-SHA256</code> (100 000 итераций).
+          </div>
+
+          <div id="reg-error" class="auth-error-box"></div>
+
+          <button id="btn-submit-register" type="submit" class="auth-submit-btn">
+            <span>➕ Создать профиль</span>
+          </button>
+        </form>
+
+        <!-- TAB 2: LOGIN -->
+        <form id="auth-login-form" style="display:flex;flex-direction:column;gap:12px;">
+          <div id="login-saved-profiles-wrap" style="display:none;">
+            <span class="field-label" style="color:#e2e8f0;font-weight:800;">
+              Выберите свой профиль на этом устройстве:
+            </span>
+            <div class="user-chip-row" id="login-saved-profiles-row"></div>
+          </div>
+
+          <div>
+            <label for="input-login-nickname" class="field-label" style="color:#e2e8f0;font-weight:800;">
+              Ваш логин (никнейм):
+            </label>
+            <input
+              id="input-login-nickname"
+              type="text"
+              required
+              maxlength="20"
+              placeholder="Введите ваш логин / никнейм..."
+              class="field-input"
+              style="font-weight:700;"
+            />
+          </div>
+
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <label for="input-login-secret" class="field-label" style="margin-bottom:0;color:#e2e8f0;font-weight:800;">
+                Пароль или PIN-код:
+              </label>
+              <button type="button" id="btn-goto-recover" style="background:transparent;border:none;color:#fbbf24;font-size:11px;font-family:monospace;font-weight:700;cursor:pointer;">
+                Забыли пароль/PIN? Резервный ключ →
+              </button>
+            </div>
+            <div class="secret-input-wrap">
+              <input
+                id="input-login-secret"
+                type="password"
+                required
+                placeholder="Введите ваш пароль или PIN..."
+                class="field-input"
+                style="padding-right:38px;font-family:monospace;font-weight:700;letter-spacing:0.08em;"
+              />
+              <button type="button" class="secret-eye-btn" id="btn-login-secret-eye" aria-label="Показать или скрыть пароль">👁️</button>
+            </div>
+          </div>
+
+          <div id="login-error" class="auth-error-box"></div>
+
+          <button id="btn-submit-login" type="submit" class="auth-submit-btn">
+            <span>🔑 Войти в профиль</span>
+          </button>
+        </form>
+
+        <!-- TAB 3: ACCOUNT RECOVERY BY BACKUP CODE -->
+        <form id="auth-recover-form" style="display:none;flex-direction:column;gap:12px;">
+          <div style="padding:10px 12px;border-radius:12px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.35);font-size:12px;font-weight:700;color:#fde68a;display:flex;align-items:center;justify-content:space-between;">
+            <span>Восстановление по ключу RUN-XXXX-XXXX</span>
+            <button type="button" id="btn-recover-back" style="background:transparent;border:none;color:#fbbf24;text-decoration:underline;font-weight:800;cursor:pointer;">
+              Назад
+            </button>
+          </div>
+
+          <div>
+            <label class="field-label" style="color:#e2e8f0;font-weight:800;">Логин (никнейм) профиля:</label>
+            <input type="text" id="input-rec-nickname" class="field-input" required placeholder="Ваш никнейм" style="font-weight:700;" />
+          </div>
+
+          <div>
+            <label class="field-label" style="color:#e2e8f0;font-weight:800;">Резервный ключ (RUN-XXXX-XXXX):</label>
+            <input type="text" id="input-rec-code" class="field-input" required placeholder="RUN-XXXX-XXXX" style="font-family:monospace;font-weight:800;color:#fcd34d;text-transform:uppercase;" />
+          </div>
+
+          <div>
+            <label class="field-label" style="color:#e2e8f0;font-weight:800;">Новый пароль (от 4 символов) или 4-значный PIN:</label>
+            <input type="password" id="input-rec-secret" class="field-input" required minlength="4" placeholder="Минимум 4 символа или 4 цифры..." style="font-family:monospace;font-weight:700;letter-spacing:0.08em;" />
+          </div>
+
+          <div id="recover-error" class="auth-error-box"></div>
+
+          <button type="submit" class="auth-submit-btn" style="background:#f59e0b;">
+            <span>🔑 Сбросить пароль/PIN и войти</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Privacy Policy Footer Link -->
+      <div style="padding-top:10px;border-top:1px solid rgba(30,41,59,0.8);display:flex;align-items:center;justify-content:center;">
+        <a href="./privacy.html" target="_blank" rel="noopener noreferrer" style="font-size:11px;font-family:monospace;font-weight:700;color:#94a3b8;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+          <span>📄 Политика конфиденциальности (152-ФЗ)</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -1592,63 +2599,166 @@
     let isCabinetOpen = false;
     let serverOnline = false;
 
-    const LOCAL_ACCOUNTS_KEY = 'mrc_local_accounts_v1';
-    const ACTIVE_SESSION_KEY = 'mrc_active_session_v1';
+    // ================= PORTABLE PERSONAL ACCOUNT CONFIGURATION & SERVICES =================
+    const ACCOUNT_CONFIG = {
+      appPrefix: 'moscow_run',
+      recoveryCodePrefix: 'RUN',
+      referralCodePrefix: 'AMB',
+      sessionSecretSalt: 'moscow_run_session_hmac_v1',
+      referralTargetCount: 3,
+      privacyPolicyUrl: './privacy.html',
+      defaultCity: 'Москва',
+      cityOptions: [
+        'Москва',
+        'Подмосковье',
+        'Санкт-Петербург',
+        'Казань',
+        'Екатеринбург',
+        'Новосибирск',
+        'Нижний Новгород',
+        'Ярославль',
+        'Суздаль',
+        'Сочи',
+        'Краснодар',
+        'Другой город'
+      ],
+      avatarOptions: ['🦉', '🦅', '🦁', '🐺', '🦊', '🐻', '🐯', '🦈', '🚀', '⚡', '🔥', '👑'],
+      randomAdjectives: [
+        'Быстрый', 'Смелый', 'Железный', 'Умный', 'Звездный',
+        'Ночной', 'Лесной', 'Бодрый', 'Вольный', 'Горный',
+        'Северный', 'Южный', 'Огненный', 'Стальной', 'Стремительный',
+        'Легендарный', 'Московский', 'Крылатый', 'Золотой', 'Турбо'
+      ],
+      randomNouns: [
+        'Сокол', 'Медведь', 'Волк', 'Тигр', 'Лев',
+        'Орел', 'Барс', 'Лис', 'Феникс', 'Шторм',
+        'Ветер', 'Гром', 'Атлет', 'Чемпион', 'Марафонец',
+        'Спринтер', 'Следопыт', 'Витязь', 'Пейсмейкер', 'Трейлраннер'
+      ],
+      scopedStorageBaseKeys: [
+        'moscow_run_cabinet',
+        'moscow_run_referrals'
+      ],
+      legacyStorageKeys: {
+        moscow_run_cabinet: 'mrc_legacy_cabinet_v1'
+      }
+    };
 
-    let currentUser = null; // { id, accessToken, email, nickname, createdAt, sessionToken }
+    const USERS_DB_KEY = `${ACCOUNT_CONFIG.appPrefix}_auth_users_v1`;
+    const CURRENT_USER_KEY = `${ACCOUNT_CONFIG.appPrefix}_auth_current_user_v1`;
+    const LOCKOUT_KEY = `${ACCOUNT_CONFIG.appPrefix}_auth_lockout_v1`;
+    const REFERRAL_STORAGE_BASE_KEY = `${ACCOUNT_CONFIG.appPrefix}_referrals`;
+    const PENDING_REF_BY_KEY = `${ACCOUNT_CONFIG.appPrefix}_pending_ref_code_v1`;
+
+    let currentUser = null; // PublicUser & { sessionToken? }
     let cabinetData = {
-      myRaces: {}, // eventId -> { eventId, title, date, end_date, location, url, distance, status: 'planned'|'registered', bib: '', goalTime: '', note: '', addedAt }
-      myResults: [], // [{ id, eventId, title, date, distanceKm, timeStr, seconds, note, createdAt }]
+      myRaces: {},
+      myResults: [],
       manualRecords: {},
       updatedAt: ''
     };
 
-    function generateClientToken() {
-      const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
-      const randGroup = () => {
-        const arr = new Uint8Array(4);
-        if (window.crypto && window.crypto.getRandomValues) {
-          window.crypto.getRandomValues(arr);
-        } else {
-          for (let i = 0; i < 4; i++) arr[i] = Math.floor(Math.random() * 256);
-        }
-        return Array.from(arr, b => chars[b % chars.length]).join('');
-      };
-      return `RUN-${randGroup()}-${randGroup()}-${randGroup()}`;
-    }
-
-    function normalizeTokenString(raw) {
-      const clean = String(raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
-      if (clean.startsWith('RUN') && clean.length === 15) {
-        const b = clean.slice(3);
-        return `RUN-${b.slice(0, 4)}-${b.slice(4, 8)}-${b.slice(8, 12)}`;
+    // Web Audio API Sound Effects (soundEffects.ts)
+    let sharedAudioCtx = null;
+    function getAudioCtx() {
+      if (typeof window === 'undefined') return null;
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return null;
+      if (!sharedAudioCtx) {
+        sharedAudioCtx = new AudioContextClass();
       }
-      return String(raw || '').trim().toUpperCase();
-    }
-
-    async function sha256Hex(str) {
-      if (window.crypto && window.crypto.subtle) {
-        const buf = new TextEncoder().encode(str);
-        const digest = await window.crypto.subtle.digest('SHA-256', buf);
-        return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+      if (sharedAudioCtx.state === 'suspended') {
+        sharedAudioCtx.resume().catch(() => {});
       }
-      let h = 0;
-      for (let i = 0; i < str.length; i++) h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
-      return String(h >>> 0);
+      return sharedAudioCtx;
     }
 
-    function getLocalAccounts() {
+    function playClick() {
       try {
-        return JSON.parse(localStorage.getItem(LOCAL_ACCOUNTS_KEY) || '{}');
-      } catch {
-        return {};
-      }
-    }
-
-    function saveLocalAccounts(accounts) {
-      try {
-        localStorage.setItem(LOCAL_ACCOUNTS_KEY, JSON.stringify(accounts));
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(680, ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(0.06, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.045);
       } catch {}
+    }
+
+    function playSuccess() {
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const notes = [523.25, 659.25, 783.99];
+        notes.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          const start = ctx.currentTime + idx * 0.055;
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, start);
+          gain.gain.setValueAtTime(0.08, start);
+          gain.gain.exponentialRampToValueAtTime(0.001, start + 0.14);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(start);
+          osc.stop(start + 0.15);
+        });
+      } catch {}
+    }
+
+    function playError() {
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(220, ctx.currentTime);
+        osc.frequency.linearRampToValueAtTime(150, ctx.currentTime + 0.16);
+        gain.gain.setValueAtTime(0.07, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.19);
+      } catch {}
+    }
+
+    // Telegram Bridge (telegramBridge.ts)
+    function getWebApp() {
+      try {
+        return window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function initTelegramWebApp() {
+      const wa = getWebApp();
+      if (!wa) return false;
+      try {
+        if (typeof wa.ready === 'function') wa.ready();
+        if (typeof wa.expand === 'function') wa.expand();
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function isTelegramWebApp() {
+      const wa = getWebApp();
+      return Boolean(wa && wa.initDataUnsafe && wa.initDataUnsafe.user);
+    }
+
+    function getTelegramUser() {
+      const wa = getWebApp();
+      return (wa && wa.initDataUnsafe && wa.initDataUnsafe.user) || null;
     }
 
     async function checkServerApi() {
@@ -1659,14 +2769,14 @@
           if (data && data.ok) {
             serverOnline = true;
             const badge = document.getElementById('cab-sync-badge');
-            if (badge) badge.textContent = '🟢 Синхронизировано с SQLite сервером';
+            if (badge) badge.textContent = '🟢 Синхронизировано с SQLite сервером (PBKDF2)';
             return true;
           }
         }
       } catch {}
       serverOnline = false;
       const badge = document.getElementById('cab-sync-badge');
-      if (badge) badge.textContent = '⚡ Автономный режим (Local + Portable Token)';
+      if (badge) badge.textContent = '⚡ Автономная защита (PBKDF2-SHA256 · 152-ФЗ)';
       return false;
     }
 
@@ -1811,10 +2921,23 @@
       const query = document.getElementById('search-input').value.trim().toLowerCase();
       const selectedMonth = document.getElementById('month-select').value;
       const selectedRegion = document.getElementById('region-select').value;
+      const rawDateFrom = document.getElementById('date-from').value;
+      const rawDateTo = document.getElementById('date-to').value;
+      const dateFrom = rawDateFrom && rawDateTo && rawDateFrom > rawDateTo ? rawDateTo : rawDateFrom;
+      const dateTo = rawDateFrom && rawDateTo && rawDateFrom > rawDateTo ? rawDateFrom : rawDateTo;
       const container = document.getElementById('events-container');
 
+      const clearDatesBtn = document.getElementById('clear-dates-btn');
+      if (clearDatesBtn) {
+        clearDatesBtn.classList.toggle('visible', Boolean(rawDateFrom || rawDateTo));
+      }
+
       const filtered = allEvents.filter(ev => {
-        if (selectedMonth !== 'all' && !ev.date.startsWith(selectedMonth)) return false;
+        const evStart = ev.date || '';
+        const evEnd = ev.end_date || ev.date || '';
+        if (dateFrom && evEnd < dateFrom) return false;
+        if (dateTo && evStart > dateTo) return false;
+        if (selectedMonth !== 'all' && !evStart.startsWith(selectedMonth)) return false;
         if (selectedRegion !== 'all') {
           if (selectedRegion === 'Золотое кольцо') {
             if (ev.region !== 'Золотое кольцо' && !ev.is_golden_ring) return false;
@@ -1837,13 +2960,25 @@
         return true;
       });
 
+      const summaryEl = document.getElementById('filter-results-summary');
+      if (summaryEl) {
+        summaryEl.innerHTML = (dateFrom || dateTo)
+          ? `За выбранный период: <strong>${filtered.length}</strong>`
+          : `Найдено стартов: <strong>${filtered.length}</strong>`;
+      }
+
       if (filtered.length === 0) {
         container.innerHTML = `
           <div class="empty-state">
             <h3 style="margin-bottom:8px; font-family:'Unbounded',sans-serif;">Забеги по заданным фильтрам не найдены</h3>
-            <p style="color:var(--text-secondary);">Попробуйте сбросить фильтры дистанции или поисковый запрос.</p>
+            <p style="color:var(--text-secondary); margin-bottom:16px;">Попробуйте изменить диапазон дат «От / До», сбросить фильтры дистанции или поисковый запрос.</p>
+            <button type="button" class="btn btn-outline btn-sm" id="reset-all-filters-btn">✕ Сбросить все фильтры</button>
           </div>
         `;
+        const resetBtn = document.getElementById('reset-all-filters-btn');
+        if (resetBtn) {
+          resetBtn.addEventListener('click', resetAllFilters);
+        }
         return;
       }
 
@@ -2136,36 +3271,818 @@
       }
     }
 
-    // ================= PERSONAL CABINET & HYBRID AUTH (TOKEN / EMAIL + PASSWORD) =================
+    // ================= PORTABLE PERSONAL ACCOUNT: AUTH, STORAGE SCOPE, REFERRALS & CABINET =================
+
+    const MAX_FAILED_ATTEMPTS = 5;
+    const LOCKOUT_DURATION_MS = 30 * 1000; // 30 seconds
+
+    // 1. Scoped Multi-Account Storage (storageScope.ts)
+    function getScopedKey(baseKey, userId) {
+      const suffix = userId ? userId : 'guest';
+      return `${baseKey}_${suffix}`;
+    }
+
+    function loadScopedItem(baseKey, userId, fallback) {
+      try {
+        const key = getScopedKey(baseKey, userId);
+        const raw = localStorage.getItem(key);
+        if (!raw) return fallback;
+        return JSON.parse(raw);
+      } catch {
+        return fallback;
+      }
+    }
+
+    function saveScopedItem(baseKey, userId, value) {
+      try {
+        const key = getScopedKey(baseKey, userId);
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch {}
+    }
+
+    function migrateGuestDataToUser(user) {
+      if (!user || !user.id) return;
+      try {
+        const allUsers = getRegisteredPublicUsers();
+        const isFirstRegisteredUserOnDevice = allUsers.length <= 1;
+
+        for (const baseKey of ACCOUNT_CONFIG.scopedStorageBaseKeys) {
+          const userKey = getScopedKey(baseKey, user.id);
+          const guestKey = getScopedKey(baseKey, null);
+
+          if (!localStorage.getItem(userKey)) {
+            const guestRaw = localStorage.getItem(guestKey);
+            if (guestRaw) {
+              localStorage.setItem(userKey, guestRaw);
+            } else if (isFirstRegisteredUserOnDevice) {
+              const legacyKey = ACCOUNT_CONFIG.legacyStorageKeys[baseKey];
+              const legacyRaw = legacyKey ? localStorage.getItem(legacyKey) : null;
+              if (legacyRaw) {
+                localStorage.setItem(userKey, legacyRaw);
+              }
+            }
+          }
+          localStorage.removeItem(guestKey);
+        }
+      } catch {}
+    }
+
+    function clearGuestSessionData() {
+      try {
+        for (const baseKey of ACCOUNT_CONFIG.scopedStorageBaseKeys) {
+          localStorage.removeItem(getScopedKey(baseKey, null));
+        }
+      } catch {}
+    }
+
+    // 2. Cryptographic Auth & DLP 152-FZ Service (authService.ts)
+    function generateRandomNickname() {
+      const adj = ACCOUNT_CONFIG.randomAdjectives[Math.floor(Math.random() * ACCOUNT_CONFIG.randomAdjectives.length)] || 'Быстрый';
+      const noun = ACCOUNT_CONFIG.randomNouns[Math.floor(Math.random() * ACCOUNT_CONFIG.randomNouns.length)] || 'Сокол';
+      const num = Math.floor(10 + Math.random() * 90);
+      return `${adj}${noun}${num}`.slice(0, 20);
+    }
+
+    function sanitizeNickname(raw) {
+      return String(raw || '')
+        .replace(/[<>"'`&/\\]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 20);
+    }
+
+    function validateSafeNickname(raw) {
+      const clean = sanitizeNickname(raw);
+      if (clean.length < 2) {
+        return { valid: false, sanitized: clean, error: 'Никнейм должен содержать минимум 2 символа' };
+      }
+      if (clean.includes('@') || /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(clean)) {
+        return {
+          valid: false,
+          sanitized: clean,
+          error: 'В целях безопасности не используйте email в качестве никнейма'
+        };
+      }
+      const digitsCount = (clean.match(/\d/g) || []).length;
+      if (digitsCount >= 7) {
+        return {
+          valid: false,
+          sanitized: clean,
+          error: 'В целях безопасности не указывайте номер телефона в никнейме'
+        };
+      }
+      return { valid: true, sanitized: clean };
+    }
+
+    function generateRecoveryCode() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      const randomValues = new Uint32Array(8);
+      if (window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(randomValues);
+      } else {
+        for (let i = 0; i < 8; i++) randomValues[i] = Math.floor(Math.random() * 1000);
+      }
+      let part1 = '';
+      let part2 = '';
+      for (let i = 0; i < 4; i++) {
+        part1 += chars[randomValues[i] % chars.length];
+        part2 += chars[randomValues[i + 4] % chars.length];
+      }
+      return `${ACCOUNT_CONFIG.recoveryCodePrefix}-${part1}-${part2}`;
+    }
+
+    function fallbackHash(input, salt) {
+      const combined = `${salt}:${input}:${ACCOUNT_CONFIG.appPrefix}_salt_v1`;
+      let h1 = 0xdeadbeef ^ combined.length;
+      let h2 = 0x41c6ce57 ^ combined.length;
+      for (let i = 0; i < combined.length; i++) {
+        const ch = combined.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+      }
+      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+      return (h2 >>> 0).toString(16).padStart(8, '0') + (h1 >>> 0).toString(16).padStart(8, '0');
+    }
+
+    async function deriveSecretHash(secret, salt) {
+      const normalized = String(secret || '').trim();
+      if (window.crypto && window.crypto.subtle && typeof TextEncoder !== 'undefined') {
+        try {
+          const enc = new TextEncoder();
+          const keyMaterial = await window.crypto.subtle.importKey(
+            'raw',
+            enc.encode(normalized),
+            { name: 'PBKDF2' },
+            false,
+            ['deriveBits']
+          );
+          const derivedBits = await window.crypto.subtle.deriveKey
+            ? await window.crypto.subtle.deriveBits(
+                {
+                  name: 'PBKDF2',
+                  salt: enc.encode(`${ACCOUNT_CONFIG.appPrefix}:${salt}`),
+                  iterations: 100000,
+                  hash: 'SHA-256'
+                },
+                keyMaterial,
+                256
+              )
+            : null;
+          if (derivedBits) {
+            const hashArray = Array.from(new Uint8Array(derivedBits));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+          }
+        } catch {}
+      }
+      return fallbackHash(normalized, salt);
+    }
+
+    function computeSessionSignature(userId, nickname) {
+      const raw = `${userId}:${nickname}:${ACCOUNT_CONFIG.sessionSecretSalt}`;
+      let h = 2166136261;
+      for (let i = 0; i < raw.length; i++) {
+        h ^= raw.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return (h >>> 0).toString(16).padStart(8, '0');
+    }
+
+    function getLockoutState() {
+      try {
+        const raw = localStorage.getItem(LOCKOUT_KEY);
+        if (!raw) return { failedAttempts: 0, lockedUntil: 0 };
+        const parsed = JSON.parse(raw);
+        return {
+          failedAttempts: Number(parsed.failedAttempts) || 0,
+          lockedUntil: Number(parsed.lockedUntil) || 0
+        };
+      } catch {
+        return { failedAttempts: 0, lockedUntil: 0 };
+      }
+    }
+
+    function saveLockoutState(state) {
+      try {
+        localStorage.setItem(LOCKOUT_KEY, JSON.stringify(state));
+      } catch {}
+    }
+
+    function getRemainingLockoutSeconds() {
+      const state = getLockoutState();
+      if (state.lockedUntil > Date.now()) {
+        return Math.ceil((state.lockedUntil - Date.now()) / 1000);
+      }
+      return 0;
+    }
+
+    function recordFailedAttempt() {
+      const state = getLockoutState();
+      if (state.lockedUntil > 0 && state.lockedUntil <= Date.now()) {
+        state.failedAttempts = 0;
+        state.lockedUntil = 0;
+      }
+      state.failedAttempts += 1;
+      if (state.failedAttempts >= MAX_FAILED_ATTEMPTS) {
+        state.lockedUntil = Date.now() + LOCKOUT_DURATION_MS;
+        saveLockoutState(state);
+        return { lockedSeconds: Math.ceil(LOCKOUT_DURATION_MS / 1000), attemptsLeft: 0 };
+      }
+      saveLockoutState(state);
+      return { lockedSeconds: 0, attemptsLeft: MAX_FAILED_ATTEMPTS - state.failedAttempts };
+    }
+
+    function clearFailedAttempts() {
+      try {
+        localStorage.removeItem(LOCKOUT_KEY);
+      } catch {}
+    }
+
+    function loadUsers() {
+      try {
+        const raw = localStorage.getItem(USERS_DB_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveUsers(users) {
+      try {
+        localStorage.setItem(USERS_DB_KEY, JSON.stringify(users));
+      } catch {}
+    }
+
+    function toPublicUser(record) {
+      return {
+        id: record.id,
+        nickname: record.nickname,
+        avatar: record.avatar || '🦉',
+        city: record.city || ACCOUNT_CONFIG.defaultCity,
+        authMethod: record.authMethod || 'password',
+        telegramId: record.telegramId,
+        telegramUsername: record.telegramUsername,
+        sessionToken: record.sessionToken || ''
+      };
+    }
+
+    function getRegisteredPublicUsers() {
+      return loadUsers().map(toPublicUser);
+    }
+
+    function getCurrentUser() {
+      try {
+        const raw = localStorage.getItem(CURRENT_USER_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        if (!parsed || !parsed.id || !parsed.nickname) return null;
+        const expectedSig = computeSessionSignature(parsed.id, parsed.nickname);
+        if (parsed.sessionSig && parsed.sessionSig !== expectedSig) {
+          localStorage.removeItem(CURRENT_USER_KEY);
+          return null;
+        }
+        return parsed;
+      } catch {
+        return null;
+      }
+    }
+
+    function setCurrentUserSession(pubUser) {
+      const signed = {
+        ...pubUser,
+        sessionSig: computeSessionSignature(pubUser.id, pubUser.nickname)
+      };
+      try {
+        localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(signed));
+      } catch {}
+      currentUser = signed;
+      return signed;
+    }
+
+    // 3. Referral & Ambassador Service (referralService.ts)
+    function generateReferralCode(userId) {
+      const clean = String(userId || 'guest').replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+      let hash = 2166136261;
+      for (let i = 0; i < clean.length; i++) {
+        hash ^= clean.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+      }
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let code = '';
+      let val = hash >>> 0;
+      for (let i = 0; i < 5; i++) {
+        code += chars[val % chars.length];
+        val = Math.floor(val / chars.length) ^ (i * 31 + clean.length);
+      }
+      return `${ACCOUNT_CONFIG.referralCodePrefix}-${code}`;
+    }
+
+    function loadReferralState(userId) {
+      const defaultCode = generateReferralCode(userId);
+      const fallback = {
+        ownCode: defaultCode,
+        invitedCount: 0,
+        invitedFriends: [],
+        unlockedAmbassador: false
+      };
+      const loaded = loadScopedItem(REFERRAL_STORAGE_BASE_KEY, userId, fallback);
+      if (!loaded.ownCode) loaded.ownCode = defaultCode;
+      if (!Array.isArray(loaded.invitedFriends)) loaded.invitedFriends = [];
+      loaded.unlockedAmbassador = loaded.invitedCount >= ACCOUNT_CONFIG.referralTargetCount;
+      return loaded;
+    }
+
+    function saveReferralState(userId, state) {
+      state.unlockedAmbassador = state.invitedCount >= ACCOUNT_CONFIG.referralTargetCount;
+      saveScopedItem(REFERRAL_STORAGE_BASE_KEY, userId, state);
+    }
+
+    function detectIncomingReferralCode() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const refParam = params.get('ref');
+        if (refParam && refParam.trim().length >= 4) {
+          const clean = refParam.trim().toUpperCase().slice(0, 20);
+          localStorage.setItem(PENDING_REF_BY_KEY, clean);
+          return clean;
+        }
+        return localStorage.getItem(PENDING_REF_BY_KEY);
+      } catch {
+        return null;
+      }
+    }
+
+    function getPendingReferralCode() {
+      try {
+        return localStorage.getItem(PENDING_REF_BY_KEY);
+      } catch {
+        return null;
+      }
+    }
+
+    function clearPendingReferralCode() {
+      try {
+        localStorage.removeItem(PENDING_REF_BY_KEY);
+      } catch {}
+    }
+
+    function getReferralShareLink(ownCode) {
+      const baseUrl = window.location.origin + window.location.pathname;
+      return `${baseUrl}?ref=${encodeURIComponent(ownCode)}`;
+    }
+
+    function recordInvitedFriend(userId, friendNickname) {
+      const state = loadReferralState(userId);
+      const cleanName = String(friendNickname || '').trim().slice(0, 24) || `Бегун #${state.invitedCount + 1}`;
+      state.invitedFriends.unshift({
+        nickname: cleanName,
+        joinedAt: new Date().toISOString()
+      });
+      state.invitedCount = state.invitedFriends.length;
+      state.unlockedAmbassador = state.invitedCount >= ACCOUNT_CONFIG.referralTargetCount;
+      saveReferralState(userId, state);
+      return state;
+    }
+
+    function redeemFriendReferralCode(userId, rawCode, currentUserNickname) {
+      const clean = String(rawCode || '').trim().toUpperCase();
+      const prefix = `${ACCOUNT_CONFIG.referralCodePrefix}-`;
+      if (!clean.startsWith(prefix) || clean.length < prefix.length + 4) {
+        return {
+          success: false,
+          message: `Код должен быть в формате ${prefix}XXXXX`,
+          state: loadReferralState(userId)
+        };
+      }
+      const state = loadReferralState(userId);
+      if (clean === state.ownCode) {
+        return {
+          success: false,
+          message: 'Нельзя использовать собственный реферальный код 😉',
+          state
+        };
+      }
+      if (state.referredByCode) {
+        return {
+          success: false,
+          message: `Вы уже активировали код приглашения (${state.referredByCode})`,
+          state
+        };
+      }
+
+      state.referredByCode = clean;
+      saveReferralState(userId, state);
+      clearPendingReferralCode();
+
+      // Credit local inviter on the same device if found
+      try {
+        const users = getRegisteredPublicUsers();
+        const inviter = users.find(u => generateReferralCode(u.id) === clean);
+        if (inviter && inviter.id !== userId) {
+          recordInvitedFriend(inviter.id, currentUserNickname || 'Новый друг');
+        }
+      } catch {}
+
+      return {
+        success: true,
+        message: '🎉 Код друга активирован! Бонус зачислен обоим участникам.',
+        state
+      };
+    }
+
+    function migrateGuestReferralsToUser(userId) {
+      const guestState = loadReferralState(null);
+      const userState = loadReferralState(userId);
+      if (guestState.invitedFriends.length > 0 && userState.invitedFriends.length === 0) {
+        userState.invitedFriends = [...guestState.invitedFriends];
+        userState.invitedCount = userState.invitedFriends.length;
+      }
+      if (guestState.referredByCode && !userState.referredByCode) {
+        userState.referredByCode = guestState.referredByCode;
+      }
+      userState.ownCode = generateReferralCode(userId);
+      saveReferralState(userId, userState);
+    }
+
+    // 4. Core Auth Operations (Register, Login, Recover, ChangeSecret, UpdateProfile, Logout, DeleteAccount)
+    async function registerUserAccount(params) {
+      const validation = validateSafeNickname(params.nickname);
+      if (!validation.valid) {
+        return { success: false, error: validation.error || 'Некорректный никнейм' };
+      }
+      const cleanName = validation.sanitized;
+      const cleanSecret = String(params.secret || '').trim();
+
+      if (params.authMethod === 'pin') {
+        if (!/^\d{4}$/.test(cleanSecret)) {
+          return { success: false, error: 'PIN-код должен состоять ровно из 4 цифр' };
+        }
+      } else {
+        if (cleanSecret.length < 4) {
+          return { success: false, error: 'Пароль должен содержать минимум 4 символа' };
+        }
+      }
+
+      const users = loadUsers();
+      const exists = users.some(u => u.nickname.toLowerCase() === cleanName.toLowerCase());
+      if (exists) {
+        return {
+          success: false,
+          error: 'Этот никнейм уже занят на этом устройстве. Выберите другой или войдите в свой профиль.'
+        };
+      }
+
+      const randomBytes = new Uint32Array(2);
+      if (window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(randomBytes);
+      } else {
+        randomBytes[0] = Math.floor(Math.random() * 1e9);
+        randomBytes[1] = Date.now();
+      }
+      let userId = `u_${Date.now().toString(36)}_${randomBytes[0].toString(36).slice(0, 5)}`;
+      const salt = `${randomBytes[0].toString(16)}${randomBytes[1].toString(16)}`;
+      let recoveryCode = generateRecoveryCode();
+      let sessionToken = '';
+
+      // Sync with SQLite backend if online
+      if (serverOnline) {
+        try {
+          const resp = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              nickname: cleanName,
+              avatar: params.avatar || '🦉',
+              city: params.city || ACCOUNT_CONFIG.defaultCity,
+              authMethod: params.authMethod,
+              secret: cleanSecret,
+              recoveryCode,
+              cabinetData
+            })
+          });
+          const data = await resp.json();
+          if (!resp.ok || !data.ok) {
+            return { success: false, error: data.error || 'Ошибка создания профиля' };
+          }
+          if (data.user && data.user.id) userId = data.user.id;
+          if (data.recoveryCode) recoveryCode = data.recoveryCode;
+          if (data.sessionToken) sessionToken = data.sessionToken;
+        } catch {}
+      }
+
+      const secretHash = await deriveSecretHash(cleanSecret, salt);
+      const recoveryHash = await deriveSecretHash(recoveryCode, salt);
+
+      const newUser = {
+        id: userId,
+        nickname: cleanName,
+        avatar: params.avatar || '🦉',
+        city: params.city || ACCOUNT_CONFIG.defaultCity,
+        authMethod: params.authMethod,
+        salt,
+        secretHash,
+        recoveryHash,
+        sessionToken,
+        createdAt: new Date().toISOString()
+      };
+
+      users.push(newUser);
+      saveUsers(users);
+      clearFailedAttempts();
+
+      const pub = toPublicUser(newUser);
+      setCurrentUserSession(pub);
+
+      migrateGuestDataToUser(pub);
+      migrateGuestReferralsToUser(pub.id);
+      cabinetData = loadScopedItem('moscow_run_cabinet', pub.id, cabinetData);
+      saveScopedItem('moscow_run_cabinet', pub.id, cabinetData);
+
+      return { success: true, user: pub, recoveryCode };
+    }
+
+    async function loginUserAccount(nickname, secret) {
+      const lockSec = getRemainingLockoutSeconds();
+      if (lockSec > 0) {
+        return {
+          success: false,
+          error: `Слишком много неудачных попыток. Подождите ${lockSec} сек.`
+        };
+      }
+
+      const validation = validateSafeNickname(nickname);
+      const cleanName = validation.sanitized;
+      const cleanSecret = String(secret || '').trim();
+
+      // Try server login first when online
+      if (serverOnline) {
+        try {
+          const resp = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nickname: cleanName, secret: cleanSecret })
+          });
+          const data = await resp.json();
+          if (resp.ok && data.ok && data.user) {
+            clearFailedAttempts();
+            const users = loadUsers();
+            let localIdx = users.findIndex(u => u.nickname.toLowerCase() === cleanName.toLowerCase());
+            const salt = localIdx >= 0 ? users[localIdx].salt : `srv_${Date.now().toString(16)}`;
+            const secretHash = await deriveSecretHash(cleanSecret, salt);
+            const mergedRecord = {
+              ...(localIdx >= 0 ? users[localIdx] : {}),
+              id: data.user.id,
+              nickname: data.user.nickname,
+              avatar: data.user.avatar || '🦉',
+              city: data.user.city || ACCOUNT_CONFIG.defaultCity,
+              authMethod: data.user.authMethod || 'password',
+              salt,
+              secretHash,
+              sessionToken: data.sessionToken || '',
+              createdAt: data.user.createdAt || new Date().toISOString()
+            };
+            if (localIdx >= 0) {
+              users[localIdx] = mergedRecord;
+            } else {
+              users.push(mergedRecord);
+            }
+            saveUsers(users);
+
+            if (data.cabinetData && (Object.keys(data.cabinetData.myRaces || {}).length > 0 || (data.cabinetData.myResults || []).length > 0)) {
+              cabinetData = data.cabinetData;
+              saveScopedItem('moscow_run_cabinet', mergedRecord.id, cabinetData);
+            } else {
+              cabinetData = loadScopedItem('moscow_run_cabinet', mergedRecord.id, { myRaces: {}, myResults: [], manualRecords: {} });
+            }
+
+            const pub = toPublicUser(mergedRecord);
+            setCurrentUserSession(pub);
+            return { success: true, user: pub };
+          } else if (resp.status === 429 && data.error) {
+            return { success: false, error: data.error };
+          }
+        } catch {}
+      }
+
+      const users = loadUsers();
+      const found = users.find(u => u.nickname.toLowerCase() === cleanName.toLowerCase());
+      if (!found) {
+        return {
+          success: false,
+          error: 'Профиль с таким никнеймом не найден. Проверьте имя или зарегистрируйтесь.'
+        };
+      }
+
+      const pbkdf2Candidate = await deriveSecretHash(cleanSecret, found.salt);
+      const legacyCandidate = fallbackHash(cleanSecret, found.salt);
+
+      if (pbkdf2Candidate !== found.secretHash && legacyCandidate !== found.secretHash) {
+        const failInfo = recordFailedAttempt();
+        if (failInfo.lockedSeconds > 0) {
+          return {
+            success: false,
+            error: `Превышен лимит попыток входа. Вход заблокирован на ${failInfo.lockedSeconds} сек.`
+          };
+        }
+        return {
+          success: false,
+          error: `${found.authMethod === 'pin' ? 'Неверный PIN-код' : 'Неверный пароль'} (осталось попыток: ${failInfo.attemptsLeft})`
+        };
+      }
+
+      if (legacyCandidate === found.secretHash && pbkdf2Candidate !== found.secretHash) {
+        found.secretHash = pbkdf2Candidate;
+        saveUsers(users);
+      }
+
+      clearFailedAttempts();
+      const pub = toPublicUser(found);
+      setCurrentUserSession(pub);
+      cabinetData = loadScopedItem('moscow_run_cabinet', pub.id, { myRaces: {}, myResults: [], manualRecords: {} });
+      return { success: true, user: pub };
+    }
+
+    async function recoverUserAccount(nickname, recoveryCode, newSecret) {
+      const lockSec = getRemainingLockoutSeconds();
+      if (lockSec > 0) {
+        return {
+          success: false,
+          error: `Подождите ${lockSec} сек. перед следующей попыткой.`
+        };
+      }
+
+      const validation = validateSafeNickname(nickname);
+      const cleanName = validation.sanitized;
+      const cleanCode = String(recoveryCode || '').trim().toUpperCase();
+      const cleanSecret = String(newSecret || '').trim();
+
+      if (cleanSecret.length < 4) {
+        return { success: false, error: 'Новый пароль или PIN должен содержать минимум 4 символа' };
+      }
+
+      if (serverOnline) {
+        try {
+          const resp = await fetch('/api/auth/recover', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              nickname: cleanName,
+              recoveryCode: cleanCode,
+              newSecret: cleanSecret
+            })
+          });
+          const data = await resp.json();
+          if (resp.ok && data.ok && data.user) {
+            clearFailedAttempts();
+            const users = loadUsers();
+            const idx = users.findIndex(u => u.nickname.toLowerCase() === cleanName.toLowerCase());
+            const salt = idx >= 0 ? users[idx].salt : `srv_${Date.now().toString(16)}`;
+            const secretHash = await deriveSecretHash(cleanSecret, salt);
+            const recObj = {
+              ...(idx >= 0 ? users[idx] : {}),
+              id: data.user.id,
+              nickname: data.user.nickname,
+              avatar: data.user.avatar || '🦉',
+              city: data.user.city || ACCOUNT_CONFIG.defaultCity,
+              authMethod: /^\d{4}$/.test(cleanSecret) ? 'pin' : 'password',
+              salt,
+              secretHash,
+              sessionToken: data.sessionToken || ''
+            };
+            if (idx >= 0) users[idx] = recObj;
+            else users.push(recObj);
+            saveUsers(users);
+            const pub = toPublicUser(recObj);
+            setCurrentUserSession(pub);
+            cabinetData = loadScopedItem('moscow_run_cabinet', pub.id, data.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} });
+            return { success: true, user: pub };
+          }
+        } catch {}
+      }
+
+      const users = loadUsers();
+      const idx = users.findIndex(u => u.nickname.toLowerCase() === cleanName.toLowerCase());
+      if (idx === -1) {
+        return { success: false, error: 'Профиль с таким никнеймом не найден' };
+      }
+
+      const found = users[idx];
+      if (!found.recoveryHash) {
+        return { success: false, error: 'Для этого профиля не был задан резервный ключ' };
+      }
+
+      const pbkdf2Rec = await deriveSecretHash(cleanCode, found.salt);
+      const legacyRec = fallbackHash(cleanCode, found.salt);
+      if (pbkdf2Rec !== found.recoveryHash && legacyRec !== found.recoveryHash) {
+        recordFailedAttempt();
+        return { success: false, error: 'Неверный резервный ключ восстановления' };
+      }
+
+      found.secretHash = await deriveSecretHash(cleanSecret, found.salt);
+      found.authMethod = /^\d{4}$/.test(cleanSecret) ? 'pin' : 'password';
+      users[idx] = found;
+      saveUsers(users);
+      clearFailedAttempts();
+
+      const pub = toPublicUser(found);
+      setCurrentUserSession(pub);
+      cabinetData = loadScopedItem('moscow_run_cabinet', pub.id, { myRaces: {}, myResults: [], manualRecords: {} });
+      return { success: true, user: pub };
+    }
+
+    async function updateUserProfile(updates) {
+      const current = getCurrentUser();
+      if (!current) return { success: false, error: 'Пользователь не авторизован' };
+
+      const validation = validateSafeNickname(updates.nickname);
+      if (!validation.valid) {
+        return { success: false, error: validation.error || 'Некорректный никнейм' };
+      }
+      const cleanName = validation.sanitized;
+
+      const users = loadUsers();
+      const duplicate = users.find(
+        u => u.id !== current.id && u.nickname.toLowerCase() === cleanName.toLowerCase()
+      );
+      if (duplicate) {
+        return { success: false, error: 'Этот никнейм уже занят другим профилем на устройстве' };
+      }
+
+      const idx = users.findIndex(u => u.id === current.id);
+      if (idx !== -1) {
+        users[idx].nickname = cleanName;
+        users[idx].avatar = updates.avatar || users[idx].avatar;
+        users[idx].city = updates.city || users[idx].city;
+        saveUsers(users);
+      }
+
+      const updatedPub = {
+        ...current,
+        nickname: cleanName,
+        avatar: updates.avatar || current.avatar,
+        city: updates.city || current.city
+      };
+      setCurrentUserSession(updatedPub);
+      await saveCabinetState();
+      return { success: true, user: updatedPub };
+    }
+
+    async function logoutUserAccount() {
+      if (serverOnline && currentUser && currentUser.sessionToken) {
+        try {
+          await fetch('/api/auth/logout', {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${currentUser.sessionToken}` }
+          });
+        } catch {}
+      }
+      try {
+        localStorage.removeItem(CURRENT_USER_KEY);
+      } catch {}
+      clearGuestSessionData();
+      currentUser = null;
+      cabinetData = loadScopedItem('moscow_run_cabinet', null, { myRaces: {}, myResults: [], manualRecords: {} });
+      updateHeaderAndGateUI();
+    }
+
+    async function deleteUserAccount(userId) {
+      if (serverOnline && currentUser && currentUser.sessionToken) {
+        try {
+          await fetch('/api/auth/delete', {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${currentUser.sessionToken}` }
+          });
+        } catch {}
+      }
+      try {
+        const users = loadUsers().filter(u => u.id !== userId);
+        saveUsers(users);
+        localStorage.removeItem(CURRENT_USER_KEY);
+        for (const baseKey of ACCOUNT_CONFIG.scopedStorageBaseKeys) {
+          localStorage.removeItem(`${baseKey}_${userId}`);
+          localStorage.removeItem(`${baseKey}_guest`);
+        }
+      } catch {}
+      currentUser = null;
+      cabinetData = { myRaces: {}, myResults: [], manualRecords: {} };
+      updateHeaderAndGateUI();
+    }
 
     async function restoreSessionOnLoad() {
-      try {
-        const raw = localStorage.getItem(ACTIVE_SESSION_KEY);
-        if (!raw) {
-          updateTopbarCabinetBtn();
-          return;
-        }
-        const saved = JSON.parse(raw);
-        if (!saved || !saved.accessToken) return;
+      initTelegramWebApp();
+      detectIncomingReferralCode();
 
-        // First load local account data
-        const accounts = getLocalAccounts();
-        const acc = accounts[saved.accessToken];
-        if (acc) {
-          currentUser = {
-            id: acc.id || saved.accessToken,
-            accessToken: acc.accessToken,
-            email: acc.email || '',
-            nickname: acc.nickname || '',
-            createdAt: acc.createdAt || '',
-            sessionToken: saved.sessionToken || ''
-          };
-          cabinetData = acc.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} };
-        } else {
-          currentUser = saved;
-        }
+      const saved = getCurrentUser();
+      if (saved) {
+        currentUser = saved;
+        cabinetData = loadScopedItem('moscow_run_cabinet', saved.id, {
+          myRaces: {},
+          myResults: [],
+          manualRecords: {}
+        });
 
-        // If server is online and we have sessionToken, sync latest state from SQLite
         if (serverOnline && saved.sessionToken) {
           try {
             const resp = await fetch('/api/cabinet', {
@@ -2174,48 +4091,32 @@
             if (resp.ok) {
               const data = await resp.json();
               if (data && data.ok && data.user) {
-                currentUser = { ...data.user, sessionToken: saved.sessionToken };
-                if (data.cabinetData) {
-                  cabinetData = {
-                    myRaces: data.cabinetData.myRaces || {},
-                    myResults: data.cabinetData.myResults || [],
-                    manualRecords: data.cabinetData.manualRecords || {},
-                    updatedAt: data.cabinetData.updatedAt || ''
-                  };
+                setCurrentUserSession({ ...saved, ...data.user, sessionToken: saved.sessionToken });
+                if (data.cabinetData && (Object.keys(data.cabinetData.myRaces || {}).length > 0 || (data.cabinetData.myResults || []).length > 0)) {
+                  cabinetData = data.cabinetData;
+                  saveScopedItem('moscow_run_cabinet', saved.id, cabinetData);
                 }
-                persistLocalMirror();
               }
             }
           } catch {}
         }
-      } catch {}
-      updateTopbarCabinetBtn();
-    }
-
-    function persistLocalMirror(pwHashOptional) {
-      if (!currentUser || !currentUser.accessToken) return;
-      const accounts = getLocalAccounts();
-      const prev = accounts[currentUser.accessToken] || {};
-      accounts[currentUser.accessToken] = {
-        ...prev,
-        id: currentUser.id || currentUser.accessToken,
-        accessToken: currentUser.accessToken,
-        email: (currentUser.email || '').toLowerCase(),
-        nickname: currentUser.nickname || '',
-        passwordHash: pwHashOptional || prev.passwordHash || '',
-        createdAt: currentUser.createdAt || prev.createdAt || new Date().toISOString(),
-        cabinetData
-      };
-      saveLocalAccounts(accounts);
-      try {
-        localStorage.setItem(ACTIVE_SESSION_KEY, JSON.stringify(currentUser));
-      } catch {}
+      } else {
+        currentUser = null;
+        cabinetData = loadScopedItem('moscow_run_cabinet', null, {
+          myRaces: {},
+          myResults: [],
+          manualRecords: {}
+        });
+      }
+      initAuthModalPickers();
+      updateHeaderAndGateUI();
     }
 
     async function saveCabinetState() {
       cabinetData.updatedAt = new Date().toISOString();
-      persistLocalMirror();
-      updateTopbarCabinetBtn();
+      const uid = currentUser ? currentUser.id : null;
+      saveScopedItem('moscow_run_cabinet', uid, cabinetData);
+      updateHeaderAndGateUI();
 
       if (serverOnline && currentUser && currentUser.sessionToken) {
         try {
@@ -2226,8 +4127,9 @@
               Authorization: `Bearer ${currentUser.sessionToken}`
             },
             body: JSON.stringify({
-              nickname: currentUser.nickname || '',
-              email: currentUser.email || '',
+              nickname: currentUser.nickname,
+              avatar: currentUser.avatar,
+              city: currentUser.city,
               cabinetData
             })
           });
@@ -2235,21 +4137,150 @@
       }
     }
 
-    function updateTopbarCabinetBtn() {
-      const label = document.getElementById('cabinet-btn-label');
+    // 5. UI State & Rendering for ProfileHeaderButton, AuthGateCard, AuthModal & Cabinet
+    let regSelectedAvatar = '🦉';
+    let regAuthMethod = 'password';
+    let editSelectedAvatar = '🦉';
+    let postRegState = null; // { nickname, avatar, city, recoveryCode }
+
+    function initAuthModalPickers() {
+      // Populate city selects
+      ['input-reg-city', 'modal-edit-city', 'prof-city-select'].forEach(id => {
+        const sel = document.getElementById(id);
+        if (!sel) return;
+        sel.innerHTML = ACCOUNT_CONFIG.cityOptions
+          .map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`)
+          .join('');
+      });
+
+      // Populate registration nickname default
+      const regNickInput = document.getElementById('input-reg-nickname');
+      if (regNickInput && !regNickInput.value) {
+        regNickInput.value = generateRandomNickname();
+      }
+
+      // Pre-fill pending referral code if detected
+      const pendingRef = getPendingReferralCode();
+      const regRefInput = document.getElementById('input-reg-referral');
+      if (pendingRef && regRefInput && !regRefInput.value) {
+        regRefInput.value = pendingRef;
+      }
+
+      // Telegram 1-Tap visibility
+      const tgBtn = document.getElementById('btn-telegram-onetap');
+      if (tgBtn) {
+        const tgUser = getTelegramUser();
+        if (isTelegramWebApp() && tgUser) {
+          tgBtn.style.display = 'flex';
+          tgBtn.innerHTML = `<span>✈️ Войти в 1 клик через Telegram (${escapeHtml(tgUser.first_name)})</span>`;
+        } else {
+          tgBtn.style.display = 'none';
+        }
+      }
+
+      renderAvatarPickers();
+    }
+
+    function renderAvatarPickers() {
+      const regRow = document.getElementById('reg-avatar-picker');
+      if (regRow) {
+        regRow.innerHTML = ACCOUNT_CONFIG.avatarOptions
+          .map(emoji => `<button type="button" class="avatar-option-btn ${regSelectedAvatar === emoji ? 'selected' : ''}" data-reg-avatar="${emoji}">${emoji}</button>`)
+          .join('');
+        regRow.querySelectorAll('[data-reg-avatar]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            playClick();
+            regSelectedAvatar = btn.dataset.regAvatar;
+            renderAvatarPickers();
+          });
+        });
+      }
+
+      const modalEditRow = document.getElementById('modal-edit-avatar-picker');
+      if (modalEditRow) {
+        modalEditRow.innerHTML = ACCOUNT_CONFIG.avatarOptions
+          .map(emoji => `<button type="button" class="avatar-option-btn ${editSelectedAvatar === emoji ? 'selected' : ''}" data-edit-avatar="${emoji}">${emoji}</button>`)
+          .join('');
+        modalEditRow.querySelectorAll('[data-edit-avatar]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            playClick();
+            editSelectedAvatar = btn.dataset.editAvatar;
+            renderAvatarPickers();
+          });
+        });
+      }
+
+      const cabRow = document.getElementById('cab-avatar-picker');
+      if (cabRow) {
+        cabRow.innerHTML = ACCOUNT_CONFIG.avatarOptions
+          .map(emoji => `<button type="button" class="avatar-option-btn ${editSelectedAvatar === emoji ? 'selected' : ''}" data-cab-avatar="${emoji}">${emoji}</button>`)
+          .join('');
+        cabRow.querySelectorAll('[data-cab-avatar]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            playClick();
+            editSelectedAvatar = btn.dataset.cabAvatar;
+            renderAvatarPickers();
+          });
+        });
+      }
+    }
+
+    function updateHeaderAndGateUI() {
+      const headerBtn = document.getElementById('btn-header-auth');
+      const headerAvatar = document.getElementById('header-auth-avatar');
+      const headerLabel = document.getElementById('header-auth-label');
+      const cabBtnLabel = document.getElementById('cabinet-btn-label');
       const pillSaved = document.getElementById('pill-my-saved');
       const count = Object.keys(cabinetData.myRaces || {}).length;
+      const savedUsers = getRegisteredPublicUsers();
+
       if (pillSaved) {
         pillSaved.textContent = count > 0 ? `⭐ Мои старты (${count})` : '⭐ Мои старты';
       }
-      if (!label) return;
-      if (currentUser && currentUser.accessToken) {
-        const displayName = currentUser.nickname || currentUser.accessToken.slice(0, 8);
-        label.textContent = isCabinetOpen
-          ? '← В календарь стартов'
-          : `👤 Кабинет (${displayName}) · ${count}`;
+
+      if (currentUser) {
+        if (headerBtn) {
+          headerBtn.classList.add('authenticated');
+          headerBtn.title = `Профиль: ${currentUser.nickname} (${currentUser.city})`;
+        }
+        if (headerAvatar) headerAvatar.textContent = currentUser.avatar || '🦉';
+        if (headerLabel) headerLabel.textContent = currentUser.nickname;
+        if (cabBtnLabel) {
+          cabBtnLabel.textContent = isCabinetOpen
+            ? '← В календарь стартов'
+            : `🏃 Кабинет (${count})`;
+        }
       } else {
-        label.textContent = '👤 Войти / Личный кабинет';
+        if (headerBtn) {
+          headerBtn.classList.remove('authenticated');
+          headerBtn.title = 'Войти или зарегистрироваться';
+        }
+        if (headerAvatar) headerAvatar.textContent = '🔑';
+        if (headerLabel) {
+          headerLabel.textContent = savedUsers.length > 0 ? `Войти (${savedUsers.length})` : 'Войти';
+        }
+        if (cabBtnLabel) {
+          cabBtnLabel.textContent = isCabinetOpen ? '← В календарь стартов' : '🏃 Личный кабинет';
+        }
+      }
+
+      // Gate login button text
+      const gateLoginText = document.getElementById('gate-login-btn-text');
+      if (gateLoginText) {
+        gateLoginText.textContent = savedUsers.length > 0 ? `🔑 Войти (${savedUsers.length})` : '🔑 Войти';
+      }
+
+      // Toggle AuthGateCard vs Authenticated Content inside #cabinet-view
+      const gateCard = document.getElementById('auth-gate-stats');
+      const authContent = document.getElementById('cabinet-authenticated-content');
+      if (gateCard && authContent) {
+        if (currentUser) {
+          gateCard.style.display = 'none';
+          authContent.style.display = 'block';
+        } else {
+          gateCard.style.display = 'flex';
+          authContent.style.display = 'none';
+        }
       }
     }
 
@@ -2265,7 +4296,8 @@
         if (controlsEl) controlsEl.style.display = 'none';
         if (eventsEl) eventsEl.style.display = 'none';
         if (cabEl) cabEl.classList.add('active');
-        renderCabinet();
+        updateHeaderAndGateUI();
+        if (currentUser) renderCabinet();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         if (heroEl) heroEl.style.display = '';
@@ -2274,37 +4306,155 @@
         if (cabEl) cabEl.classList.remove('active');
         renderEvents();
       }
-      updateTopbarCabinetBtn();
+      updateHeaderAndGateUI();
     }
 
-    function openAuthModal(defaultTab = 'login') {
+    function openAuthModal(defaultTab) {
+      playClick();
       const modal = document.getElementById('auth-modal');
-      const regTokenInput = document.getElementById('reg-token');
-      if (regTokenInput && !regTokenInput.value) {
-        regTokenInput.value = generateClientToken();
-      }
-      switchAuthTab(defaultTab);
+      const savedUsers = getRegisteredPublicUsers();
+      const targetTab = defaultTab || (savedUsers.length > 0 ? 'login' : 'register');
+      postRegState = null;
+
+      renderAuthModalViews(targetTab);
       if (modal) modal.classList.add('open');
     }
 
     function closeAuthModal() {
+      playClick();
+      postRegState = null;
       const modal = document.getElementById('auth-modal');
       if (modal) modal.classList.remove('open');
+    }
+
+    function renderAuthModalViews(guestTab = 'login') {
+      const viewRecoveryStep = document.getElementById('auth-view-recovery-step');
+      const viewProfile = document.getElementById('auth-view-profile');
+      const viewGuest = document.getElementById('auth-view-guest');
+      const modalIcon = document.getElementById('auth-modal-icon');
+      const modalTitle = document.getElementById('auth-modal-title');
+      const modalSubtitle = document.getElementById('auth-modal-subtitle');
+
+      // Hide errors
+      ['reg-error', 'login-error', 'recover-error', 'modal-profile-error'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('visible');
+      });
+
+      if (postRegState) {
+        // VIEW A: Post-registration backup recovery key step
+        viewRecoveryStep.style.display = 'flex';
+        viewProfile.style.display = 'none';
+        viewGuest.style.display = 'none';
+        if (modalIcon) modalIcon.textContent = '🎉';
+        if (modalTitle) modalTitle.textContent = 'Профиль создан!';
+        if (modalSubtitle) modalSubtitle.textContent = 'Сохраните резервный ключ восстановления';
+
+        document.getElementById('post-reg-avatar').textContent = postRegState.avatar || '🦉';
+        document.getElementById('post-reg-nickname').textContent = postRegState.nickname;
+        document.getElementById('post-reg-city').textContent = `${postRegState.city} • Профиль подключен`;
+        document.getElementById('post-reg-recovery-code').textContent = postRegState.recoveryCode;
+        return;
+      }
+
+      if (currentUser) {
+        // VIEW B: Logged-in user profile & security
+        viewRecoveryStep.style.display = 'none';
+        viewProfile.style.display = 'flex';
+        viewGuest.style.display = 'none';
+        if (modalIcon) modalIcon.textContent = '🛡️';
+        if (modalTitle) modalTitle.textContent = 'Личный кабинет';
+        if (modalSubtitle) modalSubtitle.textContent = 'Управление профилем и безопасностью';
+
+        editSelectedAvatar = currentUser.avatar || '🦉';
+        renderAvatarPickers();
+
+        document.getElementById('modal-prof-avatar-badge').textContent = currentUser.avatar || '🦉';
+        document.getElementById('modal-prof-nickname').textContent = currentUser.nickname;
+        document.getElementById('modal-prof-meta').textContent = `📍 ${currentUser.city} • Защита: ${
+          currentUser.authMethod === 'pin' ? 'PIN-код (PBKDF2)' : currentUser.authMethod === 'telegram' ? 'Telegram' : 'Пароль (PBKDF2)'
+        }`;
+        document.getElementById('modal-edit-nickname').value = currentUser.nickname;
+        document.getElementById('modal-edit-city').value = currentUser.city || ACCOUNT_CONFIG.defaultCity;
+
+        const racesCount = Object.keys(cabinetData.myRaces || {}).length;
+        const resultsCount = (cabinetData.myResults || []).length;
+        const refState = loadReferralState(currentUser.id);
+
+        document.getElementById('quick-stat-races').textContent = `${racesCount} в плане`;
+        document.getElementById('quick-stat-results').textContent = `${resultsCount} финишей`;
+        document.getElementById('quick-stat-friends').textContent = `${refState.invitedCount}/${ACCOUNT_CONFIG.referralTargetCount} Амб.`;
+        document.getElementById('modal-ref-counter').textContent = `${refState.invitedCount}/${ACCOUNT_CONFIG.referralTargetCount}`;
+        document.getElementById('modal-ref-subtext').textContent = refState.unlockedAmbassador
+          ? 'Статус Амбассадора открыт! 💎'
+          : `Пригласите ${ACCOUNT_CONFIG.referralTargetCount} друзей → статус Амбассадора 💎`;
+        document.getElementById('modal-delete-confirm-box').style.display = 'none';
+        document.getElementById('btn-auth-delete-init').style.display = 'block';
+        return;
+      }
+
+      // VIEW C: Guest registration / login / recovery
+      viewRecoveryStep.style.display = 'none';
+      viewProfile.style.display = 'none';
+      viewGuest.style.display = 'flex';
+      if (modalIcon) modalIcon.textContent = '🛡️';
+      if (modalTitle) modalTitle.textContent = 'Безопасная авторизация';
+      if (modalSubtitle) modalSubtitle.textContent = 'Без телефона, почты и личных данных';
+
+      const savedUsers = getRegisteredPublicUsers();
+      const loginTabLabel = document.getElementById('tab-auth-login-label');
+      if (loginTabLabel) {
+        loginTabLabel.textContent = savedUsers.length > 0 ? `🔑 Вход (${savedUsers.length})` : '🔑 Вход';
+      }
+
+      // Render saved user chips on this device
+      const chipsWrap = document.getElementById('login-saved-profiles-wrap');
+      const chipsRow = document.getElementById('login-saved-profiles-row');
+      if (chipsWrap && chipsRow) {
+        if (savedUsers.length > 0) {
+          chipsWrap.style.display = 'block';
+          const currentLoginNick = document.getElementById('input-login-nickname').value;
+          if (!currentLoginNick && savedUsers[0]) {
+            document.getElementById('input-login-nickname').value = savedUsers[0].nickname;
+          }
+          const activeNick = document.getElementById('input-login-nickname').value.toLowerCase();
+          chipsRow.innerHTML = savedUsers
+            .map(u => `
+              <button type="button" class="user-chip-btn ${u.nickname.toLowerCase() === activeNick ? 'selected' : ''}" data-select-nick="${escapeHtml(u.nickname)}">
+                <span>${escapeHtml(u.avatar)}</span>
+                <span>${escapeHtml(u.nickname)}</span>
+              </button>
+            `)
+            .join('');
+          chipsRow.querySelectorAll('[data-select-nick]').forEach(btn => {
+            btn.addEventListener('click', () => {
+              playClick();
+              document.getElementById('input-login-nickname').value = btn.dataset.selectNick;
+              renderAuthModalViews('login');
+              document.getElementById('input-login-secret').focus();
+            });
+          });
+        } else {
+          chipsWrap.style.display = 'none';
+        }
+      }
+
+      switchAuthTab(guestTab);
     }
 
     function switchAuthTab(tabName) {
       document.querySelectorAll('[data-auth-tab]').forEach(b => {
         b.classList.toggle('active', b.dataset.authTab === tabName);
       });
-      document.getElementById('auth-login-form').style.display = tabName === 'login' ? 'flex' : 'none';
       document.getElementById('auth-register-form').style.display = tabName === 'register' ? 'flex' : 'none';
-      document.getElementById('auth-restore-form').style.display = tabName === 'restore' ? 'flex' : 'none';
+      document.getElementById('auth-login-form').style.display = tabName === 'login' ? 'flex' : 'none';
+      document.getElementById('auth-recover-form').style.display = tabName === 'recover' ? 'flex' : 'none';
     }
 
     function toggleMyRace(eventId) {
       if (!currentUser) {
         openAuthModal('register');
-        showToast('Войдите по токену или создайте кабинет за 5 секунд, чтобы сохранять свои старты!');
+        showToast('Войдите по логину и паролю или создайте профиль за 5 секунд, чтобы сохранять свои старты!');
         return;
       }
       if (!cabinetData.myRaces) cabinetData.myRaces = {};
@@ -2329,6 +4479,7 @@
           note: '',
           addedAt: new Date().toISOString()
         };
+        playSuccess();
         showToast(`✅ «${ev.title}» добавлен в Мои старты!`);
       }
       saveCabinetState();
@@ -2354,19 +4505,29 @@
     }
 
     function renderCabinet() {
+      updateHeaderAndGateUI();
       if (!currentUser) return;
 
-      document.getElementById('cab-token-badge').textContent = `${currentUser.accessToken} 📋`;
-      document.getElementById('cab-greeting').textContent = currentUser.nickname
-        ? `Личный кабинет · ${currentUser.nickname}`
-        : `Личный кабинет · ${currentUser.accessToken}`;
-      document.getElementById('cab-subinfo').textContent = currentUser.email
-        ? `Вход доступен по Токену (${currentUser.accessToken}) или Email (${currentUser.email}) + Пароль`
-        : `Анонимный доступ по Токену (${currentUser.accessToken}) + Пароль · Без персональных данных`;
+      const refState = loadReferralState(currentUser.id);
+      editSelectedAvatar = currentUser.avatar || '🦉';
+      renderAvatarPickers();
 
-      document.getElementById('prof-token-readonly').value = currentUser.accessToken;
-      document.getElementById('prof-email-input').value = currentUser.email || '';
+      document.getElementById('cab-avatar-box').textContent = currentUser.avatar || '🦉';
+      document.getElementById('cab-greeting').textContent = `${currentUser.nickname} · ${currentUser.city || 'Москва'}`;
+      document.getElementById('cab-subinfo').textContent = `Безопасный доступ по логину и ${
+        currentUser.authMethod === 'pin' ? '4-значному PIN-коду' : 'паролю'
+      } (PBKDF2-SHA256 · 100 000 итераций · 152-ФЗ Zero-PII)`;
+
+      const ambBadge = document.getElementById('cab-ambassador-badge');
+      if (ambBadge) {
+        ambBadge.style.display = refState.unlockedAmbassador ? 'inline-flex' : 'none';
+      }
+
       document.getElementById('prof-nick-input').value = currentUser.nickname || '';
+      document.getElementById('prof-city-select').value = currentUser.city || ACCOUNT_CONFIG.defaultCity;
+      document.getElementById('prof-id-readonly').value = `${currentUser.id} · ${
+        currentUser.authMethod === 'pin' ? 'PIN (PBKDF2-SHA256)' : 'Password (PBKDF2-SHA256)'
+      }`;
 
       const myRacesArr = Object.values(cabinetData.myRaces || {}).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
       const myResultsArr = (cabinetData.myResults || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
@@ -2382,6 +4543,7 @@
 
       document.getElementById('tab-count-races').textContent = myRacesArr.length;
       document.getElementById('tab-count-results').textContent = myResultsArr.length;
+      document.getElementById('tab-count-referrals').textContent = `${refState.invitedCount}/${ACCOUNT_CONFIG.referralTargetCount}`;
       document.getElementById('tab-count-new').textContent = newEventsArr.length;
 
       // Render Personal Bests (PB)
@@ -2552,7 +4714,42 @@
         });
       }
 
-      // Render Tab 3: Newly Parsed Events
+      // Render Tab 3: Referrals & Ambassador Status
+      document.getElementById('cab-own-ref-code').value = refState.ownCode;
+      document.getElementById('ref-status-pill').textContent = refState.unlockedAmbassador
+        ? `💎 Амбассадор (${refState.invitedCount}/${ACCOUNT_CONFIG.referralTargetCount})`
+        : `${refState.invitedCount} / ${ACCOUNT_CONFIG.referralTargetCount} приглашений`;
+      document.getElementById('ref-headline').textContent = refState.unlockedAmbassador
+        ? 'Поздравляем! Вы открыли эксклюзивный статус Амбассадора 💎'
+        : `Пригласите ${ACCOUNT_CONFIG.referralTargetCount} друзей и откройте эксклюзивный статус Амбассадора 💎`;
+
+      const refByEl = document.getElementById('cab-referred-by-info');
+      if (refByEl) {
+        if (refState.referredByCode) {
+          refByEl.style.display = 'block';
+          refByEl.textContent = `✓ Вы активировали инвайт-код друга: ${refState.referredByCode}`;
+        } else {
+          refByEl.style.display = 'none';
+        }
+      }
+
+      const friendsListEl = document.getElementById('cab-invited-friends-list');
+      if (friendsListEl) {
+        if (refState.invitedFriends.length === 0) {
+          friendsListEl.innerHTML = `<div style="font-size:13px;color:var(--text-secondary);">Пока нет приглашённых друзей. Отправьте свой код ${escapeHtml(refState.ownCode)} друзьям по бегу!</div>`;
+        } else {
+          friendsListEl.innerHTML = refState.invitedFriends
+            .map(f => `
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:10px;background:#0f172a;border:1px solid #1e293b;margin-top:6px;">
+                <span style="font-weight:700;color:#ffffff;">🏃 ${escapeHtml(f.nickname)}</span>
+                <span style="font-size:11px;font-family:monospace;color:#34d399;">${escapeHtml((f.joinedAt || '').slice(0, 10))}</span>
+              </div>
+            `)
+            .join('');
+        }
+      }
+
+      // Render Tab 4: Newly Parsed Events
       const newGrid = document.getElementById('cab-new-events-grid');
       if (newGrid) {
         const listToShow = newEventsArr.slice(0, 24);
@@ -2595,6 +4792,7 @@
     }
 
     function switchCabTab(tabId) {
+      playClick();
       document.querySelectorAll('[data-cab-tab]').forEach(b => {
         b.classList.toggle('active', b.dataset.cabTab === tabId);
       });
@@ -2616,7 +4814,7 @@
         'PRODID:-//Moscow Running Calendar//Personal Runner Cabinet//RU',
         'CALSCALE:GREGORIAN',
         'METHOD:PUBLISH',
-        `X-WR-CALNAME:Мои забеги (${currentUser ? currentUser.accessToken : 'Runner'})`
+        `X-WR-CALNAME:Мои забеги (${currentUser ? currentUser.nickname : 'Runner'})`
       ];
       myRacesArr.forEach(r => {
         const dtStart = (r.date || '').replace(/-/g, '');
@@ -2649,27 +4847,153 @@
       const blob = new Blob([lines.join('\r\n') + '\r\n'], { type: 'text/calendar;charset=utf-8' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = `my_running_calendar_${(currentUser?.accessToken || 'runner').toLowerCase()}.ics`;
+      a.download = `my_running_calendar_${(currentUser?.nickname || 'runner').toLowerCase()}.ics`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       showToast('📅 Ваш персональный iCal-календарь скачан!');
     }
 
+    function toLocalIsoDate(d) {
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    function syncDateInputBounds() {
+      const fromEl = document.getElementById('date-from');
+      const toEl = document.getElementById('date-to');
+      if (!fromEl || !toEl) return;
+      toEl.min = fromEl.value || '';
+      fromEl.max = toEl.value || '';
+    }
+
+    function clearDateFilter(shouldRender = true) {
+      const fromEl = document.getElementById('date-from');
+      const toEl = document.getElementById('date-to');
+      if (fromEl) {
+        fromEl.value = '';
+        fromEl.max = '';
+      }
+      if (toEl) {
+        toEl.value = '';
+        toEl.min = '';
+      }
+      document.querySelectorAll('#date-presets .date-preset-btn').forEach(b => b.classList.remove('active'));
+      if (shouldRender) renderEvents();
+    }
+
+    function resetAllFilters() {
+      document.getElementById('search-input').value = '';
+      document.getElementById('month-select').value = 'all';
+      document.getElementById('region-select').value = 'all';
+      activeSurface = 'all_races';
+      activeDistance = 'all';
+      document.querySelectorAll('#surface-pills .pill-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.surface === 'all_races');
+      });
+      document.querySelectorAll('#distance-pills .pill-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.dist === 'all');
+      });
+      clearDateFilter(true);
+    }
+
+    function showAuthError(elId, message) {
+      playError();
+      const el = document.getElementById(elId);
+      if (!el) return;
+      el.textContent = `⚠️ ${message}`;
+      el.classList.add('visible');
+    }
+
     // Event listeners
     document.getElementById('search-input').addEventListener('input', renderEvents);
-    document.getElementById('month-select').addEventListener('change', renderEvents);
+    document.getElementById('month-select').addEventListener('change', e => {
+      if (e.target.value !== 'all') {
+        clearDateFilter(false);
+      }
+      renderEvents();
+    });
     document.getElementById('region-select').addEventListener('change', renderEvents);
+
+    ['date-from', 'date-to'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const handleDateInput = () => {
+        document.querySelectorAll('#date-presets .date-preset-btn').forEach(b => b.classList.remove('active'));
+        if (el.value) {
+          document.getElementById('month-select').value = 'all';
+        }
+        syncDateInputBounds();
+        renderEvents();
+      };
+      el.addEventListener('input', handleDateInput);
+      el.addEventListener('change', handleDateInput);
+    });
+
+    document.getElementById('clear-dates-btn').addEventListener('click', () => clearDateFilter(true));
+
+    document.querySelectorAll('#date-presets .date-preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('active')) {
+          clearDateFilter(true);
+          return;
+        }
+        document.querySelectorAll('#date-presets .date-preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        let startDt = new Date(today);
+        let endDt = new Date(today);
+        const preset = btn.dataset.datePreset;
+
+        if (preset === 'weekend') {
+          const day = today.getDay();
+          if (day === 6) {
+            endDt.setDate(today.getDate() + 1);
+          } else if (day !== 0) {
+            const daysToSat = 6 - day;
+            startDt.setDate(today.getDate() + daysToSat);
+            endDt.setDate(today.getDate() + daysToSat + 1);
+          }
+        } else if (preset === '7days') {
+          endDt.setDate(today.getDate() + 7);
+        } else if (preset === '30days') {
+          endDt.setDate(today.getDate() + 30);
+        } else if (preset === '90days') {
+          endDt.setDate(today.getDate() + 90);
+        }
+
+        const fromEl = document.getElementById('date-from');
+        const toEl = document.getElementById('date-to');
+        fromEl.value = toLocalIsoDate(startDt);
+        toEl.value = toLocalIsoDate(endDt);
+        document.getElementById('month-select').value = 'all';
+        syncDateInputBounds();
+        renderEvents();
+      });
+    });
 
     document.getElementById('refresh-db-btn').addEventListener('click', () => refreshEventsDatabase(true));
     document.getElementById('cab-trigger-parse-btn').addEventListener('click', () => refreshEventsDatabase(true));
 
+    // Header Auth & Cabinet toggle buttons
+    document.getElementById('btn-header-auth').addEventListener('click', () => {
+      openAuthModal();
+    });
+
     document.getElementById('cabinet-toggle-btn').addEventListener('click', () => {
-      if (!currentUser) {
-        openAuthModal('login');
-      } else {
-        switchView(!isCabinetOpen);
-      }
+      switchView(!isCabinetOpen);
+    });
+
+    document.getElementById('btn-gate-register-stats').addEventListener('click', () => {
+      openAuthModal('register');
+    });
+
+    document.getElementById('btn-gate-login-stats').addEventListener('click', () => {
+      openAuthModal('login');
     });
 
     document.getElementById('brand-home-link').addEventListener('click', e => {
@@ -2678,29 +5002,13 @@
     });
 
     document.getElementById('cab-back-to-cal-btn').addEventListener('click', () => switchView(false));
+    document.getElementById('cab-open-profile-modal-btn').addEventListener('click', () => openAuthModal());
+    document.getElementById('cab-security-badge').addEventListener('click', () => switchCabTab('profile-security'));
     document.getElementById('cab-export-ics-btn').addEventListener('click', exportPersonalIcs);
 
-    document.getElementById('cab-token-badge').addEventListener('click', () => {
-      if (currentUser && currentUser.accessToken) {
-        fallbackCopy(currentUser.accessToken);
-        showToast(`Токен ${currentUser.accessToken} скопирован в буфер обмена!`);
-      }
-    });
-
     document.getElementById('cab-logout-btn').addEventListener('click', async () => {
-      if (serverOnline && currentUser && currentUser.sessionToken) {
-        try {
-          await fetch('/api/auth/logout', {
-            method: 'POST',
-            headers: { Authorization: `Bearer ${currentUser.sessionToken}` }
-          });
-        } catch {}
-      }
-      currentUser = null;
-      cabinetData = { myRaces: {}, myResults: [], manualRecords: {} };
-      try {
-        localStorage.removeItem(ACTIVE_SESSION_KEY);
-      } catch {}
+      playClick();
+      await logoutUserAccount();
       switchView(false);
       showToast('Вы вышли из Личного кабинета');
     });
@@ -2710,196 +5018,291 @@
     });
 
     document.querySelectorAll('[data-auth-tab]').forEach(btn => {
-      btn.addEventListener('click', () => switchAuthTab(btn.dataset.authTab));
+      btn.addEventListener('click', () => {
+        playClick();
+        switchAuthTab(btn.dataset.authTab);
+      });
     });
 
-    document.getElementById('auth-modal-close').addEventListener('click', closeAuthModal);
+    document.getElementById('btn-close-auth-modal').addEventListener('click', closeAuthModal);
     document.getElementById('auth-modal').addEventListener('click', e => {
       if (e.target.id === 'auth-modal') closeAuthModal();
     });
 
-    document.getElementById('reg-regen-token-btn').addEventListener('click', () => {
-      document.getElementById('reg-token').value = generateClientToken();
+    // Registration UI helpers
+    document.getElementById('btn-reg-random-nick').addEventListener('click', () => {
+      playClick();
+      document.getElementById('input-reg-nickname').value = generateRandomNickname();
     });
 
-    document.getElementById('reg-copy-token-btn').addEventListener('click', () => {
-      const val = document.getElementById('reg-token').value;
-      fallbackCopy(val);
-      showToast(`Токен ${val} скопирован!`);
+    document.getElementById('btn-toggle-reg-method').addEventListener('click', () => {
+      playClick();
+      regAuthMethod = regAuthMethod === 'password' ? 'pin' : 'password';
+      const labelEl = document.getElementById('label-reg-secret');
+      const toggleBtn = document.getElementById('btn-toggle-reg-method');
+      const secretInput = document.getElementById('input-reg-secret');
+      secretInput.value = '';
+      if (regAuthMethod === 'pin') {
+        labelEl.textContent = '🔢 3. Придумайте 4-значный PIN-код:';
+        toggleBtn.textContent = 'Использовать обычный пароль';
+        secretInput.maxLength = 4;
+        secretInput.inputMode = 'numeric';
+        secretInput.placeholder = 'Например: 2580';
+      } else {
+        labelEl.textContent = '🔒 3. Придумайте пароль (от 4 символов):';
+        toggleBtn.textContent = 'Использовать 4-значный PIN';
+        secretInput.maxLength = 32;
+        secretInput.inputMode = 'text';
+        secretInput.placeholder = 'Минимум 4 символа...';
+      }
     });
 
-    // Register Handler (Token + Optional Email + Password)
+    document.getElementById('input-reg-secret').addEventListener('input', e => {
+      if (regAuthMethod === 'pin') {
+        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+      }
+    });
+
+    document.getElementById('btn-reg-secret-eye').addEventListener('click', () => {
+      const inp = document.getElementById('input-reg-secret');
+      inp.type = inp.type === 'password' ? 'text' : 'password';
+    });
+
+    document.getElementById('btn-login-secret-eye').addEventListener('click', () => {
+      const inp = document.getElementById('input-login-secret');
+      inp.type = inp.type === 'password' ? 'text' : 'password';
+    });
+
+    document.getElementById('btn-goto-recover').addEventListener('click', () => {
+      playClick();
+      const loginNick = document.getElementById('input-login-nickname').value;
+      if (loginNick) document.getElementById('input-rec-nickname').value = loginNick;
+      switchAuthTab('recover');
+    });
+
+    document.getElementById('btn-recover-back').addEventListener('click', () => {
+      playClick();
+      switchAuthTab('login');
+    });
+
+    // Post-registration recovery code step handlers
+    document.getElementById('btn-copy-recovery-code').addEventListener('click', () => {
+      if (!postRegState) return;
+      fallbackCopy(postRegState.recoveryCode);
+      const btn = document.getElementById('btn-copy-recovery-code');
+      btn.textContent = '✓ Скопировано!';
+      setTimeout(() => {
+        btn.textContent = '📋 Скопировать';
+      }, 2000);
+      showToast(`Резервный ключ ${postRegState.recoveryCode} скопирован!`);
+    });
+
+    document.getElementById('btn-finish-registration').addEventListener('click', () => {
+      playSuccess();
+      postRegState = null;
+      closeAuthModal();
+      switchView(true);
+    });
+
+    // Telegram 1-Tap Login
+    document.getElementById('btn-telegram-onetap').addEventListener('click', () => {
+      const tgUser = getTelegramUser();
+      if (!tgUser) return;
+      const cleanName = sanitizeNickname(tgUser.first_name || tgUser.username || 'Бегун');
+      const users = loadUsers();
+      let found = users.find(u => u.telegramId === tgUser.id);
+      if (!found) {
+        found = {
+          id: `tg_${tgUser.id}`,
+          nickname: cleanName,
+          avatar: '✈️',
+          city: ACCOUNT_CONFIG.defaultCity,
+          authMethod: 'telegram',
+          salt: `tg_salt_${tgUser.id}`,
+          secretHash: 'telegram_verified_auth',
+          telegramId: tgUser.id,
+          telegramUsername: tgUser.username,
+          createdAt: new Date().toISOString()
+        };
+        users.push(found);
+        saveUsers(users);
+      }
+      const pub = toPublicUser(found);
+      setCurrentUserSession(pub);
+      migrateGuestDataToUser(pub);
+      migrateGuestReferralsToUser(pub.id);
+      playSuccess();
+      closeAuthModal();
+      switchView(true);
+    });
+
+    // Register Submit Handler
     document.getElementById('auth-register-form').addEventListener('submit', async e => {
       e.preventDefault();
-      const errEl = document.getElementById('reg-error');
-      errEl.style.display = 'none';
+      document.getElementById('reg-error').classList.remove('visible');
 
-      const accessToken = normalizeTokenString(document.getElementById('reg-token').value) || generateClientToken();
-      const email = document.getElementById('reg-email').value.trim().toLowerCase();
-      const nickname = document.getElementById('reg-nickname').value.trim();
-      const password = document.getElementById('reg-password').value;
+      const nickname = document.getElementById('input-reg-nickname').value;
+      const city = document.getElementById('input-reg-city').value;
+      const secret = document.getElementById('input-reg-secret').value;
+      const refCode = document.getElementById('input-reg-referral').value.trim();
 
-      if (password.length < 4) {
-        errEl.textContent = 'Пароль должен содержать минимум 4 символа';
-        errEl.style.display = 'block';
+      const res = await registerUserAccount({
+        nickname,
+        avatar: regSelectedAvatar,
+        city,
+        authMethod: regAuthMethod,
+        secret
+      });
+
+      if (!res.success || !res.user) {
+        showAuthError('reg-error', res.error || 'Ошибка создания профиля');
         return;
       }
 
-      const pwHash = await sha256Hex(`${accessToken}::${password}`);
-
-      if (serverOnline) {
-        try {
-          const resp = await fetch('/api/auth/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ accessToken, email, nickname, password, cabinetData })
-          });
-          const data = await resp.json();
-          if (!resp.ok || !data.ok) {
-            errEl.textContent = data.error || 'Ошибка создания профиля';
-            errEl.style.display = 'block';
-            return;
-          }
-          currentUser = { ...data.user, sessionToken: data.sessionToken };
-          cabinetData = data.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} };
-          persistLocalMirror(pwHash);
-          closeAuthModal();
-          switchView(true);
-          showToast(`🎉 Кабинет создан! Ваш токен: ${currentUser.accessToken}`);
-          return;
-        } catch {}
+      if (refCode) {
+        redeemFriendReferralCode(res.user.id, refCode, res.user.nickname);
       }
 
-      // Autonomous Local Registration
-      const accounts = getLocalAccounts();
-      if (email) {
-        const dupEmail = Object.values(accounts).find(a => a.email && a.email.toLowerCase() === email);
-        if (dupEmail) {
-          errEl.textContent = 'Этот Email уже привязан к токену на устройстве. Используйте вкладку «Вход».';
-          errEl.style.display = 'block';
-          return;
-        }
-      }
-
-      currentUser = {
-        id: accessToken,
-        accessToken,
-        email,
-        nickname,
-        createdAt: new Date().toISOString(),
-        sessionToken: ''
+      playSuccess();
+      postRegState = {
+        nickname: res.user.nickname,
+        avatar: res.user.avatar,
+        city: res.user.city,
+        recoveryCode: res.recoveryCode || generateRecoveryCode()
       };
-      cabinetData = { myRaces: {}, myResults: [], manualRecords: {}, updatedAt: new Date().toISOString() };
-      persistLocalMirror(pwHash);
-      closeAuthModal();
-      switchView(true);
-      showToast(`🎉 Кабинет создан! Сохраните ваш токен: ${accessToken}`);
+      updateHeaderAndGateUI();
+      renderAuthModalViews();
     });
 
-    // Login Handler (Token OR Email + Password)
+    // Login Submit Handler
     document.getElementById('auth-login-form').addEventListener('submit', async e => {
       e.preventDefault();
-      const errEl = document.getElementById('login-error');
-      errEl.style.display = 'none';
+      document.getElementById('login-error').classList.remove('visible');
 
-      const identifier = document.getElementById('login-identifier').value.trim();
-      const password = document.getElementById('login-password').value;
+      const nickname = document.getElementById('input-login-nickname').value;
+      const secret = document.getElementById('input-login-secret').value;
 
-      if (serverOnline) {
-        try {
-          const resp = await fetch('/api/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ identifier, password })
-          });
-          const data = await resp.json();
-          if (resp.ok && data.ok) {
-            const pwHash = await sha256Hex(`${data.user.accessToken}::${password}`);
-            currentUser = { ...data.user, sessionToken: data.sessionToken };
-            cabinetData = data.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} };
-            persistLocalMirror(pwHash);
-            closeAuthModal();
-            switchView(true);
-            showToast(`С возвращением, ${currentUser.nickname || currentUser.accessToken}!`);
-            return;
-          }
-        } catch {}
-      }
-
-      // Check local accounts by Token or Email
-      const accounts = getLocalAccounts();
-      let found = null;
-      if (identifier.includes('@')) {
-        found = Object.values(accounts).find(a => (a.email || '').toLowerCase() === identifier.toLowerCase());
-      } else {
-        const normTok = normalizeTokenString(identifier);
-        found = accounts[normTok];
-      }
-
-      if (!found) {
-        errEl.textContent = 'Профиль с таким Токеном или Email не найден. Проверьте ввод или создайте новый токен.';
-        errEl.style.display = 'block';
+      const res = await loginUserAccount(nickname, secret);
+      if (!res.success || !res.user) {
+        showAuthError('login-error', res.error || 'Ошибка входа');
         return;
       }
 
-      const expectedHash = await sha256Hex(`${found.accessToken}::${password}`);
-      if (found.passwordHash && found.passwordHash !== expectedHash) {
-        errEl.textContent = 'Неверный пароль';
-        errEl.style.display = 'block';
-        return;
-      }
-
-      currentUser = {
-        id: found.id || found.accessToken,
-        accessToken: found.accessToken,
-        email: found.email || '',
-        nickname: found.nickname || '',
-        createdAt: found.createdAt || '',
-        sessionToken: ''
-      };
-      cabinetData = found.cabinetData || { myRaces: {}, myResults: [], manualRecords: {} };
-      persistLocalMirror(expectedHash);
+      playSuccess();
+      document.getElementById('input-login-secret').value = '';
+      updateHeaderAndGateUI();
       closeAuthModal();
       switchView(true);
-      showToast(`Вход выполнен: ${currentUser.accessToken}`);
+      showToast(`С возвращением, ${res.user.nickname}!`);
     });
 
-    // Restore from Portable Sync Code (MRC1:...)
-    document.getElementById('auth-restore-form').addEventListener('submit', async e => {
+    // Recovery Submit Handler
+    document.getElementById('auth-recover-form').addEventListener('submit', async e => {
       e.preventDefault();
-      const errEl = document.getElementById('restore-error');
-      errEl.style.display = 'none';
-      const rawCode = document.getElementById('restore-code-input').value.trim();
-      const newPass = document.getElementById('restore-password').value;
+      document.getElementById('recover-error').classList.remove('visible');
 
-      try {
-        const cleanB64 = rawCode.startsWith('MRC1:') ? rawCode.slice(5) : rawCode;
-        const jsonStr = decodeURIComponent(escape(atob(cleanB64)));
-        const parsed = JSON.parse(jsonStr);
-        if (!parsed || !parsed.accessToken || !parsed.cabinetData) {
-          throw new Error('Invalid');
-        }
-        const pwHash = await sha256Hex(`${parsed.accessToken}::${newPass}`);
-        currentUser = {
-          id: parsed.accessToken,
-          accessToken: parsed.accessToken,
-          email: parsed.email || '',
-          nickname: parsed.nickname || '',
-          createdAt: parsed.createdAt || new Date().toISOString(),
-          sessionToken: ''
-        };
-        cabinetData = parsed.cabinetData;
-        persistLocalMirror(pwHash);
+      const nickname = document.getElementById('input-rec-nickname').value;
+      const code = document.getElementById('input-rec-code').value;
+      const newSecret = document.getElementById('input-rec-secret').value;
+
+      const res = await recoverUserAccount(nickname, code, newSecret);
+      if (!res.success || !res.user) {
+        showAuthError('recover-error', res.error || 'Ошибка восстановления доступа');
+        return;
+      }
+
+      playSuccess();
+      document.getElementById('input-rec-code').value = '';
+      document.getElementById('input-rec-secret').value = '';
+      updateHeaderAndGateUI();
+      closeAuthModal();
+      switchView(true);
+      showToast(`✅ Пароль обновлён! С возвращением, ${res.user.nickname}`);
+    });
+
+    // Modal Profile View B handlers
+    document.querySelectorAll('[data-quick-cab-tab]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.quickCabTab;
         closeAuthModal();
         switchView(true);
-        showToast(`✅ Профиль ${parsed.accessToken} успешно перенесён!`);
-      } catch {
-        errEl.textContent = 'Некорректный формат кода переноса (ожидается строка MRC1:...)';
-        errEl.style.display = 'block';
+        switchCabTab(tab);
+      });
+    });
+
+    document.getElementById('btn-modal-open-referrals').addEventListener('click', () => {
+      closeAuthModal();
+      switchView(true);
+      switchCabTab('referrals');
+    });
+
+    document.getElementById('btn-modal-open-full-cab').addEventListener('click', () => {
+      closeAuthModal();
+      switchView(true);
+    });
+
+    document.getElementById('modal-profile-edit-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      document.getElementById('modal-profile-error').classList.remove('visible');
+      const nickname = document.getElementById('modal-edit-nickname').value;
+      const city = document.getElementById('modal-edit-city').value;
+
+      const res = await updateUserProfile({
+        nickname,
+        avatar: editSelectedAvatar,
+        city
+      });
+      if (!res.success) {
+        showAuthError('modal-profile-error', res.error || 'Не удалось обновить профиль');
+        return;
+      }
+      playSuccess();
+      renderAuthModalViews();
+      if (isCabinetOpen) renderCabinet();
+      const savedToast = document.getElementById('modal-profile-saved-toast');
+      if (savedToast) {
+        savedToast.style.display = 'block';
+        setTimeout(() => {
+          savedToast.style.display = 'none';
+        }, 2500);
       }
     });
 
-    // Add Result Handler
+    document.getElementById('btn-auth-logout').addEventListener('click', async () => {
+      playClick();
+      await logoutUserAccount();
+      closeAuthModal();
+      switchView(false);
+      showToast('Вы вышли из профиля');
+    });
+
+    document.getElementById('btn-auth-delete-init').addEventListener('click', () => {
+      playClick();
+      document.getElementById('btn-auth-delete-init').style.display = 'none';
+      const box = document.getElementById('modal-delete-confirm-box');
+      if (box) box.style.display = 'flex';
+      if (currentUser) {
+        document.getElementById('modal-delete-confirm-text').textContent =
+          `Удалить профиль «${currentUser.nickname}» и все данные с устройства?`;
+      }
+    });
+
+    document.getElementById('btn-auth-delete-cancel').addEventListener('click', () => {
+      playClick();
+      document.getElementById('modal-delete-confirm-box').style.display = 'none';
+      document.getElementById('btn-auth-delete-init').style.display = 'block';
+    });
+
+    document.getElementById('btn-auth-delete-confirm').addEventListener('click', async () => {
+      if (!currentUser) return;
+      playClick();
+      await deleteUserAccount(currentUser.id);
+      closeAuthModal();
+      switchView(false);
+      showToast('🗑️ Аккаунт и все данные удалены с устройства');
+    });
+
+    // Cabinet Tab 2: Add Result Handler
     document.getElementById('add-result-form').addEventListener('submit', e => {
       e.preventDefault();
       const title = document.getElementById('res-title').value.trim();
@@ -2930,55 +5333,93 @@
       document.getElementById('res-time').value = '';
       document.getElementById('res-note').value = '';
 
+      playSuccess();
       saveCabinetState();
       renderCabinet();
       showToast('🏆 Результат сохранён и учтён в личных рекордах!');
     });
 
-    // Profile Save & Download Access Card
+    // Cabinet Tab 3: Referrals & Ambassador handlers
+    document.getElementById('btn-copy-ref-code').addEventListener('click', () => {
+      if (!currentUser) return;
+      const state = loadReferralState(currentUser.id);
+      fallbackCopy(state.ownCode);
+      showToast(`Инвайт-код ${state.ownCode} скопирован!`);
+    });
+
+    document.getElementById('btn-copy-ref-link').addEventListener('click', () => {
+      if (!currentUser) return;
+      const state = loadReferralState(currentUser.id);
+      const link = getReferralShareLink(state.ownCode);
+      fallbackCopy(link);
+      showToast('Реферальная ссылка скопирована в буфер обмена!');
+    });
+
+    document.getElementById('redeem-ref-form').addEventListener('submit', e => {
+      e.preventDefault();
+      if (!currentUser) return;
+      const rawCode = document.getElementById('input-cab-redeem-ref').value;
+      const res = redeemFriendReferralCode(currentUser.id, rawCode, currentUser.nickname);
+      if (res.success) {
+        playSuccess();
+        document.getElementById('input-cab-redeem-ref').value = '';
+      } else {
+        playError();
+      }
+      renderCabinet();
+      showToast(res.message);
+    });
+
+    // Cabinet Tab 5: Profile Save, Password Change, Sync Code & Delete Account
     document.getElementById('prof-save-btn').addEventListener('click', async () => {
       if (!currentUser) return;
-      currentUser.email = document.getElementById('prof-email-input').value.trim().toLowerCase();
-      currentUser.nickname = document.getElementById('prof-nick-input').value.trim();
-      await saveCabinetState();
+      const nickname = document.getElementById('prof-nick-input').value;
+      const city = document.getElementById('prof-city-select').value;
+      const res = await updateUserProfile({
+        nickname,
+        avatar: editSelectedAvatar,
+        city
+      });
+      if (!res.success) {
+        playError();
+        showToast(res.error || 'Ошибка сохранения профиля');
+        return;
+      }
+      playSuccess();
       renderCabinet();
       showToast('✅ Настройки профиля сохранены');
     });
 
-    document.getElementById('prof-download-card-btn').addEventListener('click', () => {
-      if (!currentUser) return;
-      const text = [
-        '====================================================',
-        'БЕГОВОЙ КАЛЕНДАРЬ МОСКВЫ И МО — КАРТОЧКА ДОСТУПА',
-        '====================================================',
-        `Персональный Токен: ${currentUser.accessToken}`,
-        currentUser.email ? `Привязанный Email: ${currentUser.email}` : 'Email: не указан (анонимный доступ)',
-        currentUser.nickname ? `Псевдоним: ${currentUser.nickname}` : '',
-        `Дата создания: ${currentUser.createdAt || new Date().toISOString()}`,
-        '',
-        'Для входа в Личный кабинет укажите этот Токен (или Email) и ваш пароль.',
-        'Персональные данные (ФИО, телефон) не запрашиваются и не хранятся.'
-      ].filter(Boolean).join('\r\n');
-      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = `token_${currentUser.accessToken}.txt`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      showToast('📥 Памятка с токеном скачана');
-    });
-
-    // Change Password Handler
     document.getElementById('change-pw-form').addEventListener('submit', async e => {
       e.preventDefault();
       if (!currentUser) return;
-      const curPw = document.getElementById('pw-current').value;
-      const newPw = document.getElementById('pw-new').value;
+      const curPw = document.getElementById('pw-current').value.trim();
+      const newPw = document.getElementById('pw-new').value.trim();
+
+      if (newPw.length < 4) {
+        showToast('Новый пароль или PIN должен содержать минимум 4 символа');
+        return;
+      }
+
+      const users = loadUsers();
+      const idx = users.findIndex(u => u.id === currentUser.id);
+      if (idx !== -1) {
+        const curHash = await deriveSecretHash(curPw, users[idx].salt);
+        const legHash = fallbackHash(curPw, users[idx].salt);
+        if (curHash !== users[idx].secretHash && legHash !== users[idx].secretHash) {
+          playError();
+          showToast('Неверный текущий пароль / PIN-код');
+          return;
+        }
+        users[idx].secretHash = await deriveSecretHash(newPw, users[idx].salt);
+        users[idx].authMethod = /^\d{4}$/.test(newPw) ? 'pin' : 'password';
+        saveUsers(users);
+        setCurrentUserSession(toPublicUser(users[idx]));
+      }
 
       if (serverOnline && currentUser.sessionToken) {
         try {
-          const resp = await fetch('/api/auth/change-password', {
+          await fetch('/api/auth/change-password', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -2986,29 +5427,22 @@
             },
             body: JSON.stringify({ currentPassword: curPw, newPassword: newPw })
           });
-          const data = await resp.json();
-          if (!resp.ok || !data.ok) {
-            showToast(data.error || 'Ошибка смены пароля');
-            return;
-          }
         } catch {}
       }
 
-      const newHash = await sha256Hex(`${currentUser.accessToken}::${newPw}`);
-      persistLocalMirror(newHash);
+      playSuccess();
       document.getElementById('pw-current').value = '';
       document.getElementById('pw-new').value = '';
-      showToast('🔒 Пароль успешно обновлён!');
+      renderCabinet();
+      showToast('🔒 Пароль / PIN успешно обновлён (PBKDF2-SHA256)!');
     });
 
-    // Portable Sync Code & JSON Backup
     document.getElementById('export-sync-code-btn').addEventListener('click', () => {
       if (!currentUser) return;
       const payload = {
-        accessToken: currentUser.accessToken,
-        email: currentUser.email || '',
-        nickname: currentUser.nickname || '',
-        createdAt: currentUser.createdAt,
+        nickname: currentUser.nickname,
+        avatar: currentUser.avatar,
+        city: currentUser.city,
         cabinetData
       };
       const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
@@ -3019,26 +5453,55 @@
     document.getElementById('export-json-backup-btn').addEventListener('click', () => {
       if (!currentUser) return;
       const payload = {
-        accessToken: currentUser.accessToken,
-        email: currentUser.email || '',
-        nickname: currentUser.nickname || '',
+        nickname: currentUser.nickname,
+        avatar: currentUser.avatar,
+        city: currentUser.city,
         cabinetData
       };
       const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = `backup_${currentUser.accessToken}.json`;
+      a.download = `backup_${currentUser.nickname}.json`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       showToast('💾 Резервная копия JSON сохранена');
     });
 
+    document.getElementById('cab-import-sync-form').addEventListener('submit', e => {
+      e.preventDefault();
+      if (!currentUser) return;
+      const rawCode = document.getElementById('cab-import-code-input').value.trim();
+      try {
+        const cleanB64 = rawCode.startsWith('MRC1:') ? rawCode.slice(5) : rawCode;
+        const jsonStr = decodeURIComponent(escape(atob(cleanB64)));
+        const parsed = JSON.parse(jsonStr);
+        if (!parsed || !parsed.cabinetData) throw new Error('Invalid');
+        cabinetData = parsed.cabinetData;
+        saveCabinetState();
+        renderCabinet();
+        document.getElementById('cab-import-code-input').value = '';
+        playSuccess();
+        showToast('✅ Старты и рекорды успешно импортированы!');
+      } catch {
+        playError();
+        showToast('Некорректный формат кода переноса (ожидается строка MRC1:...)');
+      }
+    });
+
+    document.getElementById('cab-delete-account-btn').addEventListener('click', () => {
+      openAuthModal();
+      setTimeout(() => {
+        const initBtn = document.getElementById('btn-auth-delete-init');
+        if (initBtn) initBtn.click();
+      }, 60);
+    });
+
     document.querySelectorAll('#surface-pills .pill-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         if (btn.dataset.surface === 'my_saved' && !currentUser) {
           openAuthModal('login');
-          showToast('Войдите по токену или почте, чтобы просматривать свои сохранённые старты');
+          showToast('Войдите по логину и паролю, чтобы просматривать свои сохранённые старты');
           return;
         }
         document.querySelectorAll('#surface-pills .pill-btn').forEach(b => b.classList.remove('active'));

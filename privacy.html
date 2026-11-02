@@ -1,81 +1,170 @@
-<!DOCTYPE html>
-<html lang="ru" class="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Политика конфиденциальности — Беговой календарь Москвы и МО</title>
-  <style>
-    :root {
-      --bg-primary: #090b10;
-      --bg-card: #151a26;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --text-primary: #f3f5f8;
-      --text-secondary: #9ba3b5;
-      --accent-volt: #d4ff00;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      padding: max(24px, env(safe-area-inset-top)) 16px max(40px, env(safe-area-inset-bottom));
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 28px 24px;
-    }
-    h1 { font-size: 22px; margin-bottom: 8px; color: var(--accent-volt); }
-    h2 { font-size: 17px; margin: 22px 0 8px; color: var(--text-primary); }
-    p, li { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; }
-    ul { padding-left: 20px; margin-bottom: 12px; }
-    a { color: var(--accent-volt); text-decoration: none; }
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      background: rgba(212, 255, 0, 0.12);
-      border: 1px solid rgba(212, 255, 0, 0.4);
-      color: var(--accent-volt);
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a href="./index.html" class="back-btn">← Назад к календарю</a>
-    <h1>Политика конфиденциальности</h1>
-    <p><strong>Приложение:</strong> «Беговой календарь Москвы» (`ru.moscowrun.calendar`)<br />
-    <strong>Дата вступления в силу:</strong> 29 октября 2026 г.</p>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Политика конфиденциальности (152-ФЗ) — Беговой календарь Москвы и МО</title>
+    <style>
+      :root {
+        color-scheme: dark light;
+      }
+      body {
+        margin: 0;
+        padding: max(20px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom));
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background-color: #0d0f12;
+        color: #e2e8f0;
+        line-height: 1.65;
+      }
+      .container {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 24px 20px 48px;
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: rgba(16, 185, 129, 0.14);
+        border: 1px solid rgba(16, 185, 129, 0.4);
+        color: #34d399;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 13px;
+        text-decoration: none;
+        margin-bottom: 18px;
+      }
+      .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.4);
+        color: #34d399;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+      }
+      h1 {
+        font-size: 28px;
+        font-weight: 800;
+        color: #ffffff;
+        margin: 0 0 8px;
+      }
+      .subtitle {
+        color: #94a3b8;
+        font-size: 14px;
+        margin-bottom: 28px;
+      }
+      .card {
+        background: #131720;
+        border: 1px solid #1e293b;
+        border-radius: 16px;
+        padding: 20px 24px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #f8fafc;
+        margin: 0 0 12px;
+      }
+      p, li {
+        font-size: 15px;
+        color: #cbd5e1;
+      }
+      ul {
+        margin: 8px 0;
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 6px;
+      }
+      .highlight {
+        color: #34d399;
+        font-weight: 600;
+      }
+      code {
+        background: #1e293b;
+        padding: 2px 6px;
+        border-radius: 6px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+        color: #fbbf24;
+      }
+      a {
+        color: #34d399;
+      }
+      .footer {
+        margin-top: 32px;
+        font-size: 13px;
+        color: #64748b;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <a href="./index.html" class="back-btn">← Назад к календарю забегов</a>
+      </div>
+      <div class="badge">Соответствие 152-ФЗ • Privacy by Design</div>
+      <h1>Политика конфиденциальности Приложения</h1>
+      <div class="subtitle">
+        «Беговой календарь Москвы и МО» (<code>ru.moscowrun.calendar</code>) — Архитектура нулевого сбора персональных данных (Zero-PII)
+      </div>
 
-    <h2>1. Общие положения</h2>
-    <p>Мобильное приложение и веб-сервис «Беговой календарь Москвы» (далее — Приложение) уважает право пользователей на конфиденциальность. Приложение представляет собой справочный агрегатор расписания любительских беговых событий, марафонов, полумарафонов, трейлов и парковых забегов Москвы и Московской области.</p>
+      <div class="card">
+        <h2>1. Общие положения</h2>
+        <p>
+          Настоящая Политика конфиденциальности определяет порядок работы Приложения «Беговой календарь Москвы и МО» в отношении пользовательских данных.
+          Приложение спроектировано по принципу <span class="highlight">Privacy-by-Design (конфиденциальность по умолчанию)</span>
+          в соответствии с требованиями Федерального закона РФ № 152-ФЗ «О персональных данных».
+        </p>
+      </div>
 
-    <h2>2. Отсутствие сбора персональных данных (152-ФЗ)</h2>
-    <p>Приложение <strong>не запрашивает, не собирает и не передаёт третьим лицам персональные данные пользователей</strong>:</p>
-    <ul>
-      <li>Для использования Личного кабинета («Мои старты», «Мои результаты и рекорды») применяется анонимный сгенерированный токен доступа (вида <code>RUN-XXXX-XXXX-XXXX</code>) и пароль без запроса ФИО, номера телефона, адреса или паспортных данных;</li>
-      <li>По желанию пользователь может указать адрес электронной почты исключительно в качестве альтернативного логина для входа в свой кабинет (поле необязательно);</li>
-      <li>Приложение не запрашивает доступ к геолокации, контактам, камере, микрофону или личным файлам устройства;</li>
-      <li>В Приложении отсутствуют рекламные SDK, сторонние трекеры аналитики и платные подписки.</li>
-    </ul>
+      <div class="card">
+        <h2>2. Отсутствие сбора персональных данных</h2>
+        <p>
+          Приложение <strong>не запрашивает, не собирает, не хранит и не передает третьим лицам</strong>
+          персональные данные пользователей:
+        </p>
+        <ul>
+          <li>Не запрашиваются фамилия, имя, отчество и паспортные данные;</li>
+          <li>Не запрашиваются номера телефонов и адреса электронной почты (Email);</li>
+          <li>Встроенный DLP-фильтр безопасности автоматически блокирует ввод телефонных номеров и email-адресов в поле псевдонима (никнейма / логина);</li>
+          <li>Приложение не требует доступа к геолокации (GPS), контактам, камере, микрофону, фотогалерее или SMS.</li>
+        </ul>
+      </div>
 
-    <h2>3. Использование сетевого соединения и локального хранилища</h2>
-    <p>Приложение содержит встроенную офлайн-базу забегов и может работать полностью без подключения к сети Интернет. При наличии интернет-соединения Приложение обращается исключительно к открытому репозиторию расписания (`prartem476-dev.github.io/running_calendar_moscow`) для загрузки актуального списка забегов и сохранения копии расписания в локальном кэше устройства (`localStorage`).</p>
+      <div class="card">
+        <h2>3. Какие данные хранятся в Личном кабинете</h2>
+        <p>
+          Для сохранения прогресса, выбранных забегов и личных рекордов Приложение использует изолированное мультиаккаунтное хранилище (<code>localStorage</code> / локальную БД):
+        </p>
+        <ul>
+          <li><strong>Вымышленный никнейм (логин), эмодзи-аватар и город</strong> — используются только для отображения профиля;</li>
+          <li><strong>Код доступа (пароль или 4-значный PIN-код) и резервный ключ восстановления (<code>RUN-XXXX-XXXX</code>)</strong> — хранятся исключительно в виде необратимого криптографического хеша по стандарту <code>PBKDF2-SHA256</code> (100 000 итераций с индивидуальной солью);</li>
+          <li><strong>Защита от перебора и подмены сессии</strong> — применяется криптографическая подпись сессий и автоматическая временная блокировка при 5 неверных попытках ввода пароля/PIN;</li>
+          <li><strong>Спортивная статистика и реферальный код</strong> — запланированные старты, результаты финишей, личные рекорды (PB) и статус Амбассадора (💎).</li>
+        </ul>
+      </div>
 
-    <h2>4. Внешние ссылки</h2>
-    <p>Карточки забегов содержат прямые ссылки на официальные сайты организаторов спортивных мероприятий и сервис добавления событий в календарь. При переходе по внешним ссылкам действуют политики конфиденциальности соответствующих сайтов организаторов.</p>
+      <div class="card">
+        <h2>4. Управление данными и полное удаление аккаунта</h2>
+        <ul>
+          <li>В любой момент можно пользоваться Приложением в гостевом режиме без создания профиля (при последующей регистрации данные гостя автоматически переносятся в профиль);</li>
+          <li>В разделе <strong>«Личный кабинет»</strong> доступна функция полного удаления профиля и всех связанных данных с устройства в один клик (требование RuStore и 152-ФЗ);</li>
+          <li>Удаление Приложения со смартфона также полностью стирает все локальные данные без возможности восстановления.</li>
+        </ul>
+      </div>
 
-    <h2>5. Контакты</h2>
-    <p>По всем вопросам, связанным с работой Приложения и расписанием стартов, вы можете обратиться через официальный репозиторий проекта на GitHub: <a href="https://github.com/prartem476-dev/running_calendar_moscow" target="_blank" rel="noopener">github.com/prartem476-dev/running_calendar_moscow</a>.</p>
-  </div>
-</body>
+      <div class="footer">
+        © 2026 Беговой календарь Москвы и МО • Все права защищены.
+      </div>
+    </div>
+  </body>
 </html>

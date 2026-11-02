@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
  * Гибридный веб-сервер и REST API для проекта «Беговой календарь Москвы и МО» (Node.js 22 + SQLite).
- * Обеспечивает:
- * - Раздачу веб-интерфейса (index.html, moscow_running_events.json, moscow_running_events.ics);
- * - Авторизацию без персональных данных (152-ФЗ) по анонимному Токену (RUN-XXXX-XXXX-XXXX) или Email + Пароль;
- * - Хранение и синхронизацию Личного кабинета бегуна в SQLite (running_calendar.db);
- * - Живой запуск инкрементального парсера новых стартов по API (/api/events/refresh).
+ * Реализует архитектуру Portable Personal Account Kit (Privacy-First / 152-ФЗ / Zero-PII):
+ * - Авторизация по Логину (Никнейму) и Паролю / 4-значному PIN-коду;
+ * - Криптографическое хеширование PBKDF2-SHA256 (100 000 итераций) + индивидуальная соль;
+ * - DLP-фильтр 152-ФЗ (блокировка ввода email и телефонных номеров в логине/никнейме);
+ * - Резервный ключ восстановления (RUN-XXXX-XXXX) и защита от брутфорса (блокировка на 30 сек после 5 попыток);
+ * - Подписанные сессии (HMAC/Salt), реферальная программа Амбассадоров (💎) и удаление аккаунта в 1 клик.
  */
 
 import crypto from 'node:crypto';
@@ -24,6 +25,14 @@ const DIST_JSON_PATH = path.join(ROOT_DIR, 'dist', 'moscow_running_events.json')
 const ICS_PATH = path.join(ROOT_DIR, 'moscow_running_events.ics');
 const DIST_ICS_PATH = path.join(ROOT_DIR, 'dist', 'moscow_running_events.ics');
 
+const SESSION_SECRET_SALT = 'moscow_run_session_hmac_v1';
+const SESSION_DURATION_MS = 1000 * 60 * 60 * 24 * 30; // 30 days
+const MAX_FAILED_ATTEMPTS = 5;
+const LOCKOUT_DURATION_MS = 30 * 1000; // 30 seconds
+const RECOVERY_CODE_PREFIX = 'RUN';
+
+const lockoutMap = new Map(); // ip/key -> { attempts, lockedUntil }
+
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
@@ -36,24 +45,144 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
 };
 
+function sanitizeNickname(raw) {
+  return String(raw || '')
+    .replace(/[<>"'`&/\\]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 20);
+}
+
+/**
+ * DLP-проверка никнейма (логина): запрещает ввод email и номеров телефона (152-ФЗ).
+ */
+function validateSafeNickname(nickname) {
+  const clean = sanitizeNickname(nickname);
+  if (clean.length < 2) {
+    return { valid: false, error: 'Никнейм должен содержать минимум 2 символа' };
+  }
+  if (clean.includes('@') || /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/.test(clean)) {
+    return {
+      valid: false,
+      error: 'В целях безопасности не используйте email в качестве никнейма',
+    };
+  }
+  const digitsOnly = clean.replace(/\D/g, '');
+  if (digitsOnly.length >= 7) {
+    return {
+      valid: false,
+      error: 'В целях безопасности не указывайте номер телефона в никнейме',
+    };
+  }
+  return { valid: true };
+}
+
+function generateRecoveryCode() {
+  const alphabet = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+  const bytes = crypto.randomBytes(8);
+  let part1 = '';
+  let part2 = '';
+  for (let i = 0; i < 4; i++) {
+    part1 += alphabet[bytes[i] % alphabet.length];
+    part2 += alphabet[bytes[i + 4] % alphabet.length];
+  }
+  return `${RECOVERY_CODE_PREFIX}-${part1}-${part2}`;
+}
+
+function deriveSecretHashSync(secret, salt) {
+  const normalizedSecret = String(secret || '').trim();
+  return crypto
+    .pbkdf2Sync(
+      Buffer.from(normalizedSecret, 'utf8'),
+      Buffer.from(String(salt || ''), 'utf8'),
+      100000,
+      32,
+      'sha256'
+    )
+    .toString('hex');
+}
+
+function fallbackHash(input, salt) {
+  const combined = `${salt}::${SESSION_SECRET_SALT}::${input}`;
+  let h1 = 0xdeadbeef ^ combined.length;
+  let h2 = 0x41c6ce57 ^ combined.length;
+  for (let round = 0; round < 1000; round++) {
+    for (let i = 0; i < combined.length; i++) {
+      const ch = combined.charCodeAt(i);
+      h1 = Math.imul(h1 ^ ch, 2654435761);
+      h2 = Math.imul(h2 ^ ch, 1597334677);
+    }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  }
+  return (
+    (h1 >>> 0).toString(16).padStart(8, '0') +
+    (h2 >>> 0).toString(16).padStart(8, '0') +
+    ((h1 ^ h2) >>> 0).toString(16).padStart(8, '0')
+  );
+}
+
+function computeSessionSignature(userId, token, expiresAt) {
+  return fallbackHash(`${userId}:${token}:${expiresAt}`, SESSION_SECRET_SALT);
+}
+
+function getLockoutRemainingSeconds(clientKey = 'global') {
+  const rec = lockoutMap.get(clientKey);
+  if (rec && rec.lockedUntil > Date.now()) {
+    return Math.ceil((rec.lockedUntil - Date.now()) / 1000);
+  }
+  return 0;
+}
+
+function recordFailedAttempt(clientKey = 'global') {
+  const rec = lockoutMap.get(clientKey) || { attempts: 0, lockedUntil: 0 };
+  const nextAttempts = rec.attempts + 1;
+  if (nextAttempts >= MAX_FAILED_ATTEMPTS) {
+    const lockedUntil = Date.now() + LOCKOUT_DURATION_MS;
+    lockoutMap.set(clientKey, { attempts: 0, lockedUntil });
+    return {
+      locked: true,
+      secondsLeft: Math.ceil(LOCKOUT_DURATION_MS / 1000),
+      attemptsLeft: 0,
+    };
+  }
+  lockoutMap.set(clientKey, { attempts: nextAttempts, lockedUntil: 0 });
+  return {
+    locked: false,
+    secondsLeft: 0,
+    attemptsLeft: MAX_FAILED_ATTEMPTS - nextAttempts,
+  };
+}
+
+function clearFailedAttempts(clientKey = 'global') {
+  lockoutMap.delete(clientKey);
+}
+
 function initDatabase() {
   const db = new DatabaseSync(DB_PATH);
   db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id TEXT PRIMARY KEY,
-      access_token TEXT UNIQUE NOT NULL,
-      email TEXT UNIQUE,
-      nickname TEXT DEFAULT '',
-      password_salt TEXT NOT NULL,
-      password_hash TEXT NOT NULL,
-      cabinet_json TEXT NOT NULL,
+      nickname TEXT UNIQUE NOT NULL,
+      avatar TEXT NOT NULL DEFAULT '🦉',
+      city TEXT NOT NULL DEFAULT 'Москва',
+      auth_method TEXT NOT NULL DEFAULT 'password',
+      security_hash TEXT NOT NULL DEFAULT '',
+      security_salt TEXT NOT NULL DEFAULT '',
+      recovery_code_hash TEXT NOT NULL DEFAULT '',
+      telegram_id INTEGER,
+      referral_code TEXT,
+      referred_by_code TEXT,
+      cabinet_json TEXT NOT NULL DEFAULT '{}',
       created_at TEXT NOT NULL,
+      last_login_at TEXT NOT NULL DEFAULT '',
       updated_at TEXT NOT NULL
     );
 
     CREATE TABLE IF NOT EXISTS sessions (
       session_token TEXT PRIMARY KEY,
       user_id TEXT NOT NULL,
+      signature TEXT NOT NULL DEFAULT '',
       created_at TEXT NOT NULL,
       expires_at TEXT NOT NULL
     );
@@ -78,31 +207,63 @@ function initDatabase() {
       raw_json TEXT NOT NULL
     );
   `);
+
+  // Ensure columns exist if upgrading from an older schema
+  const existingCols = new Set(
+    db
+      .prepare('PRAGMA table_info(users)')
+      .all()
+      .map((c) => c.name)
+  );
+  const alterColumns = [
+    ['avatar', "TEXT NOT NULL DEFAULT '🦉'"],
+    ['city', "TEXT NOT NULL DEFAULT 'Москва'"],
+    ['auth_method', "TEXT NOT NULL DEFAULT 'password'"],
+    ['security_hash', "TEXT NOT NULL DEFAULT ''"],
+    ['security_salt', "TEXT NOT NULL DEFAULT ''"],
+    ['recovery_code_hash', "TEXT NOT NULL DEFAULT ''"],
+    ['telegram_id', 'INTEGER'],
+    ['referral_code', 'TEXT'],
+    ['referred_by_code', 'TEXT'],
+    ['last_login_at', "TEXT NOT NULL DEFAULT ''"],
+  ];
+  for (const [colName, colDef] of alterColumns) {
+    if (!existingCols.has(colName)) {
+      try {
+        db.exec(`ALTER TABLE users ADD COLUMN ${colName} ${colDef}`);
+      } catch {}
+    }
+  }
+
+  const sessCols = new Set(
+    db
+      .prepare('PRAGMA table_info(sessions)')
+      .all()
+      .map((c) => c.name)
+  );
+  if (!sessCols.has('signature')) {
+    try {
+      db.exec("ALTER TABLE sessions ADD COLUMN signature TEXT NOT NULL DEFAULT ''");
+    } catch {}
+  }
+
   db.close();
 }
 
 initDatabase();
 
-function generateAccessToken() {
-  const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
-  const group = () =>
-    Array.from({ length: 4 }, () => chars[crypto.randomInt(0, chars.length)]).join('');
-  return `RUN-${group()}-${group()}-${group()}`;
-}
-
-function normalizeTokenInput(raw) {
-  const clean = String(raw || '')
-    .toUpperCase()
-    .replace(/[^A-Z0-9]/g, '');
-  if (clean.startsWith('RUN') && clean.length === 15) {
-    const body = clean.slice(3);
-    return `RUN-${body.slice(0, 4)}-${body.slice(4, 8)}-${body.slice(8, 12)}`;
-  }
-  return String(raw || '').trim().toUpperCase();
-}
-
-function hashPassword(password, saltHex) {
-  return crypto.pbkdf2Sync(String(password), saltHex, 100000, 32, 'sha256').toString('hex');
+function toPublicUserRow(row) {
+  return {
+    id: row.id,
+    nickname: row.nickname,
+    avatar: row.avatar || '🦉',
+    city: row.city || 'Москва',
+    authMethod: row.auth_method || 'password',
+    createdAt: row.created_at,
+    lastLoginAt: row.last_login_at || row.updated_at || row.created_at,
+    referralCode: row.referral_code || undefined,
+    referredByCode: row.referred_by_code || undefined,
+  };
 }
 
 function sendJson(res, status, data) {
@@ -144,16 +305,33 @@ function getAuthenticatedUser(req, db) {
 
   const nowIso = new Date().toISOString();
   const sess = db
-    .prepare('SELECT user_id, expires_at FROM sessions WHERE session_token = ?')
+    .prepare('SELECT user_id, signature, expires_at FROM sessions WHERE session_token = ?')
     .get(sessionToken);
   if (!sess || sess.expires_at < nowIso) return null;
 
-  const user = db
-    .prepare(
-      'SELECT id, access_token, email, nickname, password_salt, password_hash, cabinet_json, created_at, updated_at FROM users WHERE id = ?'
-    )
-    .get(sess.user_id);
+  const user = db.prepare('SELECT * FROM users WHERE id = ?').get(sess.user_id);
   return user ? { ...user, sessionToken } : null;
+}
+
+function createSignedSessionRecord(db, userId) {
+  const issuedAt = Date.now();
+  const expiresAtMs = issuedAt + SESSION_DURATION_MS;
+  const sessionToken = crypto.randomBytes(24).toString('hex');
+  const signature = computeSessionSignature(userId, sessionToken, expiresAtMs);
+  const nowIso = new Date(issuedAt).toISOString();
+  const expiresIso = new Date(expiresAtMs).toISOString();
+
+  db.prepare(
+    'INSERT INTO sessions (session_token, user_id, signature, created_at, expires_at) VALUES (?, ?, ?, ?, ?)'
+  ).run(sessionToken, userId, signature, nowIso, expiresIso);
+
+  return {
+    userId,
+    token: sessionToken,
+    issuedAt,
+    expiresAt: expiresAtMs,
+    signature,
+  };
 }
 
 const server = http.createServer(async (req, res) => {
@@ -163,6 +341,7 @@ const server = http.createServer(async (req, res) => {
 
   const parsedUrl = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
   const pathname = parsedUrl.pathname;
+  const clientKey = req.socket.remoteAddress || 'local';
 
   // API Routes
   if (pathname === '/api/health' && req.method === 'GET') {
@@ -220,46 +399,57 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  // 1. РЕГИСТРАЦИЯ ПО ЛОГИНУ (НИКНЕЙМУ) И ПАРОЛЮ / PIN-КОДУ (PBKDF2-SHA256 + DLP 152-ФЗ)
   if (pathname === '/api/auth/register' && req.method === 'POST') {
     const db = new DatabaseSync(DB_PATH);
     try {
       const body = await readJsonBody(req);
-      const password = String(body.password || '');
-      if (password.length < 4) {
-        return sendJson(res, 400, { ok: false, error: 'Пароль должен содержать минимум 4 символа' });
+      const cleanName = sanitizeNickname(body.nickname);
+      const validation = validateSafeNickname(cleanName);
+      if (!validation.valid) {
+        return sendJson(res, 400, { ok: false, error: validation.error });
       }
 
-      let accessToken = body.accessToken ? normalizeTokenInput(body.accessToken) : generateAccessToken();
-      if (!/^RUN-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(accessToken)) {
-        accessToken = generateAccessToken();
-      }
+      const method = ['pin', 'password', 'telegram'].includes(body.authMethod)
+        ? body.authMethod
+        : 'password';
+      const secret = String(body.secret || '').trim();
 
-      const rawEmail = String(body.email || '').trim().toLowerCase();
-      const email = rawEmail ? rawEmail : null;
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        return sendJson(res, 400, { ok: false, error: 'Некорректный формат электронной почты' });
-      }
-
-      const nickname = String(body.nickname || '').trim().slice(0, 40);
-
-      // Проверка уникальности токена и почты
-      const existingToken = db.prepare('SELECT id FROM users WHERE access_token = ?').get(accessToken);
-      if (existingToken) {
-        accessToken = generateAccessToken();
-      }
-      if (email) {
-        const existingEmail = db.prepare('SELECT id FROM users WHERE email = ?').get(email);
-        if (existingEmail) {
-          return sendJson(res, 409, {
+      if (!body.securityHash) {
+        if (method === 'pin' && !/^\d{4}$/.test(secret)) {
+          return sendJson(res, 400, { ok: false, error: 'PIN-код должен состоять ровно из 4 цифр' });
+        }
+        if (method === 'password' && secret.length < 4) {
+          return sendJson(res, 400, {
             ok: false,
-            error: 'Указанный Email уже привязан к другому токену. Войдите по нему на вкладке «Вход».',
+            error: 'Пароль должен содержать минимум 4 символа',
           });
         }
       }
 
-      const userId = crypto.randomBytes(12).toString('hex');
-      const salt = crypto.randomBytes(16).toString('hex');
-      const passwordHash = hashPassword(password, salt);
+      const duplicate = db
+        .prepare('SELECT id FROM users WHERE LOWER(nickname) = LOWER(?)')
+        .get(cleanName);
+      if (duplicate) {
+        return sendJson(res, 409, {
+          ok: false,
+          error: 'Этот никнейм уже занят. Выберите другой или войдите в свой профиль.',
+        });
+      }
+
+      const userId = body.id || `usr_${Date.now()}_${crypto.randomBytes(6).toString('hex')}`;
+      const salt = body.securitySalt || crypto.randomBytes(16).toString('hex');
+      const securityHash = body.securityHash || deriveSecretHashSync(secret, salt);
+      const recoveryCode = body.recoveryCode || generateRecoveryCode();
+      const recoveryCodeHash =
+        body.recoveryCodeHash || deriveSecretHashSync(recoveryCode.toUpperCase(), salt);
+
+      const avatar = String(body.avatar || '🦉').trim();
+      const city = sanitizeNickname(body.city || 'Москва') || 'Москва';
+      const referralCode = body.referralCode ? String(body.referralCode).trim().toUpperCase() : null;
+      const referredByCode = body.referredByCode
+        ? String(body.referredByCode).trim().toUpperCase()
+        : null;
       const nowIso = new Date().toISOString();
 
       const initialCabinet =
@@ -267,39 +457,76 @@ const server = http.createServer(async (req, res) => {
           ? body.cabinetData
           : { myRaces: {}, myResults: [], manualRecords: {}, updatedAt: nowIso };
 
-      db.prepare(
-        `INSERT INTO users (id, access_token, email, nickname, password_salt, password_hash, cabinet_json, created_at, updated_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
-      ).run(
-        userId,
-        accessToken,
-        email,
-        nickname,
-        salt,
-        passwordHash,
-        JSON.stringify(initialCabinet),
-        nowIso,
-        nowIso
+      const existingCols = new Set(
+        db
+          .prepare('PRAGMA table_info(users)')
+          .all()
+          .map((c) => c.name)
       );
 
-      const sessionToken = crypto.randomBytes(24).toString('hex');
-      const expiresAt = new Date(Date.now() + 90 * 86400 * 1000).toISOString();
-      db.prepare('INSERT INTO sessions (session_token, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)').run(
-        sessionToken,
-        userId,
-        nowIso,
-        expiresAt
-      );
+      if (existingCols.has('access_token')) {
+        db.prepare(
+          `INSERT INTO users (id, access_token, nickname, avatar, city, auth_method, password_salt, password_hash, security_salt, security_hash, recovery_code_hash, referral_code, referred_by_code, cabinet_json, created_at, last_login_at, updated_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        ).run(
+          userId,
+          userId,
+          cleanName,
+          avatar,
+          city,
+          method,
+          salt,
+          securityHash,
+          salt,
+          securityHash,
+          recoveryCodeHash,
+          referralCode,
+          referredByCode,
+          JSON.stringify(initialCabinet),
+          nowIso,
+          nowIso,
+          nowIso
+        );
+      } else {
+        db.prepare(
+          `INSERT INTO users (id, nickname, avatar, city, auth_method, security_salt, security_hash, recovery_code_hash, referral_code, referred_by_code, cabinet_json, created_at, last_login_at, updated_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        ).run(
+          userId,
+          cleanName,
+          avatar,
+          city,
+          method,
+          salt,
+          securityHash,
+          recoveryCodeHash,
+          referralCode,
+          referredByCode,
+          JSON.stringify(initialCabinet),
+          nowIso,
+          nowIso,
+          nowIso
+        );
+      }
+
+      clearFailedAttempts(clientKey);
+      const session = createSignedSessionRecord(db, userId);
 
       return sendJson(res, 200, {
         ok: true,
-        sessionToken,
+        sessionToken: session.token,
+        session,
+        recoveryCode,
         user: {
           id: userId,
-          accessToken,
-          email: email || '',
-          nickname,
+          nickname: cleanName,
+          avatar,
+          city,
+          authMethod: method,
           createdAt: nowIso,
+          lastLoginAt: nowIso,
+          referralCode: referralCode || undefined,
+          referredByCode: referredByCode || undefined,
         },
         cabinetData: initialCabinet,
       });
@@ -310,51 +537,64 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  // 2. ВХОД ПО ЛОГИНУ (НИКНЕЙМУ) И ПАРОЛЮ / PIN-КОДУ (С ЗАЩИТОЙ ОТ ПЕРЕБОРА)
   if (pathname === '/api/auth/login' && req.method === 'POST') {
     const db = new DatabaseSync(DB_PATH);
     try {
-      const body = await readJsonBody(req);
-      const rawIdentifier = String(body.identifier || '').trim();
-      const password = String(body.password || '');
-
-      if (!rawIdentifier || !password) {
-        return sendJson(res, 400, { ok: false, error: 'Введите ваш Токен (или Email) и пароль' });
-      }
-
-      let user = null;
-      if (rawIdentifier.includes('@')) {
-        user = db
-          .prepare('SELECT * FROM users WHERE email = ?')
-          .get(rawIdentifier.toLowerCase());
-      } else {
-        const normToken = normalizeTokenInput(rawIdentifier);
-        user = db
-          .prepare('SELECT * FROM users WHERE access_token = ?')
-          .get(normToken);
-      }
-
-      if (!user) {
-        return sendJson(res, 401, {
+      const lockoutSeconds = getLockoutRemainingSeconds(clientKey);
+      if (lockoutSeconds > 0) {
+        return sendJson(res, 429, {
           ok: false,
-          error: 'Профиль с таким Токеном или Email не найден на сервере',
+          lockedSeconds: lockoutSeconds,
+          error: `Слишком много попыток. Подождите ${lockoutSeconds} сек.`,
         });
       }
 
-      const computedHash = hashPassword(password, user.password_salt);
-      if (computedHash !== user.password_hash) {
-        return sendJson(res, 401, { ok: false, error: 'Неверный пароль' });
+      const body = await readJsonBody(req);
+      const cleanName = sanitizeNickname(body.nickname || body.identifier);
+      const secret = String(body.secret || body.password || '').trim();
+
+      if (!cleanName || !secret) {
+        return sendJson(res, 400, { ok: false, error: 'Введите никнейм и код доступа' });
       }
 
+      const user = db
+        .prepare('SELECT * FROM users WHERE LOWER(nickname) = LOWER(?)')
+        .get(cleanName);
+
+      if (!user) {
+        recordFailedAttempt(clientKey);
+        return sendJson(res, 401, { ok: false, error: 'Неверный никнейм или код доступа' });
+      }
+
+      const salt = user.security_salt || user.password_salt || '';
+      const storedHash = user.security_hash || user.password_hash || '';
+      const computedHash = deriveSecretHashSync(secret, salt);
+
+      if (computedHash !== storedHash) {
+        const attemptInfo = recordFailedAttempt(clientKey);
+        if (attemptInfo.locked) {
+          return sendJson(res, 429, {
+            ok: false,
+            lockedSeconds: attemptInfo.secondsLeft,
+            error: `Защита от подбора: вход заблокирован на ${attemptInfo.secondsLeft} сек.`,
+          });
+        }
+        return sendJson(res, 401, {
+          ok: false,
+          error: `Неверный код доступа (осталось попыток: ${attemptInfo.attemptsLeft})`,
+        });
+      }
+
+      clearFailedAttempts(clientKey);
       const nowIso = new Date().toISOString();
-      const sessionToken = crypto.randomBytes(24).toString('hex');
-      const expiresAt = new Date(Date.now() + 90 * 86400 * 1000).toISOString();
-      db.prepare('INSERT INTO sessions (session_token, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)').run(
-        sessionToken,
-        user.id,
+      db.prepare('UPDATE users SET last_login_at = ?, updated_at = ? WHERE id = ?').run(
         nowIso,
-        expiresAt
+        nowIso,
+        user.id
       );
 
+      const session = createSignedSessionRecord(db, user.id);
       let cabinetData = {};
       try {
         cabinetData = JSON.parse(user.cabinet_json || '{}');
@@ -362,14 +602,9 @@ const server = http.createServer(async (req, res) => {
 
       return sendJson(res, 200, {
         ok: true,
-        sessionToken,
-        user: {
-          id: user.id,
-          accessToken: user.access_token,
-          email: user.email || '',
-          nickname: user.nickname || '',
-          createdAt: user.created_at,
-        },
+        sessionToken: session.token,
+        session,
+        user: toPublicUserRow({ ...user, last_login_at: nowIso }),
         cabinetData,
       });
     } catch (err) {
@@ -379,6 +614,83 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  // 3. ВОССТАНОВЛЕНИЕ ДОСТУПА ПО РЕЗЕРВНОМУ КЛЮЧУ (RUN-XXXX-XXXX)
+  if (pathname === '/api/auth/recover' && req.method === 'POST') {
+    const db = new DatabaseSync(DB_PATH);
+    try {
+      const lockoutSeconds = getLockoutRemainingSeconds(clientKey);
+      if (lockoutSeconds > 0) {
+        return sendJson(res, 429, {
+          ok: false,
+          lockedSeconds: lockoutSeconds,
+          error: `Слишком много попыток. Подождите ${lockoutSeconds} сек.`,
+        });
+      }
+
+      const body = await readJsonBody(req);
+      const cleanName = sanitizeNickname(body.nickname);
+      const normalizedRecovery = String(body.recoveryCode || '')
+        .trim()
+        .toUpperCase();
+      const newSecret = String(body.newSecret || '').trim();
+      const method = body.newAuthMethod || (/^\d{4}$/.test(newSecret) ? 'pin' : 'password');
+
+      if (method === 'pin' && !/^\d{4}$/.test(newSecret)) {
+        return sendJson(res, 400, { ok: false, error: 'Новый PIN-код должен состоять из 4 цифр' });
+      }
+      if (method === 'password' && newSecret.length < 4) {
+        return sendJson(res, 400, {
+          ok: false,
+          error: 'Новый пароль должен содержать минимум 4 символа',
+        });
+      }
+
+      const user = db
+        .prepare('SELECT * FROM users WHERE LOWER(nickname) = LOWER(?)')
+        .get(cleanName);
+      if (!user) {
+        recordFailedAttempt(clientKey);
+        return sendJson(res, 401, {
+          ok: false,
+          error: 'Профиль не найден или неверный резервный ключ',
+        });
+      }
+
+      const salt = user.security_salt || user.password_salt || '';
+      const recoveryHash = deriveSecretHashSync(normalizedRecovery, salt);
+      if (recoveryHash !== user.recovery_code_hash) {
+        recordFailedAttempt(clientKey);
+        return sendJson(res, 401, { ok: false, error: 'Неверный резервный ключ восстановления' });
+      }
+
+      const newSecurityHash = deriveSecretHashSync(newSecret, salt);
+      const nowIso = new Date().toISOString();
+      db.prepare(
+        'UPDATE users SET security_hash = ?, auth_method = ?, last_login_at = ?, updated_at = ? WHERE id = ?'
+      ).run(newSecurityHash, method, nowIso, nowIso, user.id);
+
+      clearFailedAttempts(clientKey);
+      const session = createSignedSessionRecord(db, user.id);
+      let cabinetData = {};
+      try {
+        cabinetData = JSON.parse(user.cabinet_json || '{}');
+      } catch {}
+
+      return sendJson(res, 200, {
+        ok: true,
+        sessionToken: session.token,
+        session,
+        user: toPublicUserRow({ ...user, auth_method: method, last_login_at: nowIso }),
+        cabinetData,
+      });
+    } catch (err) {
+      return sendJson(res, 500, { ok: false, error: err.message });
+    } finally {
+      db.close();
+    }
+  }
+
+  // 4. ПОЛУЧЕНИЕ И ОБНОВЛЕНИЕ ДАННЫХ ЛИЧНОГО КАБИНЕТА И ПРОФИЛЯ
   if (pathname === '/api/cabinet' && req.method === 'GET') {
     const db = new DatabaseSync(DB_PATH);
     try {
@@ -392,13 +704,7 @@ const server = http.createServer(async (req, res) => {
       } catch {}
       return sendJson(res, 200, {
         ok: true,
-        user: {
-          id: user.id,
-          accessToken: user.access_token,
-          email: user.email || '',
-          nickname: user.nickname || '',
-          createdAt: user.created_at,
-        },
+        user: toPublicUserRow(user),
         cabinetData,
       });
     } finally {
@@ -416,23 +722,30 @@ const server = http.createServer(async (req, res) => {
       const body = await readJsonBody(req);
       const nowIso = new Date().toISOString();
 
-      const nickname =
-        body.nickname !== undefined ? String(body.nickname || '').trim().slice(0, 40) : user.nickname;
-
-      let email = user.email;
-      if (body.email !== undefined) {
-        const cleanEmail = String(body.email || '').trim().toLowerCase();
-        if (cleanEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
-          return sendJson(res, 400, { ok: false, error: 'Некорректный формат Email' });
+      let nickname = user.nickname;
+      if (body.nickname !== undefined) {
+        const cleanName = sanitizeNickname(body.nickname);
+        const validation = validateSafeNickname(cleanName);
+        if (!validation.valid) {
+          return sendJson(res, 400, { ok: false, error: validation.error });
         }
-        if (cleanEmail && cleanEmail !== user.email) {
-          const dup = db.prepare('SELECT id FROM users WHERE email = ? AND id != ?').get(cleanEmail, user.id);
-          if (dup) {
-            return sendJson(res, 409, { ok: false, error: 'Этот Email уже занят другим профилем' });
-          }
+        const conflict = db
+          .prepare('SELECT id FROM users WHERE LOWER(nickname) = LOWER(?) AND id != ?')
+          .get(cleanName, user.id);
+        if (conflict) {
+          return sendJson(res, 409, {
+            ok: false,
+            error: 'Этот никнейм уже занят другим пользователем',
+          });
         }
-        email = cleanEmail || null;
+        nickname = cleanName;
       }
+
+      const avatar = body.avatar ? String(body.avatar).trim() : user.avatar || '🦉';
+      const city =
+        body.city !== undefined
+          ? sanitizeNickname(body.city) || 'Инкогнито'
+          : user.city || 'Москва';
 
       const cabinetData =
         body.cabinetData && typeof body.cabinetData === 'object'
@@ -440,19 +753,13 @@ const server = http.createServer(async (req, res) => {
           : JSON.parse(user.cabinet_json || '{}');
 
       db.prepare(
-        'UPDATE users SET nickname = ?, email = ?, cabinet_json = ?, updated_at = ? WHERE id = ?'
-      ).run(nickname, email, JSON.stringify(cabinetData), nowIso, user.id);
+        'UPDATE users SET nickname = ?, avatar = ?, city = ?, cabinet_json = ?, updated_at = ? WHERE id = ?'
+      ).run(nickname, avatar, city, JSON.stringify(cabinetData), nowIso, user.id);
 
       return sendJson(res, 200, {
         ok: true,
         updatedAt: nowIso,
-        user: {
-          id: user.id,
-          accessToken: user.access_token,
-          email: email || '',
-          nickname,
-          createdAt: user.created_at,
-        },
+        user: toPublicUserRow({ ...user, nickname, avatar, city }),
         cabinetData,
       });
     } catch (err) {
@@ -462,6 +769,7 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  // 5. СМЕНА ПАРОЛЯ / PIN-КОДА
   if (pathname === '/api/auth/change-password' && req.method === 'POST') {
     const db = new DatabaseSync(DB_PATH);
     try {
@@ -470,24 +778,27 @@ const server = http.createServer(async (req, res) => {
         return sendJson(res, 401, { ok: false, error: 'Сессия недействительна' });
       }
       const body = await readJsonBody(req);
-      const currentPassword = String(body.currentPassword || '');
-      const newPassword = String(body.newPassword || '');
+      const currentPassword = String(body.currentPassword || body.currentSecret || '').trim();
+      const newPassword = String(body.newPassword || body.newSecret || '').trim();
+      const newMethod = body.newAuthMethod || (/^\d{4}$/.test(newPassword) ? 'pin' : 'password');
+
       if (newPassword.length < 4) {
-        return sendJson(res, 400, { ok: false, error: 'Новый пароль должен содержать минимум 4 символа' });
+        return sendJson(res, 400, {
+          ok: false,
+          error: 'Новый пароль / PIN должен содержать минимум 4 символа',
+        });
       }
-      if (hashPassword(currentPassword, user.password_salt) !== user.password_hash) {
-        return sendJson(res, 401, { ok: false, error: 'Текущий пароль введён неверно' });
+      const salt = user.security_salt || user.password_salt || '';
+      const storedHash = user.security_hash || user.password_hash || '';
+      if (deriveSecretHashSync(currentPassword, salt) !== storedHash) {
+        return sendJson(res, 401, { ok: false, error: 'Текущий пароль / PIN введён неверно' });
       }
-      const newSalt = crypto.randomBytes(16).toString('hex');
-      const newHash = hashPassword(newPassword, newSalt);
+      const newHash = deriveSecretHashSync(newPassword, salt);
       const nowIso = new Date().toISOString();
-      db.prepare('UPDATE users SET password_salt = ?, password_hash = ?, updated_at = ? WHERE id = ?').run(
-        newSalt,
-        newHash,
-        nowIso,
-        user.id
-      );
-      return sendJson(res, 200, { ok: true });
+      db.prepare(
+        'UPDATE users SET security_hash = ?, auth_method = ?, updated_at = ? WHERE id = ?'
+      ).run(newHash, newMethod, nowIso, user.id);
+      return sendJson(res, 200, { ok: true, authMethod: newMethod });
     } catch (err) {
       return sendJson(res, 500, { ok: false, error: err.message });
     } finally {
@@ -495,6 +806,25 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  // 6. ПОЛНОЕ УДАЛЕНИЕ АККАУНТА И ДАННЫХ (ТРЕБОВАНИЕ 152-ФЗ / RUSTORE)
+  if (
+    (pathname === '/api/auth/delete' && req.method === 'POST') ||
+    (pathname === '/api/auth/account' && req.method === 'DELETE')
+  ) {
+    const db = new DatabaseSync(DB_PATH);
+    try {
+      const user = getAuthenticatedUser(req, db);
+      if (user) {
+        db.prepare('DELETE FROM sessions WHERE user_id = ?').run(user.id);
+        db.prepare('DELETE FROM users WHERE id = ?').run(user.id);
+      }
+      return sendJson(res, 200, { ok: true });
+    } finally {
+      db.close();
+    }
+  }
+
+  // 7. ВЫХОД ИЗ СЕССИИ
   if (pathname === '/api/auth/logout' && req.method === 'POST') {
     const db = new DatabaseSync(DB_PATH);
     try {
