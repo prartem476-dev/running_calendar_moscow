@@ -9,6 +9,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
+import { classifyEventGeography, getCuratedRegionalAndWorldEvents } from './world-and-regional-races.mjs';
 
 const USER_AGENT =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
@@ -203,20 +204,11 @@ async function fetchRussiaRunningEvents(todayIso) {
           title.toLowerCase().includes('золотое кольцо');
 
         const combinedLoc = `${place} ${address} ${cityName}`;
-        if (
-          !isBzk &&
-          ['санкт-петербург', 'нижний новгород', 'самара', 'тюмень', 'грозный'].some((o) =>
-            combinedLoc.toLowerCase().includes(o)
-          )
-        ) {
+        const geo = classifyEventGeography(combinedLoc, title, isMoscowOrMo);
+        if (!geo.matched && !isBzk) {
           continue;
         }
-
-        let [isMsk, regionTag] = isMoscowOrMo(`${combinedLoc} ${title}`);
-        if (!isMsk) {
-          if (isBzk) regionTag = 'Золотое кольцо';
-          else continue;
-        }
+        const regionTag = isBzk ? 'Золотое кольцо' : geo.region;
 
         const beginRaw = (it.beginDate || '').slice(0, 10);
         const endRaw = (it.endDate || beginRaw).slice(0, 10);
@@ -248,7 +240,10 @@ async function fetchRussiaRunningEvents(todayIso) {
           display_date: `${d}.${m}.${y}`,
           location: locationDisplay,
           region: regionTag,
-          series: isBzk ? 'Бегом по Золотому кольцу (БЗК)' : null,
+          country: geo.country || 'Россия',
+          scope: geo.scope || 'russia',
+          visa_status: geo.visa_status || 'domestic',
+          series: isBzk ? 'Бегом по Золотому кольцу (БЗК)' : sportSeriesTitle || null,
           is_golden_ring: isBzk,
           distances,
           surface,
@@ -310,7 +305,8 @@ async function fetchHeroLeagueEvents(todayIso, currentYear) {
       const baseTitle = (evObj.title || evTypeObj.title || '').trim();
       const subtitle = (evObj.title_above || '').trim();
 
-      if (cityId !== 524901 && !isMoscowOrMo(`${address} ${baseTitle}`)[0]) continue;
+      const geo = classifyEventGeography(address, baseTitle, isMoscowOrMo);
+      if (cityId !== 524901 && !geo.matched) continue;
 
       const startRaw = (item.start_time || '').slice(0, 10);
       if (!/^\d{4}-\d{2}-\d{2}$/.test(startRaw)) continue;
@@ -341,7 +337,7 @@ async function fetchHeroLeagueEvents(todayIso, currentYear) {
         [surface, category] = classifySurfaceAndType(fullTitle, distances);
       }
 
-      let [, regionTag] = isMoscowOrMo(address || 'Москва');
+      let regionTag = geo.matched ? geo.region : isMoscowOrMo(address || 'Москва')[1];
       if (address.toLowerCase().includes('алабино')) regionTag = 'Подмосковье';
       const [y, m, d] = startRaw.split('-');
 
@@ -353,6 +349,9 @@ async function fetchHeroLeagueEvents(todayIso, currentYear) {
         display_date: `${d}.${m}.${y}`,
         location: address || 'Москва',
         region: regionTag,
+        country: geo.country || 'Россия',
+        scope: geo.scope || 'russia',
+        visa_status: geo.visa_status || 'domestic',
         distances,
         surface,
         category,
@@ -374,11 +373,11 @@ async function fetchHeroLeagueEvents(todayIso, currentYear) {
   return events;
 }
 
-async function fetchProbegEvents(includeParkruns = false) {
+async function fetchProbegEvents(includeParkruns = false, regionGroup = '46,47') {
   const events = [];
   const targetUrl = includeParkruns
-    ? 'https://probeg.org/races/region_group/46,47/date_region/2/'
-    : 'https://probeg.org/races/region_group/46,47/date_region/2/?hide_parkruns=on';
+    ? `https://probeg.org/races/region_group/${regionGroup}/date_region/2/`
+    : `https://probeg.org/races/region_group/${regionGroup}/date_region/2/?hide_parkruns=on`;
   try {
     const resp = await fetch(targetUrl, {
       headers: { 'User-Agent': USER_AGENT },
@@ -433,7 +432,8 @@ async function fetchProbegEvents(includeParkruns = false) {
       if (!distances.length) distances.push('5 км', '10 км');
 
       const [surface, category] = classifySurfaceAndType(title, distances);
-      const [, regionTag] = isMoscowOrMo(location);
+      const geo = classifyEventGeography(location, title, isMoscowOrMo);
+      const regionTag = regionGroup === '57,58' ? 'Санкт-Петербург' : geo.matched ? geo.region : isMoscowOrMo(location)[1];
 
       events.push({
         id: md5Short(`${startDate}-${title.toLowerCase()}`),
@@ -443,6 +443,9 @@ async function fetchProbegEvents(includeParkruns = false) {
         display_date: stripTags(tds[1]),
         location,
         region: regionTag,
+        country: geo.country || 'Россия',
+        scope: geo.scope || 'russia',
+        visa_status: geo.visa_status || 'domestic',
         distances,
         surface,
         category,
@@ -773,14 +776,16 @@ export async function runIncrementalParser() {
 
   const { existingEvents, existingRecentNew, prevUpdatedAt } = loadExistingDatabase(JSON_OUTPUT);
 
-  const [rrEvents, hlEvents, probegMain, probegParks] = await Promise.all([
+  const [rrEvents, hlEvents, probegMain, probegParks, probegSpb] = await Promise.all([
     fetchRussiaRunningEvents(todayIso),
     fetchHeroLeagueEvents(todayIso, currentYear),
-    fetchProbegEvents(false),
-    fetchProbegEvents(true),
+    fetchProbegEvents(false, '46,47'),
+    fetchProbegEvents(true, '46,47'),
+    fetchProbegEvents(false, '57,58'),
   ]);
+  const curatedWorldAndRegional = getCuratedRegionalAndWorldEvents(todayIso);
 
-  const rawScraped = [...hlEvents, ...rrEvents, ...probegMain, ...probegParks];
+  const rawScraped = [...curatedWorldAndRegional, ...hlEvents, ...rrEvents, ...probegMain, ...probegSpb, ...probegParks];
   const dedupedScraped = [];
   const seenKeys = new Map();
   for (const ev of rawScraped) {
@@ -805,22 +810,36 @@ export async function runIncrementalParser() {
     now
   );
 
+  for (const ev of events) {
+    if (!ev.scope || !ev.country || !ev.visa_status) {
+      const geo = classifyEventGeography(ev.location || '', ev.title || '', isMoscowOrMo);
+      if (!ev.region) ev.region = geo.region;
+      if (!ev.country) ev.country = ev.region === 'Мир' ? 'Мир' : geo.country || 'Россия';
+      if (!ev.scope) ev.scope = ev.region === 'Мир' ? 'world' : geo.scope || 'russia';
+      if (!ev.visa_status) ev.visa_status = geo.visa_status || 'domestic';
+    }
+  }
+
   const mainRacesCount = events.filter((e) => !e.is_parkrun).length;
   const parkrunsCount = events.filter((e) => e.is_parkrun).length;
   const upcomingCount = events.filter((e) => !e.is_past).length;
   const pastCount = events.filter((e) => e.is_past).length;
   const newEventsCount = events.filter((e) => e.is_new && !e.is_parkrun).length;
+  const worldEventsCount = events.filter((e) => e.scope === 'world' || e.region === 'Мир').length;
+  const regionalEventsCount = events.filter((e) => !['Москва', 'Подмосковье', 'Мир'].includes(e.region)).length;
 
   const payload = {
     updated_at: nowIso,
     updated_at_human: humanTime,
-    region: 'Москва и Московская область',
+    region: 'Москва, Регионы РФ, СНГ и Мировые старты',
     total_events: events.length,
     upcoming_events_count: upcomingCount,
     past_events_count: pastCount,
     main_races_count: mainRacesCount,
     parkruns_count: parkrunsCount,
     new_events_count: newEventsCount,
+    world_events_count: worldEventsCount,
+    regional_events_count: regionalEventsCount,
     last_run_added_count: addedInRunCount,
     recent_new_events: recentNewEvents,
     sources: [

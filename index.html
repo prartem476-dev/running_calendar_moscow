@@ -1675,13 +1675,13 @@
       <div>
         <div class="hero-kicker">
           <span class="pulse-dot"></span>
-          <span>ЖИВАЯ БАЗА ЗАБЕГОВ МОСКВЫ И ПОДМОСКОВЬЯ</span>
+          <span>МОСКВА · РЕГИОНЫ РФ · СНГ · МИРОВЫЕ МЕЙДЖОРЫ (360+ СТАРТОВ)</span>
         </div>
         <h1 class="hero-title">
-          Календарь беговых стартов <span>Москвы 2026–2027</span>
+          Календарь беговых стартов <span>России и Мира 2026–2027</span>
         </h1>
         <p class="hero-subtitle">
-          Все шоссейные марафоны, полумарафоны, трейлы, кроссы, гонки с препятствиями и старты в манеже в одном окне. База автоматически обновляется через GitHub Actions каждый понедельник сразу с 13 беговых платформ.
+          Все шоссейные марафоны, полумарафоны, трейлы, старты Золотого кольца, Санкт-Петербурга, Казани, Сочи, СНГ и 7 мейджоров Abbott World Marathon Majors в одном окне.
         </p>
         <div class="stats-row">
           <div class="stat-box">
@@ -1754,10 +1754,16 @@
             <option value="all">Все месяцы</option>
           </select>
           <select id="region-select" class="select-input">
-            <option value="all">Все регионы (Москва, МО, БЗК)</option>
-            <option value="Москва">Только Москва</option>
-            <option value="Подмосковье">Только Подмосковье</option>
-            <option value="Золотое кольцо">Золотое кольцо / Выездные (БЗК)</option>
+            <option value="all">Все регионы и страны (360+)</option>
+            <option value="Москва">Москва</option>
+            <option value="Подмосковье">Подмосковье (МО)</option>
+            <option value="Золотое кольцо">Золотое кольцо (БЗК)</option>
+            <option value="Санкт-Петербург">Санкт-Петербург и ЛО</option>
+            <option value="Казань и Поволжье">Казань и Поволжье (TIMERMAN и др.)</option>
+            <option value="Сочи и Кавказ">Сочи, Сириус и Кавказ (Wild Trail)</option>
+            <option value="Урал и Сибирь">Урал и Сибирь (Екатеринбург, Омск)</option>
+            <option value="СНГ">СНГ (Минск, Алматы, Самарканд, Баку)</option>
+            <option value="Мир">🌍 Мировые старты (World Majors / Зарубежье)</option>
           </select>
         </div>
 
@@ -1790,13 +1796,16 @@
             <button type="button" class="pill-btn active" data-surface="all_races">Все соревнования</button>
             <button type="button" class="pill-btn" data-surface="new_events" id="pill-new-events">🆕 Новые в базе</button>
             <button type="button" class="pill-btn" data-surface="my_saved" id="pill-my-saved">⭐ Мои старты</button>
+            <button type="button" class="pill-btn" data-surface="world_all">🌍 Мировые старты и Majors</button>
+            <button type="button" class="pill-btn" data-surface="visa_free_intl">🟢 Зарубежье без визы (СНГ + Мир)</button>
+            <button type="button" class="pill-btn" data-surface="russia_regions">🇷🇺 Выездные по РФ (СПб, Казань, Сочи)</button>
+            <button type="button" class="pill-btn" data-surface="golden_ring">🏛️ Золотое кольцо (БЗК)</button>
             <button type="button" class="pill-btn" data-surface="Шоссе">🛣️ Шоссе</button>
             <button type="button" class="pill-btn" data-surface="Трейл / Грунт">🌲 Трейл / Грунт</button>
             <button type="button" class="pill-btn" data-surface="Манеж">🏟️ Манеж</button>
-            <button type="button" class="pill-btn" data-surface="golden_ring">🏛️ Золотое кольцо (БЗК)</button>
             <button type="button" class="pill-btn" data-surface="featured">⭐ Главные старты</button>
             <button type="button" class="pill-btn" data-surface="Парковый забег">🌳 5 вёрст / S95 (90 парков)</button>
-            <button type="button" class="pill-btn" data-surface="all_with_parks">📋 Всё вместе (260+)</button>
+            <button type="button" class="pill-btn" data-surface="all_with_parks">📋 Всё вместе (360+)</button>
           </div>
 
           <div class="pill-group" id="distance-pills">
@@ -1902,8 +1911,9 @@
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <button type="button" class="btn btn-outline btn-sm" id="cab-back-to-cal-btn">← К календарю забегов</button>
+              <button type="button" class="btn btn-volt btn-sm" id="cab-share-card-btn">📲 Карточка сезона (PNG)</button>
+              <button type="button" class="btn btn-outline btn-sm" id="cab-export-ics-btn">📅 Мой iCal (.ics)</button>
               <button type="button" class="btn btn-outline btn-sm" id="cab-open-profile-modal-btn">⚙️ Профиль</button>
-              <button type="button" class="btn btn-volt btn-sm" id="cab-export-ics-btn">📅 Скачать мой iCal (.ics)</button>
               <button type="button" class="btn btn-outline btn-sm" id="cab-logout-btn">Выйти</button>
             </div>
           </div>
@@ -1974,13 +1984,79 @@
           </button>
         </div>
 
-        <!-- Tab 1: My Planned Races -->
+        <!-- Tab 1: My Planned Races & Medical Certificate 1144n Tracker -->
         <div class="cab-pane active" id="cab-pane-my-races">
+          <div class="cab-item-card" id="med-cert-card" style="border-color:rgba(16,185,129,0.38);">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
+                  <span class="badge badge-new">🩺 КОНТРОЛЬ МЕДСПРАВКИ (ФОРМА 1144Н)</span>
+                  <span class="badge badge-indoor" id="med-cert-status-badge">Дата выдачи не указана</span>
+                </div>
+                <h3 style="font-family:'Unbounded',sans-serif;font-size:15px;">Срок действия допуска на соревнования</h3>
+                <p style="font-size:12px;color:var(--text-secondary);margin-top:2px;">
+                  Укажите дату выдачи вашей беговой справки — мы автоматически проверим, действует ли она на дату каждого вашего запланированного старта.
+                </p>
+              </div>
+            </div>
+            <div class="cab-form-grid">
+              <div>
+                <label class="field-label">Дата выдачи справки</label>
+                <input type="date" id="med-issue-date" class="field-input" />
+              </div>
+              <div>
+                <label class="field-label">Срок действия</label>
+                <select id="med-months-select" class="field-input">
+                  <option value="6">6 месяцев</option>
+                  <option value="12" selected>12 месяцев (1 год)</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label">Допуск по дистанции</label>
+                <select id="med-max-dist-select" class="field-input">
+                  <option value="10">До 10 км включительно</option>
+                  <option value="21.1">До 21.1 км (Полумарафон)</option>
+                  <option value="42.2" selected>До 42.2 км и более (Марафон / Ультра)</option>
+                </select>
+              </div>
+              <div>
+                <button type="button" class="btn btn-outline btn-sm" id="med-save-btn" style="width:100%;min-height:38px;">✓ Сохранить справку</button>
+              </div>
+            </div>
+          </div>
+
           <div id="cab-my-races-list"></div>
         </div>
 
-        <!-- Tab 2: My Results & PB -->
+        <!-- Tab 2: My Results, PB & Pace/Splits Calculator -->
         <div class="cab-pane" id="cab-pane-my-results">
+          <div class="cab-item-card" id="pace-calc-card" style="border-color:rgba(245,158,11,0.35);">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+              <div>
+                <span class="badge badge-golden" style="margin-bottom:4px;">⏱️ КАЛЬКУЛЯТОР ТЕМПА, СПЛИТОВ И ПРОГНОЗА PB (VDOT / RIEGEL)</span>
+                <h3 style="font-family:'Unbounded',sans-serif;font-size:15px;">Раскладка темпа на гонку и прогноз результатов</h3>
+              </div>
+            </div>
+            <div class="cab-form-grid">
+              <div>
+                <label class="field-label">Базовая дистанция</label>
+                <select id="calc-base-dist" class="field-input">
+                  <option value="5">5 км</option>
+                  <option value="10" selected>10 км</option>
+                  <option value="21.0975">21.1 км (Полумарафон)</option>
+                  <option value="42.195">42.2 км (Марафон)</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label">Целевое или лучшее время (ЧЧ:ММ:СС)</label>
+                <input type="text" id="calc-base-time" class="field-input" value="00:45:00" placeholder="Например: 00:45:00" />
+              </div>
+              <div>
+                <button type="button" class="btn btn-volt btn-sm" id="btn-run-pace-calc" style="width:100%;min-height:38px;">⚡ Рассчитать прогноз и сплиты</button>
+              </div>
+            </div>
+            <div id="calc-predictions-output" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin-top:4px;"></div>
+          </div>
           <div class="cab-item-card" style="border-color:rgba(212,255,0,0.3);">
             <h3 style="font-family:'Unbounded',sans-serif;font-size:16px;">+ Добавить результат забега</h3>
             <form id="add-result-form" class="cab-form-grid">
@@ -2943,11 +3019,14 @@
         if (activeSurface === 'my_saved' && !(cabinetData.myRaces && cabinetData.myRaces[ev.id])) return false;
         if (activeSurface === 'featured' && !ev.featured) return false;
         if (activeSurface === 'golden_ring' && !ev.is_golden_ring && ev.region !== 'Золотое кольцо') return false;
-        if (!['all_races', 'all_with_parks', 'featured', 'golden_ring', 'new_events', 'my_saved'].includes(activeSurface) && ev.surface !== activeSurface) return false;
+        if (activeSurface === 'world_all' && ev.region !== 'Мир' && ev.scope !== 'world') return false;
+        if (activeSurface === 'visa_free_intl' && !((ev.region === 'Мир' || ev.region === 'СНГ' || ev.scope === 'world' || ev.scope === 'cis') && ev.visa_status === 'no_visa')) return false;
+        if (activeSurface === 'russia_regions' && !['Санкт-Петербург', 'Казань и Поволжье', 'Сочи и Кавказ', 'Урал и Сибирь', 'Золотое кольцо'].includes(ev.region)) return false;
+        if (!['all_races', 'all_with_parks', 'featured', 'golden_ring', 'world_all', 'visa_free_intl', 'russia_regions', 'new_events', 'my_saved'].includes(activeSurface) && ev.surface !== activeSurface) return false;
         if (!matchesDistanceFilter(ev.distances || [], activeDistance)) return false;
 
         if (query) {
-          const hay = `${ev.title} ${ev.location} ${ev.region || ''} ${ev.series || ''} ${(ev.distances || []).join(' ')} ${ev.category} ${ev.organizer}`.toLowerCase();
+          const hay = `${ev.title} ${ev.location} ${ev.region || ''} ${ev.country || ''} ${ev.series || ''} ${ev.world_series || ''} ${ev.course_profile || ''} ${(ev.distances || []).join(' ')} ${ev.category} ${ev.organizer}`.toLowerCase();
           if (!hay.includes(query)) return false;
         }
         return true;
@@ -3006,6 +3085,27 @@
           const gcalUrl = generateGoogleCalendarUrl(ev);
           const chips = (ev.distances || []).slice(0, 6).map(d => `<span class="dist-chip">${escapeHtml(d)}</span>`).join('');
           const isSaved = Boolean(cabinetData.myRaces && cabinetData.myRaces[ev.id]);
+          const isIntl = ev.region === 'Мир' || ev.region === 'СНГ' || ev.scope === 'world' || ev.scope === 'cis';
+          let visaBadgeHtml = '';
+          if (isIntl) {
+            if (ev.visa_status === 'no_visa') {
+              visaBadgeHtml = '<span class="badge badge-new">🟢 Без визы для РФ</span>';
+            } else if (ev.visa_status === 'e_visa') {
+              visaBadgeHtml = '<span class="badge badge-golden">⚡ Электронная виза</span>';
+            } else if (ev.visa_status === 'visa_required') {
+              visaBadgeHtml = '<span class="badge badge-indoor">🛂 Требуется виза</span>';
+            }
+          }
+          const regionBadgeHtml =
+            ev.is_golden_ring || ev.region === 'Золотое кольцо'
+              ? '<span class="badge badge-golden">🏛️ БЗК · Золотое кольцо</span>'
+              : ev.region === 'Мир'
+                ? `<span class="badge badge-golden">🌍 ${escapeHtml(ev.country || 'Мир')}</span>`
+                : ev.region === 'СНГ'
+                  ? `<span class="badge badge-road">✈️ СНГ · ${escapeHtml(ev.country || 'СНГ')}</span>`
+                  : ev.region && !['Москва', 'Подмосковье'].includes(ev.region)
+                    ? `<span class="badge badge-road">🇷🇺 ${escapeHtml(ev.region)}</span>`
+                    : '';
 
           html += `
             <article class="race-card ${ev.featured ? 'featured' : ''}">
@@ -3017,8 +3117,10 @@
                   </div>
                   <div class="tags-wrap">
                     ${ev.is_new && !ev.is_parkrun ? '<span class="badge badge-new">🆕 Новинка</span>' : ''}
-                    ${ev.is_golden_ring || ev.region === 'Золотое кольцо' ? '<span class="badge badge-golden">🏛️ БЗК · Золотое кольцо</span>' : ''}
-                    ${ev.featured ? '<span class="badge badge-featured">★ Топ старт</span>' : ''}
+                    ${ev.world_series ? `<span class="badge badge-featured">🏆 ${escapeHtml(ev.world_series)}</span>` : ''}
+                    ${regionBadgeHtml}
+                    ${visaBadgeHtml}
+                    ${ev.featured && !ev.world_series ? '<span class="badge badge-featured">★ Топ старт</span>' : ''}
                     <span class="badge ${surfaceClass}">${escapeHtml(ev.surface)}</span>
                   </div>
                 </div>
@@ -3026,6 +3128,8 @@
                 <div class="race-location" style="margin-top:6px;">
                   <span>📍 ${escapeHtml(ev.location)}</span>
                 </div>
+                ${ev.course_profile ? `<div style="margin-top:6px;font-size:12px;color:#34d399;font-weight:600;">${escapeHtml(ev.course_profile)}</div>` : ''}
+                ${ev.lottery_info ? `<div style="margin-top:4px;font-size:11px;color:#fbbf24;font-family:monospace;font-weight:700;">🎟️ ${escapeHtml(ev.lottery_info)}</div>` : ''}
                 <div class="distances-wrap" style="margin-top:12px;">
                   ${chips}
                 </div>
@@ -4483,6 +4587,96 @@
       return bests;
     }
 
+    function computeMedCertExpiryIso(issueDateStr, months) {
+      if (!issueDateStr) return '';
+      const d = new Date(`${issueDateStr}T12:00:00Z`);
+      if (isNaN(d.getTime())) return '';
+      d.setUTCMonth(d.getUTCMonth() + (parseInt(months, 10) || 12));
+      return d.toISOString().slice(0, 10);
+    }
+
+    function evaluateMedCertForRace(raceDateStr, raceDistKm) {
+      const med = cabinetData.medCert;
+      if (!med || !med.issueDate) {
+        return {
+          valid: null,
+          label: '🩺 Укажите дату справки 1144н выше',
+          badgeClass: 'badge-indoor'
+        };
+      }
+      const expiryIso = computeMedCertExpiryIso(med.issueDate, med.months || 12);
+      if (!expiryIso) {
+        return { valid: null, label: '🩺 Дата справки не задана', badgeClass: 'badge-indoor' };
+      }
+      if (raceDateStr && raceDateStr > expiryIso) {
+        return {
+          valid: false,
+          label: `🔴 Справка истечёт до старта (действует до ${expiryIso})`,
+          badgeClass: 'badge-trail'
+        };
+      }
+      const allowedKm = parseFloat(med.maxDistKm) || 42.2;
+      if (raceDistKm > allowedKm + 0.5 && allowedKm < 42) {
+        return {
+          valid: false,
+          label: `⚠️ Допуск справки только до ${allowedKm} км`,
+          badgeClass: 'badge-golden'
+        };
+      }
+      return {
+        valid: true,
+        label: `🟢 Справка 1144н действует (до ${expiryIso})`,
+        badgeClass: 'badge-new'
+      };
+    }
+
+    function renderPaceCalculator() {
+      const distSelect = document.getElementById('calc-base-dist');
+      const timeInput = document.getElementById('calc-base-time');
+      const outEl = document.getElementById('calc-predictions-output');
+      if (!distSelect || !timeInput || !outEl) return;
+
+      const baseDist = parseFloat(distSelect.value) || 10;
+      const baseSec = parseTimeToSeconds(timeInput.value);
+      if (baseSec <= 0) {
+        outEl.innerHTML = `<div style="font-size:12px;color:#fda4af;">Введите корректное время в формате ЧЧ:ММ:СС или ММ:СС (например, 00:45:00)</div>`;
+        return;
+      }
+
+      const targets = [
+        { label: '5 км · Шоссе', km: 5, splits: [1, 2.5, 5] },
+        { label: '10 км · Шоссе', km: 10, splits: [1, 5, 10] },
+        { label: '21.1 км · Полумарафон', km: 21.0975, splits: [5, 10, 15] },
+        { label: '42.2 км · Марафон', km: 42.195, splits: [10, 21.0975, 30] }
+      ];
+
+      outEl.innerHTML = targets
+        .map(t => {
+          // Peter Riegel endurance formula: T2 = T1 * (D2 / D1)^1.06
+          const predSec = Math.round(baseSec * Math.pow(t.km / baseDist, 1.06));
+          const paceStr = formatPace(predSec, t.km);
+          const splitsHtml = t.splits
+            .map(spKm => {
+              const spSec = Math.round((predSec / t.km) * spKm);
+              const spLabel = spKm === 21.0975 ? '21.1 км' : `${spKm} км`;
+              return `<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);"><span>Отметка ${spLabel}:</span><strong style="color:var(--text-primary);font-family:monospace;">${formatSecondsToTime(spSec)}</strong></div>`;
+            })
+            .join('');
+
+          return `
+            <div style="padding:12px 14px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:6px;">
+              <div style="font-size:11px;font-weight:800;color:var(--accent-amber);text-transform:uppercase;">${escapeHtml(t.label)}</div>
+              <div style="font-family:'Unbounded',sans-serif;font-size:18px;font-weight:800;color:var(--accent-volt);">${formatSecondsToTime(predSec)}</div>
+              <div style="font-size:12px;font-weight:700;color:#34d399;">⚡ Целевой темп: ${paceStr}</div>
+              <div style="border-top:1px dashed rgba(255,255,255,0.1);padding-top:6px;margin-top:2px;display:flex;flex-direction:column;gap:3px;">
+                ${splitsHtml}
+              </div>
+            </div>
+          `;
+        })
+        .join('');
+    }
+
     function renderCabinet() {
       updateHeaderAndGateUI();
       if (!currentUser) return;
@@ -4525,6 +4719,30 @@
       document.getElementById('tab-count-referrals').textContent = `${refState.invitedCount}/${ACCOUNT_CONFIG.referralTargetCount}`;
       document.getElementById('tab-count-new').textContent = newEventsArr.length;
 
+      // Sync Medical Certificate 1144n controls
+      const med = cabinetData.medCert || {};
+      const medDateEl = document.getElementById('med-issue-date');
+      const medMonthsEl = document.getElementById('med-months-select');
+      const medMaxDistEl = document.getElementById('med-max-dist-select');
+      const medStatusBadge = document.getElementById('med-cert-status-badge');
+      if (medDateEl && med.issueDate) medDateEl.value = med.issueDate;
+      if (medMonthsEl && med.months) medMonthsEl.value = String(med.months);
+      if (medMaxDistEl && med.maxDistKm) medMaxDistEl.value = String(med.maxDistKm);
+      if (medStatusBadge) {
+        if (med.issueDate) {
+          const expIso = computeMedCertExpiryIso(med.issueDate, med.months || 12);
+          const todayIso = toLocalIsoDate(new Date());
+          const isExpired = expIso < todayIso;
+          medStatusBadge.className = `badge ${isExpired ? 'badge-trail' : 'badge-new'}`;
+          medStatusBadge.textContent = isExpired
+            ? `🔴 Истекла (${expIso})`
+            : `🟢 Действует до ${expIso} (до ${med.maxDistKm || 42.2} км)`;
+        } else {
+          medStatusBadge.className = 'badge badge-indoor';
+          medStatusBadge.textContent = 'Дата выдачи не указана';
+        }
+      }
+
       // Render Personal Bests (PB)
       const bests = computePersonalBests();
       ['5', '10', '21', '42'].forEach(k => {
@@ -4540,6 +4758,8 @@
           metaEl.textContent = 'Добавьте результат во вкладке «Результаты»';
         }
       });
+
+      renderPaceCalculator();
 
       // Render Tab 1: My Planned Races
       const racesListEl = document.getElementById('cab-my-races-list');
@@ -4562,6 +4782,13 @@
           const goalSec = parseTimeToSeconds(item.goalTime);
           const numDist = parseFloat(String(item.selectedDistance).replace(',', '.')) || 10;
           const goalPace = goalSec > 0 ? formatPace(goalSec, numDist) : '';
+          const medEval = evaluateMedCertForRace(item.date, numDist);
+          const chk = item.checklist || {
+            slot: item.status === 'registered',
+            med: medEval.valid === true,
+            travel: false,
+            gear: false
+          };
 
           return `
             <div class="cab-item-card" data-race-id="${escapeHtml(item.eventId)}">
@@ -4572,6 +4799,7 @@
                     <span class="badge ${item.status === 'registered' ? 'badge-new' : 'badge-indoor'}">
                       ${item.status === 'registered' ? '✓ Слот куплен' : '⏳ В планах'}
                     </span>
+                    <span class="badge ${medEval.badgeClass}">${escapeHtml(medEval.label)}</span>
                     ${goalPace ? `<span class="badge badge-golden">🎯 Целевой темп: ${goalPace}</span>` : ''}
                   </div>
                   <h3 class="race-title">${escapeHtml(item.title)}</h3>
@@ -4610,6 +4838,25 @@
                   <input type="text" class="field-input js-race-field" data-id="${escapeHtml(item.eventId)}" data-field="note" value="${escapeHtml(item.note || '')}" placeholder="Взять оригинал справки" />
                 </div>
               </div>
+              <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--border-subtle);font-size:12px;">
+                <span style="font-weight:800;color:var(--text-secondary);">🎒 Чек-лист старта:</span>
+                <label style="display:inline-flex;align-items:center;gap:5px;cursor:pointer;">
+                  <input type="checkbox" class="js-race-check" data-id="${escapeHtml(item.eventId)}" data-check="slot" ${chk.slot ? 'checked' : ''} />
+                  <span>Слот / регистрация</span>
+                </label>
+                <label style="display:inline-flex;align-items:center;gap:5px;cursor:pointer;">
+                  <input type="checkbox" class="js-race-check" data-id="${escapeHtml(item.eventId)}" data-check="med" ${chk.med ? 'checked' : ''} />
+                  <span>Медсправка 1144н (оригинал + копия)</span>
+                </label>
+                <label style="display:inline-flex;align-items:center;gap:5px;cursor:pointer;">
+                  <input type="checkbox" class="js-race-check" data-id="${escapeHtml(item.eventId)}" data-check="travel" ${chk.travel ? 'checked' : ''} />
+                  <span>Билеты / Отель</span>
+                </label>
+                <label style="display:inline-flex;align-items:center;gap:5px;cursor:pointer;">
+                  <input type="checkbox" class="js-race-check" data-id="${escapeHtml(item.eventId)}" data-check="gear" ${chk.gear ? 'checked' : ''} />
+                  <span>Гели, булавки и экипировка</span>
+                </label>
+              </div>
             </div>
           `;
         }).join('');
@@ -4622,6 +4869,20 @@
               cabinetData.myRaces[id][field] = el.value;
               saveCabinetState();
               renderCabinet();
+            }
+          });
+        });
+
+        racesListEl.querySelectorAll('.js-race-check').forEach(chkEl => {
+          chkEl.addEventListener('change', () => {
+            const id = chkEl.dataset.id;
+            const checkKey = chkEl.dataset.check;
+            if (cabinetData.myRaces && cabinetData.myRaces[id]) {
+              if (!cabinetData.myRaces[id].checklist) {
+                cabinetData.myRaces[id].checklist = {};
+              }
+              cabinetData.myRaces[id].checklist[checkKey] = chkEl.checked;
+              saveCabinetState();
             }
           });
         });
@@ -4833,6 +5094,202 @@
       showToast('📅 Ваш персональный iCal-календарь скачан!');
     }
 
+    function downloadSeasonShareCardPng() {
+      if (!currentUser) {
+        openAuthModal('login');
+        return;
+      }
+      playClick();
+      const canvas = document.createElement('canvas');
+      canvas.width = 1080;
+      canvas.height = 1350;
+      const ctx = canvas.getContext('2d');
+
+      // Background gradient
+      const bgGrad = ctx.createLinearGradient(0, 0, 1080, 1350);
+      bgGrad.addColorStop(0, '#020617');
+      bgGrad.addColorStop(0.5, '#091526');
+      bgGrad.addColorStop(1, '#020617');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 1080, 1350);
+
+      // Decorative volt/emerald glow circles
+      const radGrad = ctx.createRadialGradient(920, 160, 20, 920, 160, 420);
+      radGrad.addColorStop(0, 'rgba(212, 255, 0, 0.16)');
+      radGrad.addColorStop(1, 'rgba(212, 255, 0, 0)');
+      ctx.fillStyle = radGrad;
+      ctx.fillRect(0, 0, 1080, 1350);
+
+      const radGrad2 = ctx.createRadialGradient(140, 1180, 20, 140, 1180, 440);
+      radGrad2.addColorStop(0, 'rgba(16, 185, 129, 0.18)');
+      radGrad2.addColorStop(1, 'rgba(16, 185, 129, 0)');
+      ctx.fillStyle = radGrad2;
+      ctx.fillRect(0, 0, 1080, 1350);
+
+      // Outer border frame
+      ctx.strokeStyle = 'rgba(212, 255, 0, 0.35)';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(44, 44, 992, 1262);
+
+      // Header Pill
+      ctx.fillStyle = 'rgba(212, 255, 0, 0.14)';
+      ctx.fillRect(84, 86, 560, 44);
+      ctx.fillStyle = '#d4ff00';
+      ctx.font = 'bold 20px sans-serif';
+      ctx.fillText('🏃 КАЛЕНДАРЬ БЕГУНА 2026 · МОСКВА · РФ · МИР', 102, 115);
+
+      // Profile Block
+      const refState = loadReferralState(currentUser.id);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 46px sans-serif';
+      ctx.fillText(`${currentUser.avatar || '🦉'} ${currentUser.nickname}`, 84, 195);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = 'bold 24px sans-serif';
+      ctx.fillText(
+        `📍 ${currentUser.city || 'Москва'}${refState.unlockedAmbassador ? '  •  💎 АМБАССАДОР КЛУБА' : ''}`,
+        84,
+        236
+      );
+
+      // Stats Row
+      const myRacesArr = Object.values(cabinetData.myRaces || {}).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+      const myResultsArr = cabinetData.myResults || [];
+      const regCount = myRacesArr.filter(r => r.status === 'registered').length;
+      const totalKm = Math.round(myResultsArr.reduce((acc, r) => acc + (parseFloat(r.distanceKm) || 0), 0) * 10) / 10;
+
+      const stats = [
+        { label: 'СТАРТОВ В ПЛАНЕ', val: String(myRacesArr.length) },
+        { label: 'СЛОТОВ КУПЛЕНО', val: String(regCount) },
+        { label: 'ФИНИШЕЙ В АРХИВЕ', val: String(myResultsArr.length) },
+        { label: 'КИЛОМЕТРАЖ', val: `${totalKm} км` }
+      ];
+
+      stats.forEach((st, idx) => {
+        const bx = 84 + idx * 234;
+        const by = 272;
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+        ctx.fillRect(bx, by, 218, 118);
+        ctx.strokeStyle = 'rgba(148, 163, 184, 0.25)';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(bx, by, 218, 118);
+
+        ctx.fillStyle = '#d4ff00';
+        ctx.font = '900 34px sans-serif';
+        ctx.fillText(st.val, bx + 20, by + 58);
+
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = 'bold 14px sans-serif';
+        ctx.fillText(st.label, bx + 20, by + 92);
+      });
+
+      // Personal Bests Section
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 26px sans-serif';
+      ctx.fillText('🏆 ЛИЧНЫЕ РЕКОРДЫ (PB)', 84, 446);
+
+      const bests = computePersonalBests();
+      const pbItems = [
+        { title: '5 КМ', rec: bests['5'] },
+        { title: '10 КМ', rec: bests['10'] },
+        { title: '21.1 КМ · ПОЛУМАРАФОН', rec: bests['21'] },
+        { title: '42.2 КМ · МАРАФОН', rec: bests['42'] }
+      ];
+
+      pbItems.forEach((item, idx) => {
+        const bx = 84 + idx * 234;
+        const by = 468;
+        ctx.fillStyle = 'rgba(20, 27, 41, 0.92)';
+        ctx.fillRect(bx, by, 218, 126);
+        ctx.strokeStyle = item.rec ? 'rgba(52, 211, 153, 0.45)' : 'rgba(148, 163, 184, 0.2)';
+        ctx.strokeRect(bx, by, 218, 126);
+
+        ctx.fillStyle = '#cbd5e1';
+        ctx.font = 'bold 14px sans-serif';
+        ctx.fillText(item.title, bx + 16, by + 34);
+
+        ctx.fillStyle = item.rec ? '#34d399' : '#64748b';
+        ctx.font = '900 30px sans-serif';
+        ctx.fillText(item.rec ? formatSecondsToTime(item.rec.seconds) : '—', bx + 16, by + 76);
+
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = 'bold 14px sans-serif';
+        ctx.fillText(
+          item.rec ? formatPace(item.rec.seconds, item.rec.distanceKm) : 'Впереди!',
+          bx + 16,
+          by + 105
+        );
+      });
+
+      // Planned Races Section
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 26px sans-serif';
+      ctx.fillText('📅 МОЙ КАЛЕНДАРЬ СТАРТОВ НА СЕЗОН', 84, 654);
+
+      const topRaces = myRacesArr.slice(0, 5);
+      if (topRaces.length === 0) {
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+        ctx.fillRect(84, 678, 912, 110);
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = 'bold 22px sans-serif';
+        ctx.fillText('Формирую свой беговой план на сезон 2026!', 114, 742);
+      } else {
+        topRaces.forEach((r, idx) => {
+          const ry = 676 + idx * 96;
+          ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
+          ctx.fillRect(84, ry, 912, 82);
+          ctx.strokeStyle = r.status === 'registered' ? 'rgba(16, 185, 129, 0.45)' : 'rgba(212, 255, 0, 0.25)';
+          ctx.strokeRect(84, ry, 912, 82);
+
+          ctx.fillStyle = '#d4ff00';
+          ctx.font = '900 20px monospace';
+          ctx.fillText(r.date || '2026', 106, ry + 36);
+
+          ctx.fillStyle = '#34d399';
+          ctx.font = 'bold 16px sans-serif';
+          ctx.fillText(r.selectedDistance || '10 км', 106, ry + 62);
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 22px sans-serif';
+          ctx.fillText(String(r.title || '').slice(0, 42), 255, ry + 36);
+
+          ctx.fillStyle = '#94a3b8';
+          ctx.font = 'bold 16px sans-serif';
+          ctx.fillText(
+            `📍 ${String(r.location || 'Москва').slice(0, 38)}  •  ${r.status === 'registered' ? '✓ Слот куплен' : '⏳ В плане'}${
+              r.goalTime ? `  •  🎯 Цель: ${r.goalTime}` : ''
+            }`,
+            255,
+            ry + 64
+          );
+        });
+      }
+
+      // Footer & Invite Code
+      ctx.fillStyle = 'rgba(16, 185, 129, 0.14)';
+      ctx.fillRect(84, 1185, 912, 88);
+      ctx.strokeStyle = 'rgba(16, 185, 129, 0.45)';
+      ctx.strokeRect(84, 1185, 912, 88);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 20px sans-serif';
+      ctx.fillText('Присоединяйся к беговому календарю (362 старта РФ, СНГ и Мира):', 108, 1222);
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '900 24px monospace';
+      ctx.fillText(`ИНВАЙТ-КОД ДРУГА: ${refState.ownCode}`, 108, 1254);
+
+      const dataUrl = canvas.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = `running_season_2026_${(currentUser.nickname || 'runner').toLowerCase()}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      playSuccess();
+      showToast('📲 Карточка сезона сохранена в PNG (1080×1350 для Stories / Telegram)!');
+    }
+
     function toLocalIsoDate(d) {
       const year = d.getFullYear();
       const month = String(d.getMonth() + 1).padStart(2, '0');
@@ -4984,6 +5441,35 @@
     document.getElementById('cab-open-profile-modal-btn').addEventListener('click', () => openAuthModal());
     document.getElementById('cab-security-badge').addEventListener('click', () => switchCabTab('profile-security'));
     document.getElementById('cab-export-ics-btn').addEventListener('click', exportPersonalIcs);
+    document.getElementById('cab-share-card-btn').addEventListener('click', downloadSeasonShareCardPng);
+
+    document.getElementById('med-save-btn').addEventListener('click', () => {
+      playClick();
+      const issueDate = document.getElementById('med-issue-date').value;
+      const months = parseInt(document.getElementById('med-months-select').value, 10) || 12;
+      const maxDistKm = parseFloat(document.getElementById('med-max-dist-select').value) || 42.2;
+      if (!issueDate) {
+        showToast('Укажите дату выдачи медицинской справки 1144н');
+        return;
+      }
+      cabinetData.medCert = {
+        issueDate,
+        months,
+        maxDistKm,
+        updatedAt: new Date().toISOString()
+      };
+      saveCabinetState();
+      renderCabinet();
+      playSuccess();
+      const expIso = computeMedCertExpiryIso(issueDate, months);
+      showToast(`🩺 Справка 1144н сохранена! Срок действия до ${expIso}`);
+    });
+
+    document.getElementById('btn-run-pace-calc').addEventListener('click', () => {
+      playClick();
+      renderPaceCalculator();
+      showToast('⏱️ Прогноз времени и раскладка темпа рассчитаны!');
+    });
 
     document.getElementById('cab-logout-btn').addEventListener('click', async () => {
       playClick();

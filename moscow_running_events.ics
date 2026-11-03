@@ -8,7 +8,7 @@ X-WR-TIMEZONE:Europe/Moscow
 X-WR-CALDESC:Актуальное расписание забегов, марафонов и трейлов в Москве и Подмосковье
 BEGIN:VEVENT
 UID:0029dd3244@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:🏃 ДЕНЬ НАРОДНОГО ЕДИНСТВА (1 км\, 3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -20,7 +20,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:0b32c51fe4@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:🏃 Мама\, Я Бегу!! (Осенний забег) (300 м\, 500 м\, 700 м\, 1 км\, 2 км\, 3 км\, 5 км\, 7 км)
@@ -32,7 +32,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:0bea88c8a6@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:🏃 МУЛЬТИ СЕРИЯ _ БЕЛОСНЕЖКА И 7 ГНОМОВ 🐇🐅🦜 (200 м\, 500 м\, 1 км\, 2 км)
@@ -44,7 +44,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:66803d60e1@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:🏃 Облепиховый кросс (6 км (+200м\, -200м))
@@ -56,7 +56,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:1b5cbf8842@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:🏃 Соревнования по лёгкой атлетике «Территория бега» (5-й этап) (1 км\, 200 м\, 50 м)
@@ -68,7 +68,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:511125e237@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:🏃 ТРЕЙЛ HALLOWEEN (1 км\, 5 км\, 10 км)
@@ -80,7 +80,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:3318aec23d@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 Забег 8 городов. Москва (50 м\, 500 м\, 1 км\, 2 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -92,7 +92,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:d47d2d6c3e@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 City Trail #6 — X-Race (парк X-Land) (5 км\, 10 км\, 15 км\, 25–30 км)
@@ -104,7 +104,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:741db93c57@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 178 Пробег-Марафон "Битцевская Прямая- День Народного Единства 2026" 01.11.2026 (500 м\, 1 км\, 1.61 км\, 3.22 км\, 2 км\, 3 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -116,7 +116,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:3a66b2d9c8@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 Белые журавли 26 (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 7 км)
@@ -128,7 +128,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:d641053e63@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 Благотворительный забег «8 городов. Москва» (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
@@ -140,7 +140,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:0ae39bcaa3@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 Забег «City Trail — 6 X-race» (33 км\, 20 км\, 10 км\, 4500 м)
@@ -152,7 +152,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:44d2dd9664@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 Забег БЕЛЫХ ПОМПОНОВ (1 км\, 2 км\, 3 км\, 5 км\, 7 км\, 10 км\, 15 км)
@@ -164,7 +164,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:502b171104@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 Открытое первенство Одинцовского городского округа по кросс-кантри (маунтинбайк) (5 км\, 10 км\, 21.1 км)
@@ -176,7 +176,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bd71c83f8d@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:🏃 Пробег «Белые журавли» (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 7 км)
@@ -187,8 +187,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:1ee61c48c6@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🏃 Забег Патриотов "В беге мы едины" г. Самара 2026 (21.1 км (Полумарафон)\, 10 км\, 2.5 км\, 5 км\, 4 км\, 600 м\, 300 м\, 1.59 км\, 3 км)
+LOCATION:Самара
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 2.5 км\, 5 км\, 4 км\, 600 м\, 300 м\, 1.59 км\, 3 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Самара\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/SamarskiyPolumarafonVbegemyedinygSamara2026
+URL:https://reg.russiarunning.com/event/SamarskiyPolumarafonVbegemyedinygSamara2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:4b7c97bf37@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:🏃 забег-полумарафон "Братский забег" (1 км\, 2 км\, 3 км\, 5 км\, 7 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 25 км\, 30 км)
@@ -200,7 +212,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:8b661dc1e0@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:🏃 26-й традиционный «Осенний кросс МАИ» (21.1 км (Полумарафон)\, 10 км)
@@ -212,7 +224,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:717acfc215@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:🏃 84 Пробег-Марафон "Покровские Пруды - День Народного Единства 2026" 04.11.2026 (500 м\, 1 км\, 1.61 км\, 2 км\, 3 км\, 3.22 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -223,8 +235,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:1ab0582add@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🏃 Единый забег федеральной территории «Сириус» (4 км\, 500 м\, 1 км)
+LOCATION:Федеральная территория «Сириус»\, Олимпийский парк\, Медальная площадь
+DESCRIPTION:Дистанции: 4 км\, 500 м\, 1 км\nКатегория: Городской забег (Шоссе)\nЛокация: Федеральная территория «Сириус»\, Олимпийский парк\, Медальная площадь\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/EdinyyzabegfederalnoyterritoriiSirius
+URL:https://reg.russiarunning.com/event/EdinyyzabegfederalnoyterritoriiSirius
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:b5f58db368@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:🏃 Забег-марафон «Братский забег» (30 км\, 25 км\, 21.1 км (Полумарафон)\, 15 км\, 10 км\, 7 км\, 5 км\, 3 км\, 1 км\, скандинавская ходьба 10 км\, скандинавская ходьба 7 км\, скандинавская ходьба 5 км\, скандинавская ходьба 3 км)
@@ -236,7 +260,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:a22048f4c4@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:🏃 Кросс «Кекусник» (17500 м)
@@ -248,7 +272,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:2cfeea9a5b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:🏃 Народный трейл (20200 м\, 11800 м\, 6390 м\, 2200 м\, 1 км (дети))
@@ -259,8 +283,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:876c661ad8@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🏃 ОСЕННИЙ ГАНДИКАП — 2026 (10 км)
+LOCATION:Йошкар-Ола\, парк Победы
+DESCRIPTION:Дистанции: 10 км\nКатегория: Городской забег (Шоссе)\nЛокация: Йошкар-Ола\, парк Победы\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/OSENNIYGANDIKAP2026
+URL:https://reg.russiarunning.com/event/OSENNIYGANDIKAP2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:95a7ebd53b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:🏃 V этап Кубка Православных пробегов в Трубино 2026 "Забег в честь Казанской иконы Божией Матери" (5 км\, 10 км\, 21.1 км)
@@ -271,8 +307,56 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:0aa891ca4d@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:🏃 СТАРТАНИ. Беговая тренировка (1 км)
+LOCATION:Санкт-Петербург\, Зимний стадион\, Академия легкой атлетики
+DESCRIPTION:Дистанции: 1 км\nКатегория: Городской забег (Шоссе)\nЛокация: Санкт-Петербург\, Зимний стадион\, Академия легкой атлетики\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/STARTANIBegovayatrenirovka511
+URL:https://reg.russiarunning.com/event/STARTANIBegovayatrenirovka511
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d9737baa71@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261110
+SUMMARY:🏃 Спорт-пакет на Самаркандский марафон 2026 / Samarkand Marathon 2026 (42.2 км (Марафон))
+LOCATION:Узбекистан
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: Узбекистан\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/SportpaketnaSamarkandskiymarafon2026SamarkandMarathon2026
+URL:https://reg.russiarunning.com/event/SportpaketnaSamarkandskiymarafon2026SamarkandMarathon2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a6b793a661@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🏃 XVII ГАТЧИНСКИЙ ПОЛУМАРАФОН ДЕТСКИЕ СТАРТЫ 07.11.2026 (40 м)
+LOCATION:г.Гатчина\, Ленинградская область
+DESCRIPTION:Дистанции: 40 м\nКатегория: Полумарафон (Шоссе)\nЛокация: г.Гатчина\, Ленинградская область\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/gatchinahalfmarathonkids2026
+URL:https://reg.russiarunning.com/event/gatchinahalfmarathonkids2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:5653902f90@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Бегущий экскурсовод: НОЧНАЯ беговая экскурсия по центру Петербурга 07 - 08 ноября (7 км)
+LOCATION:Санкт-Петербург
+DESCRIPTION:Дистанции: 7 км\nКатегория: Городской забег (Шоссе)\nЛокация: Санкт-Петербург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/BegushchiyekskursovodNOChNAYabegovayaekskursiyapotsentruPeterburga0708noyabrya
+URL:https://reg.russiarunning.com/event/BegushchiyekskursovodNOChNAYabegovayaekskursiyapotsentruPeterburga0708noyabrya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:91ca107d94@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:🏃 Пробежка Джуди Хопс Лужники (130 м\, 5 км\, 260 м)
@@ -283,8 +367,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:0d326d343f@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Самарканд Марафон 2026 (Samarkand Marathon 2026) (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 2 км\, 1 км\, 600 м\, 300 м\, 60 м)
+LOCATION:Самарканд\, Площадь "Регистан"
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 2 км\, 1 км\, 600 м\, 300 м\, 60 м\nКатегория: Марафон (Шоссе)\nЛокация: Самарканд\, Площадь "Регистан"\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/SamarkandMarathon26
+URL:https://reg.russiarunning.com/event/SamarkandMarathon26
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:8c575801f8@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🏃 Семья на спорте - 7 ноября (1 км)
+LOCATION:г. Нижний Новгород
+DESCRIPTION:Дистанции: 1 км\nКатегория: Городской забег (Шоссе)\nЛокация: г. Нижний Новгород\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/Semyanasporte7noyabrya
+URL:https://reg.russiarunning.com/event/Semyanasporte7noyabrya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:b199eee73e@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:🏃 Трейл «Germes: X-Cross» 2026 (43 км (XL) (+300м)\, 21500 м (L)\, 10 км (S)\, 5 км (XS))
@@ -295,8 +403,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:e19dd8eda4@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🏃 трейл Спортивная осень (5 км\, 10 км)
+LOCATION:Нижний Новгород
+DESCRIPTION:Дистанции: 5 км\, 10 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Нижний Новгород\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/treylSportivnayaosen
+URL:https://reg.russiarunning.com/event/treylSportivnayaosen
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:fd8a2d0d3b@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Трейлфест МинВоды 2026 (14 км\, 9.5 км\, 3.5 км\, 4 км\, 1.4 км)
+LOCATION:гора Змейка\, Минеральные Воды
+DESCRIPTION:Дистанции: 14 км\, 9.5 км\, 3.5 км\, 4 км\, 1.4 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: гора Змейка\, Минеральные Воды\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/TreylfestZmeyka2026
+URL:https://reg.russiarunning.com/event/TreylfestZmeyka2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:16cc3a84db@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Забег-полумарафон "Марьинская Стрела" (1 км\, 2 км\, 3 км\, 5 км\, 7 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 25 км\, 30 км)
@@ -307,8 +439,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:3fb52154dd@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Samarkand Marathon — международный благотворительный марафон (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 2 км)
+LOCATION:Узбекистан\, Самарканд\, площадь Регистан
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 2 км\nКатегория: Марафон (Шоссе)\nЛокация: Узбекистан\, Самарканд\, площадь Регистан\nИсточник: ПроБЕГ\nСсылка: https://samarkandmarathon.uz/ru
+URL:https://samarkandmarathon.uz/ru
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:b63558f057@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 XVII ГАТЧИНСКИЙ ПОЛУМАРАФОН (21.1 км (Полумарафон)\, 10 км\, 2 км)
+LOCATION:г. Гатчина\, Ленинградская область
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 2 км\nКатегория: Полумарафон (Шоссе)\nЛокация: г. Гатчина\, Ленинградская область\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/GatchinaHalfMarathon2026
+URL:https://reg.russiarunning.com/event/GatchinaHalfMarathon2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:ed8c2bd710@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Дмитров Трейл Осень 2026 (7 км\, 3 км\, 1 км\, 500 м)
@@ -320,7 +476,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:b8e1251ea3@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Забег «Вместе» приуроченный ко Дню народного единства (411 м\, 5 км\, 10 км)
@@ -332,7 +488,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:65559dc04e@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Забег «Марьинская стрела» (30 км\, 25 км\, 21.1 км (Полумарафон)\, 15 км\, 10 км\, 7 км\, 5 км\, 3 км\, 2 км\, 1 км\, скандинавская ходьба 10 км\, скандинавская ходьба 7 км\, скандинавская ходьба 5 км\, скандинавская ходьба 3 км)
@@ -344,7 +500,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:2812880287@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Зеленоградский пробег-марафон «Осень-2026» (42.2 км (Марафон)\, 30 км\, 20 км\, 10 км)
@@ -355,8 +511,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:82b9002a92@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Кыстыбый забег (300 м\, 500 м\, 800 м\, 900 м\, 2 км\, 4 км\, 10 км)
+LOCATION:Республика Башкортостан\, г. Нефтекамск
+DESCRIPTION:Дистанции: 300 м\, 500 м\, 800 м\, 900 м\, 2 км\, 4 км\, 10 км\nКатегория: Городской забег (Шоссе)\nЛокация: Республика Башкортостан\, г. Нефтекамск\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/Kystybyirace
+URL:https://reg.russiarunning.com/event/Kystybyirace
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:6cfd4e92df@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Легкоатлетический забег в честь Дня народного единства «Вместе» (10 км\, 5 км\, 411 м (дети))
@@ -368,7 +536,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:5fb1a362e7@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Онлайн и офлайн Любительский забег в помощь бездомным 🐶🐱 500м-50км Битцевский лес 08.11 Бег с любовью / Run With Love (500 м\, 1 км\, 2.5 км\, 5 км\, 10 км\, 15 км\, 30 км\, 50 км)
@@ -380,7 +548,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cdb6619f0c@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Осенний полумарафон «Дмитров трейл» (21 км\, 7 км\, 3 км\, скандинавская ходьба 7 км\, скандинавская ходьба 3 км)
@@ -392,7 +560,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:05857c95ee@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:🏃 Пробежка Nik Wide Царицыно (126 м\, 252 м\, 5 км\, 10 км)
@@ -403,8 +571,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:0c30d7f961@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 рогейн Спортивная осень - 8 ноября (5 км\, 10 км\, 21.1 км)
+LOCATION:Нижегородская область
+DESCRIPTION:Дистанции: 5 км\, 10 км\, 21.1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Нижегородская область\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/rogeynSportivnayaosen8noyabrya
+URL:https://reg.russiarunning.com/event/rogeynSportivnayaosen8noyabrya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:8bb4475b16@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏃 Семья на спорте - 8 ноября (1 км)
+LOCATION:г. Нижний Новгород
+DESCRIPTION:Дистанции: 1 км\nКатегория: Городской забег (Шоссе)\nЛокация: г. Нижний Новгород\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/Semyanasporte8noyabrya
+URL:https://reg.russiarunning.com/event/Semyanasporte8noyabrya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:0e72441693@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:🏃 Moscow Drift Cross 2026 (8.5 км 500 D+)
@@ -416,7 +608,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:a6a06462e9@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:🏃 Забег «ANTA Moscow Drift Cross Fall» (9 км (+450м))
@@ -428,7 +620,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:73a99465be@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:🏃 МУЛЬТИ СЕРИЯ _ ДИСНЕЙ _ ЗОЛУШКА 🐇🐅🦜 (200 м\, 500 м\, 1 км\, 2 км)
@@ -440,7 +632,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:0124f304aa@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:🏃 Трейл «Святогорье». (20 км\, 10 км\, 5 км)
@@ -452,7 +644,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:3caf721677@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:🏃 SUPER КИНО СЕРИЯ (1 км\, 3 км\, 5 км\, 10 км)
@@ -464,7 +656,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:3a33f237f4@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 Буря - Open Band Трейлы 2026 (5 км\, 10 км\, 21.1 км)
@@ -476,7 +668,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:ae9ab566ed@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 Буря 2026 (20 км\, 10 км\, 5 км\, 2 км\, 0.5 км\, 0.5 км)
@@ -488,7 +680,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:02139f8ecd@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 Детский «Дино-клуб» на трейле «Буря» 2026 (5 км\, 10 км\, 21.1 км)
@@ -500,7 +692,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:c0e67f5c71@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 Забег Патриотов "В беге мы едины" г. Москва 2026 (21.1 км (Полумарафон)\, 2 км\, 10 км\, 5 км\, 3 км\, 1.59 км\, 300 м\, 600 м)
@@ -512,7 +704,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:803987a20d@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 140 Некрасовский марафон\, посвященный дню встречи зимующих птиц (5 км\, 10 км\, 21.1 км (Полумарафон)\, 42.2 км (Марафон))
@@ -524,7 +716,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:0699612a12@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 85 Пробег-Марафон "Покровские Пруды" 15.11.2026 (500 м\, 1 км\, 1.61 км\, 2 км\, 3 км\, 3.22 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -536,7 +728,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:4cab319845@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 Забег «Open Band Trails — Буря» (20600 м (M)\, 20600 м (M-гандикап)\, 9540 м (S)\, 9540 м (S-гандикап)\, 4800 м (XS)\, 4800 м (XS-гандикап)\, 2100 м (дети)\, 520 м (дети))
@@ -547,8 +739,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:a67cf5ae42@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:🏃 КУБОК ГОРОДА НОВОСИБИРСКА ПО ЛЕГКОЙ АТЛЕТИКЕ - 2026 (50 м\, 300 м\, 600 м\, 2 км)
+LOCATION:г. Новосибирск\, ул. Блюхера\, д.34. Дворец спорта НГТУ
+DESCRIPTION:Дистанции: 50 м\, 300 м\, 600 м\, 2 км\nКатегория: Городской забег (Шоссе)\nЛокация: г. Новосибирск\, ул. Блюхера\, д.34. Дворец спорта НГТУ\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/KUBOKGORODANOVOSIBIRSKAPOLEGKOYATLETIKE2026
+URL:https://reg.russiarunning.com/event/KUBOKGORODANOVOSIBIRSKAPOLEGKOYATLETIKE2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:8c55fb02ee@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 Кубок Шри Чинмоя по лёгкой атлетике в помещении «Самопреодоление» 1 этап (1 миля\, 800 м\, 600 м\, 60 м (забеги)\, 60 м (финалы))
@@ -560,7 +764,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:ab9cc91ece@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🏃 VI Осенний Трэйл (10 км\, 5 км\, 2500 м)
@@ -571,8 +775,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:cab32b7791@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:🏃 Марафон "БЕГИ" (10 км)
+LOCATION:Челябинская область
+DESCRIPTION:Дистанции: 10 км\nКатегория: Марафон (Шоссе)\nЛокация: Челябинская область\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/marathonRUN
+URL:https://reg.russiarunning.com/event/marathonRUN
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:2b764595e0@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:🏃 Пробег «Grom 10k IzMyLove» (10 км\, 5 км\, 400 м)
@@ -584,7 +800,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:ad856ca55b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261123
 SUMMARY:🏃 Соревнования «Скорость» (60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м)
@@ -596,7 +812,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:dff6e61edf@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261123
 SUMMARY:🏃 Соревнования в помещении «Скорость» (1500 м\, 800 м\, 400 м\, 200 м\, 200 м (этап эстафеты 4х200м)\, 60 м)
@@ -608,7 +824,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:06323f0483@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:🏃 141 Некрасовский марафон\, посвященный Всемирному дню моржа (5 км\, 10 км\, 21.1 км (Полумарафон)\, 42.2 км (Марафон))
@@ -619,8 +835,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:34fbd1a925@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:🏃 Акватлон. Закрытие сезона 2026 (5 км\, 10 км\, 21.1 км)
+LOCATION:Ижевск
+DESCRIPTION:Дистанции: 5 км\, 10 км\, 21.1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Ижевск\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/Akvatlonzakrytiesezona2026
+URL:https://reg.russiarunning.com/event/Akvatlonzakrytiesezona2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:8c28bd2c85@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:🏃 онлайн и офлайн Любительский забег в помощь 🐶🐱 на Воробьевых горах 22.11 Бег с любовью / Run With Love (1 км\, 3 км\, 5 км\, 10 км\, 15 км\, 30 км\, 50 км)
@@ -632,7 +860,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:008826068b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:🏃 ТРЕЙЛ ДОЛИНА ТЕРРИКОНА (1 км\, 10 км\, 5 км\, 21.1 км (Полумарафон))
@@ -644,7 +872,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:7611d6d29d@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261127
 DTEND;VALUE=DATE:20261129
 SUMMARY:🏃 Всероссийские соревнования по легкой атлетике среди спортсменов старше 35лет "Кубок России Мастерс" (5 км\, 10 км)
@@ -656,7 +884,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bfe88987fa@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🏃 Иммерсивный Жуков Трейл 2026 (10 км\, 5 км)
@@ -668,7 +896,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:f1f10941b8@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🏃 Соревнования по лёгкой атлетике «Территория бега» (финал) (600 м\, 300 м\, 60 м)
@@ -680,7 +908,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:3927d27292@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🏃 Трейл «DAB Vertical Autumn Night» (14 км (+650м)\, 10 км (+500м)\, 7 км (+300м)\, 3500 м (+150м)\, 1 км (дети) (+40м))
@@ -691,8 +919,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:43acc58c55@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:🏃 Shanghai Marathon (World Athletics Platinum Label) (42.2 км (Марафон))
+LOCATION:Китай\, Шанхай\, набережная Вайтань (The Bund) — Шанхайский стадион
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: Китай\, Шанхай\, набережная Вайтань (The Bund) — Шанхайский стадион\nИсточник: World Athletics\nСсылка: https://www.shang-ma.com/
+URL:https://www.shang-ma.com/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:6e171b25e9@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:🏃 142 Некрасовский марафон\, посвященный Международному дню ягуара (5 км\, 10 км\, 21.1 км (Полумарафон)\, 42.2 км (Марафон))
@@ -703,8 +943,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:d7ab6b9879@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:🏃 Женский забег Gubba Run 26 (3 км\, 1 км)
+LOCATION:Махачкала
+DESCRIPTION:Дистанции: 3 км\, 1 км\nКатегория: Городской забег (Шоссе)\nЛокация: Махачкала\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/ZhenskiyzabegGubbaRun26
+URL:https://reg.russiarunning.com/event/ZhenskiyzabegGubbaRun26
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:db17b67e60@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:🏃 На Вираже (1 км)
+LOCATION:Санкт-Петербург\, Михайловский манеж\, "Академия легкой атлетики"
+DESCRIPTION:Дистанции: 1 км\nКатегория: Городской забег (Шоссе)\nЛокация: Санкт-Петербург\, Михайловский манеж\, "Академия легкой атлетики"\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/NaVirazhe291126
+URL:https://reg.russiarunning.com/event/NaVirazhe291126
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:084049b755@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:🏃 Онлайн и офлайн Любительский забег в помощь бездомным 🐶🐱 500м-50км Парк 50-летия Октября 29.11 Бег с любовью / Run With Love (500 м\, 1 км\, 2.5 км\, 5 км\, 10 км\, 15 км\, 30 км\, 50 км)
@@ -716,7 +980,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:1e9dcead3d@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:🏃 Традиционный легкоатлетический пробег «Рубеж Славы»\, посвящённый 85-й годовщине начала разгрома фашистских войск под Москвой (7500 м\, 5 км\, 2500 м\, 500 м)
@@ -727,8 +991,68 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:f0e2e4a81d@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:🏃 MONAHI NIGHT TRAIL 2026 (10 км\, 5 км)
+LOCATION:г.Челябинск\, ул.Лесопарковая 2а (спортивная база)
+DESCRIPTION:Дистанции: 10 км\, 5 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: г.Челябинск\, ул.Лесопарковая 2а (спортивная база)\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/MONAHINIGHTTRAIL2026
+URL:https://reg.russiarunning.com/event/MONAHINIGHTTRAIL2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1b0ae5ea6b@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:🏃 Городской Зимний Полумарафон "Европа-Азия" 2026 (7 км\, 800 м\, 21.1 км (Полумарафон))
+LOCATION:г. Екатеринбург
+DESCRIPTION:Дистанции: 7 км\, 800 м\, 21.1 км (Полумарафон)\nКатегория: Полумарафон (Шоссе)\nЛокация: г. Екатеринбург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/GorodskoyZimniyPolumarafonEvropaAziya2026
+URL:https://reg.russiarunning.com/event/GorodskoyZimniyPolumarafonEvropaAziya2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:220ed72338@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:🏃 Maratón Valencia Trinidad Alfonso («Город бега» — быстрейший марафон Испании) (42.2 км (Марафон))
+LOCATION:Испания\, Валенсия\, Город искусств и наук (Ciudad de las Artes y las Ciencias)
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: Испания\, Валенсия\, Город искусств и наук (Ciudad de las Artes y las Ciencias)\nИсточник: World Athletics\nСсылка: https://www.valenciaciudaddelrunning.com/en/marathon/full-marathon/
+URL:https://www.valenciaciudaddelrunning.com/en/marathon/full-marathon/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:5c0e055412@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:🏃 ДЕТСКАЯ и ЮНИОРСКАЯ ЛИГИ. ДЕКАБРЬ - 2026 (600 м\, 200 м\, 50 м)
+LOCATION:Новосибирская область\, г. Новосибирск\, ул. Блюхера\, д.34
+DESCRIPTION:Дистанции: 600 м\, 200 м\, 50 м\nКатегория: Детский забег (Шоссе)\nЛокация: Новосибирская область\, г. Новосибирск\, ул. Блюхера\, д.34\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/DETSKAYaiYuNIORSKAYaLIGIDEKABR2026
+URL:https://reg.russiarunning.com/event/DETSKAYaiYuNIORSKAYaLIGIDEKABR2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c96328395a@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:🏃 Забег в парке Сосновка 2026 (5 км\, 10 км)
+LOCATION:Санкт-Петербург
+DESCRIPTION:Дистанции: 5 км\, 10 км\nКатегория: Городской забег (Шоссе)\nЛокация: Санкт-Петербург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/ZabegvparkeSosnovka2026
+URL:https://reg.russiarunning.com/event/ZabegvparkeSosnovka2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:23fb3a4cb9@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:🏃 XХVI Зеленоградский зимний «БиМ»-марафон\, посвящённый 85-й годовщине начала контрнаступления советских войск под Москвой (42.2 км (Марафон)\, 10 км\, 10 км (2 этап эстафеты)\, 10 км (3 этап эстафеты)\, 10 км (4 этап эстафеты)\, 7200 м (1 этап эстафеты)\, 5 км (5 этап эстафеты))
@@ -739,8 +1063,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:ccdbe5d663@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:🏃 Трейл-полумарафон "Горячий шоколад" 2026 (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
+LOCATION:Краснодарский край\, г.Горячий Ключ.
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\nКатегория: Полумарафон (Трейл / Грунт)\nЛокация: Краснодарский край\, г.Горячий Ключ.\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/TreylpolumarafonGoryachiyshokolad2026
+URL:https://reg.russiarunning.com/event/TreylpolumarafonGoryachiyshokolad2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:662ca559fd@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:🏃 Бегущий экскурсовод: беговая экскурсия по центру Петербурга 13 декабря (5 км)
+LOCATION:Санкт-Петербург
+DESCRIPTION:Дистанции: 5 км\nКатегория: Городской забег (Шоссе)\nЛокация: Санкт-Петербург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/BegushchiyekskursovodbegovayaekskursiyapotsentruPeterburga06dekabrya
+URL:https://reg.russiarunning.com/event/BegushchiyekskursovodbegovayaekskursiyapotsentruPeterburga06dekabrya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:a6bea001a9@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:🏃 Забег с препятствиями «Медвежья гонка» (5 км)
@@ -752,7 +1100,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:6b16f90e6e@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:🏃 Карнавальный пробег | Space Carnival (10 км\, 5 км\, 800 м\, 400 м)
@@ -764,7 +1112,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:1fdb80c7c5@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:🏃 Кубок Шри Чинмоя по лёгкой атлетике в помещении «Самопреодоление» 2 этап (2 мили\, 600 м\, 500 м\, 60 м (забеги)\, 60 м (финалы))
@@ -776,7 +1124,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:b64513c95b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:🏃 Space Carnival 2026 (10 км\, 5 км\, 800 м\, 400 м)
@@ -788,7 +1136,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:24637e7310@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:🏃 86 Пробег-Марафон "Покровские Пруды" 20.12.2026 (500 м\, 1 км\, 1.61 км\, 2 км\, 3 км\, 3.22 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -799,8 +1147,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:c32c79ccbb@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+SUMMARY:🏃 НОВОГОДНЯЯ ЭСТАФЕТА 2026 (на 80-летие Арефьева В.С.) (3 км\, 1 км)
+LOCATION:Уфа\, манеж (Комарова 9/2)
+DESCRIPTION:Дистанции: 3 км\, 1 км\nКатегория: Эстафета (Шоссе)\nЛокация: Уфа\, манеж (Комарова 9/2)\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/NOVOGODNYaYaESTAFETA2026na80letieArefevaVS
+URL:https://reg.russiarunning.com/event/NOVOGODNYaYaESTAFETA2026na80letieArefevaVS
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:cc8af44e25@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261226
 DTEND;VALUE=DATE:20261227
 SUMMARY:🏃 Трейл «DAB Vertical Winter Night» (10 км (+200м)\, 7500 м (+150м)\, 5 км (+100м)\, 2500 м (+50м)\, 2500 м (этап эстафеты 4*2\,5 км) (+50м)\, 1 км (дети))
@@ -811,8 +1171,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:a922112cd0@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+SUMMARY:🏃 XXXV Новогодний пробег 2026 (300 м\, 5 км\, 10 км)
+LOCATION:г.Рыбинск\, ул.Волжская Набережная\, д.40 площадь у ДС "Полет"
+DESCRIPTION:Дистанции: 300 м\, 5 км\, 10 км\nКатегория: Городской забег (Шоссе)\nЛокация: г.Рыбинск\, ул.Волжская Набережная\, д.40 площадь у ДС "Полет"\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/XXXVNovogodniyprobeg2026
+URL:https://reg.russiarunning.com/event/XXXVNovogodniyprobeg2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:f05118afc9@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261227
 DTEND;VALUE=DATE:20261228
 SUMMARY:🏃 179 Преднвогодний Пробег-Марафон "Битцевская Прямая" (500 м\, 1 км\, 1.61 км\, 2 км\, 3 км\, 3.22 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -824,7 +1196,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:24cd3c3ca4@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261227
 DTEND;VALUE=DATE:20261228
 SUMMARY:🏃 179 Предновогодний Пробег-Марафон «Битцевская прямая» (50 км\, 42.2 км (Марафон)\, 30 км\, 21.1 км (Полумарафон)\, 15 км\, 15 км (старт 13-00)\, 10 км\, 10 км (старт 13-00)\, 5 км\, 5 км (старт 13-00)\, 2 мили\, 3 км\, 2 км\, 1 миля\, 1 км\, 500 м\, 6 часов)
@@ -835,8 +1207,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:451a07ad53@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:🏃 Бегущий экскурсовод: беговая экскурсия по центру Петербурга 30 декабря (5 км)
+LOCATION:Санкт-Петербург
+DESCRIPTION:Дистанции: 5 км\nКатегория: Городской забег (Шоссе)\nЛокация: Санкт-Петербург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/BegushchiyekskursovodbegovayaekskursiyapotsentruPeterburga30dekabrya
+URL:https://reg.russiarunning.com/event/BegushchiyekskursovodbegovayaekskursiyapotsentruPeterburga30dekabrya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:6394da8971@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:🏃 87 Пробег-Марафон "Покровские Пруды - Здравствуй Новый Год 2027" 31.12.2026 (500 м\, 1 км\, 1.61 км\, 2 км\, 3 км\, 3.22 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -848,7 +1232,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:f31da7ef2b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:🏃 НОВОГОДНЯЯ КИНО СЕРИЯ _ ИВАН ВАСИЛЬЕВИЧ МЕНЯЕТ ПРОФЕССИЮ (1 км\, 3 км\, 5 км\, 10 км)
@@ -860,7 +1244,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:fce279a92d@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:🏃 180 Пробег-Марафон "Битцевская Прямая - Здравствуй Новый Год 2027" 03.01.2027 (500 м\, 1 км\, 1.61 км\, 2 км\, 3 км\, 3.22 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -872,7 +1256,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:71b576a1be@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:🏃 НОВОГОДНИЙ ЗАБЕГ (1 км\, 3 км\, 5 км\, 10 км)
@@ -883,8 +1267,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:3a7e19f447@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270105
+SUMMARY:🏃 Бегущий экскурсовод: беговая экскурсия по центру Петербурга 04 января (5 км)
+LOCATION:Санкт-Петербург
+DESCRIPTION:Дистанции: 5 км\nКатегория: Городской забег (Шоссе)\nЛокация: Санкт-Петербург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/BegushchiyekskursovodbegovayaekskursiyapotsentruPeterburga04yanvarya
+URL:https://reg.russiarunning.com/event/BegushchiyekskursovodbegovayaekskursiyapotsentruPeterburga04yanvarya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:3aad9d4c54@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270107
 SUMMARY:🏃 88 Пробег-Марафон "Покровские Пруды - Рождество 2027" 06.01.2027 (500 м\, 1 км\, 1.61 км\, 2 км\, 3 км\, 3.22 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -895,8 +1291,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:cbd1e71ffc@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:🏃 Зимний забег DAGRUN 2027 (12 км\, 1 км)
+LOCATION:Махачкала
+DESCRIPTION:Дистанции: 12 км\, 1 км\nКатегория: Городской забег (Шоссе)\nЛокация: Махачкала\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/ZimniyzabegDAGRUN2027
+URL:https://reg.russiarunning.com/event/ZimniyzabegDAGRUN2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:51f875a205@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:🏃 Новогодний многодневный забег «Пельменный Кубок» -3 этап город Ижевск (800 м\, 400 м\, 10 км\, Командный зачет 3 по 5 км\, 5 км)
+LOCATION:город Ижевск
+DESCRIPTION:Дистанции: 800 м\, 400 м\, 10 км\, Командный зачет 3 по 5 км\, 5 км\nКатегория: Городской забег (Шоссе)\nЛокация: город Ижевск\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/PelmenIzhevsk
+URL:https://reg.russiarunning.com/event/PelmenIzhevsk
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:7be6452df1@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:🏃 РОЖДЕСТВЕНСКИЙ ЗАБЕГ (1 км\, 3 км\, 5 км\, 10 км)
@@ -907,8 +1327,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:6fcbae161a@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270108
+DTEND;VALUE=DATE:20270109
+SUMMARY:🏃 Бегущий экскурсовод: Утренняя беговая экскурсия по центру Петербурга 08 января (5 км)
+LOCATION:Санкт-Петербург
+DESCRIPTION:Дистанции: 5 км\nКатегория: Городской забег (Шоссе)\nЛокация: Санкт-Петербург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/BegushchiyekskursovodUtrennyayabegovayaekskursiyapotsentruPeterburga08yanvarya
+URL:https://reg.russiarunning.com/event/BegushchiyekskursovodUtrennyayabegovayaekskursiyapotsentruPeterburga08yanvarya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:63cc449ba5@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270108
+DTEND;VALUE=DATE:20270109
+SUMMARY:🏃 Бештаугорский Крест Зимний 2027 (17 км\, 15 км)
+LOCATION:Гора Бештау Кавказские Минеральные Воды
+DESCRIPTION:Дистанции: 17 км\, 15 км\nКатегория: Городской забег (Шоссе)\nЛокация: Гора Бештау Кавказские Минеральные Воды\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/BeshtaugorskiyKrestZimniy2027
+URL:https://reg.russiarunning.com/event/BeshtaugorskiyKrestZimniy2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:518d5a64ca@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270111
 SUMMARY:🏃 Ниндзя-турнир Big Battle VIl (5 км\, 10 км)
@@ -920,7 +1364,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:d609e1af34@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:🏃 181 Пробег-Марафон "Битцевская Прямая - Рождество 2027" 10.01.2027 (500 м\, 1 км\, 1.61 км\, 2 км\, 3 км\, 3.22 км\, 5 км\, 10 км\, 15 км\, 21.1 км (Полумарафон)\, 30 км\, 42.2 км (Марафон)\, 50 км\, 6 км)
@@ -931,8 +1375,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:e34e564d4a@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270111
+DTEND;VALUE=DATE:20270112
+SUMMARY:🏃 Dubai Marathon (Дубайский международный марафон) (42.2 км (Марафон)\, 10 км\, 4 км)
+LOCATION:ОАЭ\, Дубай\, проспект Umm Suqeim — Burj Al Arab — Jumeirah Beach Road
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 10 км\, 4 км\nКатегория: Марафон (Шоссе)\nЛокация: ОАЭ\, Дубай\, проспект Umm Suqeim — Burj Al Arab — Jumeirah Beach Road\nИсточник: World Athletics\nСсылка: https://www.dubaimarathon.org/
+URL:https://www.dubaimarathon.org/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:25b5a06df1@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:🏃 Кубок Шри Чинмоя по лёгкой атлетике в помещении «Самопреодоление» 3 этап (1 миля\, 800 м\, 600 м\, 60 м (забеги)\, 60 м (финалы))
@@ -943,8 +1399,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:f6de47cb43@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270126
+SUMMARY:🏃 Международный зимний марафон «Дорога жизни» (42.2 км (Марафон)\, 10 км\, 5 км\, 1 км)
+LOCATION:Ленинградская область\, Ладожское озеро — монумент «Цветок жизни»
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 10 км\, 5 км\, 1 км\nКатегория: Марафон (Шоссе)\nЛокация: Ленинградская область\, Ладожское озеро — монумент «Цветок жизни»\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/doroga
+URL:https://heroleague.ru/doroga
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:273dcd6e10@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:🏃 Зимний марафон «Дорога жизни» (21.1 км\, 10 км\, 5 км\, 1 км)
+LOCATION:Ленинградская область\, Всеволожский район
+DESCRIPTION:Дистанции: 21.1 км\, 10 км\, 5 км\, 1 км\nКатегория: Марафон (Шоссе)\nЛокация: Ленинградская область\, Всеволожский район\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/doroga
+URL:https://heroleague.ru/doroga
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:3fd6af48be@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270206
 DTEND;VALUE=DATE:20270207
 SUMMARY:🏃 ВОСТОЧНЫЙ ГОРОСКОП _ ГОД КОЗЫ (1 км\, 3 км\, 5 км\, 10 км)
@@ -956,7 +1436,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:79ef3f7776@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270213
 DTEND;VALUE=DATE:20270214
 SUMMARY:🏃 «Забег ради жизни. На лыжах!» Благотворительного фонда «Линия Жизни» в СК «Альфа-Битца». 2027 (5 км\, 10 км\, 21.1 км)
@@ -967,8 +1447,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:168dbc9c0e@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🏃 VLADIVOSTOK ICE RUN 2027 (21.1 км (Полумарафон)\, 21\,1 км Love Marathon (парный забег)\, 15 км\, 10 км\, 5 км\, 1 км)
+LOCATION:г. Владивосток
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 21\,1 км Love Marathon (парный забег)\, 15 км\, 10 км\, 5 км\, 1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: г. Владивосток\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/ICERUN27
+URL:https://reg.russiarunning.com/event/ICERUN27
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:dbdb5add23@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
 SUMMARY:🏃 ДЕНЬ СВЯТОГО ВАЛЕНТИНА (1 км\, 3 км\, 5 км\, 10 км)
@@ -979,8 +1471,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:625832005a@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:🏃 О-трейл ЭСТАФЕТА ПОКОЛЕНИЙ 2027 (7 км\, 2 км\, 4 км\, 15 км)
+LOCATION:г. Лермонтов
+DESCRIPTION:Дистанции: 7 км\, 2 км\, 4 км\, 15 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: г. Лермонтов\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/OtreylESTAFETAPOKOLENIY2027
+URL:https://reg.russiarunning.com/event/OtreylESTAFETAPOKOLENIY2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:c8c05835b0@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:🏃 Гонка Героев Зима (8–10 км (25+ препятствий))
@@ -992,7 +1496,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:7782518ce8@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270223
 SUMMARY:🏃 Соревнования «Скорость» (60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м)
@@ -1004,7 +1508,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:4135be6602@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:🏃 Кубок Шри Чинмоя по лёгкой атлетике в помещении «Самопреодоление» 4 этап (2 мили\, 600 м\, 500 м\, 60 м (забеги)\, 60 м (финалы))
@@ -1015,8 +1519,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:d923302706@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:🏃 Tokyo Marathon (Abbott World Marathon Majors) (42.2 км (Марафон)\, 10.7 км)
+LOCATION:Япония\, Токио\, Синдзюку (Tokyo Metropolitan Government) — Токийский вокзал
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 10.7 км\nКатегория: Марафон (Шоссе)\nЛокация: Япония\, Токио\, Синдзюку (Tokyo Metropolitan Government) — Токийский вокзал\nИсточник: World Majors\nСсылка: https://www.marathon.tokyo/en/
+URL:https://www.marathon.tokyo/en/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:90caf27524@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:🏃 ДЕВОЧКИ БЕГУТ (1 км\, 3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1028,7 +1544,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:4e509fe087@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:🏃 МУЛЬТИ СЕРИЯ _ БЭМБИ 🐇🐅🦜 (200 м\, 500 м\, 1 км\, 2 км)
@@ -1040,7 +1556,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbe7ddbdc5@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270308
 DTEND;VALUE=DATE:20270309
 SUMMARY:🏃 ДЕВОЧКИ СНОВА БЕГУТ (1 км\, 3 км\, 5 км\, 10 км)
@@ -1052,7 +1568,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:c6e199c6ad@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270308
 DTEND;VALUE=DATE:20270309
 SUMMARY:🏃 МУЛЬТИ СЕРИЯ _ ДИСНЕЙ _ ЧИП И ДЕЙЛ 🐇🐅🦜 (200 м\, 500 м\, 1 км\, 2 км)
@@ -1064,7 +1580,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:93cc03dd09@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:🏃 Трейл «DAB Vertical Spring Night» (10 км (+200м)\, 7500 м (+150м)\, 5 км (+100м)\, 2500 м (+50м)\, 1 км (дети) (+40м))
@@ -1076,7 +1592,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:ef3df3c793@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:🏃 МУЛЬТИ СЕРИЯ _ ДИСНЕЙ _ ТИМОН И ПУМБА 🐇🐅🦜 (200 м\, 500 м\, 1 км\, 2 км)
@@ -1088,7 +1604,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:d5f48c4d62@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:🏃 SUPER МУЗЫКАЛЬНАЯ СЕРИЯ (1 км\, 3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1100,7 +1616,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:a880b0886b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270322
 DTEND;VALUE=DATE:20270323
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 1 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1112,7 +1628,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:a1bbef4410@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270323
 DTEND;VALUE=DATE:20270324
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 2 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1124,7 +1640,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:1d691c034a@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270324
 DTEND;VALUE=DATE:20270325
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 3 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1136,7 +1652,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:4d2ffe6d9c@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 4 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1148,7 +1664,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:672258871e@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270326
 DTEND;VALUE=DATE:20270327
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 5 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1160,7 +1676,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:482b7679dd@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270327
 DTEND;VALUE=DATE:20270328
 SUMMARY:🏃 Кубок Шри Чинмоя по лёгкой атлетике в помещении «Самопреодоление»\, Суперфинал (2 мили\, 1 миля\, 800 м\, 600 м\, 500 м\, 60 м (забеги)\, 60 м (финалы)\, прыжок в длину)
@@ -1171,8 +1687,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:95695f1f22@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270329
+SUMMARY:🏃 ТРЕЙЛФЕСТ ЮЖНЫЙ СЛОН 2027 (6 км\, 50 км\, 25 км\, 9 км\, 3 км\, 1 км\, 500 м)
+LOCATION:Ставропольский край\, г. Железноводск
+DESCRIPTION:Дистанции: 6 км\, 50 км\, 25 км\, 9 км\, 3 км\, 1 км\, 500 м\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Ставропольский край\, г. Железноводск\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/YuZhNYYSLONFEST
+URL:https://reg.russiarunning.com/event/YuZhNYYSLONFEST
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:e19dca7284@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270328
 DTEND;VALUE=DATE:20270329
 SUMMARY:🏃 SUPER ГОРОДА РОССИИ (1 км\, 3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1183,8 +1711,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:684b372055@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+SUMMARY:🏃 Марафон и Полумарафон на Сириус Автодроме (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5.5 км)
+LOCATION:ФТ Сириус (Сочи)\, трасса Формулы-1 «Сириус Автодром»
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5.5 км\nКатегория: Марафон (Шоссе)\nЛокация: ФТ Сириус (Сочи)\, трасса Формулы-1 «Сириус Автодром»\nИсточник: ПроБЕГ\nСсылка: https://topligarun.ru/
+URL:https://topligarun.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:9013550544@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270329
 DTEND;VALUE=DATE:20270330
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 6 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1196,7 +1736,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:936d848b04@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270330
 DTEND;VALUE=DATE:20270331
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 7 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1208,7 +1748,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:06eed22424@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 8 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1220,7 +1760,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:3d615e2a50@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 9 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1231,8 +1771,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:fca947dda2@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270402
+DTEND;VALUE=DATE:20270405
+SUMMARY:🏃 Сириус Автодром (10 км\, 21.1 км (Полумарафон)\, 5 км\, 2.3 км\, 1.6 км\, 1.2 км)
+LOCATION:Сириус
+DESCRIPTION:Дистанции: 10 км\, 21.1 км (Полумарафон)\, 5 км\, 2.3 км\, 1.6 км\, 1.2 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Сириус\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/SiriusAutodrom2027
+URL:https://reg.russiarunning.com/event/SiriusAutodrom2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:abd7c1382f@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270402
 DTEND;VALUE=DATE:20270403
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 10 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1243,8 +1795,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:b9f5a47f09@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270405
+SUMMARY:🏃 Бештаугорский Крест 2027 (17 км\, 23 км\, 1 км\, 15 км\, 6 км\, 100 м)
+LOCATION:гора Бештау\, Кавказские Минеральные Воды
+DESCRIPTION:Дистанции: 17 км\, 23 км\, 1 км\, 15 км\, 6 км\, 100 м\nКатегория: Городской забег (Шоссе)\nЛокация: гора Бештау\, Кавказские Минеральные Воды\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/BeshtaugorskiyKrest2027
+URL:https://reg.russiarunning.com/event/BeshtaugorskiyKrest2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e2dffcc704@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270418
+SUMMARY:🏃 КИСЛОВОДСК_Беговой горный кемп_3-17 апреля (100 км\, 50 км)
+LOCATION:Кисловодск
+DESCRIPTION:Дистанции: 100 км\, 50 км\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: Кисловодск\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/KISLOVODSKBegovoygornyykemp317aprelya
+URL:https://reg.russiarunning.com/event/KISLOVODSKBegovoygornyykemp317aprelya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:9fceae917a@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:🏃 КРЮКОВО МАРАФОН (ЗЕЛЕНОГРАД) (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1256,7 +1832,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:ba2c6e5360@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270405
 SUMMARY:🏃 МАТУШКИНО МАРАФОН (ЗЕЛЕНОГРАД) (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1268,7 +1844,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:0697073b15@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270405
 DTEND;VALUE=DATE:20270406
 SUMMARY:🏃 Забег «Апрель» (5 км)
@@ -1280,7 +1856,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf1e8ed8f1@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270405
 DTEND;VALUE=DATE:20270406
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 11 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1292,7 +1868,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:b6783f013d@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270406
 DTEND;VALUE=DATE:20270407
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 12 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1304,7 +1880,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:b98a0dea24@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270407
 DTEND;VALUE=DATE:20270408
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 13 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1316,7 +1892,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:3338c6c85b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270408
 DTEND;VALUE=DATE:20270409
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 14 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1328,7 +1904,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:c5611728ba@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270409
 DTEND;VALUE=DATE:20270410
 SUMMARY:🏃 ФЕСТИВАЛЬ БЕГА _ ВЕРНЁМСЯ В НУЛЕВЫЕ _ 15 день (2.5 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1340,7 +1916,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:4745159bdc@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
 SUMMARY:🏃 Эстафета «Grom Relay Весна 2027» (4200 м\, 4200 м (этап эстафеты 5х4\,2км))
@@ -1352,7 +1928,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:28810a07a5@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
 SUMMARY:🏃 САВЁЛКИ МАРАФОН (ЗЕЛЕНОГРАД) (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1364,7 +1940,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:5ec21c992c@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
 SUMMARY:🏃 Кросс «Быстрый пёс» (2 км (каникросс))
@@ -1375,8 +1951,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:76242fdd4e@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270413
+SUMMARY:🏃 Dagestan Wild Trail — горный ультрамарафон в Стране гор (120 км\, 65 км\, 35 км\, 15 км)
+LOCATION:Республика Дагестан\, Ирганайское водохранилище — Гуниб — Гергебиль
+DESCRIPTION:Дистанции: 120 км\, 65 км\, 35 км\, 15 км\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: Республика Дагестан\, Ирганайское водохранилище — Гуниб — Гергебиль\nИсточник: Mountain-Race\nСсылка: https://wildtrail.ru/dwt
+URL:https://wildtrail.ru/dwt
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:2bda77f733@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
 SUMMARY:🏃 СТАРОЕ КРЮКОВО МАРАФОН (ЗЕЛЕНОГРАД) (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1388,7 +1976,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:fbda995bfa@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
 SUMMARY:🏃 Трейл "Химкинский лес. Юбилей. 2027” (27 км\, 13 км\, 7 км\, 1 км (дети))
@@ -1400,7 +1988,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:22efd8dda6@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270412
 DTEND;VALUE=DATE:20270413
 SUMMARY:🏃 Кросс «Лисья гора» (2 км\, 4 км\, 6 км\, 8 км)
@@ -1412,7 +2000,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:fd716f61ee@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270417
 DTEND;VALUE=DATE:20270418
 SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
@@ -1424,7 +2012,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:532efbd6fc@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270417
 DTEND;VALUE=DATE:20270418
 SUMMARY:🏃 Полумарафон «Весенний гром» (21.1 км (Полумарафон)\, 10 км\, 9 км (этап эстафеты 7+5+9 км)\, 7 км (этап эстафеты 7+5+9 км)\, 5 км\, 5 км (этап эстафеты 7+5+9 км)\, 1 км (дети))
@@ -1436,7 +2024,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:fdb8c0e4ad@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:🏃 СИЛИНО МАРАФОН (ЗЕЛЕНОГРАД) (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1447,8 +2035,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:f3cb4b9f33@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270420
+DTEND;VALUE=DATE:20270421
+SUMMARY:🏃 Boston Marathon (Abbott World Marathon Majors — старейший марафон мира с 1897 г.) (42.2 км (Марафон))
+LOCATION:США\, Бостон (Хопкинтон — Бойлстон-стрит)
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: США\, Бостон (Хопкинтон — Бойлстон-стрит)\nИсточник: World Majors\nСсылка: https://www.baa.org/races/boston-marathon
+URL:https://www.baa.org/races/boston-marathon
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:1d0c7a0f24@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:🏃 Детский забег (400 м (дети)\, 800 м (дети))
@@ -1460,7 +2060,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:99bb21ed73@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270427
 SUMMARY:🏃 Московский полумарафон (21.1 км (Полумарафон)\, 5 км)
@@ -1471,8 +2071,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:78f3c95ec2@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270426
+DTEND;VALUE=DATE:20270427
+SUMMARY:🏃 TCS London Marathon (Abbott World Marathon Majors) (42.2 км (Марафон))
+LOCATION:Великобритания\, Лондон\, Гринвич — Тауэрский мост — Букингемский дворец
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: Великобритания\, Лондон\, Гринвич — Тауэрский мост — Букингемский дворец\nИсточник: World Majors\nСсылка: https://www.tcslondonmarathon.com/
+URL:https://www.tcslondonmarathon.com/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:c06a5970cb@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:🏃 XII Тутаевский полумарафон «Май. Мир. Молодость» – 2027 (3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1483,8 +2095,44 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:ecba6c40b8@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270505
+SUMMARY:🏃 Тур на Казанский марафон 2027 (42.2 км (Марафон))
+LOCATION:Казань
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: Казань\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/beg_russia_kazan
+URL:https://reg.russiarunning.com/event/beg_russia_kazan
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1df3976423@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270504
+SUMMARY:🏃 Казанский марафон (TIMERMAN) (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 3 км)
+LOCATION:Казань\, пл. Тысячелетия / Казанский Кремль
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 3 км\nКатегория: Марафон (Шоссе)\nЛокация: Казань\, пл. Тысячелетия / Казанский Кремль\nИсточник: TIMERMAN\nСсылка: https://kazanmarathon.org/
+URL:https://kazanmarathon.org/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:19a95d50e6@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+SUMMARY:🏃 Baku Marathon («Победи ветер») (21.1 км (Полумарафон))
+LOCATION:Азербайджан\, Баку\, Площадь Государственного флага — Приморский бульвар
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\nКатегория: Полумарафон (Шоссе)\nЛокация: Азербайджан\, Баку\, Площадь Государственного флага — Приморский бульвар\nИсточник: ПроБЕГ\nСсылка: https://bakumarathon.az/
+URL:https://bakumarathon.az/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:33643fe6bc@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270506
 DTEND;VALUE=DATE:20270507
 SUMMARY:🏃 КРЫЛАТСКОЕ МАРАФОН (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1496,7 +2144,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:08b0a43278@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270513
 DTEND;VALUE=DATE:20270514
 SUMMARY:🏃 АЭРОПОРТ МАРАФОН (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1508,7 +2156,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:aab2d3dea6@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270516
 DTEND;VALUE=DATE:20270517
 SUMMARY:🏃 Эстафета по Садовому кольцу (16 км\, Эстафета по Садовому кольцу)
@@ -1520,7 +2168,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:f013dc9e2a@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270516
 DTEND;VALUE=DATE:20270517
 SUMMARY:🏃 XII Мышкинский полумарафон «По шести холмам» – 2027 (3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1531,8 +2179,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:0e8929801c@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:🏃 Царскосельский марафон (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 11 км\, 3 км)
+LOCATION:Санкт-Петербург\, г. Пушкин (Царское Село)
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 11 км\, 3 км\nКатегория: Марафон (Шоссе)\nЛокация: Санкт-Петербург\, г. Пушкин (Царское Село)\nИсточник: PushkinRun\nСсылка: https://pushkin-run.ru/
+URL:https://pushkin-run.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:545bb3e8b5@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270518
 DTEND;VALUE=DATE:20270519
 SUMMARY:🏃 АКАДЕМИЧЕСКИЙ МАРАФОН (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1544,7 +2204,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:a766933f08@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270520
 DTEND;VALUE=DATE:20270521
 SUMMARY:🏃 ОСТАНКИНСКИЙ МАРАФОН (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1555,32 +2215,44 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:4b1a9b6352@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:🏃 ВСЕРОССИЙСКИЙ ПОЛУМАРАФОН "ЗаБег.РФ" город Ижевск (1 км\, 500 м\, 10 км\, 21.1 км (Полумарафон)\, Командный зачет (3 по 5 км)\, 5 км)
+LOCATION:город Ижевск
+DESCRIPTION:Дистанции: 1 км\, 500 м\, 10 км\, 21.1 км (Полумарафон)\, Командный зачет (3 по 5 км)\, 5 км\nКатегория: Полумарафон (Шоссе)\nЛокация: город Ижевск\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/POLUMARAFONZABEGRF
+URL:https://reg.russiarunning.com/event/POLUMARAFONZABEGRF
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:473c870d52@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270522
 DTEND;VALUE=DATE:20270523
 SUMMARY:🏃 Забег.РФ — XI Всероссийский полумарафон (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
-LOCATION:Москва
-DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nИсточник: Лига Героев\nСсылка: https://забег.рф
+LOCATION:Ярославль
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Ярославль\nИсточник: Лига Героев\nСсылка: https://забег.рф
 URL:https://забег.рф
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:4b1a9b6352@running-calendar-moscow
-DTSTAMP:20261102T171312Z
-DTSTART;VALUE=DATE:20270522
-DTEND;VALUE=DATE:20270523
-SUMMARY:🏃 Всероссийский полумарафон «ЗаБег.РФ» (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
-LOCATION:Москва
-DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Москва\nИсточник: ПроБЕГ\nСсылка: https://probeg.org/event/84145/
-URL:https://probeg.org/event/84145/
+UID:79015db563@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:🏃 ЗСД Фонтанка Фест — забег по Западному скоростному диаметру (21.1 км (Полумарафон)\, 10 км)
+LOCATION:Санкт-Петербург\, трасса ЗСД над Финским заливом
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Санкт-Петербург\, трасса ЗСД над Финским заливом\nИсточник: ПроБЕГ\nСсылка: https://zsdfest.ru/
+URL:https://zsdfest.ru/
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:ddd83e5e0c@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270524
 DTEND;VALUE=DATE:20270525
 SUMMARY:🏃 Детский забег (400 м (дети)\, 800 м (дети))
@@ -1592,7 +2264,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:180f79ad1a@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270524
 DTEND;VALUE=DATE:20270525
 SUMMARY:🏃 Соревнования «Скорость» (60 м\, 400 м\, 800 м\, 1500 м\, 3000 м\, Эстафета 4×200 м)
@@ -1604,7 +2276,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:e31d172ea5@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270524
 DTEND;VALUE=DATE:20270525
 SUMMARY:🏃 City Trail #1 — Romashkovo (Ромашково) (5 км\, 10 км\, 15 км\, 25–30 км)
@@ -1616,7 +2288,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:d7a283ac4e@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270525
 DTEND;VALUE=DATE:20270526
 SUMMARY:🏃 ФИЛЁВСКИЙ ПАРК МАРАФОН (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1628,7 +2300,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:95be5116d6@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270527
 DTEND;VALUE=DATE:20270528
 SUMMARY:🏃 АЛЕКСЕЕВСКИЙ МАРАФОН (5 км\, 10 км\, 21.1 км (Полумарафон)\, 1 км)
@@ -1639,8 +2311,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:a0095eddb8@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:🏃 Гонка Героев Уфа (8–10 км (25+ препятствий))
+LOCATION:Уфа\, Алкино-2\, парк Патриот
+DESCRIPTION:Дистанции: 8–10 км (25+ препятствий)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Уфа\, Алкино-2\, парк Патриот\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/race
+URL:https://heroleague.ru/race
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:64457188af@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:🏃 XII Переславский марафон «Александровские вёрсты» – 2027 (3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон)\, 42.2 км (Марафон))
@@ -1652,7 +2336,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:fb1ad128a9@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:🏃 Близко-трейл — Blizko Trail (54500 м\, 27250 м\, 13540 м\, 3700 м (Дети)\, 1400 м (Дети))
@@ -1664,7 +2348,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:80bbd5dead@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:🏃 Большой Московский Триатлон (полумарафон (беговой этап половинки)\, полумарафон (беговой этап эстафеты)\, 10 км (беговой этап олимпийки)\, 10 км (беговой этап эстафеты)\, триатлон\, половинка (1\,9 + 90 + 21\,1)\, триатлон\, олимпийка (1\,5 + 40 + 10))
@@ -1675,8 +2359,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:c9c532cdfa@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:🏃 Абхазия трейл (25 км\, 50 км\, 9 км\, 1 км)
+LOCATION:Абхазия\, Сухум
+DESCRIPTION:Дистанции: 25 км\, 50 км\, 9 км\, 1 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Абхазия\, Сухум\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/Abkhaziyatreyl
+URL:https://reg.russiarunning.com/event/Abkhaziyatreyl
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:432db7d474@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270607
 DTEND;VALUE=DATE:20270608
 SUMMARY:🏃 Красочный забег (5 км)
@@ -1687,8 +2383,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:3ac8691868@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
+LOCATION:Екатеринбург\, полигон Свердловский
+DESCRIPTION:Дистанции: 8–10 км (25+ препятствий)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Екатеринбург\, полигон Свердловский\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/race
+URL:https://heroleague.ru/race
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:b748806eb2@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:🏃 Grom Tri Sprint — I этап кубка «Московский Гром» (5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5))
@@ -1700,7 +2408,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:32648de31a@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:🏃 XI Полумарафон «Здорово\, Кострома!» – 2027 (3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1711,8 +2419,44 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:4de7811358@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270615
+SUMMARY:🏃 Севан Ультра Армения (210 км\, 100 км\, 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\, 1.6 км)
+LOCATION:Армения\, озеро Севан
+DESCRIPTION:Дистанции: 210 км\, 100 км\, 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\, 1.6 км\nКатегория: Ультрамарафон (Шоссе)\nЛокация: Армения\, озеро Севан\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/SevanUtraArmeniya
+URL:https://reg.russiarunning.com/event/SevanUtraArmeniya
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2a4077a04c@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270614
+DTEND;VALUE=DATE:20270615
+SUMMARY:🏃 Comrades Marathon — старейший и крупнейший шоссейный ультрамарафон мира (89 км) (89 км (Ультрамарафон))
+LOCATION:ЮАР\, Дурбан — Питермарицбург (провинция Квазулу-Натал)
+DESCRIPTION:Дистанции: 89 км (Ультрамарафон)\nКатегория: Ультрамарафон (Шоссе)\nЛокация: ЮАР\, Дурбан — Питермарицбург (провинция Квазулу-Натал)\nИсточник: World Athletics\nСсылка: https://www.comrades.com/
+URL:https://www.comrades.com/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:58d8103b1b@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270616
+DTEND;VALUE=DATE:20270621
+SUMMARY:🏃 Кипр Ультра Трейл (350 км\, 100 км)
+LOCATION:остров Кипр
+DESCRIPTION:Дистанции: 350 км\, 100 км\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: остров Кипр\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/cyprusultratrail
+URL:https://reg.russiarunning.com/event/cyprusultratrail
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:72565f6f34@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270618
 DTEND;VALUE=DATE:20270619
 SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
@@ -1723,8 +2467,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:6c80085cd4@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
+LOCATION:Самара\, Ассет Арена
+DESCRIPTION:Дистанции: 8–10 км (25+ препятствий)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Самара\, Ассет Арена\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/race
+URL:https://heroleague.ru/race
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:8b920dcd33@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270619
 DTEND;VALUE=DATE:20270621
 SUMMARY:🏃 Трейл «Северная дорога в Лавру» (ITRA 5\, 100 миль (+1610м\, -1550м)\, ITRA 3\, 120 км (120К) (+1270м\, -1290м)\, ITRA 2\, 60\,9 км (60К) (+790м\, -770м)\, ITRA 1\, 33800 м (30К) (+450м\, -515м))
@@ -1736,7 +2492,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:7eb65848b3@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270621
 SUMMARY:🏃 Ночной забег (10 км)
@@ -1748,7 +2504,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:09fbcbbbce@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270621
 DTEND;VALUE=DATE:20270622
 SUMMARY:🏃 City Trail #2 — Butovo (альфа-битца) (5 км\, 10 км\, 15 км\, 25–30 км)
@@ -1759,8 +2515,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:e90e509366@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
+LOCATION:Новосибирск\, полигон НВВКУ
+DESCRIPTION:Дистанции: 8–10 км (25+ препятствий)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Новосибирск\, полигон НВВКУ\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/race
+URL:https://heroleague.ru/race
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:9b14c68098@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270627
 DTEND;VALUE=DATE:20270628
 SUMMARY:🏃 XI Угличский полумарафон «Волжский берег» – 2027 (3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1771,8 +2539,56 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:bca0b377c4@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:🏃 Марафон ⛵ "Алые Паруса" (10 км\, 1 км)
+LOCATION:ONLINE
+DESCRIPTION:Дистанции: 10 км\, 1 км\nКатегория: Марафон (Шоссе)\nЛокация: ONLINE\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/SCARLETSAILS2026
+URL:https://reg.russiarunning.com/event/SCARLETSAILS2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0377f41aff@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270705
+SUMMARY:🏃 Тур на марафон «Белые ночи» 2027 (42.2 км (Марафон))
+LOCATION:Санкт-Петербург
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: Санкт-Петербург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/beg_russia_saintpetersburg
+URL:https://reg.russiarunning.com/event/beg_russia_saintpetersburg
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:149c2bda2f@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
+LOCATION:Нижний Новгород\, полигон Мулино
+DESCRIPTION:Дистанции: 8–10 км (25+ препятствий)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Нижний Новгород\, полигон Мулино\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/race
+URL:https://heroleague.ru/race
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0f1379ef0a@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:🏃 Марафон «Белые ночи» (42.2 км (Марафон)\, 10 км\, Эстафета)
+LOCATION:Санкт-Петербург\, Дворцовая площадь — Сенатская площадь
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 10 км\, Эстафета\nКатегория: Марафон (Шоссе)\nЛокация: Санкт-Петербург\, Дворцовая площадь — Сенатская площадь\nИсточник: Беговое сообщество\nСсылка: https://wnmarathon.runc.run/
+URL:https://wnmarathon.runc.run/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:58b94f020b@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270710
 DTEND;VALUE=DATE:20270711
 SUMMARY:🏃 Grom Tri Sprint — II этап кубка «Московский Гром» (5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5))
@@ -1784,7 +2600,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bcb67ba078@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270710
 DTEND;VALUE=DATE:20270711
 SUMMARY:🏃 VII Полумарафон «Сергиевым путём» – 2027 (5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1796,7 +2612,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:55a52de0d0@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270710
 DTEND;VALUE=DATE:20270711
 SUMMARY:🏃 Полумарафон «Сергиевым путём» (21.1 км (Полумарафон)\, 10 км\, 5275 м\, 500 м (дети))
@@ -1808,7 +2624,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:ace6d231dc@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270712
 DTEND;VALUE=DATE:20270713
 SUMMARY:🏃 City Trail #3 — Bitsa (Битцевский лес) (5 км\, 10 км\, 15 км\, 25–30 км)
@@ -1820,7 +2636,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:df71db60d2@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270715
 DTEND;VALUE=DATE:20270716
 SUMMARY:🏃 Трейл «DAB Vertical Summer Night» (14240 м (+460м)\, 10680 м (+345м)\, 7120 м (+230м)\, 3560 м (+115м)\, 3560 м (этап эстафеты 4*3\,56 км) (+115м)\, 1 км (детский забег) (+45м))
@@ -1831,8 +2647,56 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:faecf41857@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270715
+DTEND;VALUE=DATE:20270719
+SUMMARY:🏃 УЛЬТРАТРЕЙЛ ВОСЬМЕРКА 2027 (80 км)
+LOCATION:Псебай – Красная Поляна
+DESCRIPTION:Дистанции: 80 км\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: Псебай – Красная Поляна\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/ultratrailvosmerka2027
+URL:https://reg.russiarunning.com/event/ultratrailvosmerka2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c5b20c9416@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270717
+SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
+LOCATION:Владивосток\, полигон Горностай
+DESCRIPTION:Дистанции: 8–10 км (25+ препятствий)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Владивосток\, полигон Горностай\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/race
+URL:https://heroleague.ru/race
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cdf62bc962@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270719
+SUMMARY:🏃 PŌMA RUN CUP 2027 (ПОМА КУБОК ПО БЕГУ) (21.1 км (Полумарафон)\, 5 км\, 10 км)
+LOCATION:Суздаль
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 5 км\, 10 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Суздаль\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/POMARUNCUP2027
+URL:https://reg.russiarunning.com/event/POMARUNCUP2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4c85d41a14@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:🏃 Ночной трейл "Пять вершин" KAVKAZ.RUN 2027 (6 км\, 9 км\, 15.5 км\, 16.5 км)
+LOCATION:г. Лермонтов
+DESCRIPTION:Дистанции: 6 км\, 9 км\, 15.5 км\, 16.5 км\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: г. Лермонтов\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/NochnoytreylPyatvershinKAVKAZRUN2027
+URL:https://reg.russiarunning.com/event/NochnoytreylPyatvershinKAVKAZRUN2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:0dbe6bec2c@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
@@ -1843,8 +2707,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:380e13e593@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270802
+SUMMARY:🏃 ДИГОРИЯ УЛЬТРА ТРЕЙЛ 2027 (10 км\, 70 км\, 45 км\, 20 км\, 7 км\, 500 м)
+LOCATION:РСО-Алания
+DESCRIPTION:Дистанции: 10 км\, 70 км\, 45 км\, 20 км\, 7 км\, 500 м\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: РСО-Алания\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/OTreylDigoriya2027
+URL:https://reg.russiarunning.com/event/OTreylDigoriya2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d127cc26ea@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:🏃 Сибирский международный марафон (SIM) (42.2 км (Марафон)\, 10 км\, 3 км)
+LOCATION:Омск\, Соборная площадь
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 10 км\, 3 км\nКатегория: Марафон (Шоссе)\nЛокация: Омск\, Соборная площадь\nИсточник: ПроБЕГ\nСсылка: https://runsim.ru/
+URL:https://runsim.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:c67bc2859c@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270807
 DTEND;VALUE=DATE:20270808
 SUMMARY:🏃 Забег 2030 — Легкоатлетический забег “Забег 2030” (21.1 км\, 10 км\, 5 км\, 1 км)
@@ -1856,7 +2744,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:d90833fac4@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270807
 DTEND;VALUE=DATE:20270808
 SUMMARY:🏃 Легкоатлетический забег «Забег 2030» (21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
@@ -1867,8 +2755,44 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:6de20457e8@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270809
+DTEND;VALUE=DATE:20270810
+SUMMARY:🏃 Международный марафон «Европа — Азия» (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 3 км)
+LOCATION:Екатеринбург\, пл. 1905 года — стела «Европа-Азия»
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 3 км\nКатегория: Марафон (Шоссе)\nЛокация: Екатеринбург\, пл. 1905 года — стела «Европа-Азия»\nИсточник: RussiaRunning\nСсылка: https://ea-m.org/
+URL:https://ea-m.org/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:05e48aea03@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270816
+SUMMARY:🏃 WOLF TRAIL BACKYARD ULTRA "ВОЛЧЬИМИ ТРОПАМИ" 2027 (10 км\, 6.71 км)
+LOCATION:Квартал Толоконцево\, район Неклюдово\, муниципальный округ Бор\, Нижегородская область
+DESCRIPTION:Дистанции: 10 км\, 6.71 км\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: Квартал Толоконцево\, район Неклюдово\, муниципальный округ Бор\, Нижегородская область\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/WOLFTRAIL2027
+URL:https://reg.russiarunning.com/event/WOLFTRAIL2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:da49fa9062@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
+LOCATION:Иннополис
+DESCRIPTION:Дистанции: 8–10 км (25+ препятствий)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Иннополис\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/race
+URL:https://heroleague.ru/race
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:9e2d25c8a7@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270814
 DTEND;VALUE=DATE:20270815
 SUMMARY:🏃 XIII Рыбинский полумарафон «Великий хлебный путь» – 2027 (3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1880,7 +2804,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:36a2e255b4@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270816
 DTEND;VALUE=DATE:20270817
 SUMMARY:🏃 City Trail #4 — Losiny Ostrov (Лосиный остров) (5 км\, 10 км\, 15 км\, 25–30 км)
@@ -1892,7 +2816,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:d1d143089a@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270821
 DTEND;VALUE=DATE:20270822
 SUMMARY:🏃 Grom Tri Sprint — III этап кубка «Московский Гром» (5 км (беговой этап триатлона (0\,75+20+5))\, триатлон\, спринт (0\,75 + 20 + 5))
@@ -1904,7 +2828,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:6cf1a36694@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270822
 DTEND;VALUE=DATE:20270823
 SUMMARY:🏃 XIII Полумарафон «Ростов Великий» – 2027 (3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1916,7 +2840,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:96580776ea@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270822
 DTEND;VALUE=DATE:20270823
 SUMMARY:🏃 Угреша-Трейл — Ugresha Trail (60600 м (60К) (+600м)\, 31300 м (30К) (+400м)\, 15800 м (15К) (+200м)\, 7500 м (Blitz) (+100м)\, 4100 м (дети)\, 1200 м (дети))
@@ -1927,8 +2851,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:469db0d755@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:🏃 Челябинский марафон 2027 (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км)
+LOCATION:Челябинск
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 1 км\nКатегория: Марафон (Шоссе)\nЛокация: Челябинск\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/Chelyabinskiymarafon2027
+URL:https://reg.russiarunning.com/event/Chelyabinskiymarafon2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:5af2fc9e50@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270823
 DTEND;VALUE=DATE:20270824
 SUMMARY:🏃 БОЛЬШОЙ ФЕСТИВАЛЬ БЕГА (15 км\, 10 км\, 5 км)
@@ -1939,8 +2875,44 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:054a308acb@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270824
+DTEND;VALUE=DATE:20270831
+SUMMARY:🏃 HOKA UTMB Mont-Blanc — финал мировой серии трейлраннинга вокруг Монблана (171 км UTMB (D+ 10000 м)\, 100 км CCC (D+ 6100 м)\, 55 км OCC (D+ 3500 м))
+LOCATION:Франция / Италия / Швейцария\, Шамони-Мон-Блан
+DESCRIPTION:Дистанции: 171 км UTMB (D+ 10000 м)\, 100 км CCC (D+ 6100 м)\, 55 км OCC (D+ 3500 м)\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: Франция / Италия / Швейцария\, Шамони-Мон-Блан\nИсточник: UTMB World Series\nСсылка: https://montblanc.utmb.world/
+URL:https://montblanc.utmb.world/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e4f4b53348@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:🏃 Гонка Героев (8–10 км (25+ препятствий))
+LOCATION:Санкт-Петербург\, полигон Песочненский
+DESCRIPTION:Дистанции: 8–10 км (25+ препятствий)\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Санкт-Петербург\, полигон Песочненский\nИсточник: Лига Героев\nСсылка: https://heroleague.ru/race
+URL:https://heroleague.ru/race
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c695087b5f@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270830
+DTEND;VALUE=DATE:20270831
+SUMMARY:🏃 TCS Sydney Marathon (7-й мейджор Abbott World Marathon Majors) (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км)
+LOCATION:Австралия\, Сидней\, мост Харбор-Бридж — Сиднейский оперный театр
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\nКатегория: Марафон (Шоссе)\nЛокация: Австралия\, Сидней\, мост Харбор-Бридж — Сиднейский оперный театр\nИсточник: World Majors\nСсылка: https://tcssydneymarathon.com/
+URL:https://tcssydneymarathon.com/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:fb368bd479@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270904
 DTEND;VALUE=DATE:20270905
 SUMMARY:🏃 Пробег «Grom 10k» (10 км\, 5 км\, 1 км\, 1 км (взрослые))
@@ -1951,8 +2923,32 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:98236a407d@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270907
+SUMMARY:🏃 Rosa Wild Trail & Carnation Fest (Роза Хутор) (180 км\, 110 км\, 50 км\, 26 км\, 12 км\, Вертикальный километр)
+LOCATION:Сочи\, горный курорт «Роза Хутор» (Красная Поляна)
+DESCRIPTION:Дистанции: 180 км\, 110 км\, 50 км\, 26 км\, 12 км\, Вертикальный километр\nКатегория: Трейл / Кросс (Трейл / Грунт)\nЛокация: Сочи\, горный курорт «Роза Хутор» (Красная Поляна)\nИсточник: Mountain-Race\nСсылка: https://wildtrail.ru/
+URL:https://wildtrail.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1809029b2b@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270906
+SUMMARY:🏃 Пермский марафон 2027 (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 2.5 км\, 1 км\, 500 м)
+LOCATION:г. Пермь
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\, 2.5 км\, 1 км\, 500 м\nКатегория: Марафон (Шоссе)\nЛокация: г. Пермь\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/Permskiymarafon2027
+URL:https://reg.russiarunning.com/event/Permskiymarafon2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:0b95221fe2@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270905
 DTEND;VALUE=DATE:20270906
 SUMMARY:🏃 XIV Ярославский полумарафон «Золотое кольцо» – 2027 (3 км\, 5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -1963,8 +2959,44 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:4f6cc7eeb6@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:🏃 100-й Петербургский Марафон. Пушкин — Петербург (42.2 км (Марафон)\, 30 км\, 10 км\, 5 км)
+LOCATION:Санкт-Петербург
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 30 км\, 10 км\, 5 км\nКатегория: Марафон (Шоссе)\nЛокация: Санкт-Петербург\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/100yPeterburgskiyMarafonPushkinPeterburg
+URL:https://reg.russiarunning.com/event/100yPeterburgskiyMarafonPushkinPeterburg
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:978e79f397@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270907
+SUMMARY:🏃 Марафон «Нижний Новгород» (42.2 км (Марафон)\, 10 км\, 3 км\, 1 км)
+LOCATION:Нижний Новгород\, стадион «Совкомбанк Арена» — Волжская набережная
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 10 км\, 3 км\, 1 км\nКатегория: Марафон (Шоссе)\nЛокация: Нижний Новгород\, стадион «Совкомбанк Арена» — Волжская набережная\nИсточник: Лига Героев\nСсылка: https://marathon52.ru/
+URL:https://marathon52.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:29496a4f87@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270907
+SUMMARY:🏃 Пробег «Пушкин — Санкт-Петербург» (старейший марафон России с 1923 г.) (42.2 км (Марафон)\, 30 км\, 15 км\, 5 км)
+LOCATION:Санкт-Петербург\, г. Пушкин — Дворцовая площадь
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 30 км\, 15 км\, 5 км\nКатегория: Марафон (Шоссе)\nЛокация: Санкт-Петербург\, г. Пушкин — Дворцовая площадь\nИсточник: PushkinRun\nСсылка: https://pushkin-run.ru/
+URL:https://pushkin-run.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:718434b2e5@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270911
 DTEND;VALUE=DATE:20270912
 SUMMARY:🏃 Backyard Ultra Moscow (228004 м\, 221298 м\, 207886 м\, 201180 м\, 181062 м\, 174356 м\, 167650 м\, 160944 м\, 147532 м\, 140826 м\, 134120 м\, 127414 м\, 120708 м\, 114002 м\, 107296 м\, 100590 м\, 93884 м\, 87178 м\, 80472 м\, 73766 м\, 67060 м\, 60354 м\, 53648 м\, 46942 м\, 40236 м\, 33530 м\, 26824 м\, 20118 м\, 13412 м\, 6706 м)
@@ -1975,8 +3007,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:f622a5cb4d@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270914
+SUMMARY:🏃 Минский полумарафон (Minsk Half Marathon) (21.1 км (Полумарафон)\, 10.5 км\, 5 км)
+LOCATION:Беларусь\, Минск\, пр-т Победителей / Дворец спорта
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10.5 км\, 5 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Беларусь\, Минск\, пр-т Победителей / Дворец спорта\nИсточник: ПроБЕГ\nСсылка: https://minskhalfmarathon.by/
+URL:https://minskhalfmarathon.by/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:7528151e04@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270920
 DTEND;VALUE=DATE:20270921
 SUMMARY:🏃 City Trail #5 — Izmailovo (Парк Измайлово) (5 км\, 10 км\, 15 км\, 25–30 км)
@@ -1988,7 +3032,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:7409fdd5a9@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270924
 DTEND;VALUE=DATE:20270928
 SUMMARY:🏃 Тур на Московский марафон 2027 (42.2 км (Марафон))
@@ -2000,7 +3044,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:0d786ae7e5@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270926
 DTEND;VALUE=DATE:20270927
 SUMMARY:🏃 Детский забег (400 м (дети)\, 800 м (дети))
@@ -2012,7 +3056,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:7783962f17@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20270926
 DTEND;VALUE=DATE:20270928
 SUMMARY:🏃 СберПрайм Московский Марафон (42.2 км (Марафон)\, 10 км)
@@ -2023,8 +3067,44 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:9a1d159125@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270927
+DTEND;VALUE=DATE:20270928
+SUMMARY:🏃 Almaty Marathon (крупнейший марафон Центральной Азии) (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, Эстафета Экиден)
+LOCATION:Казахстан\, Алматы\, Площадь Республики
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, Эстафета Экиден\nКатегория: Марафон (Шоссе)\nЛокация: Казахстан\, Алматы\, Площадь Республики\nИсточник: ПроБЕГ\nСсылка: https://www.almaty-marathon.kz/ru/
+URL:https://www.almaty-marathon.kz/ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a4919282cd@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20270927
+DTEND;VALUE=DATE:20270928
+SUMMARY:🏃 BMW Berlin Marathon (Abbott World Marathon Majors — трасса мировых рекордов) (42.2 км (Марафон))
+LOCATION:Германия\, Берлин\, Тиргартен — Бранденбургские ворота
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: Германия\, Берлин\, Тиргартен — Бранденбургские ворота\nИсточник: World Majors\nСсылка: https://www.bmw-berlin-marathon.com/en/
+URL:https://www.bmw-berlin-marathon.com/en/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f75a2c15b7@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20271004
+DTEND;VALUE=DATE:20271005
+SUMMARY:🏃 Казанский национальный полумарафон (TIMERMAN) (21.1 км (Полумарафон)\, 10 км\, 3 км)
+LOCATION:Казань\, стадион «Ак Барс Арена»
+DESCRIPTION:Дистанции: 21.1 км (Полумарафон)\, 10 км\, 3 км\nКатегория: Полумарафон (Шоссе)\nЛокация: Казань\, стадион «Ак Барс Арена»\nИсточник: TIMERMAN\nСсылка: https://timerman.org/
+URL:https://timerman.org/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:348e7c3524@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20271009
 DTEND;VALUE=DATE:20271011
 SUMMARY:🏃 X Полумарафон «Моя столица» – 2027 (5 км\, 10 км\, 21.1 км (Полумарафон))
@@ -2035,8 +3115,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:da62294617@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271011
+SUMMARY:🏃 Кисловодский марафон KAVKAZ.RUN 2027 (42.2 км (Марафон)\, 31.7 км\, 21.1 км (Полумарафон)\, 10 км\, 4.7 км\, 2.6 км\, 2.5 км\, 500 м\, 1 км\, Online забег (2\,6-42\,2 км))
+LOCATION:Кисловодск
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 31.7 км\, 21.1 км (Полумарафон)\, 10 км\, 4.7 км\, 2.6 км\, 2.5 км\, 500 м\, 1 км\, Online забег (2\,6-42\,2 км)\nКатегория: Марафон (Шоссе)\nЛокация: Кисловодск\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/KislovodskiymarafonKAVKAZRUN2027
+URL:https://reg.russiarunning.com/event/KislovodskiymarafonKAVKAZRUN2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:1ab1e1782a@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20271010
 DTEND;VALUE=DATE:20271011
 SUMMARY:🏃 Кросс «Быстрый пёс» (2 км (каникросс))
@@ -2048,7 +3140,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:c466abc4e0@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20271011
 DTEND;VALUE=DATE:20271012
 SUMMARY:🏃 Кросс «Лисья гора» (2 км\, 4 км\, 6 км\, 8 км)
@@ -2059,8 +3151,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:732ca24731@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271012
+SUMMARY:🏃 Bank of America Chicago Marathon (Abbott World Marathon Majors) (42.2 км (Марафон))
+LOCATION:США\, Чикаго\, Грант-парк (29 районов Чикаго)
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: США\, Чикаго\, Грант-парк (29 районов Чикаго)\nИсточник: World Majors\nСсылка: https://www.chicagomarathon.com/
+URL:https://www.chicagomarathon.com/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:34cdb8ffeb@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20271016
 DTEND;VALUE=DATE:20271017
 SUMMARY:🏃 Полумарафон «Осенний Гром» (21.1 км (Полумарафон)\, 10 км\, 8 км (этап эстафеты 6км+7км+8км)\, 7 км (этап эстафеты 6км+7км+8км)\, 6 км (этап эстафеты 6км+7км+8км)\, 5 км\, 1 км (дети))
@@ -2071,8 +3175,20 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:6df02a3ed4@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271019
+SUMMARY:🏃 Salomon Cappadocia Ultra-Trail (Каппадокия) (119 км (D+ 3730 м)\, 63 км (D+ 2030 м)\, 38 км (D+ 1120 м))
+LOCATION:Турция\, Каппадокия (Ургюп — Гёреме — Долина Любви)
+DESCRIPTION:Дистанции: 119 км (D+ 3730 м)\, 63 км (D+ 2030 м)\, 38 км (D+ 1120 м)\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: Турция\, Каппадокия (Ургюп — Гёреме — Долина Любви)\nИсточник: UTMB World Series\nСсылка: https://cappadociaultratrail.com/
+URL:https://cappadociaultratrail.com/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:569af85b9c@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20271023
 DTEND;VALUE=DATE:20271024
 SUMMARY:🏃 Эстафета «Grom Relay Осень 2027» (4200 м\, 4200 м (этап эстафеты 5х4200 м))
@@ -2084,7 +3200,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:18843bf493@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20271024
 DTEND;VALUE=DATE:20271025
 SUMMARY:🏃 «Парсек-Трофи» горный бег (5 км\, 10 км)
@@ -2096,7 +3212,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:ee9fcb76d7@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20271024
 DTEND;VALUE=DATE:20271026
 SUMMARY:🏃 МиГ ninja (5 км\, 10 км)
@@ -2107,14 +3223,62 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:055d0b00bf@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271102
+SUMMARY:🏃 Сочи Марафон (42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км)
+LOCATION:Сочи\, Морской порт — Курортный проспект
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 21.1 км (Полумарафон)\, 10 км\, 5 км\nКатегория: Марафон (Шоссе)\nЛокация: Сочи\, Морской порт — Курортный проспект\nИсточник: ПроБЕГ\nСсылка: https://topligarun.ru/
+URL:https://topligarun.ru/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:857dca18cf@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271102
+SUMMARY:🏃 Стамбульский межконтинентальный марафон (Türkiye İş Bankası Istanbul Marathon) (42.2 км (Марафон)\, 15 км\, 8 км)
+LOCATION:Турция\, Стамбул\, мост через Босфор (из Азии в Европу) — площадь Султанахмет
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\, 15 км\, 8 км\nКатегория: Марафон (Шоссе)\nЛокация: Турция\, Стамбул\, мост через Босфор (из Азии в Европу) — площадь Султанахмет\nИсточник: World Athletics\nСсылка: https://maraton.istanbul/
+URL:https://maraton.istanbul/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:b31920a4a2@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271102
+SUMMARY:🏃 TCS New York City Marathon (Abbott World Marathon Majors — крупнейший марафон мира) (42.2 км (Марафон))
+LOCATION:США\, Нью-Йорк (Статен-Айленд — Бруклин — Квинс — Бронкс — Центральный парк)
+DESCRIPTION:Дистанции: 42.2 км (Марафон)\nКатегория: Марафон (Шоссе)\nЛокация: США\, Нью-Йорк (Статен-Айленд — Бруклин — Квинс — Бронкс — Центральный парк)\nИсточник: World Majors\nСсылка: https://www.nyrr.org/tcsnycmarathon
+URL:https://www.nyrr.org/tcsnycmarathon
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:0f06e7b3c8@running-calendar-moscow
-DTSTAMP:20261102T171312Z
+DTSTAMP:20261103T134125Z
 DTSTART;VALUE=DATE:20271120
 DTEND;VALUE=DATE:20271121
 SUMMARY:🏃 Пробег «Grom 10k IzMyLove» (10 км\, 5 км\, 400 м)
 LOCATION:Москва
 DESCRIPTION:Дистанции: 10 км\, 5 км\, 400 м\nКатегория: Городской забег (Шоссе)\nЛокация: Москва\nИсточник: ПроБЕГ\nСсылка: https://probeg.org/event/86280/
 URL:https://probeg.org/event/86280/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ce46346d2f@running-calendar-moscow
+DTSTAMP:20261103T134125Z
+DTSTART;VALUE=DATE:20290713
+DTEND;VALUE=DATE:20290730
+SUMMARY:🏃 Кавказ Ультра Трейл Армагеддон (500 км\, 1100 км\, 210 км)
+LOCATION:Карачаево-Черкессия\, Кабардино-Балкария\, Северная Осетия — Алания\, Ингушетия\, Чечня\, Дагестан
+DESCRIPTION:Дистанции: 500 км\, 1100 км\, 210 км\nКатегория: Ультрамарафон (Трейл / Грунт)\nЛокация: Карачаево-Черкессия\, Кабардино-Балкария\, Северная Осетия — Алания\, Ингушетия\, Чечня\, Дагестан\nИсточник: RussiaRunning\nСсылка: https://reg.russiarunning.com/event/armageddon2029
+URL:https://reg.russiarunning.com/event/armageddon2029
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
